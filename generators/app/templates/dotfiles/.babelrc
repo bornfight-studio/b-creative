@@ -1,19 +1,6 @@
 {
   "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "modules": false,
-        "corejs": 3,
-        "useBuiltIns": "usage",
-        "targets": {
-          "browsers": [
-            "> 0.5%",
-            "last 2 versions"
-          ]
-        }
-      }
-    ]
+    "@babel/preset-env"
   ],
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
