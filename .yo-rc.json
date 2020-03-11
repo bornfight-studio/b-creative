@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Bornfight",
+      "authorEmail": "frontend@bornfight.com",
+      "authorUrl": "https://www.bornfight.com"
+    }
+  }
+}

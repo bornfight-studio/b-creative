@@ -1,0 +1,3 @@
+@function getConfig($configKey) {
+	@return map-get($settings-config, $configKey);
+}

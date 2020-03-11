@@ -1,0 +1,3 @@
+@function getZindex($zIndex: default, $modifier: 0) {
+	@return map-get($settings-zindex, $zIndex) + $modifier;
+}
