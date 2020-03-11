@@ -8,7 +8,7 @@ const mkdirp = require('mkdirp');
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
-    this.log(`👋 Welcome to the ace ${chalk.red('escalator-es6 ')} generator!`);
+    this.log(`👋 Welcome to the ace ${chalk.red('b-creative ')} generator!`);
     this.log(
       `Please enter the project's name. Supplying the name of the current folder will scaffold the application ${chalk.red(
         'in the current folder'
@@ -93,6 +93,6 @@ module.exports = class extends Generator {
   end() {
     // Have Yeoman greet the user.
     this.log(`All done. Run ${chalk.green('npm run dev')} to start the dev server.`);
-    this.log(`Thank you for using ${chalk.red('escalator-es6 ')} generator! 👋`);
+    this.log(`Thank you for using ${chalk.red('b-creative ')} generator! 👋`);
   }
 };

@@ -1,4 +1,4 @@
-# b-creative-es-6 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# b-creative-es-6
 > Frontend project template based on webpack, typescript and scss
 
 ## ⚠ IMPORTANT NOTICE - module not yet published on npm ⚠
@@ -20,7 +20,7 @@ First, install [Yeoman](http://yeoman.io) and b-creative using [npm](https://www
 `npm link` will install your cloned repo as a global module, as if it was installed through public npm repository. 
 You can read more about it [here](https://yeoman.io/authoring/).
 
-Then generate your new project by running command `yo escalator-es6` and follow the instructions. 
+Then generate your new project by running command `yo b-creative` and follow the instructions. 
 The generator will prompt you with some additional info, but recommended way of generating a new project is that you first `cd` into project you want the scaffold to be output. 
 
 ## Usage
