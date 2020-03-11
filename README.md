@@ -1,11 +1,11 @@
-# b-creative-es-6
-> Frontend project template based on webpack, typescript and scss
+# generator-b-creative
+> Bornfight frontend project template based on gulp, es6 and scss
 
 ## ⚠ IMPORTANT NOTICE - module not yet published on npm ⚠
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and b-creative using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-b-creative using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 **As the module is not yet published (for dev purposes), we are using local npm module installation.**
 
@@ -20,7 +20,7 @@ First, install [Yeoman](http://yeoman.io) and b-creative using [npm](https://www
 `npm link` will install your cloned repo as a global module, as if it was installed through public npm repository. 
 You can read more about it [here](https://yeoman.io/authoring/).
 
-Then generate your new project by running command `yo b-creative` and follow the instructions. 
+Then generate your new project by running command `yo generator-b-creative` and follow the instructions. 
 The generator will prompt you with some additional info, but recommended way of generating a new project is that you first `cd` into project you want the scaffold to be output. 
 
 ## Usage
@@ -48,9 +48,9 @@ npm run build:analyze - builds production creates an informational page about yo
 
 MIT © [Bornfight](https://www.bornfight.com)
 
-[npm-image]: https://badge.fury.io/js/b-creative.svg
-[npm-url]: https://npmjs.org/package/b-creative
-[travis-image]: https://travis-ci.org/bornfight/b-creative.svg?branch=master
-[travis-url]: https://travis-ci.org/bornfight/b-creative
-[daviddm-image]: https://david-dm.org/bornfight/b-creative.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/bornfight/b-creative
+[npm-image]: https://badge.fury.io/js/generator-b-creative.svg
+[npm-url]: https://npmjs.org/package/generator-b-creative
+[travis-image]: https://travis-ci.org/bornfight/generator-b-creative.svg?branch=master
+[travis-url]: https://travis-ci.org/bornfight/generator-b-creative
+[daviddm-image]: https://david-dm.org/bornfight/generator-b-creative.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/bornfight/generator-b-creative

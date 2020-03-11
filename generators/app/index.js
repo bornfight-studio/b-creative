@@ -4,11 +4,13 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 const path = require('path');
 const mkdirp = require('mkdirp');
+const figlet = require('figlet');
+const printMessage = require('print-message');
 
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
-    this.log(`👋 Welcome to the ace ${chalk.red('b-creative ')} generator!`);
+    this.log(`👋 Welcome to the ace ${chalk.red('generator-b-creative')} generator!`);
     this.log(
       `Please enter the project's name. Supplying the name of the current folder will scaffold the application ${chalk.red(
         'in the current folder'
@@ -92,7 +94,25 @@ module.exports = class extends Generator {
 
   end() {
     // Have Yeoman greet the user.
-    this.log(`All done. Run ${chalk.green('npm run dev')} to start the dev server.`);
-    this.log(`Thank you for using ${chalk.red('b-creative ')} generator! 👋`);
+    this.log(figlet.textSync('Bornfight'));
+    this.log(figlet.textSync('Creative'));
+    printMessage(
+      [
+        'Project files created',
+        '',
+        'Run "npm run dev" to start working',
+        '',
+        'Run "npm run build" to build files'
+      ],
+      {
+        border: true,
+        color: 'green',
+        borderColor: 'green',
+        marginTop: 1,
+        marginBottom: 1,
+        paddingTop: 1,
+        paddingBottom: 1
+      }
+    );
   }
 };

@@ -50,7 +50,7 @@ export const clean = () => del(["static/dist"]);
 export function watchStyles() {
     return gulp.src(paths.styles.src)
         .pipe(sourcemaps.init())
-        .pipe(sass({ includePaths: paths.includes.node_modules }))
+        .pipe(sass({includePaths: paths.includes.node_modules}))
         .pipe(sass().on("error", sass.logError))
         .pipe(autoprefixer())
         .pipe(sourcemaps.write("./"))
@@ -63,7 +63,7 @@ export function watchStyles() {
  */
 export function buildStyles() {
     return gulp.src(paths.styles.src)
-        .pipe(sass({ includePaths: paths.includes.node_modules }))
+        .pipe(sass({includePaths: paths.includes.node_modules}))
         .pipe(sass().on("error", sass.logError))
         .pipe(autoprefixer())
         .pipe(cleanCSS())
@@ -79,12 +79,12 @@ export function buildStyles() {
 export function watchScripts() {
     return browserify({
         entries: [paths.scripts.main],
-        transform: [babelify.configure({ presets: ["@babel/preset-env"] })],
+        transform: [babelify.configure({presets: ["@babel/preset-env"]})],
     })
         .bundle()
         .pipe(source("bundle.js"))
         .pipe(buffer())
-        .pipe(sourcemaps.init({ "loadMaps": true }))
+        .pipe(sourcemaps.init({"loadMaps": true}))
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest(paths.scripts.dest))
         .pipe(server.stream());
@@ -96,7 +96,7 @@ export function watchScripts() {
 export function buildScripts() {
     return browserify({
         entries: [paths.scripts.main],
-        transform: [babelify.configure({ presets: ["@babel/preset-env"] })],
+        transform: [babelify.configure({presets: ["@babel/preset-env"]})],
     })
         .bundle()
         .pipe(source("bundle.js"))
@@ -122,7 +122,7 @@ export function reload(done) {
  */
 export function serve(done) {
     server.init({
-        proxy: "localhost/escalator-hot-css",
+        proxy: "<%= vhostName %>/<%= name %>",
         port: 3000,
         host: "localhost",
     });

@@ -1,4 +1,3 @@
-import "../scss/style.scss";
 import Dummy from "./components/Dummy";
 
 function ready(callbackFunc) {
