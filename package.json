@@ -1,5 +1,5 @@
 {
-  "name": "generator-escalator-es6",
+  "name": "b-creative",
   "version": "0.0.0",
   "description": "Frontend project template based on webpack, typescript and scss",
   "homepage": "",
@@ -78,6 +78,6 @@
     "precommit": "lint-staged",
     "test": "jest"
   },
-  "repository": "bornfight/generator-escalator-es6",
+  "repository": "bornfight/b-creative",
   "license": "MIT"
 }

@@ -1,18 +1,18 @@
-# generator-escalator-es-6 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# b-creative-es-6 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Frontend project template based on webpack, typescript and scss
 
 ## ⚠ IMPORTANT NOTICE - module not yet published on npm ⚠
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-escalator-es6 using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and b-creative using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 **As the module is not yet published (for dev purposes), we are using local npm module installation.**
 
 ```bash
 1. npm install -g yo
-2. git clone git@github.com:bornfight/generator-escalator-es6.git
-3. cd generator-escalator-es6 
+2. git clone git@github.com:bornfight/b-creative.git
+3. cd b-creative 
 4. npm install
 5. npm link
 ```
@@ -48,9 +48,9 @@ npm run build:analyze - builds production creates an informational page about yo
 
 MIT © [Bornfight](https://www.bornfight.com)
 
-[npm-image]: https://badge.fury.io/js/generator-escalator.svg
-[npm-url]: https://npmjs.org/package/generator-escalator-es6
-[travis-image]: https://travis-ci.org/bornfight/generator-escalator.svg?branch=master
-[travis-url]: https://travis-ci.org/bornfight/generator-escalator-es6
-[daviddm-image]: https://david-dm.org/bornfight/generator-escalator.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/bornfight/generator-escalator-es6
+[npm-image]: https://badge.fury.io/js/b-creative.svg
+[npm-url]: https://npmjs.org/package/b-creative
+[travis-image]: https://travis-ci.org/bornfight/b-creative.svg?branch=master
+[travis-url]: https://travis-ci.org/bornfight/b-creative
+[daviddm-image]: https://david-dm.org/bornfight/b-creative.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/bornfight/b-creative
