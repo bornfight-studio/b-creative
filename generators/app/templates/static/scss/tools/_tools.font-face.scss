@@ -7,12 +7,10 @@
 ) {
   @font-face {
     font-family: "#{$font-name}";
-    src: url("../fonts/#{$font-filename}.eot?#{$version}");
-    src: url("../fonts/#{$font-filename}.eot?#{$version}#iefix")
-        format("embedded-opentype"),
-      url("../fonts/#{$font-filename}.woff2?#{$version}") format("woff2"),
+    src: url("../fonts/#{$font-filename}.woff2?#{$version}") format("woff2"),
       url("../fonts/#{$font-filename}.woff?#{$version}") format("woff");
     font-weight: $font-weight;
     font-style: $font-style;
+    font-display: swap;
   }
 }
