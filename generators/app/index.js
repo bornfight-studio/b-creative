@@ -1,18 +1,19 @@
 'use strict';
-const Generator = require('yeoman-generator');
 const chalk = require('chalk');
-const yosay = require('yosay');
-const path = require('path');
-const mkdirp = require('mkdirp');
 const figlet = require('figlet');
+const Generator = require('yeoman-generator');
+const mkdirp = require('mkdirp');
+const path = require('path');
 const printMessage = require('print-message');
 
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
-    this.log(`👋 Welcome to the ace ${chalk.red('generator-b-creative')} generator!`);
     this.log(
-      `Please enter the project's name. Supplying the name of the current folder will scaffold the application ${chalk.red(
+      `👋 Welcome to the ace ${chalk.greenBright('generator-b-creative')} generator!`
+    );
+    this.log(
+      `Please enter the project's name. Supplying the name of the current folder will scaffold the application ${chalk.greenBright(
         'in the current folder'
       )}. Supplying a new name will create the folder for you.`
     );
@@ -92,8 +93,8 @@ module.exports = class extends Generator {
 
   end() {
     // Have Yeoman greet the user.
-    this.log(figlet.textSync('Bornfight'));
-    this.log(figlet.textSync('Creative'));
+    this.log(`${chalk.greenBright(figlet.textSync('Bornfight'))}`);
+    this.log(`${chalk.greenBright(figlet.textSync('Creative'))}`);
     printMessage(
       [
         'Project files created',
