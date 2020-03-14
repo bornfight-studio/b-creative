@@ -1,18 +1,20 @@
 @function getTransitionEasing($transitionEasing: "default") {
-	@if (map-has_key($settings-transitions-easing, $transitionEasing)) {
-		@return map-get($settings-transitions-easing, $transitionEasing);
-	} @else {
-		@return map-get($settings-transitions-easing, "default");
-	}
+    @if (map-has_key($settings-transitions-easing, $transitionEasing)) {
+        @return map-get($settings-transitions-easing, $transitionEasing);
+    } @else {
+        @return map-get($settings-transitions-easing, "default");
+    }
 }
 
 @function getTransition(
-	$transitionName: "default",
-	$transitionEasing: getTransitionEasing()
+    $transitionName: "default",
+    $transitionEasing: getTransitionEasing()
 ) {
-	@if (map-has_key($settings-transitions, $transitionName)) {
-		@return map-get($settings-transitions, $transitionName) getTransitionEasing($transitionEasing);
-	} @else {
-		@return map-get($settings-transitions, "default") getTransitionEasing($transitionEasing);
-	}
+    @if (map-has_key($settings-transitions, $transitionName)) {
+        @return map-get($settings-transitions, $transitionName)
+            getTransitionEasing($transitionEasing);
+    } @else {
+        @return map-get($settings-transitions, "default")
+            getTransitionEasing($transitionEasing);
+    }
 }

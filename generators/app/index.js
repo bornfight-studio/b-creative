@@ -81,8 +81,6 @@ module.exports = class extends Generator {
     mkdirp.sync(path.join(this.destinationPath(), 'static/ui'));
     mkdirp.sync(path.join(this.destinationPath(), 'static/ui/favicon'));
     mkdirp.sync(path.join(this.destinationPath(), 'static/video'));
-    mkdirp.sync(path.join(this.destinationPath(), 'static/scss/components'));
-    mkdirp.sync(path.join(this.destinationPath(), 'static/scss/vendor'));
   }
 
   install() {

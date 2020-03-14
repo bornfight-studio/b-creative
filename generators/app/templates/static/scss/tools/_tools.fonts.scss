@@ -1,93 +1,93 @@
 @function getFontMap($fontMapKey) {
-	@if (map-has_key($settings-font-map, $fontMapKey)) {
-		@return map-get($settings-font-map, $fontMapKey);
-	} @else {
-		@return map-get($settings-font-map, "default");
-	}
+    @if (map-has_key($settings-font-map, $fontMapKey)) {
+        @return map-get($settings-font-map, $fontMapKey);
+    } @else {
+        @return map-get($settings-font-map, "default");
+    }
 }
 
 @function getDefaultFontSize() {
-	@return map-get($settings-font-size, "font-size");
+    @return map-get($settings-font-size, "font-size");
 }
 
 @function getDefaultLineHeight() {
-	@return map-get($settings-font-size, "line-height");
+    @return map-get($settings-font-size, "line-height");
 }
 
 @function getDefaultFontSizeUnit() {
-	@return map-get($settings-font-size, "default-unit");
+    @return map-get($settings-font-size, "default-unit");
 }
 
 @function line-height($fontSize, $lineHeight: $fontSize) {
-	@return $lineHeight/$fontSize;
+    @return $lineHeight/$fontSize;
 }
 
 @function em($pixels, $context: getDefaultFontSize()) {
-	@if (unitless($pixels)) {
-		$pixels: $pixels * 1px;
-	}
-	@if (unitless($context)) {
-		$context: $context * 1px;
-	}
-	@return $pixels / $context * 1em;
+    @if (unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+    @return $pixels / $context * 1em;
 }
 
 @function rem($pixels, $context: getDefaultFontSize()) {
-	@if (unitless($pixels)) {
-		$pixels: $pixels * 1px;
-	}
-	@if (unitless($context)) {
-		$context: $context * 1px;
-	}
-	@return $pixels / $context * 1rem;
+    @if (unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+    @return $pixels / $context * 1rem;
 }
 
 @mixin font-map($mapKey: "default", $unit: getDefaultFontSizeUnit()) {
-	@each $breakpoint, $font-size in getFontMap($mapKey) {
-		@if $breakpoint == null {
-			$fs: $font-size;
+    @each $breakpoint, $font-size in getFontMap($mapKey) {
+        @if $breakpoint == null {
+            $fs: $font-size;
 
-			@if type-of($font-size) == "string" {
-				$fs: number(nth(str-two-split($font-size, "/"), 1));
-				$lh: number(nth(str-two-split($font-size, "/"), 2));
-				line-height: line-height($fs, $lh);
-			}
+            @if type-of($font-size) == "string" {
+                $fs: number(nth(str-two-split($font-size, "/"), 1));
+                $lh: number(nth(str-two-split($font-size, "/"), 2));
+                line-height: line-height($fs, $lh);
+            }
 
-			@if $unit == rem {
-				font-size: rem($fs);
-			} @else if $unit == em {
-				font-size: em($fs);
-			} @else {
-				font-size: $fs#{$unit};
-			}
-		} @else {
-			@include mq($to: $breakpoint) {
-				$fs: $font-size;
+            @if $unit == rem {
+                font-size: rem($fs);
+            } @else if $unit == em {
+                font-size: em($fs);
+            } @else {
+                font-size: $fs#{$unit};
+            }
+        } @else {
+            @include mq($to: $breakpoint) {
+                $fs: $font-size;
 
-				@if type-of($font-size) == "string" {
-					$fs: number(nth(str-two-split($font-size, "/"), 1));
-					$lh: number(nth(str-two-split($font-size, "/"), 2));
-					line-height: line-height($fs, $lh);
-				}
+                @if type-of($font-size) == "string" {
+                    $fs: number(nth(str-two-split($font-size, "/"), 1));
+                    $lh: number(nth(str-two-split($font-size, "/"), 2));
+                    line-height: line-height($fs, $lh);
+                }
 
-				@if $unit == rem {
-					font-size: rem($fs);
-				} @else if $unit == em {
-					font-size: em($fs);
-				} @else {
-					font-size: $fs#{$unit};
-				}
-			}
-		}
-	}
+                @if $unit == rem {
+                    font-size: rem($fs);
+                } @else if $unit == em {
+                    font-size: em($fs);
+                } @else {
+                    font-size: $fs#{$unit};
+                }
+            }
+        }
+    }
 }
 
 @mixin default-font-size {
-	font-size: $base-size + px;
-	line-height: ($base-line-height/$base-size) + em;
+    font-size: $base-size + px;
+    line-height: ($base-line-height/$base-size) + em;
 }
 
 @mixin font-default($fontWeight: "default") {
-	font-family: $font-primary;
-	font-weight: normal;
+    font-family: $font-primary;
+    font-weight: normal;
 }
