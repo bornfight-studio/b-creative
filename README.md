@@ -27,8 +27,8 @@ The generator will prompt you with some additional info, but recommended way of 
 
 The generator is based on modern tools and architectures that fit most of "multi page" websites. 
 
-#### Webpack based build system 
- - support for dev and production environments - read more [here](https://atendesigngroup.com/blog/managing-dev-and-production-builds-webpack) 
+#### Gulp based build system 
+ - Gulp 4 used
  - [browsersync](https://browsersync.io/) for live reload
      
 #### (S)CSS
