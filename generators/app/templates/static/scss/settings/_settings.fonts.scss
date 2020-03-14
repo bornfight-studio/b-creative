@@ -1,4 +1,6 @@
-// HANKEN-GROTESK
+/**
+ * Hanken Grotesk
+ */
 @include font-face("Hanken-Grotesk", "HankenGrotesk-Regular");
 @include font-face(
     "Hanken-Grotesk",
@@ -6,7 +8,9 @@
     $font-weight: 600
 );
 
-// FONT VARIABLES
+/**
+ * Font variables
+ */
 $hanken: "Hanken-Grotesk", sans-serif;
 
 $base-size: 18;

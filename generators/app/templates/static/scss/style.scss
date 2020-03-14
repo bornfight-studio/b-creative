@@ -1,28 +1,46 @@
 @charset "utf-8";
 
-// TOOLS
+/**
+ * Tools
+ */
 @import "tools/tools.index";
 
-// SETTINGS
+/**
+ * Settings
+ */
 @import "settings/settings.index";
 
-// GENERIC
+/**
+ * Generic
+ */
 @import "generic/generic.index";
 
-// ELEMENTS
+/**
+ * Elements
+ */
 @import "elements/elements.index";
 
-// OBJECTS
+/**
+ * Objects
+ */
 @import "objects/objects.index";
 
-// COMPONENTS
+/**
+ * Components
+ */
 @import "components/components.index";
 
-// PAGES
+/**
+ * Pages
+ */
 @import "pages/pages.index";
 
-// UTILITIES
+/**
+ * Utilities
+ */
 @import "utilities/utilities.index";
 
-// VENDOR
+/**
+ * Vendor
+ */
 @import "vendor/vendor.index";

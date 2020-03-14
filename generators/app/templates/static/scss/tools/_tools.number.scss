@@ -1,7 +1,6 @@
-//
-// Thanks to the Hugo Giraudel https://github.com/HugoGiraudel/SassyCast
-//
-
+/**
+ * Thanks to the Hugo Giraudel https://github.com/HugoGiraudel/SassyCast
+ */
 @function to-length($value, $unit) {
     $units: (
         "px": 1px,

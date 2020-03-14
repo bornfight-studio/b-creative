@@ -1,4 +1,6 @@
-// COLORS
+/**
+ * Colors
+ */
 $white: #ffffff;
 $black: #000000;
 $black-0: rgba(#000000, 0);
@@ -15,9 +17,13 @@ $black-100: rgba(#000000, 1);
 $mango: #f7b334;
 $slate: #3c5163;
 
-// COLORS - RE-ASSIGNING
+/**
+ * Colors - re-assigning
+ */
 $primary-color: $mango;
 $secondary-color: $slate;
 $tertiary-color: $white;
 
-// COLORS - COMPONENTS
+/**
+ * Colors - components
+ */

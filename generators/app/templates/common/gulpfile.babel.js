@@ -12,7 +12,7 @@ import sourcemaps from "gulp-sourcemaps";
 import source from "vinyl-source-stream";
 import uglify from "gulp-uglify";
 
-/*
+/**
  * Paths object
  */
 const paths = {
@@ -34,17 +34,17 @@ const paths = {
     },
 };
 
-/*
+/**
  * browserSync create
  */
 const server = browserSync.create();
 
-/*
+/**
  * Clean dist task
  */
 export const clean = () => del(["static/dist"]);
 
-/*
+/**
  * Watch SCSS task
  */
 export function watchStyles() {
@@ -58,7 +58,7 @@ export function watchStyles() {
         .pipe(server.stream());
 }
 
-/*
+/**
  * Build SCSS task
  */
 export function buildStyles() {
@@ -73,7 +73,7 @@ export function buildStyles() {
         .pipe(gulp.dest(paths.styles.dest));
 }
 
-/*
+/**
  * Watch JS task
  */
 export function watchScripts() {
@@ -90,7 +90,7 @@ export function watchScripts() {
         .pipe(server.stream());
 }
 
-/*
+/**
  * Build JS task
  */
 export function buildScripts() {
@@ -109,7 +109,7 @@ export function buildScripts() {
         .pipe(gulp.dest(paths.scripts.dest));
 }
 
-/*
+/**
  * Reload task
  */
 export function reload(done) {
@@ -117,7 +117,7 @@ export function reload(done) {
     done();
 }
 
-/*
+/**
  * Server init task
  */
 export function serve(done) {
@@ -129,7 +129,7 @@ export function serve(done) {
     done();
 }
 
-/*
+/**
  * File watcher
  */
 export function watchFiles() {
@@ -138,17 +138,17 @@ export function watchFiles() {
     gulp.watch(paths.markup.src, reload);
 }
 
-/*
+/**
  * Watch task
  */
 const watch = gulp.series(clean, gulp.parallel(watchStyles, watchScripts), serve, watchFiles);
 
-/*
+/**
  * Build task
  */
 export const build = gulp.series(clean, gulp.parallel(buildStyles, buildScripts));
 
-/*
+/**
  * Default task
  */
 export default watch;
