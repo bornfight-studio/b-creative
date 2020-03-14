@@ -2,14 +2,20 @@ import Dummy from "./components/Dummy";
 
 function ready(callbackFunc) {
     if (document.readyState !== "loading") {
-        // Document is already ready, call the callback directly
+        /**
+         * Document is already ready, call the callback directly
+         */
         callbackFunc();
     } else if (document.addEventListener) {
-        // All modern browsers to register DOMContentLoaded
+        /**
+         * All modern browsers to register DOMContentLoaded
+         */
         document.addEventListener("DOMContentLoaded", callbackFunc);
     } else {
-        // Old IE browsers
-        document.attachEvent("onreadystatechange", function () {
+        /**
+         * Old IE browsers
+         */
+        document.attachEvent("onreadystatechange", function() {
             if (document.readyState === "complete") {
                 callbackFunc();
             }
@@ -17,8 +23,10 @@ function ready(callbackFunc) {
     }
 }
 
-// Document ready callback
-ready(function () {
+/**
+ * Document ready callback
+ */
+ready(function() {
     const dummy = new Dummy();
     dummy.init();
 });
