@@ -77,10 +77,8 @@ export function buildStyles() {
  * Watch JS task
  */
 export function watchScripts() {
-    return browserify({
-        entries: [paths.scripts.main],
-        transform: [babelify.configure({presets: ["@babel/preset-env"]})],
-    })
+    return browserify(paths.scripts.main)
+        .transform("babelify")
         .bundle()
         .pipe(source("bundle.js"))
         .pipe(buffer())
@@ -94,10 +92,8 @@ export function watchScripts() {
  * Build JS task
  */
 export function buildScripts() {
-    return browserify({
-        entries: [paths.scripts.main],
-        transform: [babelify.configure({presets: ["@babel/preset-env"]})],
-    })
+    return browserify(paths.scripts.main)
+        .transform("babelify")
         .bundle()
         .pipe(source("bundle.js"))
         .pipe(buffer())
