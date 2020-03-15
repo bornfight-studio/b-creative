@@ -61,6 +61,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
+    "@bornfight/b-reset": "^1.0.1",
     "gsap": "^3.2.4",
     "poly-fluid-sizing": "^1.1.0"
   }
