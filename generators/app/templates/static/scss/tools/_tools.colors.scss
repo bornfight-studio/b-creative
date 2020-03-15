@@ -1,3 +1,0 @@
-@function getColor($colorName, $colorMap: "primary") {
-    @return map-get(map-get($settings-colors, $colorMap), $colorName);
-}

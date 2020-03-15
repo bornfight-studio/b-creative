@@ -1,3 +1,6 @@
+/**
+ * Transition easing map
+ */
 $settings-transitions-easing: (
     "default": cubic-bezier(0.55, 0.085, 0.68, 0.53),
     "ease-in-quad": cubic-bezier(0.55, 0.085, 0.68, 0.53),
@@ -26,6 +29,9 @@ $settings-transitions-easing: (
     "ease-in-out-back": cubic-bezier(0.68, -0.55, 0.265, 1.55),
 );
 
+/**
+ * Transitions map
+ */
 $settings-transitions: (
     "default": all 0.2s,
     "slide": all 0.3s,

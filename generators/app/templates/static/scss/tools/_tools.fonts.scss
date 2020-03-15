@@ -1,93 +1,70 @@
-@function getFontMap($fontMapKey) {
-    @if (map-has_key($settings-font-map, $fontMapKey)) {
-        @return map-get($settings-font-map, $fontMapKey);
-    } @else {
-        @return map-get($settings-font-map, "default");
+/**
+ * Font face mixin
+ * @param {string} $font-name - Name of the font
+ * @param {string} $font-filename - Name of the file without extension
+ * @param {number} $version - Font version
+ * @param {number} $font-weight - Font weight value
+ * @param {string} $font-name - Font style property (if the font is italic)
+ * usage:
+ * @include font-face("Hanken-Grotesk", "HankenGrotesk-Regular");
+ * @include font-face(
+ *  "Hanken-Grotesk",
+ *  "HankenGrotesk-SemiBold",
+ *  $font-weight: 600,
+ *  $font-style: italic
+ * );
+ */
+@mixin font-face(
+    $font-name,
+    $font-filename: $font-name,
+    $version: 1,
+    $font-weight: normal,
+    $font-style: normal
+) {
+    @font-face {
+        font-family: "#{$font-name}";
+        src: url("../fonts/#{$font-filename}.woff2?#{$version}") format("woff2"),
+            url("../fonts/#{$font-filename}.woff?#{$version}") format("woff");
+        font-weight: $font-weight;
+        font-style: $font-style;
+        font-display: swap;
     }
 }
 
-@function getDefaultFontSize() {
-    @return map-get($settings-font-size, "font-size");
-}
-
-@function getDefaultLineHeight() {
-    @return map-get($settings-font-size, "line-height");
-}
-
-@function getDefaultFontSizeUnit() {
-    @return map-get($settings-font-size, "default-unit");
-}
-
-@function line-height($fontSize, $lineHeight: $fontSize) {
-    @return $lineHeight/$fontSize;
-}
-
-@function em($pixels, $context: getDefaultFontSize()) {
-    @if (unitless($pixels)) {
-        $pixels: $pixels * 1px;
-    }
-    @if (unitless($context)) {
-        $context: $context * 1px;
-    }
-    @return $pixels / $context * 1em;
-}
-
-@function rem($pixels, $context: getDefaultFontSize()) {
-    @if (unitless($pixels)) {
-        $pixels: $pixels * 1px;
-    }
-    @if (unitless($context)) {
-        $context: $context * 1px;
-    }
-    @return $pixels / $context * 1rem;
-}
-
-@mixin font-map($mapKey: "default", $unit: getDefaultFontSizeUnit()) {
-    @each $breakpoint, $font-size in getFontMap($mapKey) {
-        @if $breakpoint == null {
-            $fs: $font-size;
-
-            @if type-of($font-size) == "string" {
-                $fs: number(nth(str-two-split($font-size, "/"), 1));
-                $lh: number(nth(str-two-split($font-size, "/"), 2));
-                line-height: line-height($fs, $lh);
-            }
-
-            @if $unit == rem {
-                font-size: rem($fs);
-            } @else if $unit == em {
-                font-size: em($fs);
-            } @else {
-                font-size: $fs#{$unit};
-            }
-        } @else {
-            @include mq($to: $breakpoint) {
-                $fs: $font-size;
-
-                @if type-of($font-size) == "string" {
-                    $fs: number(nth(str-two-split($font-size, "/"), 1));
-                    $lh: number(nth(str-two-split($font-size, "/"), 2));
-                    line-height: line-height($fs, $lh);
-                }
-
-                @if $unit == rem {
-                    font-size: rem($fs);
-                } @else if $unit == em {
-                    font-size: em($fs);
-                } @else {
-                    font-size: $fs#{$unit};
-                }
-            }
-        }
-    }
-}
-
+/**
+ * Mixin for setting default font size and line height
+ */
 @mixin default-font-size {
     font-size: $base-size + px;
-    line-height: ($base-line-height/$base-size) + em;
+    line-height: ($base-line-height / $base-size) + em;
 }
 
+/**
+ * Mixin for setting default font family and font weight
+ */
 @mixin font-default($fontWeight: "default") {
     font-family: $font-primary;
     font-weight: normal;
+}
+
+/**
+ * Convert font-size from px to rem
+ * 1. Default font size on html element is 100%, equivalent to 16px;
+ * @param {number} $size - the value in pixel you want to convert
+ * usage:
+ * padding-top: rem(20px);
+ */
+@function rem($size) {
+    @return $size / 16px * 1rem; /* 1 */
+}
+
+/**
+ * Convert font-size from px to em
+ * 1. Default font size on html element is 100%, equivalent to 16px;
+ * @param {number} $size - the value in pixel you want to convert
+ * usage:
+ * padding-top: em(20px);
+ */
+@function em($size) {
+    @return $size / 16px * 1em; /* 1 */
 }

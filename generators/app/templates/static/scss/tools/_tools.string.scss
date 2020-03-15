@@ -1,8 +1,0 @@
-@function str-two-split($string, $separator) {
-    $index: str-index($string, $separator);
-
-    $str-1: str-slice($string, 1, $index - 1);
-    $str-2: str-slice($string, $index + 1);
-
-    @return $str-1 $str-2;
-}
