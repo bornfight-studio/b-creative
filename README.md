@@ -1,7 +1,11 @@
+<a href="http://www.bornfight.com">
+<img width="84px" src="https://www.bornfight.com/wp-content/themes/bf/static/ui/BF-sign-dark.svg?" title="Bornfight" alt="Bornfight">
+</a>
+
 # generator-b-creative
 > Bornfight frontend project template based on gulp, es6 and scss
 
-## ⚠ IMPORTANT NOTICE - module not yet published on npm ⚠
+##### ⚠ IMPORTANT NOTICE - module not yet published on npm ⚠
 
 ## Installation
 
@@ -28,7 +32,7 @@ The generator will prompt you with some additional info, but recommended way of 
 The generator is based on modern tools and architectures that fit most of "multi page" websites. 
 
 #### Gulp based build system 
- - Gulp 4 used
+ - [Gulp](https://gulpjs.com/) 4 used
  - [browsersync](https://browsersync.io/) for live reload
      
 #### (S)CSS
@@ -48,9 +52,7 @@ npm run build:analyze - builds production creates an informational page about yo
 
 MIT © [Bornfight](https://www.bornfight.com)
 
-[npm-image]: https://badge.fury.io/js/generator-b-creative.svg
-[npm-url]: https://npmjs.org/package/generator-b-creative
-[travis-image]: https://travis-ci.org/bornfight/generator-b-creative.svg?branch=master
-[travis-url]: https://travis-ci.org/bornfight/generator-b-creative
-[daviddm-image]: https://david-dm.org/bornfight/generator-b-creative.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/bornfight/generator-b-creative
+![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-creative?style=flat-square)
+![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight/b-creative?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/bornfight/b-creative?style=flat-square)
+![GitHub](https://img.shields.io/github/license/bornfight/b-creative?style=flat-square)
