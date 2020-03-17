@@ -1,3 +1,4 @@
+import NavigationController from "./components/NavigationController";
 import Dummy from "./components/Dummy";
 
 function ready(callbackFunc) {
@@ -29,4 +30,7 @@ function ready(callbackFunc) {
 ready(function() {
     const dummy = new Dummy();
     dummy.init();
+
+    const navigation = new NavigationController();
+    navigation.init();
 });
