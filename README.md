@@ -5,6 +5,11 @@
 # generator-b-creative
 > Bornfight frontend project template based on gulp, es6 and scss
 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-creative?style=flat-square)
+![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight/b-creative?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/bornfight/b-creative?style=flat-square)
+![GitHub](https://img.shields.io/github/license/bornfight/b-creative?style=flat-square)
+
 ##### ⚠ IMPORTANT NOTICE - module not yet published on npm ⚠
 
 ## Installation
@@ -51,8 +56,3 @@ npm run build:analyze - builds production creates an informational page about yo
 ## License
 
 MIT © [Bornfight](https://www.bornfight.com)
-
-![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-creative?style=flat-square)
-![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight/b-creative?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/bornfight/b-creative?style=flat-square)
-![GitHub](https://img.shields.io/github/license/bornfight/b-creative?style=flat-square)
