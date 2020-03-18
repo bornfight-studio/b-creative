@@ -21,7 +21,7 @@ export default class NavigationController {
 
         //navigation controller config
         /**
-         * Is scrolling state
+         * Scrolling state
          * @type {boolean}
          */
         this.scrolling = false;
