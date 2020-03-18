@@ -2,24 +2,18 @@
  * Navigation class
  */
 export default class NavigationController {
-    /**
-     *
-     * @param options
-     */
-    constructor(options) {
+    constructor() {
         /**
          *
          * @type {{navigationSlideUp: string, navigation: string, activeClass: string, navigationScrolled: string, navigationFixed: string}}
          * @private
          */
-        const _defaults = {
-            //
-            activeClass: "is-active",
-
+        this.defaults = {
             //NAVIGATION
             navigation: ".js-navigation-wrapper",
 
             //CSS state classes
+            activeClass: "is-active",
             navigationScrolled: "has-scrolled",
             navigationFixed: "is-fixed",
             navigationSlideUp: "slide-up",
@@ -27,17 +21,17 @@ export default class NavigationController {
 
         //navigation controller config
         /**
-         *
+         * Is scrolling state
          * @type {boolean}
          */
         this.scrolling = false;
         /**
-         *
+         * Main navigation scroll offset
          * @type {number}
          */
-        this.scrollNavigationOffset = 20; //main navigation scroll offset
+        this.scrollNavigationOffset = 20;
         /**
-         *
+         * Previous top offset
          * @type {number}
          */
         this.previousTop = 0;
@@ -45,39 +39,24 @@ export default class NavigationController {
          *
          * @type {number}
          */
-        this.currentTop = 0;
-        /**
-         *
-         * @type {number}
-         */
         this.scrollDelta = 0;
         /**
-         *
+         * Scroll offset
          * @type {number}
          */
         this.scrollOffset = 0;
 
+        // Elements
         /**
-         *
-         * @type {{} & {navigationSlideUp: string, navigation: string, activeClass: string, navigationScrolled: string, navigationHidden: string, navigationSlideDown: string, navigationFixed: string, } & Object}
+         * Main navigation element
+         * @type {Element}
          */
-        this.defaults = Object.assign({}, _defaults, options);
+        this.navigation = document.querySelector(this.defaults.navigation);
     }
-
-    //region getters
-    /**
-     *
-     * @returns {Element}
-     */
-    get navigation() {
-        return document.querySelector(this.defaults.navigation);
-    }
-
-    //endregion
 
     //region methods
     /**
-     *
+     * Navigation class init method and init flag
      */
     init() {
         console.log("Navigation init()");
@@ -87,9 +66,8 @@ export default class NavigationController {
         }
     }
 
-    //NAVIGATION
     /**
-     *
+     * Navigation controller - scroll event
      */
     navigationController() {
         document.addEventListener("scroll", () => {
@@ -106,7 +84,7 @@ export default class NavigationController {
     }
 
     /**
-     *
+     * Current scroll checker
      */
     checkScroll() {
         /**
@@ -122,8 +100,8 @@ export default class NavigationController {
     }
 
     /**
-     *
-     * @param currentTop
+     * Navigation active state checker
+     * @param {number} currentTop - current scroll position
      */
     activateNavigation(currentTop) {
         if (currentTop > this.scrollNavigationOffset) {
