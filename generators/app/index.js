@@ -10,7 +10,7 @@ module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(
-      `👋 Welcome to the ace ${chalk.greenBright('generator-b-creative')} generator!`
+      `👋 Welcome to the ace ${chalk.greenBright('b-creative')} generator!`
     );
     this.log(
       `Please enter the project's name. Supplying the name of the current folder will scaffold the application ${chalk.greenBright(

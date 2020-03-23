@@ -1,7 +1,7 @@
 import NavigationController from "./components/NavigationController";
 import Dummy from "./components/Dummy";
 
-function ready(callbackFunc) {
+const ready = (callbackFunc) => {
     if (document.readyState !== "loading") {
         /**
          * Document is already ready, call the callback directly
@@ -16,18 +16,18 @@ function ready(callbackFunc) {
         /**
          * Old IE browsers
          */
-        document.attachEvent("onreadystatechange", function() {
+        document.attachEvent("onreadystatechange", function () {
             if (document.readyState === "complete") {
                 callbackFunc();
             }
         });
     }
-}
+};
 
 /**
  * Document ready callback
  */
-ready(function() {
+ready(() => {
     const dummy = new Dummy();
     dummy.init();
 

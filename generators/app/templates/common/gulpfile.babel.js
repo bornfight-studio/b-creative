@@ -81,6 +81,10 @@ export function watchScripts() {
         .transform("babelify", {
             global: true,
             presets: ["@babel/preset-env"],
+            plugins: [
+                "@babel/plugin-syntax-dynamic-import",
+                "@babel/proposal-class-properties",
+                "@babel/proposal-object-rest-spread"],
         })
         .bundle()
         .pipe(source("bundle.js"))
@@ -99,6 +103,10 @@ export function buildScripts() {
         .transform("babelify", {
             global: true,
             presets: ["@babel/preset-env"],
+            plugins: [
+                "@babel/plugin-syntax-dynamic-import",
+                "@babel/proposal-class-properties",
+                "@babel/proposal-object-rest-spread"],
         })
         .bundle()
         .pipe(source("bundle.js"))

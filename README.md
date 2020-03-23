@@ -2,7 +2,7 @@
 <img width="84px" src="https://www.bornfight.com/wp-content/themes/bf/static/ui/BF-sign-dark.svg?" title="Bornfight" alt="Bornfight">
 </a>
 
-# generator-b-creative
+# b-creative
 > Bornfight frontend project template based on gulp, es6 and scss
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-creative?style=flat-square)
@@ -14,7 +14,7 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-b-creative using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and b-creative using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 **As the module is not yet published (for dev purposes), we are using local npm module installation.**
 
@@ -29,7 +29,7 @@ First, install [Yeoman](http://yeoman.io) and generator-b-creative using [npm](h
 `npm link` will install your cloned repo as a global module, as if it was installed through public npm repository. 
 You can read more about it [here](https://yeoman.io/authoring/).
 
-Then generate your new project by running command `yo generator-b-creative` and follow the instructions. 
+Then generate your new project by running command `yo b-creative` and follow the instructions. 
 The generator will prompt you with some additional info, but recommended way of generating a new project is that you first `cd` into project you want the scaffold to be output. 
 
 ## Usage
@@ -42,7 +42,6 @@ The generator is based on modern tools and architectures that fit most of "multi
      
 #### (S)CSS
 - based on **ITCSS** architecture (read about it [here](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)) and inspired by [inuitcss framework](https://github.com/inuitcss/inuitcss)
-- sassbox (scss functions/mixins module)is installed by default, but it's not imported in main style.scss file. For docs and installation, [read this](https://github.com/degordian/sassbox).
 - uses postcss by default - autoprefixer will automatically add vendor prefixes by [browserslist ruleset defined inside package.json](https://github.com/postcss/autoprefixer#browsers)
 
    
