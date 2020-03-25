@@ -1,79 +1,56 @@
 /**
- * Navigation class
+ * "smart" navigation which goes off screen when scrolling down for a better overview of content and UX
+ * navigation appears when scrolling up
  */
 export default class NavigationController {
-    /**
-     *
-     * @param options
-     */
-    constructor(options) {
+    constructor() {
         /**
-         *
-         * @type {{navigationSlideUp: string, navigation: string, activeClass: string, navigationScrolled: string, navigationFixed: string}}
-         * @private
+         * Navigation DOM selectors
+         * @type {{navigation: string}}
          */
-        const _defaults = {
-            //
-            activeClass: "is-active",
-
-            //NAVIGATION
+        this.DOM = {
             navigation: ".js-navigation-wrapper",
+        };
 
-            //CSS state classes
+        /**
+         * Navigation state CSS classes
+         * @type {{navigationSlideUp: string, navigationScrolled: string, navigationFixed: string}}
+         */
+        this.states = {
             navigationScrolled: "has-scrolled",
             navigationFixed: "is-fixed",
             navigationSlideUp: "slide-up",
         };
 
-        //navigation controller config
         /**
-         *
+         * flag, state variable for scrolling event
          * @type {boolean}
          */
         this.scrolling = false;
         /**
-         *
+         * amount of pixels to scroll from top for adding "has-scrolled" state class
          * @type {number}
          */
-        this.scrollNavigationOffset = 20; //main navigation scroll offset
+        this.scrollNavigationOffset = 200;
         /**
-         *
+         * variable for storing amount of scroll from top position value
          * @type {number}
          */
         this.previousTop = 0;
         /**
-         *
+         * variable for storing current scroll position value
          * @type {number}
          */
         this.currentTop = 0;
-        /**
-         *
-         * @type {number}
-         */
         this.scrollDelta = 0;
-        /**
-         *
-         * @type {number}
-         */
         this.scrollOffset = 0;
 
         /**
-         *
-         * @type {{} & {navigationSlideUp: string, navigation: string, activeClass: string, navigationScrolled: string, navigationHidden: string, navigationSlideDown: string, navigationFixed: string, } & Object}
+         * fetch navigation element DOM element
+         * @type {Element}
          */
-        this.defaults = Object.assign({}, _defaults, options);
+        this.navigation = document.querySelector(this.DOM.navigation);
     }
-
-    //region getters
-    /**
-     *
-     * @returns {Element}
-     */
-    get navigation() {
-        return document.querySelector(this.defaults.navigation);
-    }
-
-    //endregion
 
     //region methods
     /**
@@ -82,12 +59,13 @@ export default class NavigationController {
     init() {
         console.log("Navigation init()");
 
-        if (this.navigation) {
+        if (this.navigation !== null) {
             this.navigationController();
+        } else {
+            console.error(`${this.DOM.navigation} does not exist in the DOM!`);
         }
     }
 
-    //NAVIGATION
     /**
      *
      */
@@ -115,7 +93,7 @@ export default class NavigationController {
          */
         let currentTop = window.pageYOffset | document.body.scrollTop;
 
-        this.activateNavigation(currentTop);
+        this.changeNavigationState(currentTop);
 
         this.previousTop = currentTop;
         this.scrolling = false;
@@ -125,43 +103,26 @@ export default class NavigationController {
      *
      * @param currentTop
      */
-    activateNavigation(currentTop) {
+    changeNavigationState(currentTop) {
         if (currentTop > this.scrollNavigationOffset) {
-            this.navigation.classList.add(this.defaults.navigationScrolled);
+            this.navigation.classList.add(this.states.navigationScrolled);
         } else {
-            this.navigation.classList.remove(this.defaults.navigationScrolled);
+            this.navigation.classList.remove(this.states.navigationScrolled);
         }
-
-        /**
-         *
-         * @type {number}
-         */
-        let navOffsetTop = window.innerHeight / 4;
 
         if (this.previousTop >= currentTop) {
             //SCROLLING UP
-            if (currentTop < navOffsetTop) {
-                //secondary nav is not fixed
-                this.navigation.classList.remove(
-                    this.defaults.navigationSlideUp,
-                );
+            if (currentTop < this.scrollNavigationOffset) {
+                this.navigation.classList.remove(this.states.navigationSlideUp);
             } else if (this.previousTop - currentTop > this.scrollDelta) {
-                //secondary nav is fixed
-
-                this.navigation.classList.remove(
-                    this.defaults.navigationSlideUp,
-                );
+                this.navigation.classList.remove(this.states.navigationSlideUp);
             }
         } else {
             //SCROLLING DOWN
-            if (currentTop > navOffsetTop + this.scrollOffset) {
-                //hide primary nav
-                this.navigation.classList.add(this.defaults.navigationSlideUp);
-            } else if (currentTop > navOffsetTop) {
-                //once the secondary nav is fixed, do not hide primary nav if you haven't scrolled more than scrollOffset
-                this.navigation.classList.remove(
-                    this.defaults.navigationSlideUp,
-                );
+            if (currentTop > this.scrollNavigationOffset + this.scrollOffset) {
+                this.navigation.classList.add(this.states.navigationSlideUp);
+            } else if (currentTop > this.scrollNavigationOffset) {
+                this.navigation.classList.remove(this.states.navigationSlideUp);
             }
         }
     }
