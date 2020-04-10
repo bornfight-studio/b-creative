@@ -6,20 +6,17 @@ export default class NavigationController {
     constructor() {
         /**
          * Navigation DOM selectors
-         * @type {{navigation: string}}
+         * Navigation DOM state CSS classes
+         * @type {{navigation: string, states: {navigationSlideUp: string, navigationScrolled: string, navigationFixed: string}}}
          */
+
         this.DOM = {
             navigation: ".js-navigation-wrapper",
-        };
-
-        /**
-         * Navigation state CSS classes
-         * @type {{navigationSlideUp: string, navigationScrolled: string, navigationFixed: string}}
-         */
-        this.states = {
-            navigationScrolled: "has-scrolled",
-            navigationFixed: "is-fixed",
-            navigationSlideUp: "slide-up",
+            states: {
+                navigationScrolled: "has-scrolled",
+                navigationFixed: "is-fixed",
+                navigationSlideUp: "slide-up",
+            },
         };
 
         /**
@@ -105,25 +102,39 @@ export default class NavigationController {
      */
     changeNavigationState(currentTop) {
         if (currentTop > this.scrollNavigationOffset) {
-            this.navigation.classList.add(this.states.navigationScrolled);
+            this.navigation.classList.add(this.DOM.states.navigationScrolled);
         } else {
-            this.navigation.classList.remove(this.states.navigationScrolled);
+            this.navigation.classList.remove(this.DOM.states.navigationScrolled);
         }
 
         if (this.previousTop >= currentTop) {
-            //SCROLLING UP
-            if (currentTop < this.scrollNavigationOffset) {
-                this.navigation.classList.remove(this.states.navigationSlideUp);
-            } else if (this.previousTop - currentTop > this.scrollDelta) {
-                this.navigation.classList.remove(this.states.navigationSlideUp);
-            }
+            this.scrollingUp(currentTop);
         } else {
-            //SCROLLING DOWN
-            if (currentTop > this.scrollNavigationOffset + this.scrollOffset) {
-                this.navigation.classList.add(this.states.navigationSlideUp);
-            } else if (currentTop > this.scrollNavigationOffset) {
-                this.navigation.classList.remove(this.states.navigationSlideUp);
-            }
+            this.scrollingDown(currentTop);
+        }
+    }
+
+    /**
+     *
+     * @param currentTop
+     */
+    scrollingUp(currentTop) {
+        if (currentTop < this.scrollNavigationOffset) {
+            this.navigation.classList.remove(this.DOM.states.navigationSlideUp);
+        } else if (this.previousTop - currentTop > this.scrollDelta) {
+            this.navigation.classList.remove(this.DOM.states.navigationSlideUp);
+        }
+    }
+
+    /**
+     *
+     * @param currentTop
+     */
+    scrollingDown(currentTop) {
+        if (currentTop > this.scrollNavigationOffset + this.scrollOffset) {
+            this.navigation.classList.add(this.DOM.states.navigationSlideUp);
+        } else if (currentTop > this.scrollNavigationOffset) {
+            this.navigation.classList.remove(this.DOM.states.navigationSlideUp);
         }
     }
 
