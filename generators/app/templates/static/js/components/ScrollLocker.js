@@ -3,8 +3,12 @@ export default class ScrollLocker {
         this.body = document.querySelector('body');
     }
 
+    /**
+     * Lock scroll
+     */
+
     lockScroll() {
-        if (this.body.classList.contains('is-fixed-scrolled')) {
+        if (this.body.classList.contains('is-locked')) {
             return;
         }
         this.offsetTop = document.documentElement.scrollTop;
@@ -17,11 +21,14 @@ export default class ScrollLocker {
         }
     }
 
+    /**
+     * Reset scroll, and scroll position
+     */
     unlockScroll() {
         this.body.style.top = '0px';
         this.body.style.position = '';
         this.body.style.overflow = '';
         document.documentElement.scrollTop = this.offsetTop;
-        this.body.classList.remove('is-fixed-scrolled');
+        this.body.classList.remove('is-locked');
     }
 }
