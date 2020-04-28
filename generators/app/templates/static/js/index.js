@@ -1,3 +1,4 @@
+import GridHelper from "./helpers/GridHelper";
 import NavigationController from "./components/NavigationController";
 import Dummy from "./components/Dummy";
 
@@ -39,6 +40,9 @@ ready(() => {
     ].join(";");
 
     console.info("dev by: %c Bornfight ", credits);
+
+    const grid = new GridHelper();
+    grid.init();
 
     const dummy = new Dummy();
     dummy.init();
