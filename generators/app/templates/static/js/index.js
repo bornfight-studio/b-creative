@@ -1,5 +1,6 @@
 import NavigationController from "./components/NavigationController";
 import Dummy from "./components/Dummy";
+import {ScrollTo} from "./components/ScrollTo";
 
 const ready = (callbackFunc) => {
     if (document.readyState !== "loading") {
@@ -33,4 +34,7 @@ ready(() => {
 
     const navigation = new NavigationController();
     navigation.init();
+
+    const scrollTo = new ScrollTo();
+    scrollTo.init();
 });
