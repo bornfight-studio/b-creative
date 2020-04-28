@@ -28,6 +28,18 @@ const ready = (callbackFunc) => {
  * Document ready callback
  */
 ready(() => {
+    var credits = [
+        "background-color: #000000",
+        "color: white",
+        "display: block",
+        "line-height: 24px",
+        "text-align: center",
+        "border: 1px solid #ffffff",
+        "font-weight: bold",
+    ].join(";");
+
+    console.info("dev by: %c Bornfight ", credits);
+
     const dummy = new Dummy();
     dummy.init();
 
