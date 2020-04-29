@@ -1,23 +1,46 @@
 export default class ScrollLocker {
     constructor() {
-        this.body = document.querySelector('body');
+        this.DOM = {
+            body: "body",
+            states: {
+                scrollLocked: "is-locked",
+            },
+        };
+
+        /**
+         * fetch body DOM element
+         * @type {HTMLBodyElement}
+         */
+        this.body = document.querySelector(this.DOM.body);
+        console.log(this.body);
     }
 
     /**
-     * Lock scroll
+     * Lock scroll and save scroll position
      */
-
     lockScroll() {
-        if (this.body.classList.contains('is-locked')) {
+        if (this.body.classList.contains(this.DOM.states.scrollLocked)) {
             return;
         }
+        /**
+         * variable for storing current scroll position value
+         * @type {number}
+         */
         this.offsetTop = document.documentElement.scrollTop;
-        this.body.style.overflow = 'hidden';
-        this.body.style.top = `-${document.documentElement.scrollTop}px`;
-        this.body.style.position = 'fixed';
 
+        /**
+         * Style attributes for locking scroll
+         * @type {string}
+         */
+        this.body.style.overflow = "hidden";
+        this.body.style.top = `-${document.documentElement.scrollTop}px`;
+        this.body.style.position = "fixed";
+
+        /**
+         * add class if scrolled more than 100px, for navigation styling when locked
+         */
         if (this.offsetTop > 100) {
-            this.body.classList.add('is-fixed-scrolled');
+            this.body.classList.add(this.DOM.states.scrollLocked);
         }
     }
 
@@ -25,10 +48,23 @@ export default class ScrollLocker {
      * Reset scroll, and scroll position
      */
     unlockScroll() {
-        this.body.style.top = '0px';
-        this.body.style.position = '';
-        this.body.style.overflow = '';
+        /**
+         * Reset style attributes
+         * @type {string}
+         */
+        this.body.style.top = "0px";
+        this.body.style.position = "";
+        this.body.style.overflow = "";
+
+        /**
+         * Reset current scroll position
+         * @type {number}
+         */
         document.documentElement.scrollTop = this.offsetTop;
-        this.body.classList.remove('is-locked');
+
+        /**
+         *  remove body class
+         */
+        this.body.classList.remove(this.DOM.states.scrollLocked);
     }
 }
