@@ -152,7 +152,9 @@ export default class ScrollAnimationHelper {
         if (response.element.hasAttribute("data-animation")) {
             response.element.classList.add("is-animated");
 
-            //"data-animation" is set, use animation type from value
+            /**
+             * "data-animation" is set, use animation type from value
+             */
             const animationType = response.element.getAttribute(
                 "data-animation",
             );
@@ -165,7 +167,6 @@ export default class ScrollAnimationHelper {
                 );
             }, 150 * increment);
         } else {
-
             /**
              * fallback if "data-animation" attribute not set
              */
@@ -189,9 +190,15 @@ export default class ScrollAnimationHelper {
 
     animationsReset() {
         for (const element of this.animatedElements) {
-            gsap.set(element, {
-                autoAlpha: 0,
-            });
+            const animationType = element.getAttribute("data-animation");
+
+            if (animationType !== null) {
+                gsap.set(element, this.animations[animationType].from);
+            } else {
+                gsap.set(element, {
+                    autoAlpha: 0,
+                });
+            }
         }
     }
 }
