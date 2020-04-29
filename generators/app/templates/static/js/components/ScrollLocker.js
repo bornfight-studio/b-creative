@@ -1,5 +1,10 @@
 export default class ScrollLocker {
     constructor() {
+        /**
+         * Scroll lock body selector
+         * Scroll lock state CSS class
+         * @type {{body: string, states: {scrollLocked: string}}}
+         */
         this.DOM = {
             body: "body",
             states: {
