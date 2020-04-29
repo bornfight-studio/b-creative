@@ -22,65 +22,65 @@ export default class ScrollAnimationHelper {
             },
         };
 
-
         /**
          * fetch animtion elements
          * @type {NodeListOf<Element>}
          */
-        this.animatedElements = document.querySelectorAll(".js-animated-element");
-
+        this.animatedElements = document.querySelectorAll(
+            ".js-animated-element",
+        );
 
         this.animations = {
             "fade-down": {
                 from: {
                     autoAlpha: 0,
                     duration: 1.2,
-                    y: -50
+                    y: -50,
                 },
                 to: {
                     autoAlpha: 1,
                     y: 0,
-                    ease: "power3.out"
-                }
+                    ease: "power3.out",
+                },
             },
 
             "fade-up": {
                 from: {
                     autoAlpha: 0,
-                    y: 50
+                    y: 50,
                 },
                 to: {
                     autoAlpha: 1,
                     y: 0,
                     duration: 1.5,
-                    ease: "power3.out"
-                }
+                    ease: "power3.out",
+                },
             },
 
             "scale-up": {
                 from: {
                     autoAlpha: 0,
                     duration: 2,
-                    scale: 0.3
+                    scale: 0.3,
                 },
                 to: {
                     autoAlpha: 1,
                     scale: 1,
-                    ease: "power3.out"
-                }
+                    ease: "power3.out",
+                },
             },
 
             "scale-down": {
                 from: {
                     autoAlpha: 0,
                     duration: 2,
-                    scale: 1.3
+                    scale: 1.3,
                 },
                 to: {
                     autoAlpha: 1,
                     scale: 1,
-                    ease: "power3.out"
-                }
+                    ease: "power3.out",
+                },
             },
         };
 
@@ -88,14 +88,13 @@ export default class ScrollAnimationHelper {
     }
 
     init() {
-
         if (this.animatedElements.length !== null) {
             this.animationInit();
+            this.animationsReset();
         }
     }
 
-    animationInit(){
-
+    animationInit() {
         console.log("ScrollAnimationHelper");
         this.scroller = scrollama();
         /**
@@ -108,12 +107,11 @@ export default class ScrollAnimationHelper {
                 step: this.animatedElements,
                 // debug: true,
                 offset: 0.7,
-                once: true
+                once: true,
             })
-            .onStepEnter(response => {
+            .onStepEnter((response) => {
                 this.itemsInRowCalculation(response);
             });
-
     }
 
     /**
@@ -128,12 +126,15 @@ export default class ScrollAnimationHelper {
             /**
              * make array of elements with same height from top of the window
              */
-            if (elem.getBoundingClientRect().top === response.element.getBoundingClientRect().top) {
+            if (
+                elem.getBoundingClientRect().top ===
+                response.element.getBoundingClientRect().top
+            ) {
                 indexes.push(elem.dataset.scrollamaIndex);
             }
         }
 
-        const sum = (indexes[indexes.length - 1] - indexes[0]);
+        const sum = indexes[indexes.length - 1] - indexes[0];
 
         for (let i = 0; i <= sum; i++) {
             if (indexes[i] === response.element.dataset.scrollamaIndex) {
@@ -142,7 +143,6 @@ export default class ScrollAnimationHelper {
         }
     }
 
-
     /**
      * handle triggered animations
      * @param response
@@ -150,23 +150,25 @@ export default class ScrollAnimationHelper {
      */
     handleOnStepEnter(response, increment) {
         if (response.element.hasAttribute("data-animation")) {
-
             response.element.classList.add("is-animated");
 
             //"data-animation" is set, use animation type from value
-            const animationType = response.element.getAttribute("data-animation");
+            const animationType = response.element.getAttribute(
+                "data-animation",
+            );
 
             setTimeout(() => {
                 gsap.fromTo(
-                    response.element, this.animations[animationType].from, this.animations[animationType].to,
+                    response.element,
+                    this.animations[animationType].from,
+                    this.animations[animationType].to,
                 );
             }, 150 * increment);
-        }
+        } else {
 
-        /**
-         * fallback if "data-animation" attribute not set
-         */
-        else {
+            /**
+             * fallback if "data-animation" attribute not set
+             */
             response.element.classList.add("is-animated");
 
             gsap.fromTo(
@@ -174,16 +176,22 @@ export default class ScrollAnimationHelper {
                 {
                     autoAlpha: 0,
                     duration: 0.3,
-                    y: 20
+                    y: 20,
                 },
                 {
                     autoAlpha: 1,
                     y: 0,
-                    ease: "power3.out"
-                }
+                    ease: "power3.out",
+                },
             );
         }
     }
+
+    animationsReset() {
+        for (const element of this.animatedElements) {
+            gsap.set(element, {
+                autoAlpha: 0,
+            });
+        }
+    }
 }
-
-

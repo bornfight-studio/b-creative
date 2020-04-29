@@ -1,5 +1,6 @@
 import NavigationController from "./components/NavigationController";
 import Dummy from "./components/Dummy";
+import ScrollAnimationHelper from "./components/ScrollAnimationHelper";
 
 const ready = (callbackFunc) => {
     if (document.readyState !== "loading") {
@@ -33,4 +34,7 @@ ready(() => {
 
     const navigation = new NavigationController();
     navigation.init();
+
+    const scrollAnimationHelper = new ScrollAnimationHelper();
+    scrollAnimationHelper.init();
 });
