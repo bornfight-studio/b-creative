@@ -48,7 +48,7 @@ export default class ScrollLocker {
         this.body.style.position = "fixed";
 
         /**
-         * add class if scrolled more than 100px, for navigation styling when locked
+         * add class if scrolled more than "scrollLockedOffset", for navigation styling when locked
          */
         if (this.offsetTop > this.scrollLockedOffset) {
             this.body.classList.add(this.DOM.states.scrollLocked);
