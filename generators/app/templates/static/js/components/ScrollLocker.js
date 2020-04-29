@@ -13,6 +13,12 @@ export default class ScrollLocker {
         };
 
         /**
+         * amount of pixels to scroll from top for adding "scrollLocked" state class
+         * @type {number}
+         */
+        this.scrollLockedOffset = 100;
+
+        /**
          * fetch body DOM element
          * @type {HTMLBodyElement}
          */
@@ -44,7 +50,7 @@ export default class ScrollLocker {
         /**
          * add class if scrolled more than 100px, for navigation styling when locked
          */
-        if (this.offsetTop > 100) {
+        if (this.offsetTop > this.scrollLockedOffset) {
             this.body.classList.add(this.DOM.states.scrollLocked);
         }
     }
