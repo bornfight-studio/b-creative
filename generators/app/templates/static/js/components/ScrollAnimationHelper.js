@@ -188,6 +188,9 @@ export default class ScrollAnimationHelper {
         }
     }
 
+    /**
+     * Set initial state for animated elements
+     */
     animationsReset() {
         for (const element of this.animatedElements) {
             const animationType = element.getAttribute("data-animation");
