@@ -83,8 +83,6 @@ export default class ScrollAnimationHelper {
                 },
             },
         };
-
-        console.log("constructor");
     }
 
     init() {
@@ -95,7 +93,6 @@ export default class ScrollAnimationHelper {
     }
 
     animationInit() {
-        console.log("ScrollAnimationHelper");
         this.scroller = scrollama();
         /**
          * setup the scroller
