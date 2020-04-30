@@ -23,7 +23,6 @@ export default class ScrollLocker {
          * @type {HTMLBodyElement}
          */
         this.body = document.querySelector(this.DOM.body);
-        console.log(this.body);
     }
 
     /**
