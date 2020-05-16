@@ -1,15 +1,15 @@
 .u-a3 {
     font-family: $font-primary;
     $font-size: (
-        $breakpoint-sm: 35px,
-        $breakpoint-xl: 78px,
-        $breakpoint-xxl: 78px,
+            $breakpoint-sm: 35px,
+            $breakpoint-xl: 78px,
+            $breakpoint-xxl: 78px,
     );
     @include poly-fluid-sizing("font-size", $font-size);
     $line-height: (
-        $breakpoint-sm: 43px,
-        $breakpoint-xl: 86px,
-        $breakpoint-xxl: 86px,
+            $breakpoint-sm: 43px,
+            $breakpoint-xl: 86px,
+            $breakpoint-xxl: 86px,
     );
     @include poly-fluid-sizing("line-height", $line-height);
     letter-spacing: 2px;
@@ -23,15 +23,15 @@
 .u-a2 {
     font-family: $font-primary;
     $font-size: (
-        $breakpoint-sm: 35px,
-        $breakpoint-xl: 50px,
-        $breakpoint-xxl: 50px,
+            $breakpoint-sm: 35px,
+            $breakpoint-xl: 50px,
+            $breakpoint-xxl: 50px,
     );
     @include poly-fluid-sizing("font-size", $font-size);
     $line-height: (
-        $breakpoint-sm: 43px,
-        $breakpoint-xl: 66px,
-        $breakpoint-xxl: 56px,
+            $breakpoint-sm: 43px,
+            $breakpoint-xl: 66px,
+            $breakpoint-xxl: 56px,
     );
     @include poly-fluid-sizing("line-height", $line-height);
     font-weight: normal;
@@ -40,15 +40,15 @@
 .u-a1 {
     font-family: $font-secondary;
     $font-size: (
-        $breakpoint-sm: 14px,
-        $breakpoint-xl: 18px,
-        $breakpoint-xxl: 18px,
+            $breakpoint-sm: 14px,
+            $breakpoint-xl: 18px,
+            $breakpoint-xxl: 18px,
     );
     @include poly-fluid-sizing("font-size", $font-size);
     $line-height: (
-        $breakpoint-sm: 20px,
-        $breakpoint-xl: 26px,
-        $breakpoint-xxl: 26px,
+            $breakpoint-sm: 20px,
+            $breakpoint-xl: 26px,
+            $breakpoint-xxl: 26px,
     );
     @include poly-fluid-sizing("line-height", $line-height);
     letter-spacing: 0.3px;
@@ -62,13 +62,13 @@
 .u-b0 {
     font-family: $font-primary;
     $font-size: (
-        $breakpoint-sm: 16px,
-        $breakpoint-xl: 16px,
+            $breakpoint-sm: 16px,
+            $breakpoint-xl: 16px,
     );
     @include poly-fluid-sizing("font-size", $font-size);
     $line-height: (
-        $breakpoint-sm: 23px,
-        $breakpoint-xl: 23px,
+            $breakpoint-sm: 23px,
+            $breakpoint-xl: 23px,
     );
     @include poly-fluid-sizing("line-height", $line-height);
     font-weight: normal;
@@ -85,16 +85,20 @@
     text-transform: uppercase;
 }
 
+.u-capitalize {
+    text-transform: capitalize;
+}
+
 .u-text-center {
     text-align: center;
 }
 
-.u-underline {
-    text-decoration: underline;
+.u-text-right {
+    text-align: right;
 }
 
-.u-capitalize {
-    text-transform: capitalize;
+.u-underline {
+    text-decoration: underline;
 }
 
 .u-fw-thin,
