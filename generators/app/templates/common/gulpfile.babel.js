@@ -113,7 +113,7 @@ export function buildScripts() {
         .pipe(buffer())
         .pipe(uglify({
             compress: {
-                drop_console: true,
+                pure_funcs: ["console.log"],
             },
         }))
         .pipe(gulp.dest(paths.scripts.dest));
