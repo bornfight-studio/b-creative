@@ -3,6 +3,8 @@
  * Detect if device supports hover interaction
  * 1. If device is not supporting hover, add properties as active state styles
  * 2. If device is supporting hover, add properties as hover state styles
+ * usage:
+ * @include hover{}
  */
 @mixin hover() {
     @media (hover: none) {
