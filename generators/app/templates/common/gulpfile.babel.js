@@ -66,7 +66,7 @@ export function buildStyles() {
         .pipe(sass({includePaths: paths.includes.node_modules}))
         .pipe(sass().on("error", sass.logError))
         .pipe(autoprefixer())
-        .pipe(cleanCSS())
+        .pipe(cleanCSS({level: {1: {specialComments: 0}}}))
         .pipe(rename({
             basename: "style",
         }))
