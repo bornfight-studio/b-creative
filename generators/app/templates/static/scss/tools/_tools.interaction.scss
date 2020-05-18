@@ -7,15 +7,17 @@
 @mixin hover() {
     @media (hover: none) {
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        &:active { /* 1 */
+        &:active {
+            /* 1 */
             @content;
         }
     }
 
     @media (hover: hover),
-    all and (-ms-high-contrast: none),
-    (-ms-high-contrast: active) {
-        &:hover { /* 2 */
+        all and (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+        &:hover {
+            /* 2 */
             @content;
         }
     }
