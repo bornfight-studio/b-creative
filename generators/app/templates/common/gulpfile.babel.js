@@ -6,6 +6,7 @@ import buffer from "vinyl-buffer";
 import cleanCSS from "gulp-clean-css";
 import del from "del";
 import gulp from "gulp";
+import gulpif from "gulp-if";
 import rename from "gulp-rename";
 import sass from "gulp-sass";
 import sourcemaps from "gulp-sourcemaps";
@@ -181,13 +182,11 @@ export function buildVendorScripts() {
         .on("error", (err) => console.log(err))
         .pipe(source("vendor.js"))
         .pipe(buffer())
-        .pipe(
-            uglify({
-                compress: {
-                    drop_console: true,
-                },
-            }),
-        )
+        .pipe(gulpif(process.env.NODE_ENV === "production", uglify({
+            compress: {
+                drop_console: true,
+            },
+        })))
         .pipe(gulp.dest(paths.scripts.dest));
 }
 
@@ -225,6 +224,7 @@ export function watchFiles() {
 const watch = gulp.series(
     clean,
     gulp.parallel(watchStyles, watchScripts),
+    buildVendorScripts,
     serve,
     watchFiles,
 );
