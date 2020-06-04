@@ -2,15 +2,6 @@
   "name": "generator-b-creative",
   "version": "0.1.0",
   "description": "Bornfight frontend project template based on gulp, es6 and scss",
-  "homepage": "",
-  "author": {
-    "name": "Bornfight",
-    "email": "frontend@bornfight.com",
-    "url": "https://www.bornfight.com"
-  },
-  "files": [
-    "generators"
-  ],
   "keywords": [
     "frontend",
     "gulp",
@@ -20,6 +11,62 @@
     "browsersync",
     "yeoman-generator"
   ],
+  "homepage": "",
+  "repository": "bornfight/b-creative",
+  "license": "MIT",
+  "author": {
+    "name": "Bornfight",
+    "email": "frontend@bornfight.com",
+    "url": "https://www.bornfight.com"
+  },
+  "files": [
+    "generators"
+  ],
+  "scripts": {
+    "precommit": "lint-staged",
+    "pretest": "eslint .",
+    "test": "jest"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    }
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "yeoman-generator": "^4.10.1",
+    "yosay": "^2.0.2"
+  },
   "devDependencies": {
     "eslint": "^7.0.0",
     "eslint-config-prettier": "^6.11.0",
@@ -36,52 +83,5 @@
   },
   "engines": {
     "npm": ">= 6.14.2"
-  },
-  "dependencies": {
-    "chalk": "^4.0.0",
-    "yeoman-generator": "^4.10.1",
-    "yosay": "^2.0.2"
-  },
-  "jest": {
-    "testEnvironment": "node"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
-    "env": {
-      "jest": true,
-      "node": true
-    },
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "singleQuote": true,
-          "printWidth": 90
-        }
-      ]
-    },
-    "plugins": [
-      "prettier"
-    ]
-  },
-  "scripts": {
-    "pretest": "eslint .",
-    "precommit": "lint-staged",
-    "test": "jest"
-  },
-  "repository": "bornfight/b-creative",
-  "license": "MIT"
+  }
 }
