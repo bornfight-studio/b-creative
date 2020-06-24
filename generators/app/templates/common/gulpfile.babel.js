@@ -13,6 +13,7 @@ import sourcemaps from "gulp-sourcemaps";
 import source from "vinyl-source-stream";
 import uglify from "gulp-uglify";
 import watchify from "watchify";
+import webp from "gulp-webp";
 import { plugins } from "./plugins";
 
 /**
@@ -28,6 +29,10 @@ const paths = {
         main: "static/js/index.js",
         src: "static/js/**/*.js",
         dest: "static/dist/",
+    },
+    images: {
+        src: "static/images/**/*.{jpg,jpeg,png}",
+        dest: "static/images/webp/",
     },
     markup: {
         src: "**/*.{html,php}",
@@ -191,6 +196,15 @@ export function buildVendorScripts() {
 }
 
 /**
+ * Convert images to WebP format
+ */
+export function convertWebPImages() {
+    return gulp.src(paths.images.src)
+        .pipe(webp())
+        .pipe(gulp.dest(paths.images.dest));
+}
+
+/**
  * Reload task
  */
 export function reload(done) {
@@ -228,6 +242,11 @@ const watch = gulp.series(
     serve,
     watchFiles,
 );
+
+/**
+ * WebP convert task
+ */
+export const webPImages = gulp.series(convertWebPImages);
 
 /**
  * Build task
