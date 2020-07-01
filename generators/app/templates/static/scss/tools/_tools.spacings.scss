@@ -1,0 +1,15 @@
+/**
+ * Spacings
+ * usage:
+ * @include spacing("margin-top", "lg");
+ */
+@mixin spacing($property, $spacing) {
+    @include poly-fluid-sizing($property, getSpacingValues($spacing));
+}
+
+/**
+ * Get spacing values from settings
+ */
+@function getSpacingValues($spacing) {
+    @return map-get($settings-spacings, $spacing);
+}

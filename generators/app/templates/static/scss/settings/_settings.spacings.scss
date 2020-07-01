@@ -1,0 +1,37 @@
+/**
+ * Spacings
+ */
+$settings-spacings: (
+    "xxs": (
+        $breakpoint-sm: 20px,
+        $breakpoint-xl: 30px,
+    ),
+    "xs": (
+        $breakpoint-sm: 25px,
+        $breakpoint-xl: 60px,
+    ),
+    "sm": (
+        $breakpoint-sm: 30px,
+        $breakpoint-xl: 90px,
+    ),
+    "md": (
+        $breakpoint-sm: 35px,
+        $breakpoint-xl: 120px,
+    ),
+    "lg": (
+        $breakpoint-sm: 40px,
+        $breakpoint-xl: 150px,
+    ),
+    "xl": (
+        $breakpoint-sm: 50px,
+        $breakpoint-xl: 180px,
+    ),
+    "xxl": (
+        $breakpoint-sm: 60px,
+        $breakpoint-xl: 210px,
+    ),
+    "xxxl": (
+        $breakpoint-sm: 70px,
+        $breakpoint-xl: 240px,
+    ),
+);
