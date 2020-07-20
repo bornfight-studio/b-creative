@@ -10,11 +10,12 @@ export default class GridHelper {
         this.gridOptions = {
             initialDisplay: "none", //"flex" or "none"
             gridWidth: 1440, // px
+            gridFixed: true,
             columnCount: 24,
             gridColor: "rgb(255, 0, 255, 0.15)",
             columnBgColor: "rgb(255, 0, 255, 0.025)",
-            gutterFixed: false,
             gutterWidth: 0, // px
+            gutterFixed: false,
         };
 
         const consoleLogStyle = [
@@ -34,7 +35,7 @@ export default class GridHelper {
         this.columnWidth =
             (this.gridOptions.gridWidth -
                 (this.gridOptions.columnCount - 1) *
-                    this.gridOptions.gutterWidth) /
+                this.gridOptions.gutterWidth) /
             this.gridOptions.columnCount;
 
         this.columnWidthPercentage = `${
@@ -63,7 +64,6 @@ export default class GridHelper {
             display: ${this.gridOptions.initialDisplay};
             flex-direction: row;
             width: 100%;
-            max-width: ${this.gridOptions.gridWidth}px;
             height: 100%;
             position: absolute;
             top: 0;
@@ -71,6 +71,10 @@ export default class GridHelper {
             transform: translateX(-50%);
             z-index: 999;
         `;
+
+        if (this.gridOptions.gridFixed === true) {
+            this.grid.style.maxWidth = `${this.gridOptions.gridWidth}px`;
+        }
 
         if (!this.gridOptions.gutterWidth > 0) {
             this.grid.style.borderLeft = "none";
