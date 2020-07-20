@@ -1,21 +1,31 @@
+/**
+ * Grid helper
+ * Show grid overlay when developing
+ * Not included in production bundle JS file
+ */
 export default class GridHelper {
-    /**
-     *
-     */
     constructor() {
+        /**
+         * Grid DOM selector
+         * @type {{grid: string}}
+         */
         this.DOM = {
             grid: "grid",
         };
 
+        /**
+         * Grid options
+         * @type {{gutterFixed: boolean, initialDisplay: string, gridFixed: boolean, gutterWidth: number, gridColor: string, columnCount: number, gridWidth: number, columnBgColor: string}}
+         */
         this.gridOptions = {
-            initialDisplay: "none", //"flex" or "none"
+            initialDisplay: "none", // "flex" or "none"
+            columnCount: 24,
             gridWidth: 1440, // px
             gridFixed: true,
-            columnCount: 24,
-            gridColor: "rgb(255, 0, 255, 0.15)",
-            columnBgColor: "rgb(255, 0, 255, 0.025)",
             gutterWidth: 0, // px
             gutterFixed: false,
+            gridColor: "rgb(255, 0, 255, 0.15)",
+            columnBgColor: "rgb(255, 0, 255, 0.025)",
         };
 
         const consoleLogStyle = [
@@ -112,9 +122,6 @@ export default class GridHelper {
         this.grid.lastChild.style.marginRight = 0;
     }
 
-    /**
-     *
-     */
     keyboardShortcut() {
         document.addEventListener("keyup", (ev) => {
             if (ev.keyCode === 71 && ev.altKey) {

@@ -29,6 +29,19 @@ const ready = (callbackFunc) => {
  * Document ready callback
  */
 ready(() => {
+    /**
+     * HELPERS
+     * Files are excluded from build and their initialization code is stripped
+     * out from this file
+     */
+    /* start-strip-code */
+    const grid = new GridHelper();
+    grid.init();
+    /* end-strip-code */
+
+    /**
+     * CREDITS
+     */
     const credits = [
         "background-color: #000000",
         "color: white",
@@ -38,15 +51,23 @@ ready(() => {
         "border: 1px solid #ffffff",
         "font-weight: bold",
     ].join(";");
-
     console.info("dev by: %c Bornfight ", credits);
 
-    const grid = new GridHelper();
-    grid.init();
+    /**
+     * COMPONENTS
+     */
 
+    /**
+     * Dummy component
+     * @type {Dummy}
+     */
     const dummy = new Dummy();
     dummy.init();
 
+    /**
+     * Navigation
+     * @type {NavigationController}
+     */
     const navigation = new NavigationController();
     navigation.init();
 });
