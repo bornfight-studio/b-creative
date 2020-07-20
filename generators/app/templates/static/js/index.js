@@ -1,25 +1,43 @@
+/**
+ * MAIN JS FILE
+ */
+
+/**
+ * Helpers
+ * Imports of helper functions are stripped out of bundle
+ * Include them within "start-strip-code" and "end-strip-code" comments
+ */
+/* start-strip-code */
 import GridHelper from "./helpers/GridHelper";
+/* end-strip-code */
+/**
+ * Components
+ */
 import NavigationController from "./components/NavigationController";
 import Dummy from "./components/Dummy";
 
-const ready = (callbackFunc) => {
+/**
+ * Check if document is ready cross-browser
+ * @param callback
+ */
+const ready = (callback) => {
     if (document.readyState !== "loading") {
         /**
          * Document is already ready, call the callback directly
          */
-        callbackFunc();
+        callback();
     } else if (document.addEventListener) {
         /**
          * All modern browsers to register DOMContentLoaded
          */
-        document.addEventListener("DOMContentLoaded", callbackFunc);
+        document.addEventListener("DOMContentLoaded", callback);
     } else {
         /**
          * Old IE browsers
          */
         document.attachEvent("onreadystatechange", function () {
             if (document.readyState === "complete") {
-                callbackFunc();
+                callback();
             }
         });
     }
@@ -30,17 +48,17 @@ const ready = (callbackFunc) => {
  */
 ready(() => {
     /**
-     * HELPERS
-     * Files are excluded from build and their initialization code is stripped
-     * out from this file
+     * HELPERS INIT
+     * Only init helpers if they exist
+     * Will be undefined on production because of import stripping
      */
-    /* start-strip-code */
-    const grid = new GridHelper();
-    grid.init();
-    /* end-strip-code */
+    if (typeof GridHelper == "function") {
+        const grid = new GridHelper();
+        grid.init();
+    }
 
     /**
-     * CREDITS
+     * CREDITS INIT
      */
     const credits = [
         "background-color: #000000",
@@ -54,7 +72,7 @@ ready(() => {
     console.info("dev by: %c Bornfight ", credits);
 
     /**
-     * COMPONENTS
+     * COMPONENTS INIT
      */
 
     /**
