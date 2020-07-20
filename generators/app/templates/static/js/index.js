@@ -29,7 +29,7 @@ const ready = (callbackFunc) => {
  * Document ready callback
  */
 ready(() => {
-    var credits = [
+    const credits = [
         "background-color: #000000",
         "color: white",
         "display: block",

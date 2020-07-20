@@ -104,7 +104,9 @@ export default class NavigationController {
         if (currentTop > this.scrollNavigationOffset) {
             this.navigation.classList.add(this.DOM.states.navigationScrolled);
         } else {
-            this.navigation.classList.remove(this.DOM.states.navigationScrolled);
+            this.navigation.classList.remove(
+                this.DOM.states.navigationScrolled,
+            );
         }
 
         if (this.previousTop >= currentTop) {

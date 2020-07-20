@@ -85,16 +85,20 @@
     text-transform: uppercase;
 }
 
+.u-capitalize {
+    text-transform: capitalize;
+}
+
 .u-text-center {
     text-align: center;
 }
 
-.u-underline {
-    text-decoration: underline;
+.u-text-right {
+    text-align: right;
 }
 
-.u-capitalize {
-    text-transform: capitalize;
+.u-underline {
+    text-decoration: underline;
 }
 
 .u-fw-thin,
