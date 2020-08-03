@@ -11,6 +11,7 @@ import rename from "gulp-rename";
 import sass from "gulp-sass";
 import sourcemaps from "gulp-sourcemaps";
 import source from "vinyl-source-stream";
+import stripCode from "browserify-strip-code";
 import uglify from "gulp-uglify";
 import watchify from "watchify";
 import webp from "gulp-webp";
@@ -29,6 +30,7 @@ const paths = {
         main: "static/js/index.js",
         src: "static/js/**/*.js",
         dest: "static/dist/",
+        helpers: ["static/js/helpers/GridHelper.js"],
     },
     images: {
         src: "static/images/**/*.{jpg,jpeg,png}",
@@ -137,6 +139,7 @@ const browserifyBuild = browserify({
     packageCache: {},
     debug: true,
     transform: [
+        [stripCode, { whitelist: [paths.scripts.main] }],
         babelify.configure({
             presets: ["@babel/preset-env"],
             plugins: [
@@ -154,6 +157,7 @@ browserifyBuild.external(dependencies);
  */
 export function buildScripts() {
     return browserifyBuild
+        .exclude(paths.scripts.helpers)
         .bundle()
         .on("error", console.error)
         .pipe(source("bundle.js"))
@@ -187,11 +191,16 @@ export function buildVendorScripts() {
         .on("error", (err) => console.log(err))
         .pipe(source("vendor.js"))
         .pipe(buffer())
-        .pipe(gulpif(process.env.NODE_ENV === "production", uglify({
-            compress: {
-                drop_console: true,
-            },
-        })))
+        .pipe(
+            gulpif(
+                process.env.NODE_ENV === "production",
+                uglify({
+                    compress: {
+                        drop_console: true,
+                    },
+                }),
+            ),
+        )
         .pipe(gulp.dest(paths.scripts.dest));
 }
 
@@ -199,7 +208,8 @@ export function buildVendorScripts() {
  * Convert images to WebP format
  */
 export function convertWebPImages() {
-    return gulp.src(paths.images.src)
+    return gulp
+        .src(paths.images.src)
         .pipe(webp())
         .pipe(gulp.dest(paths.images.dest));
 }
