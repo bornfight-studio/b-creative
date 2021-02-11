@@ -36,7 +36,7 @@ export default class TemplateComponent {
         if (this.templateComponent === null) {
             return;
         }
-        // if (this.templateComponentArray < 1) {
+        // if (this.templateComponentArray.length < 1) {
         //     return;
         // }
         console.log("Template component init");
