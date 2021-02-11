@@ -1,4 +1,4 @@
-.u-r-a5 {
+.u-a5 {
     @include fontSize("a5");
 
     font-family: $font-primary;
@@ -6,7 +6,7 @@
     letter-spacing: normal;
 }
 
-.u-r-a4 {
+.u-a4 {
     @include fontSize("a4");
 
     font-family: $font-secondary;
@@ -14,7 +14,7 @@
     letter-spacing: -1.33 / 64 * 1em;
 }
 
-.u-r-a3 {
+.u-a3 {
     @include fontSize("a3");
 
     font-family: $font-primary;
@@ -22,7 +22,7 @@
     letter-spacing: -1 / 48 * 1em;
 }
 
-.u-r-a2 {
+.u-a2 {
     @include fontSize("a2");
 
     font-family: $font-secondary;
@@ -30,7 +30,7 @@
     letter-spacing: -0.8 / 41 * 1em;
 }
 
-.u-r-a1 {
+.u-a1 {
     @include fontSize("a1");
 
     font-family: $font-primary;
@@ -38,7 +38,7 @@
     letter-spacing: normal;
 }
 
-.u-r-b0 {
+.u-b0 {
     @include fontSize("b0");
 
     font-family: $font-secondary;
@@ -46,7 +46,7 @@
     letter-spacing: normal;
 }
 
-.u-r-b1 {
+.u-b1 {
     @include fontSize("b1");
 
     font-family: $font-primary;
@@ -54,7 +54,7 @@
     letter-spacing: normal;
 }
 
-.u-r-b2 {
+.u-b2 {
     @include fontSize("b2");
 
     font-family: $font-secondary;
@@ -62,7 +62,7 @@
     letter-spacing: -0.1 / 15 * 1em;
 }
 
-.u-r-b3 {
+.u-b3 {
     @include fontSize("b3");
 
     font-family: $font-primary;
@@ -70,7 +70,7 @@
     letter-spacing: normal;
 }
 
-.u-r-b4 {
+.u-b4 {
     @include fontSize("b4");
 
     font-family: $font-secondary;

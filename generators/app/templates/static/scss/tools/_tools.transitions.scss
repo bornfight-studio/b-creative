@@ -22,11 +22,9 @@
     $transitionEasing: getTransitionEasing()
 ) {
     @if (map-has_key($settings-transitions, $transitionName)) {
-        @return map-get($settings-transitions, $transitionName)
-            getTransitionEasing($transitionEasing);
+        @return map-get($settings-transitions, $transitionName) getTransitionEasing($transitionEasing);
     } @else {
-        @return map-get($settings-transitions, "default")
-            getTransitionEasing($transitionEasing);
+        @return map-get($settings-transitions, "default") getTransitionEasing($transitionEasing);
     }
 }
 
@@ -49,9 +47,9 @@
     $unfoldedTransitions: ();
     @each $transition in $transitions {
         $unfoldedTransitions: append(
-            $unfoldedTransitions,
-            unfoldTransition($transition),
-            comma
+                        $unfoldedTransitions,
+                        unfoldTransition($transition),
+                        comma
         );
     }
     @return $unfoldedTransitions;

@@ -11,7 +11,7 @@
             font-size: get-vw($value);
         } @else {
             font-size: get-vw(
-                map-deep-get($settings-typography, $size, $breakpoint-xl)
+                            map-deep-get($settings-typography, $size, $breakpoint-xl)
             );
         }
     }
@@ -42,7 +42,7 @@
             #{$property}: get-vw($value);
         } @else {
             #{$property}: get-vw(
-                map-deep-get($settings-spacings, $spacing, $breakpoint-xl)
+                            map-deep-get($settings-spacings, $spacing, $breakpoint-xl)
             );
         }
     }

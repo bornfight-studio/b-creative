@@ -1,5 +1,6 @@
 export default class Dummy {
-    constructor() {}
+    constructor() {
+    }
 
     init() {
         console.log("Loaded!");
