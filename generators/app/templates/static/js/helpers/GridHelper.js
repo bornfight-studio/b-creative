@@ -43,18 +43,11 @@ export default class GridHelper {
         this.grid = null;
 
         this.columnWidth =
-            (this.gridOptions.gridWidth -
-                (this.gridOptions.columnCount - 1) *
-                this.gridOptions.gutterWidth) /
-            this.gridOptions.columnCount;
+            (this.gridOptions.gridWidth - (this.gridOptions.columnCount - 1) * this.gridOptions.gutterWidth) / this.gridOptions.columnCount;
 
-        this.columnWidthPercentage = `${
-            (this.columnWidth / this.gridOptions.gridWidth) * 100
-        }%`;
+        this.columnWidthPercentage = `${(this.columnWidth / this.gridOptions.gridWidth) * 100}%`;
 
-        this.gutterWidthPercentage = `${
-            (this.gridOptions.gutterWidth / this.gridOptions.gridWidth) * 100
-        }%`;
+        this.gutterWidthPercentage = `${(this.gridOptions.gutterWidth / this.gridOptions.gridWidth) * 100}%`;
     }
 
     init() {

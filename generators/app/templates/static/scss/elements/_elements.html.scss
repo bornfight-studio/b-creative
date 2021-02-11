@@ -4,8 +4,8 @@ body {
 }
 
 body {
-    @include font-default;
-    @include default-font-size;
+    @extend .u-b0;
+
     color: $black;
     background-color: $white;
 }

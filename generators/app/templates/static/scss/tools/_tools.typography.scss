@@ -15,37 +15,14 @@
  *  $font-style: italic
  * );
  */
-@mixin font-face(
-    $font-name,
-    $font-filename: $font-name,
-    $version: 1,
-    $font-weight: normal,
-    $font-style: normal
-) {
+@mixin font-face($font-name, $font-filename: $font-name, $version: 1, $font-weight: normal, $font-style: normal) {
     @font-face {
         font-family: "#{$font-name}";
-        src: url("../fonts/#{$font-filename}.woff2?#{$version}") format("woff2"),
-            url("../fonts/#{$font-filename}.woff?#{$version}") format("woff");
+        src: url("../fonts/#{$font-filename}.woff2?#{$version}") format("woff2"), url("../fonts/#{$font-filename}.woff?#{$version}") format("woff");
         font-weight: $font-weight;
         font-style: $font-style;
         font-display: swap;
     }
-}
-
-/**
- * Mixin for setting default font size and line height
- */
-@mixin default-font-size {
-    font-size: $base-size + px;
-    line-height: ($base-line-height / $base-size) + em;
-}
-
-/**
- * Mixin for setting default font family and font weight
- */
-@mixin font-default($fontWeight: "default") {
-    font-family: $font-primary;
-    font-weight: normal;
 }
 
 /**

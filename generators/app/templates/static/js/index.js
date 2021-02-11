@@ -14,7 +14,7 @@ import GridHelper from "./helpers/GridHelper";
  * Components
  */
 import NavigationController from "./components/NavigationController";
-import Dummy from "./components/Dummy";
+import TemplateComponent from "./components/TemplateComponent";
 
 /**
  * Check if document is ready cross-browser
@@ -76,11 +76,11 @@ ready(() => {
      */
 
     /**
-     * Dummy component
-     * @type {Dummy}
+     * Template component
+     * @type {TemplateComponent}
      */
-    const dummy = new Dummy();
-    dummy.init();
+    const templateComponent = new TemplateComponent();
+    templateComponent.init();
 
     /**
      * Navigation

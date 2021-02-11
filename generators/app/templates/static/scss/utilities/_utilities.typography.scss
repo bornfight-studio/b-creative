@@ -1,84 +1,81 @@
-.u-a3 {
-    font-family: $font-primary;
-    $font-size: (
-        $breakpoint-sm: 35px,
-        $breakpoint-xl: 78px,
-        $breakpoint-xxl: 78px,
-    );
-    @include poly-fluid-sizing("font-size", $font-size);
-    $line-height: (
-        $breakpoint-sm: 43px,
-        $breakpoint-xl: 86px,
-        $breakpoint-xxl: 86px,
-    );
-    @include poly-fluid-sizing("line-height", $line-height);
-    letter-spacing: 2px;
-    font-weight: normal;
+.u-a5 {
+    @include fontSize("a5");
 
-    @include mq(sm) {
-        letter-spacing: 0;
-    }
+    font-family: $font-primary;
+    line-height: 100%;
+    letter-spacing: normal;
+}
+
+.u-a4 {
+    @include fontSize("a4");
+
+    font-family: $font-secondary;
+    line-height: 107%;
+    letter-spacing: -1.33 / 64 * 1em;
+}
+
+.u-a3 {
+    @include fontSize("a3");
+
+    font-family: $font-primary;
+    line-height: 116%;
+    letter-spacing: -1 / 48 * 1em;
 }
 
 .u-a2 {
-    font-family: $font-primary;
-    $font-size: (
-        $breakpoint-sm: 35px,
-        $breakpoint-xl: 50px,
-        $breakpoint-xxl: 50px,
-    );
-    @include poly-fluid-sizing("font-size", $font-size);
-    $line-height: (
-        $breakpoint-sm: 43px,
-        $breakpoint-xl: 66px,
-        $breakpoint-xxl: 56px,
-    );
-    @include poly-fluid-sizing("line-height", $line-height);
-    font-weight: normal;
+    @include fontSize("a2");
+
+    font-family: $font-secondary;
+    line-height: 112%;
+    letter-spacing: -0.8 / 41 * 1em;
 }
 
 .u-a1 {
-    font-family: $font-secondary;
-    $font-size: (
-        $breakpoint-sm: 14px,
-        $breakpoint-xl: 18px,
-        $breakpoint-xxl: 18px,
-    );
-    @include poly-fluid-sizing("font-size", $font-size);
-    $line-height: (
-        $breakpoint-sm: 20px,
-        $breakpoint-xl: 26px,
-        $breakpoint-xxl: 26px,
-    );
-    @include poly-fluid-sizing("line-height", $line-height);
-    letter-spacing: 0.3px;
-    font-weight: normal;
+    @include fontSize("a1");
 
-    @include mq(sm) {
-        letter-spacing: 0;
-    }
+    font-family: $font-primary;
+    line-height: 130%;
+    letter-spacing: normal;
 }
 
 .u-b0 {
-    font-family: $font-primary;
-    $font-size: (
-        $breakpoint-sm: 16px,
-        $breakpoint-xl: 16px,
-    );
-    @include poly-fluid-sizing("font-size", $font-size);
-    $line-height: (
-        $breakpoint-sm: 23px,
-        $breakpoint-xl: 23px,
-    );
-    @include poly-fluid-sizing("line-height", $line-height);
-    font-weight: normal;
+    @include fontSize("b0");
+
+    font-family: $font-secondary;
+    line-height: 144%;
+    letter-spacing: normal;
 }
 
 .u-b1 {
+    @include fontSize("b1");
+
+    font-family: $font-primary;
+    line-height: 110%;
+    letter-spacing: normal;
+}
+
+.u-b2 {
+    @include fontSize("b2");
+
     font-family: $font-secondary;
-    font-size: 13px;
-    line-height: 19px;
-    font-weight: normal;
+    line-height: 133%;
+    letter-spacing: -0.1 / 15 * 1em;
+}
+
+.u-b3 {
+    @include fontSize("b3");
+
+    font-family: $font-primary;
+    line-height: 110%;
+    letter-spacing: normal;
+}
+
+.u-b4 {
+    @include fontSize("b4");
+
+    font-family: $font-secondary;
+    line-height: 125%;
+    letter-spacing: normal;
 }
 
 .u-uppercase {
@@ -87,6 +84,10 @@
 
 .u-capitalize {
     text-transform: capitalize;
+}
+
+.u-text-left {
+    text-align: left;
 }
 
 .u-text-center {

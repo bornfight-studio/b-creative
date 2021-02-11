@@ -17,16 +17,11 @@
  * transition: getTransition;
  * transition: getTransition(slide, ease-in-quad);
  */
-@function getTransition(
-    $transitionName: "default",
-    $transitionEasing: getTransitionEasing()
-) {
+@function getTransition($transitionName: "default", $transitionEasing: getTransitionEasing()) {
     @if (map-has_key($settings-transitions, $transitionName)) {
-        @return map-get($settings-transitions, $transitionName)
-            getTransitionEasing($transitionEasing);
+        @return map-get($settings-transitions, $transitionName) getTransitionEasing($transitionEasing);
     } @else {
-        @return map-get($settings-transitions, "default")
-            getTransitionEasing($transitionEasing);
+        @return map-get($settings-transitions, "default") getTransitionEasing($transitionEasing);
     }
 }
 
@@ -48,11 +43,7 @@
 @function getCustomTransition($transitions...) {
     $unfoldedTransitions: ();
     @each $transition in $transitions {
-        $unfoldedTransitions: append(
-            $unfoldedTransitions,
-            unfoldTransition($transition),
-            comma
-        );
+        $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
     }
     @return $unfoldedTransitions;
 }

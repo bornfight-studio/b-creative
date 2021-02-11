@@ -1,0 +1,58 @@
+/**
+ * Roboto
+ */
+@include font-face("Roboto", "Roboto-Regular");
+@include font-face("Roboto", "Roboto-Bold", $font-weight: 700);
+
+/**
+ * Font variables
+ */
+$roboto: "Roboto", sans-serif;
+$font-primary: $roboto;
+$font-secondary: $roboto;
+
+/**
+ * Font size map
+ */
+$settings-typography: (
+    "a5": (
+        $breakpoint-sm: 55px,
+        $breakpoint-xl: 85px,
+    ),
+    "a4": (
+        $breakpoint-sm: 38px,
+        $breakpoint-xl: 64px,
+    ),
+    "a3": (
+        $breakpoint-sm: 28px,
+        $breakpoint-xl: 48px,
+    ),
+    "a2": (
+        $breakpoint-sm: 25px,
+        $breakpoint-xl: 41px,
+    ),
+    "a1": (
+        $breakpoint-sm: 18px,
+        $breakpoint-xl: 25px,
+    ),
+    "b0": (
+        $breakpoint-sm: 16px,
+        $breakpoint-xl: 18px,
+    ),
+    "b1": (
+        $breakpoint-sm: 14px,
+        $breakpoint-xl: 16px,
+    ),
+    "b2": (
+        $breakpoint-sm: 13px,
+        $breakpoint-xl: 15px,
+    ),
+    "b3": (
+        $breakpoint-sm: 12px,
+        $breakpoint-xl: 14px,
+    ),
+    "b4": (
+        $breakpoint-sm: 11px,
+        $breakpoint-xl: 12px,
+    ),
+);
