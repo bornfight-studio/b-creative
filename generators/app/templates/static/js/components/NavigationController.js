@@ -1,4 +1,5 @@
 /**
+ * Navigation controller
  * "smart" navigation which goes off screen when scrolling down for a better overview of content and UX
  * navigation appears when scrolling up
  */
@@ -9,7 +10,6 @@ export default class NavigationController {
          * Navigation DOM state CSS classes
          * @type {{navigation: string, states: {navigationSlideUp: string, navigationScrolled: string, navigationFixed: string}}}
          */
-
         this.DOM = {
             navigation: ".js-navigation-wrapper",
             states: {
@@ -50,13 +50,13 @@ export default class NavigationController {
     }
 
     //region methods
+
     /**
      *
      */
     init() {
-        console.log("Navigation init()");
-
         if (this.navigation !== null) {
+            console.log("Navigation init()");
             this.navigationController();
         } else {
             console.error(`${this.DOM.navigation} does not exist in the DOM!`);
@@ -104,9 +104,7 @@ export default class NavigationController {
         if (currentTop > this.scrollNavigationOffset) {
             this.navigation.classList.add(this.DOM.states.navigationScrolled);
         } else {
-            this.navigation.classList.remove(
-                this.DOM.states.navigationScrolled,
-            );
+            this.navigation.classList.remove(this.DOM.states.navigationScrolled);
         }
 
         if (this.previousTop >= currentTop) {
