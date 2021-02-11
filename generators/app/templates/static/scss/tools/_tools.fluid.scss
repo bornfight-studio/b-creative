@@ -10,9 +10,7 @@
         @if $value != null {
             font-size: get-vw($value);
         } @else {
-            font-size: get-vw(
-                            map-deep-get($settings-typography, $size, $breakpoint-xl)
-            );
+            font-size: get-vw(map-deep-get($settings-typography, $size, $breakpoint-xl));
         }
     }
 }
@@ -41,9 +39,7 @@
         @if $value != null {
             #{$property}: get-vw($value);
         } @else {
-            #{$property}: get-vw(
-                            map-deep-get($settings-spacings, $spacing, $breakpoint-xl)
-            );
+            #{$property}: get-vw(map-deep-get($settings-spacings, $spacing, $breakpoint-xl));
         }
     }
 }

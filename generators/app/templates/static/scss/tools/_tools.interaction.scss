@@ -15,9 +15,7 @@
         }
     }
 
-    @media (hover: hover),
-    all and (-ms-high-contrast: none),
-    (-ms-high-contrast: active) {
+    @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
         &:hover {
             /* 2 */
             @content;
