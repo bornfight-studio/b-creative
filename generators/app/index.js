@@ -9,9 +9,7 @@ const printMessage = require('print-message');
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
-    this.log(
-      `👋 Welcome to the ace ${chalk.greenBright('b-creative')} generator!`
-    );
+    this.log(`👋 Welcome to the ace ${chalk.greenBright('b-creative')} generator!`);
     this.log(
       `Please enter the project's name. Supplying the name of the current folder will scaffold the application ${chalk.greenBright(
         'in the current folder'
@@ -24,22 +22,21 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'name',
         message: 'What is the name of the project?',
-        validate: input => {
+        validate: (input) => {
           return input.length > 0 ? true : 'Project name contains no characters.';
-        }
+        },
       },
       {
         type: 'input',
         name: 'vhost',
-        message:
-          'What is your virtual host name? (full domain name e.g. www.bornfight.loc)',
-        validate: input => {
+        message: 'What is your virtual host name? (full domain name e.g. www.bornfight.loc)',
+        validate: (input) => {
           return input.length > 0 ? true : 'Virtual host name contains no characters.';
-        }
-      }
+        },
+      },
     ];
 
-    return this.prompt(prompts).then(props => {
+    return this.prompt(prompts).then((props) => {
       // To access props later use this.props.someAnswer;
       this.props = props;
     });
@@ -58,19 +55,15 @@ module.exports = class extends Generator {
       name: this.props.name,
       vhostName: this.props.vhost,
       globOptions: {
-        dot: true
-      }
+        dot: true,
+      },
     };
 
     this.fs.copyTpl(this.templatePath('common/**'), this.destinationRoot(), config);
 
     this.fs.copy(this.templatePath('dotfiles/**'), this.destinationRoot(), config);
 
-    this.fs.copyTpl(
-      this.templatePath('static/**'),
-      this.destinationPath('static'),
-      config
-    );
+    this.fs.copyTpl(this.templatePath('static/**'), this.destinationPath('static'), config);
   }
 
   createDirectories() {
@@ -87,7 +80,7 @@ module.exports = class extends Generator {
   install() {
     this.installDependencies({
       npm: true,
-      bower: false
+      bower: false,
     });
   }
 
@@ -95,23 +88,14 @@ module.exports = class extends Generator {
     // Have Yeoman greet the user.
     this.log(`${chalk.greenBright(figlet.textSync('Bornfight'))}`);
     this.log(`${chalk.greenBright(figlet.textSync('Creative'))}`);
-    printMessage(
-      [
-        'Project files created',
-        '',
-        'Run "npm run dev" to start working',
-        '',
-        'Run "npm run build" to build files'
-      ],
-      {
-        border: true,
-        color: 'green',
-        borderColor: 'green',
-        marginTop: 1,
-        marginBottom: 1,
-        paddingTop: 1,
-        paddingBottom: 1
-      }
-    );
+    printMessage(['Project files created', '', 'Run "npm run dev" to start working', '', 'Run "npm run build" to build files'], {
+      border: true,
+      color: 'green',
+      borderColor: 'green',
+      marginTop: 1,
+      marginBottom: 1,
+      paddingTop: 1,
+      paddingBottom: 1,
+    });
   }
 };
