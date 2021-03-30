@@ -62,17 +62,33 @@ $settings-spacings: (
         $breakpoint-sm: 64px,
         $breakpoint-xl: 96px,
     ),
+    "s-112": (
+        $breakpoint-sm: 72px,
+        $breakpoint-xl: 112px,
+    ),
     "s-120": (
-        $breakpoint-sm: 64px,
+        $breakpoint-sm: 72px,
         $breakpoint-xl: 120px,
+    ),
+    "s-136": (
+        $breakpoint-sm: 80px,
+        $breakpoint-xl: 136px,
     ),
     "s-160": (
         $breakpoint-sm: 80px,
         $breakpoint-xl: 160px,
     ),
+    "s-184": (
+        $breakpoint-sm: 96px,
+        $breakpoint-xl: 184px,
+    ),
     "s-200": (
-        $breakpoint-sm: 80px,
+        $breakpoint-sm: 96px,
         $breakpoint-xl: 200px,
+    ),
+    "s-248": (
+        $breakpoint-sm: 112px,
+        $breakpoint-xl: 248px,
     ),
     "s-264": (
         $breakpoint-sm: 120px,

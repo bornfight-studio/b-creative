@@ -11,7 +11,7 @@ export default class NavigationController {
          * @type {{navigation: string, states: {navigationSlideUp: string, navigationScrolled: string, navigationFixed: string}}}
          */
         this.DOM = {
-            navigation: ".js-navigation-wrapper",
+            navigation: ".js-navigation",
             states: {
                 navigationScrolled: "has-scrolled",
                 navigationFixed: "is-fixed",
