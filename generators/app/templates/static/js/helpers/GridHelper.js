@@ -15,17 +15,26 @@ export default class GridHelper {
 
         /**
          * Grid options
-         * @type {{gutterFixed: boolean, initialDisplay: string, gridFixed: boolean, gutterWidth: number, gridColor: string, columnCount: number, gridWidth: number, columnBgColor: string}}
+         * @type {{
+         * gutterFixed: boolean,
+         * initialDisplay: string,
+         * gridFixed: boolean,
+         * gutterWidth: number,
+         * gridColor: string,
+         * columnCount: number,
+         * gridWidth: number,
+         * columnBgColor: string
+         * }}
          */
         this.gridOptions = {
-            initialDisplay: "none", // "flex" or "none"
-            columnCount: 24,
-            gridWidth: 1440, // px
-            gridFixed: true,
-            gutterWidth: 0, // px
-            gutterFixed: false,
-            gridColor: "rgb(255, 0, 255, 0.15)",
-            columnBgColor: "rgb(255, 0, 255, 0.025)",
+            initialDisplay: "none", // "flex" or "none" — initial display for the grid — string
+            columnCount: 24, // number of grid columns — integer
+            gridWidth: 1440, // base grid used in design; value in px — integer
+            gridFixed: true, // should grid width be restricted to gridWidth or it should go full width a nd behave fluidly across all screen sizes
+            gutterWidth: 0, // grid gutters value in px — integer
+            gutterFixed: false, // should grid gutter be a fixed value (px) or fluid — integer
+            gridColor: "rgb(255, 0, 255, 0.15)", // grid guides color — string of an rgba or hex value
+            columnBgColor: "rgb(255, 0, 255, 0.025)", // grid columns background color — string of an rgba or hex value
         };
 
         const consoleLogStyle = [
@@ -68,7 +77,7 @@ export default class GridHelper {
             flex-direction: row;
             width: 100%;
             height: 100%;
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
