@@ -63,15 +63,15 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "chalk": "^4.1.0",
+    "chalk": "^4.1.1",
     "yeoman-generator": "^4.13.0",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "eslint": "^7.23.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-config-xo": "^0.35.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-xo": "^0.36.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "figlet": "^1.5.0",
     "husky": "^6.0.0",
     "jest": "^26.6.3",
@@ -82,7 +82,7 @@
     "yeoman-test": "^5.1.0"
   },
   "engines": {
-    "node": ">=14.16.0",
-    "npm": ">=7.7.6"
+    "node": ">=14.16.1",
+    "npm": ">=7.11.1"
   }
 }
