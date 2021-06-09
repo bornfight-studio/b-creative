@@ -38,6 +38,10 @@
             outline: 0;
             box-shadow: 0 0 0 2px $focus-indicator-divider-color, 0 0 0 4px $focus-indicator-color;
             @content;
+
+            @include mq(null, xl) {
+                box-shadow: 0 0 0 get-vw(2px) $focus-indicator-divider-color, 0 0 0 get-vw(4px) $focus-indicator-color;
+            }
         }
     }
 }
