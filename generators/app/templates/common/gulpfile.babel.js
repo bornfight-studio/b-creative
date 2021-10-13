@@ -233,7 +233,7 @@ export function reload(done) {
  */
 export function serve(done) {
     server.init({
-        proxy: "www.test.loc/test",
+        proxy: "<%= vhostName %>/<%= name %>",
         port: 3000,
         host: "localhost",
     });
