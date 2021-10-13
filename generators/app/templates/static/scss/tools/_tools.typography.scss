@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /**
  * Font face mixin
  * @param {string} $font-name - Name of the font
@@ -33,7 +35,7 @@
  * padding-top: rem(20px);
  */
 @function rem($size) {
-    @return $size / 16px * 1rem; /* 1 */
+    @return math.div($size, 16px) * 1rem; /* 1 */
 }
 
 /**
@@ -44,5 +46,5 @@
  * padding-top: em(20px);
  */
 @function em($size) {
-    @return $size / 16px * 1em; /* 1 */
+    @return math.div($size, 16px) * 1em; /* 1 */
 }

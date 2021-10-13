@@ -4,11 +4,7 @@ const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
 
 describe('b-creative:app', () => {
-  beforeAll(() => {
-    return helpers
-      .run(path.join(__dirname, '../generators/app'))
-      .withPrompts({ someAnswer: true });
-  });
+  beforeAll(() => helpers.run(path.join(__dirname, '../generators/app')).withPrompts({ someAnswer: true }));
 
   it('creates files', () => {
     assert.file(['dummyfile.txt']);
