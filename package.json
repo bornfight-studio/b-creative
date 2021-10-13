@@ -1,6 +1,6 @@
 {
   "name": "generator-b-creative",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bornfight frontend project template based on gulp, es6 and scss",
   "keywords": [
     "frontend",
@@ -64,7 +64,8 @@
   },
   "dependencies": {
     "chalk": "^4.1.1",
-    "yeoman-generator": "^4.13.0",
+    "yeoman-environment": "^3.6.0",
+    "yeoman-generator": "^5.4.2",
     "yosay": "^2.0.2"
   },
   "devDependencies": {

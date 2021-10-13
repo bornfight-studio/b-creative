@@ -29,7 +29,7 @@
   "dependencies": {
     "@bornfight/b-reset": "^1.0.8",
     "gsap": "^3.7.1",
-    "poly-fluid-sizing": "^1.1.0"
+    "poly-fluid-sizing": "git+https://github.com/bornfight/poly-fluid-sizing.git#master"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
@@ -57,12 +57,13 @@
     "gulp-concat": "^2.6.1",
     "gulp-if": "^3.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.1.1",
+    "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
     "husky": "^7.0.1",
     "prettier": "^2.3.2",
+    "sass": "^1.42.1",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-prettier": "^1.2.0",

@@ -8,7 +8,8 @@ import del from "del";
 import gulp from "gulp";
 import gulpif from "gulp-if";
 import rename from "gulp-rename";
-import sass from "gulp-sass";
+import gulpSass from "gulp-sass";
+import dartSass from "sass";
 import sourcemaps from "gulp-sourcemaps";
 import source from "vinyl-source-stream";
 import stripCode from "browserify-strip-code";
@@ -16,6 +17,11 @@ import uglify from "gulp-uglify";
 import watchify from "watchify";
 import webp from "gulp-webp";
 import { plugins } from "./plugins";
+
+/**
+ * Use dart sass for sass compiler
+ */
+const sass = gulpSass( dartSass );
 
 /**
  * Paths object
@@ -227,7 +233,7 @@ export function reload(done) {
  */
 export function serve(done) {
     server.init({
-        proxy: "<%= vhostName %>/<%= name %>",
+        proxy: "www.test.loc/test",
         port: 3000,
         host: "localhost",
     });
