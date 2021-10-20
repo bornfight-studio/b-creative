@@ -63,26 +63,25 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "chalk": "^4.1.1",
-    "yeoman-generator": "^4.13.0",
+    "chalk": "^4.1.2",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "eslint": "^7.31.0",
+    "eslint": "^8.0.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-xo": "^0.37.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "figlet": "^1.5.0",
-    "husky": "^7.0.1",
-    "jest": "^27.0.6",
-    "lint-staged": "^11.1.0",
-    "prettier": "^2.3.2",
+    "eslint-config-xo": "^0.39.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "figlet": "^1.5.2",
+    "jest": "^27.2.5",
+    "lint-staged": "^11.2.3",
+    "prettier": "^2.4.1",
     "print-message": "^3.0.1",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^5.1.0"
+    "yeoman-generator": "^4.13.0",
+    "yeoman-test": "^6.2.0"
   },
   "engines": {
-    "node": ">=14.17.0",
-    "npm": ">=7.16.0"
+    "node": ">=14.18.1",
+    "npm": ">=8.0.0"
   }
 }

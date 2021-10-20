@@ -8,7 +8,8 @@ import del from "del";
 import gulp from "gulp";
 import gulpif from "gulp-if";
 import rename from "gulp-rename";
-import sass from "gulp-sass";
+import dartSass from "sass";
+import gulpSass from "gulp-sass";
 import sourcemaps from "gulp-sourcemaps";
 import source from "vinyl-source-stream";
 import stripCode from "browserify-strip-code";
@@ -16,6 +17,11 @@ import uglify from "gulp-uglify";
 import watchify from "watchify";
 import webp from "gulp-webp";
 import { plugins } from "./plugins";
+
+/**
+ * Set default Sass compiler
+ */
+const sass = gulpSass(dartSass);
 
 /**
  * Paths object
@@ -104,11 +110,7 @@ const browserifyWatch = browserify({
     transform: [
         babelify.configure({
             presets: ["@babel/preset-env"],
-            plugins: [
-                "@babel/plugin-syntax-dynamic-import",
-                "@babel/proposal-class-properties",
-                "@babel/proposal-object-rest-spread",
-            ],
+            plugins: ["@babel/plugin-syntax-dynamic-import", "@babel/proposal-class-properties", "@babel/proposal-object-rest-spread"],
         }),
     ],
 });
@@ -142,11 +144,7 @@ const browserifyBuild = browserify({
         [stripCode, { whitelist: [paths.scripts.main] }],
         babelify.configure({
             presets: ["@babel/preset-env"],
-            plugins: [
-                "@babel/plugin-syntax-dynamic-import",
-                "@babel/proposal-class-properties",
-                "@babel/proposal-object-rest-spread",
-            ],
+            plugins: ["@babel/plugin-syntax-dynamic-import", "@babel/proposal-class-properties", "@babel/proposal-object-rest-spread"],
         }),
     ],
 });
@@ -181,11 +179,7 @@ export function buildVendorScripts() {
         .transform("babelify", {
             global: true,
             presets: ["@babel/preset-env"],
-            plugins: [
-                "@babel/plugin-syntax-dynamic-import",
-                "@babel/proposal-class-properties",
-                "@babel/proposal-object-rest-spread",
-            ],
+            plugins: ["@babel/plugin-syntax-dynamic-import", "@babel/proposal-class-properties", "@babel/proposal-object-rest-spread"],
         })
         .bundle()
         .on("error", (err) => console.log(err))
@@ -208,10 +202,7 @@ export function buildVendorScripts() {
  * Convert images to WebP format
  */
 export function convertWebPImages() {
-    return gulp
-        .src(paths.images.src)
-        .pipe(webp())
-        .pipe(gulp.dest(paths.images.dest));
+    return gulp.src(paths.images.src).pipe(webp()).pipe(gulp.dest(paths.images.dest));
 }
 
 /**
@@ -245,13 +236,7 @@ export function watchFiles() {
 /**
  * Watch task
  */
-const watch = gulp.series(
-    clean,
-    gulp.parallel(watchStyles, watchScripts),
-    buildVendorScripts,
-    serve,
-    watchFiles,
-);
+const watch = gulp.series(clean, gulp.parallel(watchStyles, watchScripts), buildVendorScripts, serve, watchFiles);
 
 /**
  * WebP convert task
@@ -261,11 +246,7 @@ export const webPImages = gulp.series(convertWebPImages);
 /**
  * Build task
  */
-export const build = gulp.series(
-    clean,
-    gulp.parallel(buildStyles, buildScripts),
-    buildVendorScripts,
-);
+export const build = gulp.series(clean, gulp.parallel(buildStyles, buildScripts), buildVendorScripts);
 
 /**
  * Build vendor task

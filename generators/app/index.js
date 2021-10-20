@@ -22,17 +22,13 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'name',
         message: 'What is the name of the project?',
-        validate: (input) => {
-          return input.length > 0 ? true : 'Project name contains no characters.';
-        },
+        validate: (input) => (input.length > 0 ? true : 'Project name contains no characters.'),
       },
       {
         type: 'input',
         name: 'vhost',
         message: 'What is your virtual host name? (full domain name e.g. www.bornfight.loc)',
-        validate: (input) => {
-          return input.length > 0 ? true : 'Virtual host name contains no characters.';
-        },
+        validate: (input) => (input.length > 0 ? true : 'Virtual host name contains no characters.'),
       },
     ];
 

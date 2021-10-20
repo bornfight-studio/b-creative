@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .u-a5 {
     @include fontSize("a5");
 
@@ -11,7 +13,7 @@
 
     font-family: $font-secondary;
     line-height: 107%;
-    letter-spacing: -1.33 / 64 * 1em;
+    letter-spacing: math.div(-1.33, 64) * 1em;
 }
 
 .u-a3 {
@@ -19,7 +21,7 @@
 
     font-family: $font-primary;
     line-height: 116%;
-    letter-spacing: -1 / 48 * 1em;
+    letter-spacing: math.div(-1, 48) * 1em;
 }
 
 .u-a2 {
@@ -27,7 +29,7 @@
 
     font-family: $font-secondary;
     line-height: 112%;
-    letter-spacing: -0.8 / 41 * 1em;
+    letter-spacing: math.div(-0.8, 41) * 1em;
 }
 
 .u-a1 {
@@ -59,7 +61,7 @@
 
     font-family: $font-secondary;
     line-height: 133%;
-    letter-spacing: -0.1 / 15 * 1em;
+    letter-spacing: math.div(-0.1, 15) * 1em;
 }
 
 .u-b3 {
