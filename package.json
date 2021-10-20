@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.1",
+    "npm": "^7.20.6",
     "yeoman-generator": "^4.13.0",
     "yosay": "^2.0.2"
   },
