@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@bornfight/b-reset": "^1.0.8",
-    "gsap": "^3.8.0",
+    "gsap": "npm:@gsap/shockingly@^3.8.0",
     "poly-fluid-sizing": "github:bornfight/poly-fluid-sizing"
   },
   "devDependencies": {
