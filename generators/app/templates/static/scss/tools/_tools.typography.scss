@@ -46,3 +46,21 @@
 @function em($size) {
     @return $size / 16px * 1em; /* 1 */
 }
+
+
+/**
+ * Custom text highlight
+ * usage:
+ * @include text-highlight;
+ */
+@mixin text-highlight {
+    ::selection {
+        background-color: $personalized-primary-color;
+        color: $personalized-secondary-color;
+    }
+
+    ::-moz-selection {
+        background-color: $personalized-primary-color;
+        color: $personalized-secondary-color;
+    }
+}

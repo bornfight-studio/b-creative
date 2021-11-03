@@ -5,48 +5,10 @@ body {
 
 body {
     @extend .u-b0;
+    @include custom-scrollbar;
 
     color: $black;
     background-color: $white;
-
-    // custom scrollbar
-    scrollbar-width: thin;
-    scrollbar-color: $personalized-secondary-color $personalized-primary-color;
-    scrollbar-gutter: stable;
-
-    &::-webkit-scrollbar {
-        width: 10px;
-        cursor: pointer;
-        background-color: inherit;
-    }
-
-    &::-webkit-scrollbar-track {
-        background-color: rgba($personalized-secondary-color, 0);
-
-        &:hover {
-            background-color: rgba($personalized-secondary-color, 0.2);
-        }
-    }
-
-    &::-webkit-scrollbar-thumb {
-        border-radius: 50px;
-        border: 2px solid transparent;
-        background-clip: content-box;
-        background-color: rgba($personalized-primary-color, 0.2);
-
-        &:hover {
-            background-color: rgba($personalized-primary-color, 0.9);
-        }
-    }
 }
 
-// custom body text highlight
-::selection {
-    background-color: $personalized-primary-color;
-    color: $personalized-secondary-color;
-}
-
-::-moz-selection {
-    background-color: $personalized-primary-color;
-    color: $personalized-secondary-color;
-}
+@include text-highlight;
