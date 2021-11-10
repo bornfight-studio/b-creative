@@ -55,12 +55,12 @@
  */
 @mixin text-highlight {
     ::selection {
-        background-color: $personalized-primary-color;
-        color: $personalized-secondary-color;
+        background-color: $text-highlight-primary-color;
+        color: $text-highlight-secondary-color;
     }
 
     ::-moz-selection {
-        background-color: $personalized-primary-color;
-        color: $personalized-secondary-color;
+        background-color: $text-highlight-primary-color;
+        color: $text-highlight-secondary-color;
     }
 }

@@ -26,7 +26,7 @@
  */
 @mixin custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: $personalized-secondary-color $personalized-primary-color;
+    scrollbar-color: $scrollbar-secondary-color $scrollbar-primary-color;
     scrollbar-gutter: stable;
 
     &::-webkit-scrollbar {
@@ -36,10 +36,10 @@
     }
 
     &::-webkit-scrollbar-track {
-        background-color: rgba($personalized-secondary-color, 0);
+        background-color: rgba($scrollbar-secondary-color, 0);
 
         &:hover {
-            background-color: rgba($personalized-secondary-color, 0.2);
+            background-color: rgba($scrollbar-secondary-color, 0.2);
         }
     }
 
@@ -47,10 +47,10 @@
         border-radius: 50px;
         border: 2px solid transparent;
         background-clip: content-box;
-        background-color: rgba($personalized-primary-color, 0.2);
+        background-color: rgba($scrollbar-primary-color, 0.2);
 
         &:hover {
-            background-color: rgba($personalized-primary-color, 0.9);
+            background-color: rgba($scrollbar-primary-color, 0.9);
         }
     }
 }
