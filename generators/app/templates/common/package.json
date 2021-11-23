@@ -15,7 +15,7 @@
     "esdoc": "./node_modules/.bin/esdoc",
     "format": "prettier --write 'static/**/*.{scss,js}'",
     "lint:scss": "stylelint 'static/**/*.scss'",
-    "prepare": "husky install",
+    "prepare": "<%- huskyPrepare %>",
     "webp": "gulp webPImages"
   },
   "browserslist": [
