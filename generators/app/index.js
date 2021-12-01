@@ -50,6 +50,7 @@ module.exports = class extends Generator {
     const config = {
       name: this.props.name,
       vhostName: this.props.vhost,
+      huskyPrepare: this.props.vhost === 'www.bwp.loc' ? 'cd .. && cd .. && husky install' : 'husky install',
       globOptions: {
         dot: true,
       },
