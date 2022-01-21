@@ -1,7 +1,10 @@
 @use 'sass:math';
 
 /**
- * instead padding-left: percentage(1/24) use
+ * Percentage mixin
+ * Abbreviation mixin for using percentage without math.div
+ * https://sass-lang.com/documentation/breaking-changes/slash-div
+ * usage:
  * @include percentage("padding-left", 1, 24);
  */
 @mixin percentage($property: null, $firstVal: null, $secondVal: null) {
