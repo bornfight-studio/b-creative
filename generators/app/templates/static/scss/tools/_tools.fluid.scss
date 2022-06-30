@@ -6,11 +6,11 @@
     @if $size != null {
         @include poly-fluid-sizing("font-size", getFontValues($size));
     }
-    @include mq(null, xl) {
+    @include mq(null, xxl) {
         @if $value != null {
-            font-size: get-vw($value);
+            font-size: get-vw($value, $breakpoint-xxl);
         } @else {
-            font-size: get-vw(map-deep-get($settings-typography, $size, $breakpoint-xl));
+            font-size: get-vw(map-deep-get($settings-typography, $size, $breakpoint-xl), $breakpoint-xxl);
         }
     }
 }
@@ -35,11 +35,11 @@
     } @else if $value != null {
         #{$property}: $value;
     }
-    @include mq(null, xl) {
+    @include mq(null, xxl) {
         @if $value != null {
-            #{$property}: get-vw($value);
+            #{$property}: get-vw($value, $breakpoint-xxl);
         } @else {
-            #{$property}: get-vw(map-deep-get($settings-spacings, $spacing, $breakpoint-xl));
+            #{$property}: get-vw(map-deep-get($settings-spacings, $spacing, $breakpoint-xl), $breakpoint-xxl);
         }
     }
 }
