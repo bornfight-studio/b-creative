@@ -13,9 +13,9 @@ $max-height: 900;
  * usage:
  * padding-top: get-vw(100px);
  */
-@function get-vw($size) {
-    $vw-context: ($max-width * 0.01) * 1px; /* 1 */
-    @return math.div($size, $vw-context) * 1vw;
+@function get-vw($size, $base-vw: $max-width) {
+    $vw-context: ($base-vw * 0.01) * 1px; /* 1 */
+    @return strip-units(math.div($size, $vw-context)) * 1vw;
 }
 
 /**
@@ -28,4 +28,15 @@ $max-height: 900;
 @function get-vh($size) {
     $vw-context: ($max-height * 0.01) * 1px; /* 1 */
     @return math.div($size, $vw-context) * 1vh;
+}
+
+/**
+ * Strip units function
+ * @param {number} $number - the value you want to strip unuts from
+ * usage:
+ * strip-units(100px);
+ * returns: 100
+ */
+@function strip-units($number) {
+    @return math.div($number, ($number * 0 + 1));
 }
