@@ -67,21 +67,21 @@
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "eslint": "^8.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-xo": "^0.39.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint": "^8.23.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-xo": "^0.42.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "figlet": "^1.5.2",
-    "jest": "^27.2.5",
-    "lint-staged": "^11.2.3",
-    "prettier": "^2.4.1",
+    "jest": "^29.0.3",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "print-message": "^3.0.1",
     "yeoman-assert": "^3.1.1",
     "yeoman-generator": "^4.13.0",
-    "yeoman-test": "^6.2.0"
+    "yeoman-test": "^6.3.0"
   },
   "engines": {
-    "node": ">=14.18.1",
-    "npm": ">=8.0.0"
+    "node": ">=14.19.3",
+    "npm": ">=8.11.0"
   }
 }
