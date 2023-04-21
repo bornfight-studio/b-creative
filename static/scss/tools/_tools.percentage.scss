@@ -1,0 +1,12 @@
+@use "sass:math";
+
+/**
+ * Percentage function
+ * Abbreviation function for using percentage without math.div
+ * https://sass-lang.com/documentation/breaking-changes/slash-div
+ * usage:
+ * padding-left: percentage(1, 24);
+ */
+@function percentage($num1, $num2) {
+    @return math.percentage(math.div($num1, $num2));
+}

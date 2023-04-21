@@ -1,0 +1,101 @@
+/**
+ * Spacing map
+ */
+$settings-spacings: (
+    "s-2": (
+        $breakpoint-sm: 2px,
+        $breakpoint-xl: 2px,
+    ),
+    "s-4": (
+        $breakpoint-sm: 4px,
+        $breakpoint-xl: 4px,
+    ),
+    "s-8": (
+        $breakpoint-sm: 8px,
+        $breakpoint-xl: 8px,
+    ),
+    "s-12": (
+        $breakpoint-sm: 8px,
+        $breakpoint-xl: 12px,
+    ),
+    "s-16": (
+        $breakpoint-sm: 12px,
+        $breakpoint-xl: 16px,
+    ),
+    "s-20": (
+        $breakpoint-sm: 12px,
+        $breakpoint-xl: 20px,
+    ),
+    "s-24": (
+        $breakpoint-sm: 16px,
+        $breakpoint-xl: 24px,
+    ),
+    "s-32": (
+        $breakpoint-sm: 20px,
+        $breakpoint-xl: 32px,
+    ),
+    "s-40": (
+        $breakpoint-sm: 24px,
+        $breakpoint-xl: 40px,
+    ),
+    "s-48": (
+        $breakpoint-sm: 24px,
+        $breakpoint-xl: 48px,
+    ),
+    "s-56": (
+        $breakpoint-sm: 32px,
+        $breakpoint-xl: 56px,
+    ),
+    "s-64": (
+        $breakpoint-sm: 40px,
+        $breakpoint-xl: 64px,
+    ),
+    "s-72": (
+        $breakpoint-sm: 48px,
+        $breakpoint-xl: 72px,
+    ),
+    "s-80": (
+        $breakpoint-sm: 56px,
+        $breakpoint-xl: 80px,
+    ),
+    "s-96": (
+        $breakpoint-sm: 64px,
+        $breakpoint-xl: 96px,
+    ),
+    "s-112": (
+        $breakpoint-sm: 72px,
+        $breakpoint-xl: 112px,
+    ),
+    "s-120": (
+        $breakpoint-sm: 72px,
+        $breakpoint-xl: 120px,
+    ),
+    "s-136": (
+        $breakpoint-sm: 80px,
+        $breakpoint-xl: 136px,
+    ),
+    "s-160": (
+        $breakpoint-sm: 80px,
+        $breakpoint-xl: 160px,
+    ),
+    "s-184": (
+        $breakpoint-sm: 96px,
+        $breakpoint-xl: 184px,
+    ),
+    "s-200": (
+        $breakpoint-sm: 96px,
+        $breakpoint-xl: 200px,
+    ),
+    "s-248": (
+        $breakpoint-sm: 112px,
+        $breakpoint-xl: 248px,
+    ),
+    "s-264": (
+        $breakpoint-sm: 120px,
+        $breakpoint-xl: 264px,
+    ),
+    "s-320": (
+        $breakpoint-sm: 160px,
+        $breakpoint-xl: 320px,
+    ),
+);

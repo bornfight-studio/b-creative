@@ -1,0 +1,161 @@
+@use "sass:math";
+
+.u-a5,
+%u-a5 {
+    @include fontSize("a5");
+
+    font-family: $font-primary;
+    line-height: 100%;
+    letter-spacing: normal;
+}
+
+.u-a4,
+%u-a4 {
+    @include fontSize("a4");
+
+    font-family: $font-secondary;
+    line-height: 107%;
+    letter-spacing: math.div(-1.33, 64) * 1em;
+}
+
+.u-a3,
+%u-a3 {
+    @include fontSize("a3");
+
+    font-family: $font-primary;
+    line-height: 116%;
+    letter-spacing: math.div(-1, 48) * 1em;
+}
+
+.u-a2,
+%u-a2 {
+    @include fontSize("a2");
+
+    font-family: $font-secondary;
+    line-height: 112%;
+    letter-spacing: math.div(-0.8, 41) * 1em;
+}
+
+.u-a1,
+%u-a1 {
+    @include fontSize("a1");
+
+    font-family: $font-primary;
+    line-height: 130%;
+    letter-spacing: normal;
+}
+
+.u-b0,
+%u-b0 {
+    @include fontSize("b0");
+
+    font-family: $font-secondary;
+    line-height: 144%;
+    letter-spacing: normal;
+}
+
+.u-b1,
+%u-b1 {
+    @include fontSize("b1");
+
+    font-family: $font-primary;
+    line-height: 110%;
+    letter-spacing: normal;
+}
+
+.u-b2,
+%u-b2 {
+    @include fontSize("b2");
+
+    font-family: $font-secondary;
+    line-height: 133%;
+    letter-spacing: math.div(-0.1, 15) * 1em;
+}
+
+.u-b3,
+%u-b3 {
+    @include fontSize("b3");
+
+    font-family: $font-primary;
+    line-height: 110%;
+    letter-spacing: normal;
+}
+
+.u-b4,
+%u-b4 {
+    @include fontSize("b4");
+
+    font-family: $font-secondary;
+    line-height: 125%;
+    letter-spacing: normal;
+}
+
+.u-uppercase {
+    text-transform: uppercase;
+}
+
+.u-capitalize {
+    text-transform: capitalize;
+}
+
+.u-text-left {
+    text-align: left;
+}
+
+.u-text-center {
+    text-align: center;
+}
+
+.u-text-right {
+    text-align: right;
+}
+
+.u-underline {
+    text-decoration: underline;
+}
+
+.u-fw-thin,
+.u-fw-100 {
+    font-weight: 100;
+}
+
+.u-fw-extra-light,
+.u-fw-200 {
+    font-weight: 200;
+}
+
+.u-fw-light,
+.u-fw-300 {
+    font-weight: 300;
+}
+
+.u-fw-regular,
+.u-fw-normal,
+.u-fw-400 {
+    font-weight: 400;
+}
+
+.u-fw-medium,
+.u-fw-500 {
+    font-weight: 500;
+}
+
+.u-fw-semi-bold,
+.u-fw-600 {
+    font-weight: 600;
+}
+
+.u-fw-bold,
+.u-fw-700 {
+    font-weight: 700;
+}
+
+.u-fw-extra-bold,
+.u-fw-800 {
+    font-weight: 800;
+}
+
+.u-fw-black,
+.u-fw-900 {
+    font-weight: 900;
+}

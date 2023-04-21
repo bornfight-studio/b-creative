@@ -1,0 +1,42 @@
+@use "sass:math";
+
+/**
+ * Context
+ */
+$max-width: 1440;
+$max-height: 900;
+
+/**
+ * Viewport width function
+ * 1. 1 vw is equal to 1% of the viewport width
+ * @param {number} $size - the value in pixel you want to convert
+ * usage:
+ * padding-top: get-vw(100px);
+ */
+@function get-vw($size, $base-vw: $max-width) {
+    $vw-context: ($base-vw * 0.01) * 1px; /* 1 */
+    @return strip-units(math.div($size, $vw-context)) * 1vw;
+}
+
+/**
+ * Viewport height function
+ * 1. 1 vw is equal to 1% of the viewport width
+ * @param {number} $size - the value in pixel you want to convert
+ * usage:
+ * padding-top: get-vh(100px);
+ */
+@function get-vh($size) {
+    $vw-context: ($max-height * 0.01) * 1px; /* 1 */
+    @return math.div($size, $vw-context) * 1vh;
+}
+
+/**
+ * Strip units function
+ * @param {number} $number - the value you want to strip unuts from
+ * usage:
+ * strip-units(100px);
+ * returns: 100
+ */
+@function strip-units($number) {
+    @return math.div($number, ($number * 0 + 1));
+}

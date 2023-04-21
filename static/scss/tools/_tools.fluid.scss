@@ -1,0 +1,66 @@
+/**
+ * Fluid font sizes
+ * usage:
+ */
+@mixin fontSize($size: null, $value: null) {
+    @if $size != null {
+        @include poly-fluid-sizing("font-size", getFontValues($size));
+    }
+    @include mq(null, xxl) {
+        @if $value != null {
+            font-size: get-vw($value, $breakpoint-xxl);
+        } @else {
+            font-size: get-vw(map-deep-get($settings-typography, $size, $breakpoint-xl), $breakpoint-xxl);
+        }
+    }
+}
+
+/**
+ * Get font values from settings
+ */
+@function getFontValues($size) {
+    @return map-get($settings-typography, $size);
+}
+
+/**
+ * Fluid property values
+ * usage:
+ * @include fluidValue("margin-top", "s-56");
+ * @include fluidValue("max-width", null, 600px);
+ * @include fluidValue("padding-top", "s-56", 56px);
+ */
+@mixin fluidValue($property: null, $spacing: null, $value: null) {
+    @if $spacing != null {
+        @include poly-fluid-sizing($property, getSpacingValues($spacing));
+    } @else if $value != null {
+        #{$property}: $value;
+    }
+    @include mq(null, xxl) {
+        @if $value != null {
+            #{$property}: get-vw($value, $breakpoint-xxl);
+        } @else {
+            #{$property}: get-vw(map-deep-get($settings-spacings, $spacing, $breakpoint-xl), $breakpoint-xxl);
+        }
+    }
+}
+
+/**
+ * Get spacing values from settings
+ */
+@function getSpacingValues($spacing) {
+    @return map-get($settings-spacings, $spacing);
+}
+
+/**
+ * Fetch nested keys
+ * @param {Map} $map - Map
+ * @param {Arglist} $keys - Keys to fetch
+ * Fetch nested keys
+ * @return {*}
+ */
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}

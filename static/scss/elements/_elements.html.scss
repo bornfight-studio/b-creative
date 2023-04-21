@@ -1,0 +1,11 @@
+html,
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    @extend %u-b0;
+
+    color: $black;
+    background-color: $white;
+}

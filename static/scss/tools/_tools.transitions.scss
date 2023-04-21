@@ -1,0 +1,79 @@
+/**
+ * Get transition easing from $settings-transitions-easing
+ */
+@function getTransitionEasing($transitionEasing: "default") {
+    @if (map-has_key($settings-transitions-easing, $transitionEasing)) {
+        @return map-get($settings-transitions-easing, $transitionEasing);
+    } @else {
+        @return map-get($settings-transitions-easing, "default");
+    }
+}
+
+/**
+ * Transition function
+ * @param {string} $transitionName - Name of the transition from $settings-transitions
+ * @param {string} $transitionEasing - get transition easing from $settings-transitions-easing
+ * usage:
+ * transition: getTransition;
+ * transition: getTransition(slide, ease-in-quad);
+ */
+@function getTransition($transitionName: "default", $transitionEasing: getTransitionEasing()) {
+    @if (map-has_key($settings-transitions, $transitionName)) {
+        @return map-get($settings-transitions, $transitionName) getTransitionEasing($transitionEasing);
+    } @else {
+        @return map-get($settings-transitions, "default") getTransitionEasing($transitionEasing);
+    }
+}
+
+/**
+ * Custom transition function
+ * used when you need to specify custom transition for only one or multiple properties but not all
+ * if you will not change the property use getTransition instead
+ * default easing is from getTransitionEasing
+ * @param {string} $transitions - any number of transitions
+ * usage:
+ * transition: getCustomTransition(opacity);
+ * transition: getCustomTransition(transform 0.3s);
+ * transition: getCustomTransition(transform 0.5s ease, background-color 0.2s);
+ * transition: getCustomTransition(
+ *                  top 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+ *                  transform 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.3s
+ *               );
+ */
+@function getCustomTransition($transitions...) {
+    $unfoldedTransitions: ();
+    @each $transition in $transitions {
+        $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+    }
+    @return $unfoldedTransitions;
+}
+
+/**
+ * Unfold transition function
+ * Helper for getCustomTransition();
+ * Takes any number of arguments passed to getCustomTransition() and makes unfolds them to single properties
+ * 1. Transition property defaults
+ * 2. Grab transition properties if they exist
+ */
+@function unfoldTransition($transition) {
+    /* 1 */
+    $property: all;
+    $duration: 0.2s;
+    $easing: getTransitionEasing();
+    $delay: null;
+    $defaultProperties: ($property, $duration, $easing, $delay);
+
+    /* 2 */
+    $unfoldedTransition: ();
+    @for $i from 1 through length($defaultProperties) {
+        $p: null;
+        @if $i <= length($transition) {
+            $p: nth($transition, $i);
+        } @else {
+            $p: nth($defaultProperties, $i);
+        }
+        $unfoldedTransition: append($unfoldedTransition, $p);
+    }
+
+    @return $unfoldedTransition;
+}

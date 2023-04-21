@@ -1,0 +1,47 @@
+/**
+ * Hover support mixin
+ * Detect if device supports hover interaction
+ * 1. If device is not supporting hover, add properties as active state styles
+ * 2. If device is supporting hover, add properties as hover state styles
+ * usage:
+ * @include hover{}
+ */
+@mixin hover() {
+    @media (hover: none) {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        &:active {
+            /* 1 */
+            @content;
+        }
+    }
+
+    @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        &:hover {
+            /* 2 */
+            @content;
+        }
+    }
+}
+
+/**
+ * Focus accessibility support mixin
+ * Enable box shadow for focusable (tabbable) elements
+ * 1. Target only elements that are not disabled and need a visible indicator to show focus
+ * usage:
+ * @include focus{}
+ */
+@mixin focus() {
+    &:active,
+    &:focus {
+        /* 1 */
+        &:not(:disabled):focus-visible {
+            outline: 0;
+            box-shadow: 0 0 0 2px $focus-indicator-divider-color, 0 0 0 4px $focus-indicator-color;
+            @content;
+
+            @include mq(null, xl) {
+                box-shadow: 0 0 0 get-vw(2px) $focus-indicator-divider-color, 0 0 0 get-vw(4px) $focus-indicator-color;
+            }
+        }
+    }
+}

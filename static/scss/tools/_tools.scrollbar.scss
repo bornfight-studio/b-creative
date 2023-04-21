@@ -1,0 +1,17 @@
+/**
+ * Mixin that hides scrollbar on scrollable elements (for example overflow lists)
+ * usage:
+ *  div {
+ *      overflow: scroll;
+ *      @include hide-scrollbar;
+ *  }
+ */
+@mixin hide-scrollbar {
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
