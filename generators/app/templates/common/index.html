@@ -8,7 +8,9 @@
         <link href="static/dist/style.css" rel="stylesheet" />
         <script src="static/dist/vendor.js" defer></script>
         <script src="static/dist/bundle.js" defer></script>
+        <%_ if (react) { _%>
         <script src="static/dist/example_app.js" defer></script>
+        <%_ } _%>
     </head>
     <body>
         <!-- LOADER -->
@@ -50,9 +52,11 @@
                     </div>
                 </section>
                 <!-- end SECTION -->
+                <%_ if (react) { _%>
                 <!-- REACT APP -->
                 <div id="root"></div>
                 <!-- end REACT APP  -->
+                <%_ } _%>
                 <!-- MODULE -->
                 <section class="o-section">
                     <div class="o-container">

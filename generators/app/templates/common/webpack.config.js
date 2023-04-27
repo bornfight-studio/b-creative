@@ -9,11 +9,13 @@ module.exports = (env, argv) => {
     console.log(`Running in ${mode} mode...`);
     console.log(env);
 
-    const proxy = "http://localhost/b-creative-webpack/";
+    const proxy = "http://<%= vhost %>";
 
     const entry = {
         bundle: "./static/js/index.js",
+        <%_ if (react) { _%>
         example_app: "./static/js/example_app/index.js",
+        <%_ } _%>
         style: ["./static/scss/style.scss"],
     };
 
@@ -33,9 +35,11 @@ module.exports = (env, argv) => {
         new MiniCssExtractPlugin({
             filename: "[name].css",
         }),
+        <%_ if (react) { _%>
         new webpack.ProvidePlugin({
             React: "react",
         }),
+        <%_ } _%>
     ];
 
     if (mode === "development") {
@@ -53,12 +57,20 @@ module.exports = (env, argv) => {
             path: path.resolve(__dirname, "static", "dist"),
             clean: true,
         },
-        resolve: { extensions: [".js", ".jsx"] },
+        <%_ if (react) { _%>
+            resolve: { extensions: [".js", ".jsx"] },
+        <%_ } else { _%>
+            resolve: { extensions: [".js"] },
+        <%_ } _%>
         plugins: plugins,
         module: {
             rules: [
                 {
+                    <%_ if (react) { _%>
                     test: /\.(js|jsx)$/,
+                    <%_ } else { _%>
+                    test: /\.(js)$/,
+                    <%_ } _%>
                     exclude: /node_modules/,
                     use: ["babel-loader"],
                 },

@@ -13,9 +13,11 @@
     "plugins": ["prettier"],
     "rules": {
         "prettier/prettier": ["error"],
+        <%_ if (react) { _%>
         "react/react-in-jsx-scope": "off",
         "react/prop-types": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        <%_ } _%>
     },
     "globals":{
         "frontend_rest_object": true,
