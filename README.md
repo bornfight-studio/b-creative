@@ -42,9 +42,11 @@ The generator is based on modern tools and architectures that fit most of "multi
 ### Scripts
 
 ```bash
-npm run dev - dev environent with browsersync
-npm run build - build production
-npm run build:analyze - builds production creates an informational page about your js bundles
+npm run build # build for production
+npm run dev # build and watch file changes for development
+npm run format # format scss and js files with prettier
+npm run lint:scss # lint scss files with stylelint
+npm run prepare # install husky hooks
 ```
 
 ## License
