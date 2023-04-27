@@ -1,16 +1,33 @@
 {
     "name": "generator-b-creative",
     "version": "2.0.0",
-    "description": "",
+    "description": "BORNFIGHT STUDIO® project template based on webpack, es6 and scss",
     "files": [
         "generators"
     ],
     "keywords": [
+        "frontend",
+        "webpack",
+        "es6",
+        "babel",
+        "scss",
+        "browsersync",
         "yeoman-generator"
     ],
+    "repository": "bornfight/b-creative",
+    "license": "MIT",
+    "author": {
+        "name": "BORNFIGHT STUDIO®",
+        "email": "hello@bornfight.studio",
+        "url": "https://www.bornfight.studio"
+    },
     "dependencies": {
         "mkdirp": "^3.0.0",
         "print-message": "^3.0.1",
         "yeoman-generator": "^5.8.0"
+    },
+    "engines": {
+        "node": "16.x",
+        "npm": "8.x"
     }
 }
