@@ -1,36 +1,52 @@
-# generator-b-creative-2 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Write some description here!
+# B-CREATIVE
+
+BORNFIGHT STUDIO® project template based on webpack, es6 and scss
+
+![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-creative?style=flat-square)
+![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight/b-creative?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/bornfight/b-creative?style=flat-square)
+![GitHub](https://img.shields.io/github/license/bornfight/b-creative?style=flat-square)
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-b-creative-2 using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+Module has not yet been published on npm. Currently we are using it as local npm module.
 
 ```bash
 npm install -g yo
-npm install -g generator-b-creative-2
+git clone git@github.com:bornfight/b-creative.git
+cd b-creative 
+npm install
+npm link
 ```
 
-Then generate your new project:
+`npm link` will install your cloned repo as a global module, as if it was installed through public npm repository. 
+You can read more about it [here](https://yeoman.io/authoring/).
+
+Then generate your new project by running command `yo b-creative` and follow the instructions. 
+The generator will prompt you with some additional info, but recommended way of generating a new project is that you first `cd` into project you want the scaffold to be output. 
+
+## Usage
+
+The generator is based on modern tools and architectures that fit most of "multi page" and "single page" websites.
+
+### Webpack based build system 
+
+ - [webpack](https://webpack.js.org) v5
+ - [browsersync](https://browsersync.io/) for live reload as [webpack plugin](https://www.npmjs.com/package/browser-sync-webpack-plugin)
+
+### (S)CSS
+
+- based on **ITCSS** architecture (read about it [here](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)) and inspired by [inuitcss framework](https://github.com/inuitcss/inuitcss)
+- uses postcss by default - autoprefixer will automatically add vendor prefixes by [browserslist ruleset defined inside package.json](https://github.com/postcss/autoprefixer#browsers)
+   
+### Scripts
 
 ```bash
-yo b-creative-2
+npm run dev - dev environent with browsersync
+npm run build - build production
+npm run build:analyze - builds production creates an informational page about your js bundles
 ```
-
-## Getting To Know Yeoman
-
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
 ## License
 
-MIT © [BORNFIGHT STUDIO®](https://www.bornfight.studio/)
-
-
-[npm-image]: https://badge.fury.io/js/generator-b-creative-2.svg
-[npm-url]: https://npmjs.org/package/generator-b-creative-2
-[travis-image]: https://travis-ci.com/bornfight/generator-b-creative-2.svg?branch=master
-[travis-url]: https://travis-ci.com/bornfight/generator-b-creative-2
-[daviddm-image]: https://david-dm.org/bornfight/generator-b-creative-2.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/bornfight/generator-b-creative-2
+MIT © [BORNFIGHT STUDIO®](https://www.bornfight.studio)
