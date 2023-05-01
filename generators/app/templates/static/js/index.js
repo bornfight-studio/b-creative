@@ -4,12 +4,9 @@
 
 /**
  * Helpers
- * Imports of helper functions are stripped out of bundle
- * Include them within "start-strip-code" and "end-strip-code" comments
  */
-/* start-strip-code */
 import GridHelper from "./helpers/GridHelper";
-/* end-strip-code */
+
 /**
  * Components
  */
