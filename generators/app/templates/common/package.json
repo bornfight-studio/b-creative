@@ -1,6 +1,6 @@
 {
-    "name": "b-creative-2-webpack",
-    "version": "1.0.0",
+    "name": "b-creative-2",
+    "version": "2.0.0",
     "private": true,
     "description": "Bornfight frontend project template based on webpack, es6 and scss",
     "license": "(MIT OR Apache-2.0)",
