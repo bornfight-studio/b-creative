@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
     console.log(env);
 
     // Define the proxy URL for BrowserSync
-    const proxy = "http://<%= vhost %>/";
+    const proxy = "http://<%= vhost %>/<%= name %>";
 
     // Define the entry points for the webpack build
     const entry = {
