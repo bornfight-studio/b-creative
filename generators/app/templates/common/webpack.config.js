@@ -67,7 +67,9 @@ module.exports = (env, argv) => {
         output: {
             filename: "[name].js",
             path: path.resolve(__dirname, "static", "dist"),
-            clean: true,
+            clean: {
+                keep: /.gitkeep|vendor.js/
+            },
         },
         <%_ if (react) { _%>
         // Add support for importing .jsx files in addition to .js files
