@@ -37,7 +37,7 @@ module.exports = (env, argv) => {
             },
         ),
         // Remove empty script tags from the JS output
-        new RemoveEmptyScriptsPlugin({ verbose: true }),
+        new RemoveEmptyScriptsPlugin({ verbose: false }),
         // Extract CSS into separate files
         new MiniCssExtractPlugin({
             filename: "[name].css",
