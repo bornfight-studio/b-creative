@@ -1,10 +1,10 @@
 // Import required modules
+const TerserPlugin = require("terser-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
-const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
     const mode = argv.mode;
