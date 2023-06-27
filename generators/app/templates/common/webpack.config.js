@@ -4,6 +4,7 @@ const webpack = require("webpack");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
     const mode = argv.mode;
@@ -163,6 +164,16 @@ module.exports = (env, argv) => {
                     },
                 },
             },
+            minimize: true,
+            minimizer: [
+            new TerserPlugin({
+                terserOptions: {
+                    compress: {
+                        pure_funcs: ["console.log"],
+                    },
+                },
+            }),
+            ],
         },
     };
 };
