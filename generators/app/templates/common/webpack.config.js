@@ -166,13 +166,13 @@ module.exports = (env, argv) => {
             },
             minimize: true,
             minimizer: [
-            new TerserPlugin({
-                terserOptions: {
-                    compress: {
-                        pure_funcs: ["console.log"],
+                new TerserPlugin({
+                    terserOptions: {
+                        compress: {
+                            pure_funcs: ["console.log"],
+                        },
                     },
-                },
-            }),
+                }),
             ],
         },
     };
