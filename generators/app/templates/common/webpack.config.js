@@ -1,4 +1,5 @@
 // Import required modules
+const TerserPlugin = require("terser-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
@@ -163,6 +164,16 @@ module.exports = (env, argv) => {
                     },
                 },
             },
+            minimize: true,
+            minimizer: [
+                new TerserPlugin({
+                    terserOptions: {
+                        compress: {
+                            pure_funcs: ["console.log"],
+                        },
+                    },
+                }),
+            ],
         },
     };
 };
