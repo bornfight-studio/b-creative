@@ -3,12 +3,10 @@
  * Create ratio-bound content blocks, to keep media (e.g. images, videos) in
  * their correct aspect ratios.
  *
- * Default cropping is a 1:1 ratio (i.e. a perfect square).
+ * 1. Default cropping is a 1:1 ratio (i.e. a perfect square).
  *
  * Inspo: https://github.com/inuitcss/inuitcss/blob/19d0c7e/objects/_objects.ratio.scss
  */
-
-@import "../settings/settings.ratio";
 
 .u-ratio {
     position: relative;
@@ -35,6 +33,15 @@
     width: 100%;
     height: 100%;
 }
+
+
+/**
+ * Ratio variants.
+ * Generate a series of ratio classes to be used like so:
+ *
+ * <div class="u-ratio  u-ratio--16:9">
+ *
+ */
 
 @each $ratio in $settings-ratio {
     @each $antecedent, $consequent in $ratio {
