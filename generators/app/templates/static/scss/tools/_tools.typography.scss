@@ -42,9 +42,10 @@
  * Convert font-size from px to em
  * 1. Default font size on html element is 100%, equivalent to 16px;
  * @param {number} $size - the value in pixel you want to convert
+ * @param {number} $font-size - font size of element in pixels
  * usage:
  * padding-top: em(20px);
  */
-@function em($size) {
-    @return math.div($size, 16px) * 1em; /* 1 */
+@function em($size, $font-size: 16px) {
+    @return math.div($size, $font-size) * 1em; /* 1 */
 }
