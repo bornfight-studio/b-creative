@@ -17,8 +17,8 @@ $use-css-var: true;
 $css-variable-prefix: "--";
 
 /**
- * big screen coefficient for fluid sizing, used for > xxl breakpoint
- * Used for lowering sizes on big screens
+ * Big screen coefficient for fluid sizing, used for > xxl breakpoint
+ * used for lowering sizes on big screens
  * @var {number} $big-viewport-coefficient - Big viewport coefficient
  */
 $big-viewport-coefficient: 0.8;

@@ -1,4 +1,5 @@
 @use 'sass:math';
+
 /**
  * Fluid font sizes
  * @param {String} $size - Size
@@ -22,13 +23,11 @@
  * @param {String} $property - Property
  * @param {String} $spacing - Spacing
  * @param {String} $value - Value
- *
  * usage:
  * @include fluidValue("margin-top", "s-56");
  * @include fluidValue("max-width", null, 600px);
- *
- * Used In fluidValue mixin and fontSize mixin
- * Use mixin instead
+ * used In fluidValue mixin and fontSize mixin
+ * use mixin instead
  */
 @mixin fluidValue($property: null, $spacing: null, $value: null) {
     @if $spacing != null {
@@ -59,9 +58,8 @@
  * @param {Number} $max-breakpoint - Max breakpoint
  * @param {String} $unit - Return unit
  * @return {String}
- *
- * Used In fluidValue mixin and fontSize mixin
- * Use mixin instead
+ * used In fluidValue mixin and fontSize mixin
+ * use mixin instead
  */
 @function fluidSizing($min-size, $max-size, $min-breakpoint: $breakpoint-sm, $max-breakpoint: $breakpoint-xl, $unit: vw) {
     $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
@@ -77,11 +75,11 @@
  * Fluid font sizes
  * Used For Sizes > $breakpoint-xxl
  * @param {Number} $min-size - Min font size
-    * @param {Number} $max-size - Max font size
-    * @param {Number} $min-breakpoint - Min breakpoint
-    * @param {Number} $max-breakpoint - Max breakpoint
-    * @param {String} $unit - Return unit
-    * @return {String}
+ * @param {Number} $max-size - Max font size
+ * @param {Number} $min-breakpoint - Min breakpoint
+ * @param {Number} $max-breakpoint - Max breakpoint
+ * @param {String} $unit - Return unit
+ * @return {String}
  */
 @function fluidSizingXXL($min-size, $max-size, $min-breakpoint: $breakpoint-xxl, $max-breakpoint: $breakpoint-xxxl, $unit: vw) {
     $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
@@ -120,7 +118,6 @@
  * Fetch nested keys
  * @param {Map} $map - Map
  * @param {Arglist} $keys - Keys to fetch
- * Fetch nested keys
  * @return {*}
  */
 @function map-deep-get($map, $keys...) {
