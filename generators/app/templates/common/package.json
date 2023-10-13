@@ -36,7 +36,6 @@
         <%_ } _%>
         "husky": "^8.0.3",
         "mini-css-extract-plugin": "^2.7.5",
-        "poly-fluid-sizing": "github:bornfight/poly-fluid-sizing",
         "postcss": "^8.4.19",
         "prettier": "^2.8.7",
         <%_ if (react) { _%>

@@ -31,5 +31,12 @@ $secondary-color: $slate;
 $tertiary-color: $white;
 
 /**
- * Colors - components
+ * Colors - map
+ * used for generating css variables
  */
+$settings-colors: (
+    "white": $white,
+    "black": $black,
+    "mango": $mango,
+    "slate": $slate,
+);

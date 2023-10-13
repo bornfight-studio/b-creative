@@ -1,83 +1,93 @@
 @use "sass:math";
 
-.u-a5 {
-    @include fontSize("a5");
-
+@mixin a5 {
+    font-size: var(--a5);
     font-family: $font-primary;
     line-height: 100%;
     letter-spacing: normal;
 }
 
-.u-a4 {
-    @include fontSize("a4");
-
+@mixin a4 {
+    font-size: var(--a4);
     font-family: $font-secondary;
     line-height: 107%;
     letter-spacing: math.div(-1.33, 64) * 1em;
 }
 
-.u-a3 {
-    @include fontSize("a3");
-
+@mixin a3 {
+    font-size: var(--a3);
     font-family: $font-primary;
     line-height: 116%;
     letter-spacing: math.div(-1, 48) * 1em;
 }
 
-.u-a2 {
-    @include fontSize("a2");
-
+@mixin a2 {
+    font-size: var(--a2);
     font-family: $font-secondary;
     line-height: 112%;
     letter-spacing: math.div(-0.8, 41) * 1em;
 }
 
-.u-a1 {
-    @include fontSize("a1");
+@mixin a1 {
+    font-size: var(--a1);
 
     font-family: $font-primary;
     line-height: 130%;
     letter-spacing: normal;
 }
 
-.u-b0 {
-    @include fontSize("b0");
+@mixin b0 {
+    font-size: var(--b0);
 
     font-family: $font-secondary;
     line-height: 144%;
     letter-spacing: normal;
 }
 
-.u-b1 {
-    @include fontSize("b1");
-
+@mixin b1 {
+    font-size: var(--b1);
     font-family: $font-primary;
     line-height: 110%;
     letter-spacing: normal;
 }
 
-.u-b2 {
-    @include fontSize("b2");
-
+@mixin b2 {
+    font-size: var(--b2);
     font-family: $font-secondary;
     line-height: 133%;
     letter-spacing: math.div(-0.1, 15) * 1em;
 }
 
-.u-b3 {
-    @include fontSize("b3");
-
-    font-family: $font-primary;
-    line-height: 110%;
-    letter-spacing: normal;
+.u-a5 {
+    @include a5;
 }
 
-.u-b4 {
-    @include fontSize("b4");
+.u-a4 {
+    @include a4;
+}
 
-    font-family: $font-secondary;
-    line-height: 125%;
-    letter-spacing: normal;
+.u-a3 {
+    @include a3;
+}
+
+.u-a2 {
+    @include a2;
+}
+
+.u-a1 {
+    @include a1;
+}
+
+.u-b0 {
+    @include b0;
+}
+
+.u-b1 {
+    @include b1;
+}
+
+.u-b2 {
+    @include b2;
 }
 
 .u-uppercase {
