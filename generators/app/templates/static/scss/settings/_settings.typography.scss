@@ -59,6 +59,8 @@ $settings-typography: (
 
 /**
  * Typography mixins
+ * usage:
+ * @include a5;
  */
 @mixin a5 {
     font-size: var(--a5);
