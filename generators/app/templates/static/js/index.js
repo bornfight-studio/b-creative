@@ -66,7 +66,7 @@ ready(() => {
         "border: 1px solid #ffffff",
         "font-weight: bold",
     ].join(";");
-    console.info("dev by: %c Bornfight ", credits);
+    console.info("dev by: %c Bornfight Studio ", credits);
 
     /**
      * COMPONENTS INIT
