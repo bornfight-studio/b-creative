@@ -67,6 +67,10 @@
     $intercept-rem: round(rem($min-size - $slope * $min-breakpoint), 2);
     $min-size-rem: round(rem($min-size), 2);
     $max-size-rem: round(rem($max-size), 2);
+    
+    @if $min-size == $max-size {
+        @return $min-size-rem;
+    }
 
     @return clamp(#{$min-size-rem}, #{$slope-to-unit}#{$unit} + #{$intercept-rem}, #{$max-size-rem});
 }
