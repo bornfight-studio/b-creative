@@ -31,12 +31,16 @@
  */
 @mixin fluidValue($property: null, $spacing: null, $value: null) {
     @if $spacing != null {
-        #{$property}: fluidSizing(map-deep-get($settings-spacings, $spacing, $breakpoint-sm), map-deep-get($settings-spacings, $spacing, $breakpoint-xl));
+        @if (getSpacingValues($spacing) != null) {
+            #{$property}: fluidSizing(map-deep-get($settings-spacings, $spacing, $breakpoint-sm), map-deep-get($settings-spacings, $spacing, $breakpoint-xl));
 
-        @if $use-container == false {
-            @include mq(null, xxl) {
-                #{$property}: fluidSizingXXL(map-deep-get($settings-spacings, $spacing, $breakpoint-xl), math.div(map-deep-get($settings-spacings, $spacing, $breakpoint-xl), $breakpoint-xxl) * $breakpoint-xxxl * $big-viewport-coefficient);
+            @if $use-container == false {
+                @include mq(null, xxl) {
+                    #{$property}: fluidSizingXXL(map-deep-get($settings-spacings, $spacing, $breakpoint-xl), math.div(map-deep-get($settings-spacings, $spacing, $breakpoint-xl), $breakpoint-xxl) * $breakpoint-xxxl * $big-viewport-coefficient);
+                }
             }
+        } @else {
+            @error "Spacing #{$spacing} not found in settings";
         }
 
     } @else if $value != null {
@@ -67,7 +71,7 @@
     $intercept-rem: round(rem($min-size - $slope * $min-breakpoint), 2);
     $min-size-rem: round(rem($min-size), 2);
     $max-size-rem: round(rem($max-size), 2);
-    
+
     @if $min-size == $max-size {
         @return $min-size-rem;
     }
