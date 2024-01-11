@@ -2,7 +2,7 @@
 * Set useContainer to true if you are using container design, and dont need scaling for > xxl breakpoint
 * @var {boolean} $useContainer - Use container
  */
-$use-container: true;
+$use-container: false;
 
 /**
  * Set use-css-var to true if you want to use css var for spacing
