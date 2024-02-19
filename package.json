@@ -11,7 +11,10 @@
     "browsersync",
     "yeoman-generator"
   ],
-  "repository": "bornfight/b-creative",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bornfight/b-creative"
+  },
   "license": "MIT",
   "author": {
     "name": "BORNFIGHT STUDIO®",
