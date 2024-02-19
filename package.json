@@ -1,33 +1,39 @@
 {
-    "name": "generator-b-creative",
-    "version": "2.0.0",
-    "description": "BORNFIGHT STUDIO® project template based on webpack, es6 and scss",
-    "files": [
-        "generators"
-    ],
-    "keywords": [
-        "frontend",
-        "webpack",
-        "es6",
-        "babel",
-        "scss",
-        "browsersync",
-        "yeoman-generator"
-    ],
-    "repository": "bornfight/b-creative",
-    "license": "MIT",
-    "author": {
-        "name": "BORNFIGHT STUDIO®",
-        "email": "hello@bornfight.studio",
-        "url": "https://www.bornfight.studio"
-    },
-    "dependencies": {
-        "mkdirp": "^3.0.0",
-        "print-message": "^3.0.1",
-        "yeoman-generator": "^5.8.0"
-    },
-    "engines": {
-        "node": "16.x",
-        "npm": "8.x"
-    }
+  "name": "generator-b-creative",
+  "version": "2.0.0",
+  "description": "BORNFIGHT STUDIO® project template based on webpack, es6 and scss",
+  "keywords": [
+    "frontend",
+    "webpack",
+    "es6",
+    "babel",
+    "scss",
+    "browsersync",
+    "yeoman-generator"
+  ],
+  "repository": "bornfight/b-creative",
+  "license": "MIT",
+  "author": {
+    "name": "BORNFIGHT STUDIO®",
+    "email": "hello@bornfight.studio",
+    "url": "https://www.bornfight.studio"
+  },
+  "type": "module",
+  "files": [
+    "generators"
+  ],
+  "devDependencies": {
+    "chalk": "^5.3.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "mkdirp": "^3.0.1",
+    "prettier": "^3.2.5",
+    "print-message": "^3.0.1",
+    "yeoman-generator": "^7.1.1"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  }
 }

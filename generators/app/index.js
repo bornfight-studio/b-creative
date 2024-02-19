@@ -1,11 +1,11 @@
 "use strict";
-const Generator = require("yeoman-generator");
-const chalk = require("chalk");
-const path = require("path");
-const { mkdirp } = require("mkdirp");
-const printMessage = require("print-message");
+import Generator from "yeoman-generator";
+import chalk from 'chalk';
+import * as path from "path";
+import {mkdirp} from 'mkdirp'
+import printMessage from "print-message"
 
-module.exports = class extends Generator {
+export default class extends Generator {
     prompting() {
         // B-CREATIVE banner
         this.log(
