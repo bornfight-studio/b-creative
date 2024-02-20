@@ -2,7 +2,7 @@
 const TerserPlugin = require("terser-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+const BrowserSyncPlugin = require("browser-sync-v3-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
 

@@ -7,9 +7,6 @@
     "@namics/stylelint-bem"
   ],
   "rules": {
-    "indentation": [
-      4
-    ],
     "plugin/stylelint-bem-namics": {
       "patternPrefixes": [
         "c",
@@ -40,7 +37,6 @@
         ]
       }
     ],
-    "max-empty-lines": 1,
     "at-rule-no-unknown": null,
     "no-duplicate-selectors": true,
     "color-named": "always-where-possible",
