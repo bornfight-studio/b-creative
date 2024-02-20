@@ -1,0 +1,85 @@
+.c-accordion {
+    &__single {
+        border-bottom: 1px solid $black;
+
+        &:first-child {
+            border-top: 1px solid $black;
+        }
+
+        &.is-opened {
+        }
+    }
+
+    &__header {
+        @include fluidValue("padding-top", "s-20");
+        @include fluidValue("padding-bottom", "s-20");
+        @include fluidValue("gap", "s-60");
+
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+        &.is-opened {
+        }
+
+        p {
+        }
+    }
+
+    &__indicator {
+        @include button-reset;
+        @include focus;
+        @include fluidValue("width", "s-20");
+        @include fluidValue("height", "s-20");
+
+        position: relative;
+        flex-shrink: 0;
+        flex-grow: 0;
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            background-color: $black;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: getTransition(slide, ease-in-quad);
+        }
+
+        &:before {
+            @include fluidValue("width", null, 1px);
+
+            height: 100%;
+        }
+
+        &:after {
+            @include fluidValue("height", null, 1px);
+
+            width: 100%;
+        }
+
+        .is-opened & {
+            &:before {
+                transform: translate(-50%, -50%) scaleY(0);
+            }
+        }
+    }
+
+    &__panel {
+    }
+
+    &__panel-inner {
+        @include fluidValue("padding-bottom", "s-20");
+
+        p {
+            margin-bottom: 1em;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

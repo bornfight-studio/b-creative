@@ -1,0 +1,14 @@
+.c-social-icons {
+    @include fluidValue("gap", "s-20");
+
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+
+    li,
+    a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

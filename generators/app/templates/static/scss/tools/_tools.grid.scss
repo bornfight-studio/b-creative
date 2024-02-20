@@ -1,0 +1,27 @@
+@use "sass:math";
+
+/**
+ * CSS Grid mixin
+ * @param {number} $columns — optional and defaults to _settings.grid.scss -> $grid-column-count
+ * usage:
+ * @include cssGrid()
+ */
+@mixin cssGrid($columns: $grid-column-count, $grid-column-gap: 0, $grid-row-gap: 0) {
+    @if $columns != null {
+        display: grid;
+        grid-template-columns: repeat($columns, 1fr);
+        @if $grid-column-gap != 0 {
+            grid-column-gap: $grid-column-gap;
+        }
+        @if $grid-row-gap != 0 {
+            grid-row-gap: $grid-row-gap;
+        }
+    }
+}
+
+/**
+ * Grid value TODO
+ */
+@function gridValue($num1, $num2: 24) {
+    @return math.percentage(math.div($num1, $num2));
+}

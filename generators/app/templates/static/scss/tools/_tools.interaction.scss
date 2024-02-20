@@ -7,18 +7,20 @@
  * @include hover{}
  */
 @mixin hover() {
-    @media (hover: none) {
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        &:active {
-            /* 1 */
-            @content;
+    @include mq(null, lg) {
+        @media (hover: none) {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            &:active {
+                /* 1 */
+                @content;
+            }
         }
-    }
 
-    @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-        &:hover {
-            /* 2 */
-            @content;
+        @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            &:hover {
+                /* 2 */
+                @content;
+            }
         }
     }
 }
@@ -36,12 +38,62 @@
         /* 1 */
         &:not(:disabled):focus-visible {
             outline: 0;
-            box-shadow: 0 0 0 2px $focus-indicator-divider-color, 0 0 0 4px $focus-indicator-color;
+            box-shadow:
+                0 0 0 2px $focus-indicator-divider-color,
+                0 0 0 4px $focus-indicator-color;
             @content;
 
             @include mq(null, xl) {
-                box-shadow: 0 0 0 get-vw(2px) $focus-indicator-divider-color, 0 0 0 get-vw(4px) $focus-indicator-color;
+                box-shadow:
+                    0 0 0 get-vw(2px) $focus-indicator-divider-color,
+                    0 0 0 get-vw(4px) $focus-indicator-color;
             }
         }
+    }
+}
+
+/**
+ * Button reset
+ * Make button to look like text
+ * Useful for any kind of UI based on <button> element
+ * usage:
+ * @include button-reset;
+ */
+@mixin button-reset() {
+    border: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    outline: 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-decoration: none;
+    text-transform: none;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    vertical-align: top;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    width: auto;
+    height: auto;
+    background: transparent;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
     }
 }

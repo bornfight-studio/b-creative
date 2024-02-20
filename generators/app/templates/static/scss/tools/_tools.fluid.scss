@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 /**
  * Fluid font sizes
@@ -12,7 +12,11 @@
 
         @if $use-container == false {
             @include mq(null, xxl) {
-                font-size: fluidSizingXXL(map-deep-get($settings-typography, $size, $breakpoint-xl), math.div(map-deep-get($settings-typography, $size, $breakpoint-xl), $breakpoint-xxl) * $breakpoint-xxxl * $big-viewport-coefficient);
+                font-size: fluidSizingXXL(
+                    map-deep-get($settings-typography, $size, $breakpoint-xl),
+                    math.div(map-deep-get($settings-typography, $size, $breakpoint-xl), $breakpoint-xxl) * $breakpoint-xxxl *
+                        $big-viewport-coefficient
+                );
             }
         }
     }
@@ -32,17 +36,23 @@
 @mixin fluidValue($property: null, $spacing: null, $value: null) {
     @if $spacing != null {
         @if (getSpacingValues($spacing) != null) {
-            #{$property}: fluidSizing(map-deep-get($settings-spacings, $spacing, $breakpoint-sm), map-deep-get($settings-spacings, $spacing, $breakpoint-xl));
+            #{$property}: fluidSizing(
+                map-deep-get($settings-spacings, $spacing, $breakpoint-sm),
+                map-deep-get($settings-spacings, $spacing, $breakpoint-xl)
+            );
 
             @if $use-container == false {
                 @include mq(null, xxl) {
-                    #{$property}: fluidSizingXXL(map-deep-get($settings-spacings, $spacing, $breakpoint-xl), math.div(map-deep-get($settings-spacings, $spacing, $breakpoint-xl), $breakpoint-xxl) * $breakpoint-xxxl * $big-viewport-coefficient);
+                    #{$property}: fluidSizingXXL(
+                        map-deep-get($settings-spacings, $spacing, $breakpoint-xl),
+                        math.div(map-deep-get($settings-spacings, $spacing, $breakpoint-xl), $breakpoint-xxl) * $breakpoint-xxxl *
+                            $big-viewport-coefficient
+                    );
                 }
             }
         } @else {
             @error "Spacing #{$spacing} not found in settings";
         }
-
     } @else if $value != null {
         #{$property}: $value;
 
@@ -98,7 +108,6 @@
 
     @return max(#{$min-size-rem}, #{$slope-to-unit}#{$unit} + #{$intercept-rem});
 }
-
 
 /**
  * Round number to decimals

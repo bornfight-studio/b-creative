@@ -1,13 +1,10 @@
 /**
  * Ratio
- * Create ratio-bound content blocks, to keep media (e.g. images, videos) in
- * their correct aspect ratios.
- *
- * 1. Default cropping is a 1:1 ratio (i.e. a perfect square).
- *
- * Inspo: https://github.com/inuitcss/inuitcss/blob/19d0c7e/objects/_objects.ratio.scss
+ * create ratio-bound content blocks, to keep media (e.g. images, videos) in their correct aspect ratios
+ * 1. default cropping is a 1:1 ratio (i.e. a perfect square)
+ * inspiration:
+ * https://github.com/inuitcss/inuitcss/blob/19d0c7e/objects/_objects.ratio.scss
  */
-
 .u-ratio {
     position: relative;
     display: block;
@@ -34,23 +31,20 @@
     height: 100%;
 }
 
-
 /**
- * Ratio variants.
- * Generate a series of ratio classes to be used like so:
- *
- * <div class="u-ratio  u-ratio--16:9">
- *
+ * Ratio variants
+ * generate a series of ratio classes
+ * usage:
+ * <div class="u-ratio u-ratio--16:9"></div>
  */
-
 @each $ratio in $settings-ratio {
     @each $antecedent, $consequent in $ratio {
         @if (type-of($antecedent) != number) {
-            @error "`#{$antecedent}` needs to be a number."
+            @error "`#{$antecedent}` needs to be a number.";
         }
 
         @if (type-of($consequent) != number) {
-            @error "`#{$consequent}` needs to be a number."
+            @error "`#{$consequent}` needs to be a number.";
         }
 
         .u-ratio--#{$antecedent}\-#{$consequent} {

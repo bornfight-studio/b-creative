@@ -1,0 +1,40 @@
+.is-hidden {
+    display: none !important;
+}
+
+.is-visually-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.is-visually-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.is-disabled {
+    pointer-events: none !important;
+}
+
+.is-mobile-hidden {
+    @include mq(md) {
+        display: none !important;
+    }
+}
+
+.is-mobile-visible {
+    display: none !important;
+
+    @include mq(md) {
+        display: block !important;
+    }
+}
+
+.is-offscreen {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}

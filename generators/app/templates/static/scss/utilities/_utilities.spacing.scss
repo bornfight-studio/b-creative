@@ -1,0 +1,31 @@
+.u-pt-0 {
+    padding-top: 0;
+}
+
+.u-pt-small {
+    @include fluidValue("padding-top", "s-60");
+}
+
+.u-pt-medium {
+    @include fluidValue("padding-top", "s-90");
+}
+
+.u-pt-large {
+    @include fluidValue("padding-top", "s-125");
+}
+
+.u-pb-0 {
+    padding-bottom: 0;
+}
+
+.u-pb-small {
+    @include fluidValue("padding-bottom", "s-60");
+}
+
+.u-pb-medium {
+    @include fluidValue("padding-bottom", "s-90");
+}
+
+.u-pb-large {
+    @include fluidValue("padding-bottom", "s-125");
+}

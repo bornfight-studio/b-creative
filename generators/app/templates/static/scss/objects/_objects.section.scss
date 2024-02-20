@@ -1,2 +1,85 @@
 .o-section {
+    padding-left: percentage(2, 24);
+    padding-right: percentage(2, 24);
+    position: relative;
+
+    @include mq(lg) {
+        padding-left: percentage(1, 24);
+        padding-right: percentage(1, 24);
+    }
+
+    /**
+     * Horizontal modifiers
+     */
+    &--thin {
+        padding-left: percentage(4, 24);
+        padding-right: percentage(4, 24);
+
+        @include mq(lg) {
+            padding-left: percentage(1, 24);
+            padding-right: percentage(1, 24);
+        }
+    }
+
+    &--narrow {
+        padding-left: percentage(3, 24);
+        padding-right: percentage(3, 24);
+
+        @include mq(lg) {
+            padding-left: percentage(1, 24);
+            padding-right: percentage(1, 24);
+        }
+    }
+
+    &--wide {
+        padding-left: percentage(1, 24);
+        padding-right: percentage(1, 24);
+    }
+
+    &--no-padding-left {
+        padding-left: 0;
+
+        @include mq(lg) {
+            padding-left: 0;
+        }
+    }
+
+    &--no-padding-right {
+        padding-right: 0;
+
+        @include mq(lg) {
+            padding-right: 0;
+        }
+    }
+
+    &--full-width {
+        padding-left: 0;
+        padding-right: 0;
+
+        @include mq(lg) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    /**
+     * Vertical modifiers
+     */
+    &--full-vh {
+        height: 100vh;
+    }
+
+    /**
+     * Color modifiers
+     */
+    &--black {
+        background-color: $black;
+    }
+
+    /**
+     * Overflow modifiers
+     */
+    &--no-overflow {
+        overflow: hidden;
+    }
 }

@@ -1,0 +1,50 @@
+.c-hamburger {
+    @include button-reset;
+    @include focus;
+    @include fluidValue("width", null, 25px);
+    @include fluidValue("height", null, 12px);
+
+    position: relative;
+    overflow: visible;
+    display: inline-flex;
+
+    &.is-active {
+        span {
+            &:nth-child(1) {
+                transform: translateY(-50%) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                transform: translateY(-50%) rotate(-45deg);
+            }
+        }
+    }
+
+    span {
+        @include fluidValue("height", null, 2px);
+
+        width: 100%;
+        background-color: currentColor;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transition: getTransition(slide, ease-in-quad);
+
+        &:nth-child(1) {
+            transform: translateY(-300%);
+        }
+
+        &:nth-child(2) {
+            transform: translateY(-50%);
+        }
+
+        &:nth-child(3) {
+            transform: translateY(200%);
+        }
+    }
+}

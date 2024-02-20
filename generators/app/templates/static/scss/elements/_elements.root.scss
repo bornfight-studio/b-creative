@@ -6,10 +6,16 @@
 @if $use-css-var == true {
     :root {
         @each $size, $values in $settings-spacings {
-            #{$css-variable-prefix}#{$size}: #{fluidSizing(map-deep-get($settings-spacings, $size, $breakpoint-sm), map-deep-get($settings-spacings, $size, $breakpoint-xl))};
+            #{$css-variable-prefix}#{$size}: #{fluidSizing(
+                    map-deep-get($settings-spacings, $size, $breakpoint-sm),
+                    map-deep-get($settings-spacings, $size, $breakpoint-xl)
+                )};
         }
         @each $size, $values in $settings-typography {
-            #{$css-variable-prefix}#{$size}: #{fluidSizing(map-deep-get($settings-typography, $size, $breakpoint-sm), map-deep-get($settings-typography, $size, $breakpoint-xl))};
+            #{$css-variable-prefix}#{$size}: #{fluidSizing(
+                    map-deep-get($settings-typography, $size, $breakpoint-sm),
+                    map-deep-get($settings-typography, $size, $breakpoint-xl)
+                )};
         }
         @each $size, $values in $settings-breakpoints {
             #{$css-variable-prefix}breakpoint-#{$size}: #{map-get($settings-breakpoints, $size)};
@@ -27,10 +33,20 @@
     :root {
         @include mq(null, xxl) {
             @each $size, $values in $settings-spacings {
-                #{$css-variable-prefix}#{$size}: #{fluidSizingXXL(map-deep-get($settings-spacings, $size, $breakpoint-xl), math.div(map-deep-get($settings-spacings, $size, $breakpoint-xl), $breakpoint-xxl) * $breakpoint-xxxl * $big-viewport-coefficient)};
+                #{$css-variable-prefix}#{$size}: #{fluidSizingXXL(
+                        map-deep-get($settings-spacings, $size, $breakpoint-xl),
+                        math.div(map-deep-get($settings-spacings, $size, $breakpoint-xl), $breakpoint-xxl) *
+                            $breakpoint-xxxl *
+                            $big-viewport-coefficient
+                    )};
             }
             @each $size, $values in $settings-typography {
-                #{$css-variable-prefix}#{$size}: #{fluidSizingXXL(map-deep-get($settings-typography, $size, $breakpoint-xl), math.div(map-deep-get($settings-typography, $size, $breakpoint-xl), $breakpoint-xxl) * $breakpoint-xxxl * $big-viewport-coefficient)};
+                #{$css-variable-prefix}#{$size}: #{fluidSizingXXL(
+                        map-deep-get($settings-typography, $size, $breakpoint-xl),
+                        math.div(map-deep-get($settings-typography, $size, $breakpoint-xl), $breakpoint-xxl) *
+                            $breakpoint-xxxl *
+                            $big-viewport-coefficient
+                    )};
             }
         }
     }
