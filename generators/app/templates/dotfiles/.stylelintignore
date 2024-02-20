@@ -1,4 +1,5 @@
-/static/scss/settings/**/*.scss
-/static/scss/tools/**/*.scss
-/static/scss/vendor/**/*.scss
-/static/dist/
+dist/
+node_modules/
+bower_components/
+src/styles/settings/**/*.scss
+src/styles/tools/**/*.scss
