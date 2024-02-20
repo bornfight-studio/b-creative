@@ -1,8 +1,8 @@
 {
   "arrowParens": "always",
+  "bracketSameLine": false,
   "bracketSpacing": true,
   "insertPragma": false,
-  "jsxBracketSameLine": false,
   "printWidth": 150,
   "proseWrap": "always",
   "requirePragma": false,
