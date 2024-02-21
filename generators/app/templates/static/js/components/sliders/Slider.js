@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import { Autoplay, Navigation, Pagination, Scrollbar, FreeMode, EffectFade, EffectCreative, Parallax } from "swiper/modules";
+import { Autoplay, EffectCreative, EffectFade, FreeMode, Navigation, Pagination, Parallax, Scrollbar } from "swiper/modules";
 import { getViewportSize } from "../../utilities/GetViewportSize";
 
 /**
