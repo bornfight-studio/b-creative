@@ -1,86 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home</title>
-        <link href="static/dist/style.css" rel="stylesheet" />
-        <script src="static/dist/vendor.js" defer></script>
-        <script src="static/dist/bundle.js" defer></script>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+    <title>Home</title>
+    <link href="static/dist/style.css" rel="stylesheet">
+</head>
+<body>
+<!--LOADER-->
+<div class="o-loader js-loader">
+    <div class="o-container">
+        <div class="c-loader">
+            loader
+        </div>
+    </div>
+</div>
+<!--end LOADER-->
+<!--NAVIGATION-->
+<nav class="o-navigation js-navigation">
+    <div class="o-container">
+        <div class="c-navigation">
+            navigation
+        </div>
+    </div>
+</nav>
+<!--end NAVIGATION-->
+<!--MOBILE NAVIGATION-->
+<nav class="o-mobile-navigation js-mobile-navigation">
+    <div class="o-container">
+        <div class="c-mobile-navigation">
+            mobile navigation
+        </div>
+    </div>
+</nav>
+<!--end MOBILE NAVIGATION-->
+<!--PAGE WRAPPER-->
+<div id="home" class="o-page o-page--home">
+    <!--HEADER-->
+    <header class="o-header js-header">
+        <div class="o-container">
+            <div class="c-header">
+                header
+            </div>
+        </div>
+    </header>
+    <!--end HEADER-->
+    <!--PAGE CONTENT-->
+    <main class="o-page__inner o-page__inner--home">
+        <!--SECTION-->
+        <section class="o-section">
+            <div class="o-container">
+                <div class="c-section-name">
+                    section
+                </div>
+            </div>
+        </section>
+        <!--end SECTION-->
         <%_ if (react) { _%>
-        <script src="static/dist/example_app.js" defer></script>
+        <!--REACT APP-->
+        <div id="root"></div>
+        <!--end REACT APP-->
         <%_ } _%>
-    </head>
-    <body>
-        <!-- LOADER -->
-        <div class="o-loader js-loader">
+        <!--MODULE-->
+        <section class="o-section">
             <div class="o-container">
-                <div class="c-loader">loader</div>
+                <div class="c-module-name-module">
+                    module
+                </div>
+            </div>
+        </section>
+        <!--end MODULE-->
+    </main>
+    <!--end PAGE CONTENT-->
+    <!--FOOTER-->
+    <footer class="o-footer js-footer">
+        <div class="o-container">
+            <div class="c-footer">
+                footer
             </div>
         </div>
-        <!-- end LOADER -->
-        <!-- NAVIGATION -->
-        <nav class="o-navigation js-navigation">
-            <div class="o-container">
-                <div class="c-navigation">navigation</div>
-            </div>
-        </nav>
-        <!-- end NAVIGATION -->
-        <!-- MOBILE NAVIGATION -->
-        <nav class="o-mobile-navigation js-mobile-navigation">
-            <div class="o-container">
-                <div class="c-mobile-navigation">mobile navigation</div>
-            </div>
-        </nav>
-        <!-- end MOBILE NAVIGATION -->
-        <!-- PAGE WRAPPER -->
-        <div id="home" class="o-page o-page--home">
-            <!-- HEADER -->
-            <header class="o-header">
-                <div class="o-container">
-                    <div class="c-header">header</div>
-                </div>
-            </header>
-            <!-- end HEADER -->
-            <!-- PAGE CONTENT -->
-            <main class="o-page__inner o-page__inner--home">
-                <!-- SECTION -->
-                <section class="o-section">
-                    <div class="o-container">
-                        <div class="c-section-component-name">home section</div>
-                    </div>
-                </section>
-                <!-- end SECTION -->
-                <%_ if (react) { _%>
-                <!-- REACT APP -->
-                <div id="root"></div>
-                <!-- end REACT APP  -->
-                <%_ } _%>
-                <!-- MODULE -->
-                <section class="o-section">
-                    <div class="o-container">
-                        <div class="c-module-name-module">module</div>
-                    </div>
-                </section>
-                <!-- end MODULE -->
-            </main>
-            <!-- end PAGE CONTENT -->
-            <!-- FOOTER -->
-            <footer class="o-footer js-footer">
-                <div class="o-container">
-                    <div class="c-footer">footer</div>
-                </div>
-            </footer>
-            <!-- end FOOTER -->
-            <!-- COOKIE MESSAGE -->
-            <div class="o-cookie-message js-cookie-message">
-                <div class="o-container">
-                    <div class="c-cookie-message">cookie message</div>
-                </div>
-            </div>
-            <!-- end COOKIE MESSAGE -->
+    </footer>
+    <!--end FOOTER-->
+</div>
+<!--end PAGE WRAPPER-->
+<!--COOKIE MESSAGE-->
+<div class="o-cookie-message js-cookie-message">
+    <div class="o-container">
+        <div class="c-cookie-message">
+            cookie message
         </div>
-        <!-- end PAGE WRAPPER -->
-    </body>
+    </div>
+</div>
+<!--end COOKIE MESSAGE-->
+<script src="static/dist/vendor.js"></script>
+<script src="static/dist/bundle.js"></script>
+<%_ if (react) { _%>
+<script src="static/dist/example_app.js"></script>
+<%_ } _%>
+</body>
 </html>
