@@ -57,8 +57,8 @@ export default class SearchInput {
                 this.setResetButtonState(input, reset);
             });
 
-            form.addEventListener("reset", (ev) => {
-                ev.preventDefault();
+            form.addEventListener("reset", (event) => {
+                event.preventDefault();
                 this.resetForm(form, input);
                 this.setSubmitButtonState(input, submit);
                 this.setResetButtonState(input, reset);

@@ -15,6 +15,7 @@ import Lazy from "./components/Lazy";
 import ResponsiveVideo from "./components/ResponsiveVideo";
 import VideoOnScroll from "./components/VideoOnScroll";
 import Accordion from "@bornfight/b-accordion";
+import ScrollToAnimation from "./components/animations/ScrollToAnimation";
 import AcceptanceInput from "./components/inputs/AcceptanceInput";
 import PasswordInput from "./components/inputs/PasswordInput";
 import SearchInput from "./components/inputs/SearchInput";
@@ -111,6 +112,13 @@ ready(() => {
         openingEase: "power2.out",
         closingEase: "power2.in",
     });
+
+    /**
+     * Scroll to animation
+     * @type {ScrollToAnimation}
+     */
+    const scrollToAnimation = new ScrollToAnimation();
+    scrollToAnimation.init();
 
     /**
      * Acceptance input

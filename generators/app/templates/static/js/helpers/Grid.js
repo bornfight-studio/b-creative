@@ -46,7 +46,7 @@ export default class Grid {
             "font-weight: 700",
         ].join(";");
 
-        console.info("toggle grid: %c Alt/Option + G ", consoleLogStyle);
+        console.info("toggle grid: %c Control + G ", consoleLogStyle);
 
         this.grid = null;
 
@@ -100,8 +100,8 @@ export default class Grid {
         document.body.appendChild(this.grid);
 
         // add columns to grid
-        for (var i = 0; i < this.gridOptions.columnCount; i++) {
-            var column = document.createElement("i");
+        for (let i = 0; i < this.gridOptions.columnCount; i++) {
+            const column = document.createElement("i");
             this.grid.appendChild(column);
 
             column.style.cssText = `
@@ -132,14 +132,22 @@ export default class Grid {
      * Keyboard shortcut
      */
     keyboardShortcut() {
-        document.addEventListener("keyup", (ev) => {
-            if (ev.keyCode === 71 && ev.altKey) {
+        let keysPressed = {};
+
+        document.addEventListener("keydown", (event) => {
+            keysPressed[event.key] = true;
+
+            if (keysPressed["Control"] && event.key === "g") {
                 if (this.grid.style.display === "none") {
                     this.grid.style.display = "flex";
                 } else {
                     this.grid.style.display = "none";
                 }
             }
+        });
+
+        document.addEventListener("keyup", (event) => {
+            delete keysPressed[event.key];
         });
     }
 }
