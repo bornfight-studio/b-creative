@@ -111,12 +111,8 @@
         box-shadow: none;
         outline: none;
         /* 4 */
-        @include fontSize("b0");
+        @include b0;
 
-        font-family: $font-primary;
-        line-height: 120%;
-        letter-spacing: -0.02em;
-        font-weight: 400;
         color: $black;
         /* 5 */
         transition: getTransition(slide, ease-in-quad);
@@ -317,11 +313,8 @@
     &__input--inline {
         @include fluidValue("height", null, 40px);
         @include fluidValue("width", null, 70px);
-        @include fontSize("b1");
+        @include b1;
 
-        font-family: $font-primary;
-        line-height: 120%;
-        letter-spacing: -0.02em;
         display: block;
         text-align: center;
         padding-left: var(--s-10);
@@ -528,12 +521,8 @@
         /* 1 */
         & + .c-form__radio-label {
             @include fluidValue("border-radius", null, 10px);
-            @include fontSize("b0");
+            @include b0;
 
-            font-family: $font-primary;
-            line-height: 120%;
-            letter-spacing: -0.02em;
-            font-weight: 400;
             color: $black;
             border: 1px solid $black;
             background-color: $white;

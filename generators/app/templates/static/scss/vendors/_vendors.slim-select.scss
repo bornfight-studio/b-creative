@@ -252,12 +252,8 @@
         input {
             @include fluidValue("height", null, 40px);
             @include fluidValue("border-radius", null, 10px);
-            @include fontSize("b0");
+            @include b0;
 
-            font-family: $font-primary;
-            line-height: 120%;
-            letter-spacing: -0.02em;
-            font-weight: 400;
             display: inline-flex;
             flex: 1 1 auto;
             width: 100%;
