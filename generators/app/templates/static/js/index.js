@@ -5,13 +5,22 @@
 /**
  * Helpers
  */
-import GridHelper from "./helpers/GridHelper";
+import Grid from "./helpers/Grid";
 
 /**
  * Components
  */
-import NavigationController from "./components/NavigationController";
-import TemplateComponent from "./components/TemplateComponent";
+import "instant.page";
+import Lazy from "./components/Lazy";
+import ResponsiveVideo from "./components/ResponsiveVideo";
+import VideoOnScroll from "./components/VideoOnScroll";
+import Accordion from "@bornfight/b-accordion";
+import AcceptanceInput from "./components/inputs/AcceptanceInput";
+import PasswordInput from "./components/inputs/PasswordInput";
+import SearchInput from "./components/inputs/SearchInput";
+import SelectInput from "./components/inputs/SelectInput";
+import Navigation from "./components/Navigation";
+import Slider from "./components/sliders/Slider";
 
 /**
  * Check if document is ready cross-browser
@@ -45,17 +54,7 @@ const ready = (callback) => {
  */
 ready(() => {
     /**
-     * HELPERS INIT
-     * Only init helpers if they exist
-     * Will be undefined on production because of import stripping
-     */
-    if (typeof GridHelper == "function") {
-        const grid = new GridHelper();
-        grid.init();
-    }
-
-    /**
-     * CREDITS INIT
+     * CREDITS
      */
     const credits = [
         "background-color: #000000",
@@ -69,20 +68,89 @@ ready(() => {
     console.info("dev by: %c Bornfight Studio ", credits);
 
     /**
-     * COMPONENTS INIT
+     * HELPERS
      */
 
     /**
-     * Template component
-     * @type {TemplateComponent}
+     * Grid
+     * @type {Grid}
      */
-    const templateComponent = new TemplateComponent();
-    templateComponent.init();
+    const grid = new Grid();
+    grid.init();
+
+    /**
+     * COMPONENTS
+     */
+
+    /**
+     * Lazy
+     * @type {Lazy}
+     */
+    const lazy = new Lazy();
+    lazy.init();
+
+    /**
+     * Responsive video
+     * @type {ResponsiveVideo}
+     */
+    const responsiveVideo = new ResponsiveVideo();
+    responsiveVideo.init();
+
+    /**
+     * Video on scroll
+     * @type {VideoOnScroll}
+     */
+    const videoOnScroll = new VideoOnScroll();
+    videoOnScroll.init();
+
+    /**
+     * Accordion
+     * @type {Accordion}
+     */
+    new Accordion(undefined, {
+        openingEase: "power2.out",
+        closingEase: "power2.in",
+    });
+
+    /**
+     * Acceptance input
+     * @type {AcceptanceInput}
+     */
+    const acceptanceInput = new AcceptanceInput();
+    acceptanceInput.init();
+
+    /**
+     * Password input
+     * @type {PasswordInput}
+     */
+    const passwordInput = new PasswordInput();
+    passwordInput.init();
+
+    /**
+     * Search input
+     * @type {SearchInput}
+     */
+    const searchInput = new SearchInput();
+    searchInput.init();
+
+    /**
+     * Select input
+     * @type {SelectInput}
+     */
+    const selectInput = new SelectInput();
+    selectInput.init();
 
     /**
      * Navigation
-     * @type {NavigationController}
+     * @type {Navigation}
      */
-    const navigation = new NavigationController();
+    const navigation = new Navigation();
     navigation.init();
+
+    /**
+     * Slider
+     * @type {Slider}
+     */
+    const slider = new Slider();
+    slider.init();
 });

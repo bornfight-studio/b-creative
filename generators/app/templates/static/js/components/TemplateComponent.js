@@ -3,30 +3,30 @@
  * explain what this class is doing
  */
 export default class TemplateComponent {
-    constructor() {
+    constructor(container = document) {
         /**
-         * Template component DOM selectors
+         * DOM elements
          * @type {{templateComponentArray: string, templateComponent: string, states: {isActive: string}}}
          */
         this.DOM = {
             templateComponent: ".js-template-component",
             templateComponentArray: ".js-template-component-array",
             states: {
-                isActive: "is-active",
+                active: "is-active",
             },
         };
 
         /**
-         * Fetch template component DOM element
+         * Get template component DOM element
          * @type {Element}
          */
-        this.templateComponent = document.querySelector(this.DOM.templateComponent);
+        this.templateComponent = container.querySelector(this.DOM.templateComponent);
 
         /**
-         * Fetch template component list of DOM elements
+         * Get list of template component DOM elements
          * @type {NodeListOf<Element>}
          */
-        this.templateComponentArray = document.querySelectorAll(this.DOM.templateComponentArray);
+        this.templateComponentArray = container.querySelectorAll(this.DOM.templateComponentArray);
     }
 
     /**
@@ -36,9 +36,9 @@ export default class TemplateComponent {
         if (this.templateComponent === null) {
             return;
         }
-        // if (this.templateComponentArray.length < 1) {
-        //     return;
-        // }
+        if (this.templateComponentArray.length < 1) {
+            return;
+        }
         console.log("Template component init");
         this.templateMethod();
     }

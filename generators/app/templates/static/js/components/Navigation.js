@@ -1,13 +1,12 @@
 /**
- * Navigation controller
- * "smart" navigation which goes off screen when scrolling down for a better overview of content and UX
+ * Navigation
+ * "smart" navigation which goes off-screen when scrolling down for a better overview of content and UX
  * navigation appears when scrolling up
  */
-export default class NavigationController {
-    constructor() {
+export default class Navigation {
+    constructor(container = document) {
         /**
-         * Navigation DOM selectors
-         * Navigation DOM state CSS classes
+         * DOM elements
          * @type {{navigation: string, states: {navigationSlideUp: string, navigationScrolled: string, navigationFixed: string}}}
          */
         this.DOM = {
@@ -20,22 +19,25 @@ export default class NavigationController {
         };
 
         /**
-         * flag, state variable for scrolling event
+         * Flag, state variable for scrolling event
          * @type {boolean}
          */
         this.scrolling = false;
+
         /**
-         * amount of pixels to scroll from top for adding "has-scrolled" state class
+         * Amount of pixels to scroll from top for adding "has-scrolled" state class
          * @type {number}
          */
         this.scrollNavigationOffset = 200;
+
         /**
-         * variable for storing amount of scroll from top position value
+         * Variable for storing amount of scroll from top position value
          * @type {number}
          */
         this.previousTop = 0;
+
         /**
-         * variable for storing current scroll position value
+         * Variable for storing current scroll position value
          * @type {number}
          */
         this.currentTop = 0;
@@ -43,28 +45,24 @@ export default class NavigationController {
         this.scrollOffset = 0;
 
         /**
-         * fetch navigation element DOM element
+         * Get navigation DOM element
          * @type {Element}
          */
-        this.navigation = document.querySelector(this.DOM.navigation);
+        this.navigation = container.querySelector(this.DOM.navigation);
     }
 
-    //region methods
-
     /**
-     *
+     * Init
      */
     init() {
-        if (this.navigation !== null) {
-            console.log("Navigation init()");
-            this.navigationController();
-        } else {
-            console.error(`${this.DOM.navigation} does not exist in the DOM!`);
+        if (this.navigation === null) {
+            return;
         }
+        this.navigationController();
     }
 
     /**
-     *
+     * Navigation controller
      */
     navigationController() {
         document.addEventListener("scroll", () => {
@@ -72,7 +70,7 @@ export default class NavigationController {
                 this.scrolling = true;
 
                 if (!window.requestAnimationFrame) {
-                    setTimeout(this.checkScroll(), 250);
+                    setTimeout(this.checkScroll, 250);
                 } else {
                     requestAnimationFrame(() => this.checkScroll());
                 }
@@ -81,11 +79,10 @@ export default class NavigationController {
     }
 
     /**
-     *
+     * Check scroll
      */
     checkScroll() {
         /**
-         *
          * @type {number}
          */
         let currentTop = window.pageYOffset | document.body.scrollTop;
@@ -97,7 +94,7 @@ export default class NavigationController {
     }
 
     /**
-     *
+     * Change navigation state
      * @param currentTop
      */
     changeNavigationState(currentTop) {
@@ -115,7 +112,7 @@ export default class NavigationController {
     }
 
     /**
-     *
+     * Scrolling up
      * @param currentTop
      */
     scrollingUp(currentTop) {
@@ -127,7 +124,7 @@ export default class NavigationController {
     }
 
     /**
-     *
+     * Scrolling down
      * @param currentTop
      */
     scrollingDown(currentTop) {
@@ -137,6 +134,4 @@ export default class NavigationController {
             this.navigation.classList.remove(this.DOM.states.navigationSlideUp);
         }
     }
-
-    //endregion
 }
