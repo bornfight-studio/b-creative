@@ -9,13 +9,14 @@
     "eslint:recommended",
     "plugin:prettier/recommended",
     <%_ if (react) { _%>
-    "plugin:react/recommended",<%_ } _%>
+    "plugin:react/recommended",
+    <%_ } _%>
     "prettier"
   ],
   "globals": {
     "document": true,
-    "window": true,
     "frontend_rest_object": true,
+    "window": true,
     "wp": true
   },
   "parserOptions": {
@@ -34,9 +35,8 @@
     "node/shebang": 0,
     "prettier/prettier": [
       "error"
-    ]<%_ if (react) { _%>,
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
+    ],
+    <%_ if (react) { _%>
     "react/jsx-filename-extension": [
       1,
       {
@@ -45,6 +45,15 @@
           ".jsx"
         ]
       }
-    ]<%_ } _%>
+    ],
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    <%_ } _%>
+    "sort-imports": [
+      "error",
+      {
+        "ignoreDeclarationSort": true
+      }
+    ]
   }
 }

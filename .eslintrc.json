@@ -34,6 +34,12 @@
     "node/shebang": 0,
     "prettier/prettier": [
       "error"
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreDeclarationSort": true
+      }
     ]
   }
 }
