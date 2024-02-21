@@ -1,15 +1,13 @@
 .c-slider-pagination {
-    @include fluidValue("gap", "s-10");
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: var(--s-10);
     user-select: none;
 
     &__bullet {
-        @include fluidValue("width", "s-10");
-        @include fluidValue("height", "s-10");
-
+        width: var(--s-10);
+        height: var(--s-10);
         background-color: $black-50;
         border-radius: 100%;
         transition: getTransition(slide, ease-in-quad);

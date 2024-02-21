@@ -14,15 +14,13 @@
      * usage: .c-form__fieldset-flex-wrapper > .c-form__fieldset + .c-form__fieldset
      */
     &__fieldset-flex-wrapper {
-        @include fluidValue("gap", "s-30");
-
         display: flex;
         flex-wrap: wrap;
+        gap: var(--s-30);
 
         /* 1 */
         @include mq(md) {
-            @include fluidValue("margin-bottom", "s-30");
-
+            margin-bottom: var(--s-30);
             display: block;
 
             &:last-child {
@@ -32,7 +30,7 @@
 
         .c-form__fieldset {
             &:last-child {
-                @include fluidValue("margin-bottom", "s-30");
+                margin-bottom: var(--s-30);
             }
         }
     }
@@ -43,12 +41,8 @@
      * usage: .c-form__fieldset
      */
     &__fieldset {
-        @include fluidValue("margin-bottom", "s-30");
-
         padding: 0;
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
+        margin: 0 0 var(--s-30);
         border-width: 0;
 
         &:last-child {
@@ -65,9 +59,8 @@
         }
 
         &--flex {
-            @include fluidValue("gap", "s-15");
-
             display: flex;
+            gap: var(--s-15);
         }
     }
 
@@ -78,12 +71,8 @@
     */
     &__label,
     &__legend {
-        @include fluidValue("margin-bottom", "s-10");
-
         display: block;
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
+        margin: 0 0 var(--s-10);
         color: $black;
         cursor: pointer;
         width: 100%;
@@ -112,11 +101,7 @@
         width: 100%;
         box-sizing: border-box;
         /* 2 */
-        @include fluidValue("padding-left", "s-15");
-        @include fluidValue("padding-right", "s-15");
-
-        padding-top: 0;
-        padding-bottom: 0;
+        padding: 0 var(--s-15);
         margin: 0;
         /* 3 */
         @include fluidValue("border-radius", null, 10px);
@@ -144,10 +129,6 @@
         @include hover {
             outline: 0;
             box-shadow: none;
-        }
-
-        @include mq(lg) {
-            @include fluidValue("height", null, 40px);
         }
 
         /* 8 */
@@ -230,7 +211,7 @@
      * usage: .c-form__input.c-form__input--password
      */
     &__input--password {
-        @include fluidValue("padding-right", "s-60");
+        padding-right: var(--s-60);
     }
 
     /**
@@ -240,7 +221,7 @@
      * usage: .c-form__input.c-form__input--search
      */
     &__input--search {
-        @include fluidValue("padding-right", "s-60");
+        padding-right: var(--s-60);
     }
 
     /**
@@ -311,9 +292,9 @@
     &__input--textarea {
         @include fluidValue("min-height", null, 160px);
         @include fluidValue("height", null, 160px);
-        @include fluidValue("padding-top", "s-15");
-        @include fluidValue("padding-bottom", "s-15");
 
+        padding-top: var(--s-15);
+        padding-bottom: var(--s-15);
         resize: none;
     }
 
@@ -324,8 +305,7 @@
      * usage: .c-form__input.c-form__input--select
      */
     &__input--select {
-        @include fluidValue("padding-right", "s-40");
-
+        padding-right: var(--s-40);
         cursor: pointer;
     }
 
@@ -337,8 +317,6 @@
     &__input--inline {
         @include fluidValue("height", null, 40px);
         @include fluidValue("width", null, 70px);
-        @include fluidValue("padding-left", "s-10");
-        @include fluidValue("padding-right", "s-10");
         @include fontSize("b1");
 
         font-family: $font-primary;
@@ -346,6 +324,8 @@
         letter-spacing: -0.02em;
         display: block;
         text-align: center;
+        padding-left: var(--s-10);
+        padding-right: var(--s-10);
     }
 
     /**
@@ -371,7 +351,7 @@
 
     /* 2 */
     &__checkbox-wrapper {
-        @include fluidValue("margin-bottom", "s-15");
+        margin-bottom: var(--s-15);
 
         &:last-child {
             margin-bottom: 0;
@@ -404,13 +384,12 @@
 
     /* 6 */
     &__radio-grid {
-        @include fluidValue("gap", "s-15");
-
         display: flex;
         flex-wrap: wrap;
+        gap: var(--s-15);
 
         @include mq(lg) {
-            @include fluidValue("gap", "s-10");
+            gap: var(--s-10);
         }
     }
 
@@ -426,15 +405,14 @@
      */
     &__checkbox {
         & + .c-form__checkbox-label {
-            @include fluidValue("padding-left", "s-30");
-
+            padding-left: var(--s-30);
             position: relative;
             display: inline-block;
             cursor: pointer;
             line-height: 1.3;
 
             @include mq(lg) {
-                @include fluidValue("padding-left", "s-40");
+                padding-left: var(--s-40);
             }
 
             /* 1, 2 */
@@ -549,10 +527,6 @@
     &__radio {
         /* 1 */
         & + .c-form__radio-label {
-            @include fluidValue("padding-top", "s-15");
-            @include fluidValue("padding-bottom", "s-15");
-            @include fluidValue("padding-left", "s-15");
-            @include fluidValue("padding-right", "s-15");
             @include fluidValue("border-radius", null, 10px);
             @include fontSize("b0");
 
@@ -573,18 +547,15 @@
             align-items: center;
             justify-content: center;
             margin: 0;
+            padding: var(--s-15);
             cursor: pointer;
 
             @include mq(lg) {
-                @include fluidValue("padding-top", "s-10");
-                @include fluidValue("padding-bottom", "s-10");
-                @include fluidValue("padding-left", "s-10");
-                @include fluidValue("padding-right", "s-10");
+                padding: var(--s-10);
             }
 
             .u-icon {
-                @include fluidValue("margin-right", "s-15");
-
+                margin-right: var(--s-15);
                 font-size: 1.4em;
             }
         }
@@ -657,8 +628,7 @@
      */
     /* 1 */
     &__errors {
-        @include fluidValue("margin-bottom", "s-30");
-
+        margin-bottom: var(--s-30);
         color: $red;
     }
 
@@ -668,10 +638,10 @@
 
     /* 3 */
     &__errors-list {
-        @include fluidValue("margin-top", "s-15");
+        margin-top: var(--s-15);
 
         li {
-            @include fluidValue("margin-bottom", "s-5");
+            margin-bottom: var(--s-5);
 
             &:last-child {
                 margin-bottom: 0;
@@ -695,7 +665,7 @@
      */
     /* 1 */
     &__success {
-        @include fluidValue("margin-bottom", "s-30");
+        margin-bottom: var(--s-30);
 
         &:last-child {
             margin-bottom: 0;
@@ -708,7 +678,7 @@
 
     /* 3 */
     &__success-message {
-        @include fluidValue("margin-top", "s-15");
+        margin-top: var(--s-15);
 
         &:first-child,
         &:only-child {
@@ -718,7 +688,7 @@
 
     /* 4 */
     &__success-cta {
-        @include fluidValue("margin-top", "s-15");
+        margin-top: var(--s-15);
 
         &:first-child,
         &:only-child {
@@ -728,8 +698,7 @@
 
     /* 5 */
     &__success--newsletter {
-        @include fluidValue("margin-top", "s-5");
-
+        margin-top: var(--s-5);
         margin-bottom: 0;
     }
 
@@ -739,8 +708,7 @@
      * usage: .c-form__input.c-form__input--error + .c-form__validation-message
      */
     &__validation-message {
-        @include fluidValue("margin-top", "s-5");
-
+        margin-top: var(--s-5);
         color: $red;
     }
 
@@ -760,8 +728,6 @@
         @include button-reset;
         @include focus;
         @include fluidValue("font-size", null, 20px);
-        @include fluidValue("padding-left", "s-15");
-        @include fluidValue("padding-right", "s-15");
 
         cursor: pointer;
         position: absolute;
@@ -771,6 +737,8 @@
         justify-content: center;
         align-items: center;
         height: 100%;
+        padding-left: var(--s-15);
+        padding-right: var(--s-15);
         transition: getTransition(slide, ease-in-quad);
         color: $black-50;
         z-index: getZindex(default);
@@ -805,14 +773,13 @@
 
     /* 1 */
     &__search-actions {
-        @include fluidValue("gap", "s-10");
-        @include fluidValue("right", "s-15");
-
         position: absolute;
         top: 50%;
+        right: var(--s-15);
         transform: translateY(-50%);
         display: inline-flex;
         align-items: center;
+        gap: var(--s-10);
     }
 
     /* 2, 3 */
@@ -854,14 +821,14 @@
     &__newsletter-submit {
         @include button-reset;
         @include focus;
-        @include fluidValue("padding-left", "s-10");
-        @include fluidValue("padding-right", "s-10");
 
         transition: getTransition(slide, ease-in-quad);
         background-color: $black;
         color: $white;
         flex-shrink: 0;
         flex-grow: 0;
+        padding-left: var(--s-10);
+        padding-right: var(--s-10);
 
         @include hover {
             background-color: $white;
@@ -882,13 +849,12 @@
 
     /* 1 */
     &__select-indicator {
-        @include fluidValue("right", "s-15");
-
         display: inline-flex;
         align-items: center;
         justify-content: center;
         position: absolute;
         top: 50%;
+        right: var(--s-15);
         transform: translateY(-50%);
         font-size: 0.75em;
         pointer-events: none;

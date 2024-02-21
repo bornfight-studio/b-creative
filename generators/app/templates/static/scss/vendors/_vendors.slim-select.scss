@@ -4,8 +4,6 @@
 .ss-main {
     @include fluidValue("min-height", null, 50px);
     @include fluidValue("border-radius", null, 10px);
-    @include fluidValue("padding-left", "s-15");
-    @include fluidValue("padding-right", "s-15");
 
     display: flex;
     flex-direction: row;
@@ -13,8 +11,8 @@
     user-select: none;
     color: $black;
     width: 100%;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0 var(--s-15);
+    margin: 0;
     cursor: pointer;
     border: 1px solid $black;
     background-color: $white;
@@ -56,12 +54,11 @@
     }
 
     .ss-values {
-        @include fluidValue("gap", "s-5");
-
         display: inline-flex;
         align-items: center;
         flex-wrap: wrap;
         flex: 1 1 100%;
+        gap: var(--s-5);
 
         .ss-placeholder {
             display: flex;
@@ -78,7 +75,6 @@
 
         // Max is used to display max number of values
         .ss-max {
-            @include fluidValue("padding", "s-5");
             @include fluidValue("border-radius", null, 10px);
 
             display: flex;
@@ -88,6 +84,7 @@
             color: $white;
             line-height: 1;
             background-color: $black;
+            padding: var(--s-5);
         }
 
         // Used for single select selected value
@@ -117,11 +114,7 @@
             }
 
             .ss-value-text {
-                @include fluidValue("padding-top", "s-5");
-                @include fluidValue("padding-bottom", "s-5");
-                @include fluidValue("padding-left", "s-5");
-                @include fluidValue("padding-right", "s-5");
-
+                padding: var(--s-5);
                 color: $white;
                 line-height: 1;
             }
@@ -129,8 +122,8 @@
             .ss-value-delete {
                 @include fluidValue("width", null, 10px);
                 @include fluidValue("height", null, 10px);
-                @include fluidValue("padding", "s-5");
 
+                padding: var(--s-5);
                 display: flex;
                 align-items: center;
                 cursor: pointer;
@@ -156,9 +149,9 @@
     .ss-deselect {
         @include fluidValue("width", null, 10px);
         @include fluidValue("height", null, 10px);
-        @include fluidValue("margin-left", "s-10");
-        @include fluidValue("margin-right", "s-10");
 
+        margin-left: var(--s-10);
+        margin-right: var(--s-10);
         display: flex;
         align-self: center;
         justify-content: flex-end;
@@ -251,19 +244,13 @@
     }
 
     .ss-search {
-        @include fluidValue("padding-top", "s-15");
-        @include fluidValue("padding-bottom", "s-15");
-        @include fluidValue("padding-left", "s-15");
-        @include fluidValue("padding-right", "s-15");
-
+        padding: var(--s-15);
         flex: 0 1 auto;
         display: flex;
         flex-direction: row;
 
         input {
             @include fluidValue("height", null, 40px);
-            @include fluidValue("padding-left", "s-15");
-            @include fluidValue("padding-right", "s-15");
             @include fluidValue("border-radius", null, 10px);
             @include fontSize("b0");
 
@@ -273,10 +260,9 @@
             font-weight: 400;
             display: inline-flex;
             flex: 1 1 auto;
-            padding-top: 0;
-            padding-bottom: 0;
             width: 100%;
             min-width: 0;
+            padding: 0 var(--s-15);
             margin: 0;
             border: 1px solid $black;
             background-color: $white;
@@ -332,14 +318,12 @@
         overflow-y: auto;
 
         .ss-error {
-            @include fluidValue("padding", "s-5");
-
+            padding: var(--s-5);
             color: $red;
         }
 
         .ss-searching {
-            @include fluidValue("padding", "s-5");
-
+            padding: var(--s-5);
             color: $black;
         }
 
@@ -358,11 +342,7 @@
             }
 
             .ss-optgroup-label {
-                @include fluidValue("padding-top", "s-15");
-                @include fluidValue("padding-bottom", "s-15");
-                @include fluidValue("padding-left", "s-15");
-                @include fluidValue("padding-right", "s-15");
-
+                padding: var(--s-15);
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -379,22 +359,20 @@
                 }
 
                 .ss-optgroup-actions {
-                    @include fluidValue("gap", "s-5");
-
                     flex: 0 1 auto;
                     display: flex;
                     flex-direction: row;
                     align-items: center;
                     justify-content: center;
+                    gap: var(--s-5);
 
                     .ss-selectall {
-                        @include fluidValue("gap", "s-10");
-
                         flex: 0 0 auto;
                         display: inline-flex;
                         align-items: center;
                         justify-content: center;
                         flex-direction: row;
+                        gap: var(--s-10);
                         cursor: pointer;
 
                         &.ss-selected {
@@ -464,19 +442,12 @@
             }
 
             .ss-option {
-                @include fluidValue("padding-top", "s-10");
-                @include fluidValue("padding-bottom", "s-10");
-                @include fluidValue("padding-left", "s-30");
-                @include fluidValue("padding-right", "s-15");
+                padding: var(--s-10) var(--s-15) var(--s-10) var(--s-30);
             }
         }
 
         .ss-option {
-            @include fluidValue("padding-top", "s-10");
-            @include fluidValue("padding-bottom", "s-10");
-            @include fluidValue("padding-left", "s-15");
-            @include fluidValue("padding-right", "s-15");
-
+            padding: var(--s-10) var(--s-15);
             display: flex;
             color: $black;
             cursor: pointer;

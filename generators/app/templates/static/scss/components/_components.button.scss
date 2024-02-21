@@ -1,7 +1,5 @@
 .c-button {
     @include fluidValue("height", null, 50px);
-    @include fluidValue("padding-left", "s-50");
-    @include fluidValue("padding-right", "s-50");
     @include fluidValue("border-radius", null, 50px);
 
     display: inline-flex;
@@ -10,6 +8,8 @@
     text-decoration: none;
     cursor: pointer;
     margin: 0;
+    padding-left: var(--s-50);
+    padding-right: var(--s-50);
     overflow: hidden;
     outline: 0;
     border: none;
@@ -59,8 +59,9 @@
 
     &--small {
         @include fluidValue("height", null, 40px);
-        @include fluidValue("padding-left", "s-40");
-        @include fluidValue("padding-right", "s-40");
+
+        padding-left: var(--s-40);
+        padding-right: var(--s-40);
     }
 
     &__loader {

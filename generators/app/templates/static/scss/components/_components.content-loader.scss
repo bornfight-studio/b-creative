@@ -1,6 +1,5 @@
 .c-content-loader {
-    @include fluidValue("padding-top", "s-60");
-
+    padding-top: var(--s-60);
     position: absolute;
     top: 0;
     left: 0;

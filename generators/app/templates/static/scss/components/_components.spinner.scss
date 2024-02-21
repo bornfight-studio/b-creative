@@ -1,7 +1,6 @@
 .c-spinner {
-    @include fluidValue("width", "s-30");
-    @include fluidValue("height", "s-30");
-
+    width: var(--s-30);
+    height: var(--s-30);
     position: relative;
     display: inline-flex;
     align-items: center;

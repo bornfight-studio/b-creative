@@ -1,9 +1,8 @@
 .c-slider-navigation {
-    @include fluidValue("gap", "s-10");
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: var(--s-10);
     user-select: none;
 
     &__button {

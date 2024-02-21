@@ -3,15 +3,15 @@
 }
 
 .u-pt-small {
-    @include fluidValue("padding-top", "s-60");
+    padding-top: var(--s-60);
 }
 
 .u-pt-medium {
-    @include fluidValue("padding-top", "s-90");
+    padding-top: var(--s-90);
 }
 
 .u-pt-large {
-    @include fluidValue("padding-top", "s-125");
+    padding-top: var(--s-125);
 }
 
 .u-pb-0 {
@@ -19,13 +19,13 @@
 }
 
 .u-pb-small {
-    @include fluidValue("padding-bottom", "s-60");
+    padding-bottom: var(--s-60);
 }
 
 .u-pb-medium {
-    @include fluidValue("padding-bottom", "s-90");
+    padding-bottom: var(--s-90);
 }
 
 .u-pb-large {
-    @include fluidValue("padding-bottom", "s-125");
+    padding-bottom: var(--s-125);
 }
