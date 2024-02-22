@@ -10,7 +10,10 @@
     justify-content: center;
     display: none;
 
-    .loading & {
+    .is-loading & {
         display: flex;
+    }
+
+    .c-spinner {
     }
 }
