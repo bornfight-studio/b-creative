@@ -22,6 +22,7 @@ import SearchInput from "./components/inputs/SearchInput";
 import SelectInput from "./components/inputs/SelectInput";
 import Navigation from "./components/Navigation";
 import Slider from "./components/sliders/Slider";
+import CF7FormSuccess from "./components/CF7FormSuccess.js";
 
 /**
  * Check if document is ready cross-browser
@@ -161,4 +162,11 @@ ready(() => {
      */
     const slider = new Slider();
     slider.init();
+
+    /**
+     * Contact form 7 success message
+     * @type {CF7FormSuccess}
+     */
+    const cf7FormSuccess = new CF7FormSuccess();
+    cf7FormSuccess.init();
 });
