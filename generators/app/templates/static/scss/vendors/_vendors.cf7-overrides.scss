@@ -1,0 +1,118 @@
+.wpcf7-acceptance {
+    label {
+        text-transform: none;
+    }
+
+    .wpcf7-list-item {
+        margin-left: 0;
+    }
+
+    input[type="checkbox"] {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        height: 0;
+        width: 0;
+
+        + .wpcf7-list-item-label {
+
+            padding-left: 2em;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            line-height: 1.3;
+
+            &:before,
+            &:after {
+                width: 1.4em;
+                height: 1.4em;
+                position: absolute;
+                left: 0;
+                top: -0.2em;
+                display: block;
+                transition: getTransition();
+            }
+
+            &:before {
+                content: "";
+                background-color: transparent;
+                border: 1px solid currentColor;
+            }
+
+            &:after {
+                content: "";
+                transform: scale(0);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI4IiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMy44MjIgNS4xNzggMS40NjUgMi44MjEuMjg2IDRsMy41MzYgMy41MzYgNS44OTItNS44OTNMOC41MzYuNDY0IDMuODIyIDUuMTc4WiIvPjwvc3ZnPg==");
+                border: 0;
+            }
+
+            a {
+                text-decoration: underline;
+                transition: getTransition();
+
+                @include hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        @include hover {
+            &:not(:checked) {
+                & + .wpcf7-list-item-label {
+                    &:before {
+                        outline: 0;
+                    }
+                }
+            }
+        }
+
+        &:focus {
+            &:not(:checked) {
+                & + .wpcf7-list-item-label {
+                    &:before {
+                        outline: 0;
+                    }
+                }
+            }
+        }
+
+        &:checked {
+            & + .wpcf7-list-item-label {
+                &:before {
+                    outline: 0;
+                    background-color: currentColor;
+                }
+
+                &:after {
+                    transform: scale(0.5);
+                }
+            }
+        }
+
+        &:disabled {
+            & + .wpcf7-list-item-label {
+                cursor: not-allowed;
+                pointer-events: none;
+                opacity: 0.5;
+            }
+
+            &:not(:checked),
+            &:checked {
+                & + .wpcf7-list-item-label {
+                    &:before {
+                    }
+                }
+            }
+
+            &:checked {
+                & + .wpcf7-list-item-label {
+                    &:after {
+                    }
+                }
+            }
+        }
+    }
+}
