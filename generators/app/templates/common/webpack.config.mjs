@@ -1,12 +1,15 @@
 // Import required modules
-const TerserPlugin = require("terser-webpack-plugin");
-const path = require("path");
-const webpack = require("webpack");
-const BrowserSyncPlugin = require("browser-sync-v3-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
+import TerserPlugin from "terser-webpack-plugin";
+import path from "path";
+import webpack from "webpack";
+import BrowserSyncPlugin from "browser-sync-v3-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import RemoveEmptyScriptsPlugin from "webpack-remove-empty-scripts";
 
-module.exports = (env, argv) => {
+// ReferenceError: __dirname is not defined in ES module scope
+const __dirname = path.resolve();
+
+export default (env, argv) => {
     const mode = argv.mode;
     console.log(`Running in ${mode} mode...`);
     console.log(env);
