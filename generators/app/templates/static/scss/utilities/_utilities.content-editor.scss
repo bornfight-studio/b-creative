@@ -7,7 +7,7 @@
     > h4,
     > h5,
     > h6 {
-        margin-bottom: var(--s-30);
+        margin-bottom: var(--s-30, 30px);
 
         &:last-child {
             margin-bottom: 0;
@@ -18,7 +18,7 @@
         + h4,
         + h5,
         + h6 {
-            margin-top: var(--s-60);
+            margin-top: var(--s-60, 60px);
         }
 
         > u {
@@ -39,7 +39,7 @@
     > ol {
         @include b0;
 
-        margin-bottom: var(--s-15);
+        margin-bottom: var(--s-15, 15px);
 
         &:last-child {
             margin-bottom: 0;
@@ -50,7 +50,7 @@
         + h4,
         + h5,
         + h6 {
-            margin-top: var(--s-60);
+            margin-top: var(--s-60, 60px);
         }
 
         > u {
@@ -91,7 +91,7 @@
     }
 
     li {
-        margin-bottom: var(--s-15);
+        margin-bottom: var(--s-15, 15px);
 
         &:last-child {
             margin-bottom: 0;
@@ -162,7 +162,7 @@
         border-right: none;
         border-bottom: none;
         padding: 0;
-        margin: var(--s-60) 0;
+        margin: var(--s-60, 60px) 0;
         outline: none;
         box-shadow: none;
 
@@ -176,8 +176,8 @@
     }
 
     .wp-block-table {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
+        margin-top: var(--s-60, 60px);
+        margin-bottom: var(--s-60, 60px);
 
         &:first-child {
             margin-top: 0;
@@ -199,12 +199,12 @@
         tr {
             border-bottom: 1px solid $black;
             display: flex;
-            gap: var(--s-15);
+            gap: var(--s-15, 15px);
         }
 
         td {
-            padding-top: var(--s-15);
-            padding-bottom: var(--s-15);
+            padding-top: var(--s-15, 15px);
+            padding-bottom: var(--s-15, 15px);
             flex-grow: 1;
             flex-basis: 0;
             min-width: 0;
@@ -227,9 +227,9 @@
     }
 
     .wp-block-quote {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
-        padding-left: var(--s-15);
+        margin-top: var(--s-60, 60px);
+        margin-bottom: var(--s-60, 60px);
+        padding-left: var(--s-15, 15px);
         border-left: 3px solid $black;
 
         &:first-child {
@@ -247,7 +247,7 @@
         cite {
             @include b1;
 
-            margin-top: var(--s-15);
+            margin-top: var(--s-15, 15px);
             display: block;
 
             > u {
@@ -268,8 +268,8 @@
     }
 
     .wp-block-embed {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
+        margin-top: var(--s-60, 60px);
+        margin-bottom: var(--s-60, 60px);
 
         &:first-child {
             margin-top: 0;
@@ -301,8 +301,8 @@
     }
 
     .wp-block-image {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
+        margin-top: var(--s-60, 60px);
+        margin-bottom: var(--s-60, 60px);
 
         &:first-child {
             margin-top: 0;
@@ -333,7 +333,7 @@
         figcaption {
             @include b1;
 
-            margin-top: var(--s-15);
+            margin-top: var(--s-15, 15px);
 
             > u {
                 text-decoration: underline;
@@ -351,9 +351,9 @@
 
     .wp-block-code,
     pre {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
-        padding: var(--s-30);
+        margin-top: var(--s-60, 60px);
+        margin-bottom: var(--s-60, 60px);
+        padding: var(--s-30, 30px);
         background-color: $white;
         color: $black;
 
@@ -373,8 +373,8 @@
     }
 
     .c-gutenberg-block {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
+        margin-top: var(--s-60, 60px);
+        margin-bottom: var(--s-60, 60px);
         position: relative;
         z-index: getZindex(default);
 

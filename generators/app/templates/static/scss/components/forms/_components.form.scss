@@ -16,11 +16,11 @@
     &__fieldset-flex-wrapper {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--s-30);
+        gap: var(--s-30, 30px);
 
         /* 1 */
         @include mq(md) {
-            margin-bottom: var(--s-30);
+            margin-bottom: var(--s-30, 30px);
             display: block;
 
             &:last-child {
@@ -30,7 +30,7 @@
 
         .c-form__fieldset {
             &:last-child {
-                margin-bottom: var(--s-30);
+                margin-bottom: var(--s-30, 30px);
             }
         }
     }
@@ -42,7 +42,7 @@
      */
     &__fieldset {
         padding: 0;
-        margin: 0 0 var(--s-30);
+        margin: 0 0 var(--s-30, 30px);
         border-width: 0;
 
         &:last-child {
@@ -60,7 +60,7 @@
 
         &--flex {
             display: flex;
-            gap: var(--s-15);
+            gap: var(--s-15, 15px);
         }
     }
 
@@ -72,7 +72,7 @@
     &__label,
     &__legend {
         display: block;
-        margin: 0 0 var(--s-10);
+        margin: 0 0 var(--s-10, 10px);
         color: $black;
         cursor: pointer;
         width: 100%;
@@ -101,7 +101,7 @@
         width: 100%;
         box-sizing: border-box;
         /* 2 */
-        padding: 0 var(--s-15);
+        padding: 0 var(--s-15, 15px);
         margin: 0;
         /* 3 */
         @include fluidValue("border-radius", null, 10px);
@@ -207,7 +207,7 @@
      * usage: .c-form__input.c-form__input--password
      */
     &__input--password {
-        padding-right: var(--s-60);
+        padding-right: var(--s-60, 60px);
     }
 
     /**
@@ -217,7 +217,7 @@
      * usage: .c-form__input.c-form__input--search
      */
     &__input--search {
-        padding-right: var(--s-60);
+        padding-right: var(--s-60, 60px);
     }
 
     /**
@@ -289,8 +289,8 @@
         @include fluidValue("min-height", null, 160px);
         @include fluidValue("height", null, 160px);
 
-        padding-top: var(--s-15);
-        padding-bottom: var(--s-15);
+        padding-top: var(--s-15, 15px);
+        padding-bottom: var(--s-15, 15px);
         resize: none;
     }
 
@@ -301,7 +301,7 @@
      * usage: .c-form__input.c-form__input--select
      */
     &__input--select {
-        padding-right: var(--s-40);
+        padding-right: var(--s-40, 40px);
         cursor: pointer;
     }
 
@@ -317,8 +317,8 @@
 
         display: block;
         text-align: center;
-        padding-left: var(--s-10);
-        padding-right: var(--s-10);
+        padding-left: var(--s-10, 10px);
+        padding-right: var(--s-10, 10px);
     }
 
     /**
@@ -344,7 +344,7 @@
 
     /* 2 */
     &__checkbox-wrapper {
-        margin-bottom: var(--s-15);
+        margin-bottom: var(--s-15, 15px);
 
         &:last-child {
             margin-bottom: 0;
@@ -379,10 +379,10 @@
     &__radio-grid {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--s-15);
+        gap: var(--s-15, 15px);
 
         @include mq(lg) {
-            gap: var(--s-10);
+            gap: var(--s-10, 10px);
         }
     }
 
@@ -398,14 +398,14 @@
      */
     &__checkbox {
         & + .c-form__checkbox-label {
-            padding-left: var(--s-30);
+            padding-left: var(--s-30, 30px);
             position: relative;
             display: inline-block;
             cursor: pointer;
             line-height: 1.3;
 
             @include mq(lg) {
-                padding-left: var(--s-40);
+                padding-left: var(--s-40, 40px);
             }
 
             /* 1, 2 */
@@ -536,15 +536,15 @@
             align-items: center;
             justify-content: center;
             margin: 0;
-            padding: var(--s-15);
+            padding: var(--s-15, 15px);
             cursor: pointer;
 
             @include mq(lg) {
-                padding: var(--s-10);
+                padding: var(--s-10, 10px);
             }
 
             .u-icon {
-                margin-right: var(--s-15);
+                margin-right: var(--s-15, 15px);
                 font-size: 1.4em;
             }
         }
@@ -617,7 +617,7 @@
      */
     /* 1 */
     &__errors {
-        margin-bottom: var(--s-30);
+        margin-bottom: var(--s-30, 30px);
         color: $red;
     }
 
@@ -627,10 +627,10 @@
 
     /* 3 */
     &__errors-list {
-        margin-top: var(--s-15);
+        margin-top: var(--s-15, 15px);
 
         li {
-            margin-bottom: var(--s-5);
+            margin-bottom: var(--s-5, 5px);
 
             &:last-child {
                 margin-bottom: 0;
@@ -654,7 +654,7 @@
      */
     /* 1 */
     &__success {
-        margin-bottom: var(--s-30);
+        margin-bottom: var(--s-30, 30px);
 
         &:last-child {
             margin-bottom: 0;
@@ -667,7 +667,7 @@
 
     /* 3 */
     &__success-message {
-        margin-top: var(--s-15);
+        margin-top: var(--s-15, 15px);
 
         &:first-child,
         &:only-child {
@@ -677,7 +677,7 @@
 
     /* 4 */
     &__success-cta {
-        margin-top: var(--s-15);
+        margin-top: var(--s-15, 15px);
 
         &:first-child,
         &:only-child {
@@ -687,7 +687,7 @@
 
     /* 5 */
     &__success--newsletter {
-        margin-top: var(--s-5);
+        margin-top: var(--s-5, 5px);
         margin-bottom: 0;
     }
 
@@ -697,7 +697,7 @@
      * usage: .c-form__input.c-form__input--error + .c-form__validation-message
      */
     &__validation-message {
-        margin-top: var(--s-5);
+        margin-top: var(--s-5, 5px);
         color: $red;
     }
 
@@ -726,8 +726,8 @@
         justify-content: center;
         align-items: center;
         height: 100%;
-        padding-left: var(--s-15);
-        padding-right: var(--s-15);
+        padding-left: var(--s-15, 15px);
+        padding-right: var(--s-15, 15px);
         transition: getTransition(slide, ease-in-quad);
         color: $black-50;
         z-index: getZindex(default);
@@ -764,11 +764,11 @@
     &__search-actions {
         position: absolute;
         top: 50%;
-        right: var(--s-15);
+        right: var(--s-15, 15px);
         transform: translateY(-50%);
         display: inline-flex;
         align-items: center;
-        gap: var(--s-10);
+        gap: var(--s-10, 10px);
     }
 
     /* 2, 3 */
@@ -816,8 +816,8 @@
         color: $white;
         flex-shrink: 0;
         flex-grow: 0;
-        padding-left: var(--s-10);
-        padding-right: var(--s-10);
+        padding-left: var(--s-10, 10px);
+        padding-right: var(--s-10, 10px);
 
         @include hover {
             background-color: $white;
@@ -843,7 +843,7 @@
         justify-content: center;
         position: absolute;
         top: 50%;
-        right: var(--s-15);
+        right: var(--s-15, 15px);
         transform: translateY(-50%);
         font-size: 0.75em;
         pointer-events: none;

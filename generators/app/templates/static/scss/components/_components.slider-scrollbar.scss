@@ -1,13 +1,13 @@
 .c-slider-scrollbar {
     @include fluidValue("border-radius", null, 100px);
 
-    height: var(--s-10);
+    height: var(--s-10, 10px);
     background-color: $black-50;
     overflow: hidden;
     user-select: none;
 
     @include mq(lg) {
-        height: var(--s-5);
+        height: var(--s-5, 5px);
     }
 
     &__inner {

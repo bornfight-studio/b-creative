@@ -2,7 +2,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--s-10);
+    gap: var(--s-10, 10px);
     user-select: none;
 
     &__button {

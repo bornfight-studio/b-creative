@@ -1,6 +1,6 @@
 .c-spinner {
-    width: var(--s-30);
-    height: var(--s-30);
+    width: var(--s-30, 30px);
+    height: var(--s-30, 30px);
     position: relative;
     display: inline-flex;
     align-items: center;

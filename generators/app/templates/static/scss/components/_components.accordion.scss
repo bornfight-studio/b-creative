@@ -11,14 +11,14 @@
     }
 
     &__header {
-        padding-top: var(--s-20);
-        padding-bottom: var(--s-20);
+        padding-top: var(--s-20, 20px);
+        padding-bottom: var(--s-20, 20px);
         position: relative;
         cursor: pointer;
         display: flex;
         align-items: baseline;
         justify-content: space-between;
-        gap: var(--s-60);
+        gap: var(--s-60, 60px);
 
         &.is-opened {
         }
@@ -31,8 +31,8 @@
         @include button-reset;
         @include focus;
 
-        width: var(--s-20);
-        height: var(--s-20);
+        width: var(--s-20, 20px);
+        height: var(--s-20, 20px);
         position: relative;
         flex-shrink: 0;
         flex-grow: 0;
@@ -71,7 +71,7 @@
     }
 
     &__panel-inner {
-        padding-bottom: var(--s-20);
+        padding-bottom: var(--s-20, 20px);
 
         p {
             margin-bottom: 1em;

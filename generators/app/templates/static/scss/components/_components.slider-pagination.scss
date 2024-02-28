@@ -2,12 +2,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--s-10);
+    gap: var(--s-10, 10px);
     user-select: none;
 
     &__bullet {
-        width: var(--s-10);
-        height: var(--s-10);
+        width: var(--s-10, 10px);
+        height: var(--s-10, 10px);
         background-color: $black-50;
         border-radius: 100%;
         transition: getTransition(slide, ease-in-quad);
