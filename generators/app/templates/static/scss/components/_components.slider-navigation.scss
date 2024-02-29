@@ -1,0 +1,35 @@
+.c-slider-navigation {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-10);
+    user-select: none;
+
+    &__button {
+        @include button-reset;
+        @include focus;
+        @include fluidValue("border-radius", null, 3px);
+        @include fluidValue("width", null, 45px);
+        @include fluidValue("height", null, 45px);
+
+        font-size: 0.7em;
+        transition: getTransition(slide, ease-in-quad);
+        background: $black;
+        color: $white;
+
+        @include hover {
+            &:not(:disabled) {
+                background-color: $black-50;
+                color: $white;
+            }
+        }
+
+        &:disabled {
+            background-color: $black-50;
+            color: $white;
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    }
+}

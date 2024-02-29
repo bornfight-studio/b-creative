@@ -1,9 +1,8 @@
 /**
- * Grid helper
- * Show grid overlay when developing
- * Not included in production bundle JS file
+ * Grid
+ * show grid overlay when developing
  */
-export default class GridHelper {
+export default class Grid {
     constructor() {
         /**
          * Grid DOM selector
@@ -30,7 +29,7 @@ export default class GridHelper {
             initialDisplay: "none", // "flex" or "none" — initial display for the grid — string
             columnCount: 24, // number of grid columns — integer
             gridWidth: 1440, // base grid used in design; value in px — integer
-            gridFixed: true, // should grid width be restricted to gridWidth or it should go full width a nd behave fluidly across all screen sizes
+            gridFixed: true, // should grid width be restricted to gridWidth, or it should go full width a nd behave fluidly across all screen sizes
             gutterWidth: 0, // grid gutters value in px — integer
             gutterFixed: false, // should grid gutter be a fixed value (px) or fluid — integer
             gridColor: "rgb(255, 0, 255, 0.15)", // grid guides color — string of an rgba or hex value
@@ -44,10 +43,10 @@ export default class GridHelper {
             "line-height: 24px",
             "text-align: center",
             "border: 1px solid #ffffff",
-            "font-weight: bold",
+            "font-weight: 700",
         ].join(";");
 
-        console.info("toggle grid: %c Alt/Option + G ", consoleLogStyle);
+        console.info("toggle grid: %c Control + G ", consoleLogStyle);
 
         this.grid = null;
 
@@ -59,12 +58,17 @@ export default class GridHelper {
         this.gutterWidthPercentage = `${(this.gridOptions.gutterWidth / this.gridOptions.gridWidth) * 100}%`;
     }
 
+    /**
+     * Init
+     */
     init() {
-        console.log("GridHelper init()");
         this.initGrid();
         this.keyboardShortcut();
     }
 
+    /**
+     * Init grid
+     */
     initGrid() {
         // create grid overlay element
         this.grid = document.createElement("div");
@@ -96,8 +100,8 @@ export default class GridHelper {
         document.body.appendChild(this.grid);
 
         // add columns to grid
-        for (var i = 0; i < this.gridOptions.columnCount; i++) {
-            var column = document.createElement("i");
+        for (let i = 0; i < this.gridOptions.columnCount; i++) {
+            const column = document.createElement("i");
             this.grid.appendChild(column);
 
             column.style.cssText = `
@@ -124,15 +128,26 @@ export default class GridHelper {
         this.grid.lastChild.style.marginRight = 0;
     }
 
+    /**
+     * Keyboard shortcut
+     */
     keyboardShortcut() {
-        document.addEventListener("keyup", (ev) => {
-            if (ev.keyCode === 71 && ev.altKey) {
+        let keysPressed = {};
+
+        document.addEventListener("keydown", (event) => {
+            keysPressed[event.key] = true;
+
+            if (keysPressed["Control"] && event.key === "g") {
                 if (this.grid.style.display === "none") {
                     this.grid.style.display = "flex";
                 } else {
                     this.grid.style.display = "none";
                 }
             }
+        });
+
+        document.addEventListener("keyup", (event) => {
+            delete keysPressed[event.key];
         });
     }
 }

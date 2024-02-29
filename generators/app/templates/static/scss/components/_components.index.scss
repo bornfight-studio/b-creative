@@ -1,15 +1,74 @@
 /**
  * Components
  */
-@import "components.button";
-@import "components.cookie-message";
-@import "components.footer";
-@import "components.header";
 @import "components.loader";
 @import "components.mobile-navigation";
 @import "components.navigation";
+@import "components.hamburger";
+@import "components.media-loader";
+@import "components.media-overlay";
+@import "components.responsive-media";
+@import "components.breadcrumbs";
+@import "components.button";
+@import "components.underline-link";
+@import "components.spinner";
+@import "components.content-loader";
+@import "components.accordion";
+@import "components.tag";
+@import "components.badge";
+@import "components.slider-fraction";
+@import "components.slider-navigation";
+@import "components.slider-pagination";
+@import "components.slider-scrollbar";
 @import "components.pagination";
+@import "components.social-icons";
+@import "components.article-share";
+@import "components.cookie-message";
+
+/**
+ * Cards
+ */
+@import "cards/components.article-card";
+
+/**
+ * Forms
+ */
+@import "forms/components.form";
+@import "forms/components.newsletter-form";
+@import "forms/components.contact-form";
+
+/**
+ * Tables
+ */
+@import "tables/components.table-name-table";
+
+/**
+ * Modals
+ */
+@import "modals/components.modal";
+@import "modals/components.newsletter-modal";
+
+/**
+ * Sections
+ */
+@import "sections/components.header";
+@import "sections/components.footer";
+@import "sections/components.archive-header";
+@import "sections/components.archive";
+@import "sections/components.article-header";
+@import "sections/components.article";
+@import "sections/components.page-header";
+@import "sections/components.page";
+@import "sections/components.404";
+@import "sections/components.faq";
+@import "sections/components.contact";
 
 /**
  * Modules
  */
+@import "modules/components.module-name-module";
+
+/**
+ * Gutenberg blocks
+ */
+@import "blocks/components.block-name-block";

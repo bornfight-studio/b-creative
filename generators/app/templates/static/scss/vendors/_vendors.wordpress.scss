@@ -1,0 +1,6 @@
+body.logged-in.admin-bar {
+    .o-navigation {
+        //if wp project, move top of navigation down by the height of the admin bar
+        top: var(--wp-admin--admin-bar--height, 0);
+    }
+}

@@ -1,0 +1,19 @@
+.c-content-loader {
+    padding-top: var(--s-60);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black-50;
+    z-index: getZindex(default, 1);
+    justify-content: center;
+    display: none;
+
+    .is-loading & {
+        display: flex;
+    }
+
+    .c-spinner {
+    }
+}

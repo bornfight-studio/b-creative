@@ -1,0 +1,851 @@
+/*
+ * Form
+ * Custom form styles and resets
+ * usage: form.c-form
+ */
+.c-form {
+    display: block;
+    width: 100%;
+
+    /**
+     * Fieldset flex wrapper
+     * wraps fieldset to achieve multiple column inputs
+     * 1. On mobile convert to block element and push down the content because fieldset last child has margin bottom 0
+     * usage: .c-form__fieldset-flex-wrapper > .c-form__fieldset + .c-form__fieldset
+     */
+    &__fieldset-flex-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s-30);
+
+        /* 1 */
+        @include mq(md) {
+            margin-bottom: var(--s-30);
+            display: block;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .c-form__fieldset {
+            &:last-child {
+                margin-bottom: var(--s-30);
+            }
+        }
+    }
+
+    /**
+     * Fieldset
+     * 1. When wrapped with flex wrapper make the columns equal width
+     * usage: .c-form__fieldset
+     */
+    &__fieldset {
+        padding: 0;
+        margin: 0 0 var(--s-30);
+        border-width: 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* 1 */
+        .c-form__fieldset-flex-wrapper & {
+            flex: 1 0 0;
+        }
+
+        &--flex {
+            display: flex;
+            gap: var(--s-15);
+        }
+    }
+
+    /**
+    * Label and legend
+    * usage: .c-form__fieldset > .c-form__label
+    * usage: .c-form__fieldset > .c-form__legend
+    */
+    &__label,
+    &__legend {
+        display: block;
+        margin: 0 0 var(--s-10);
+        color: $black;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    /**
+     * Input resets and styling
+     * 1. Reset display and dimensions for all browsers.
+     * 2. Reset and define spacing for all browsers
+     * 3. Reset background and border for all browsers
+     * 4. Make font properties consistent in IE and Safari with other browsers
+     * 5. Add transitions on input
+     * 6. Remove platform specific default styling for inputs like search or select
+     * 7. Hover state
+     * 8. Focus state - disable outline and enable border for better design
+     * 9. Disabled state
+     * 10. State when input is not empty
+     * 11., 12. Reset autocomplete styles in webkit browsers
+     * usage: .c-form__fieldset > .c-form__label + .c-form__input
+     */
+    &__input {
+        /* 1 */
+        @include fluidValue("height", null, 50px);
+
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        /* 2 */
+        padding: 0 var(--s-15);
+        margin: 0;
+        /* 3 */
+        @include fluidValue("border-radius", null, 10px);
+
+        border: 1px solid $black;
+        background-color: $white;
+        box-shadow: none;
+        outline: none;
+        /* 4 */
+        @include b0;
+
+        color: $black;
+        /* 5 */
+        transition: getTransition(slide, ease-in-quad);
+        /* 6 */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        /* 7 */
+        @include hover {
+            outline: 0;
+            box-shadow: none;
+        }
+
+        /* 8 */
+        &:focus {
+            outline: 0;
+            box-shadow: none;
+        }
+
+        /* 9 */
+        &:disabled {
+            outline: 0;
+            box-shadow: none;
+            pointer-events: none;
+        }
+
+        /* 11 */
+        &:-webkit-autofill,
+        &:-webkit-autofill:focus {
+            transition:
+                background-color 600000s 0s,
+                color 600000s 0s;
+        }
+
+        /* 12 */
+        &[data-autocompleted] {
+            background-color: transparent !important;
+        }
+
+        /**
+         * Input placeholders
+         * 1. Chrome, Firefox, Opera, Safari 10.1+
+         * 2. Firefox needs opacity reset
+         * 3. Internet Explorer 10-11
+         * 4. Microsoft Edge
+         */
+        /* 1 */
+        &::placeholder {
+            color: $black-50;
+            /* 2 */
+            opacity: 1;
+        }
+
+        /* 3 */
+        &:-ms-input-placeholder {
+            color: $black-50;
+        }
+
+        /* 4 */
+        &::-ms-input-placeholder {
+            color: $black-50;
+        }
+    }
+
+    /**
+     * Error state for input
+     * Add border to show which input has error
+     * 1. Hover state
+     * 2. Focus state - disable outline and enable border for better design
+     * 3. State when input is not empty
+     * usage: .c-form__input.c-form__input--error
+     */
+    &__input--error {
+        border-color: $red;
+
+        /* 1 */
+        @include hover {
+            border-color: $red;
+        }
+
+        /* 2 */
+        &:focus {
+            border-color: $red;
+        }
+    }
+
+    /**
+     * Password input
+     * Modifier for password inputs
+     * Compensate padding for password reveal icon
+     * usage: .c-form__input.c-form__input--password
+     */
+    &__input--password {
+        padding-right: var(--s-60);
+    }
+
+    /**
+     * Search input
+     * Modifier for search inputs
+     * Compensate padding for submit button
+     * usage: .c-form__input.c-form__input--search
+     */
+    &__input--search {
+        padding-right: var(--s-60);
+    }
+
+    /**
+     * Newsletter input
+     * Modifier for newsletter inputs
+     * 1. Hover state
+     * 2. Focus state
+     * 3. Disabled state
+     * 4. State when input is not empty
+     * usage: .c-form__input.c-form__input--newsletter
+     */
+    &__input--newsletter {
+        @include fluidValue("height", null, 40px);
+
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom-color: $white;
+        padding-left: 0;
+        background-color: transparent;
+        color: $white;
+        border-radius: 0;
+
+        @include mq(lg) {
+        }
+
+        /* 1 */
+        @include hover {
+        }
+
+        /* 2 */
+        &:focus {
+        }
+
+        /**
+         * Input placeholders
+         * 1. Chrome, Firefox, Opera, Safari 10.1+
+         * 2. Firefox needs opacity reset
+         * 3. Internet Explorer 10-11
+         * 4. Microsoft Edge
+         */
+        /* 1 */
+        &::placeholder {
+            color: rgba($white, 0.5);
+            /* 2 */
+            opacity: 1;
+        }
+
+        /* 3 */
+        &:-ms-input-placeholder {
+            color: rgba($white, 0.5);
+        }
+
+        /* 4 */
+        &::-ms-input-placeholder {
+            color: rgba($white, 0.5);
+        }
+    }
+
+    /**
+     * Textarea input
+     * Modifier for textarea inputs
+     * Remove resizing option from textarea
+     * Add height or min height to textarea
+     * Needs to be combined with .c-form__input for reset
+     * usage: .c-form__input.c-form__input--textarea
+     */
+    &__input--textarea {
+        @include fluidValue("min-height", null, 160px);
+        @include fluidValue("height", null, 160px);
+
+        padding-top: var(--s-15);
+        padding-bottom: var(--s-15);
+        resize: none;
+    }
+
+    /**
+     * Select input
+     * Modifier for native select inputs without using third party lib's
+     * Compensate padding for indicator icon
+     * usage: .c-form__input.c-form__input--select
+     */
+    &__input--select {
+        padding-right: var(--s-40);
+        cursor: pointer;
+    }
+
+    /**
+     * Inline input
+     * Modifier for inputs which appear inline
+     * usage: .c-form__input.c-form__input--inline
+     */
+    &__input--inline {
+        @include fluidValue("height", null, 40px);
+        @include fluidValue("width", null, 70px);
+        @include b1;
+
+        display: block;
+        text-align: center;
+        padding-left: var(--s-10);
+        padding-right: var(--s-10);
+    }
+
+    /**
+     * Checkbox and radio common style
+     * 1. Hide default HTML input
+     * 2. Single checkbox wrapper
+     * 3. Single radio wrapper
+     * 4. Reset line height on fake checkbox and radio
+     * 5. Style links inside labels
+     * 6. Wrapper around radio buttons to create flexbox grid
+     */
+    /* 1 */
+    &__checkbox,
+    &__radio {
+        position: absolute;
+        z-index: getZindex(negative);
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        box-sizing: border-box;
+    }
+
+    /* 2 */
+    &__checkbox-wrapper {
+        margin-bottom: var(--s-15);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    /* 3 */
+    &__radio-wrapper {
+        &:last-child {
+        }
+    }
+
+    /* 4 */
+    &__checkbox-label,
+    &__radio-label {
+        box-sizing: border-box;
+
+        &:before,
+        &:after {
+            box-sizing: border-box;
+            line-height: 1;
+            transform-origin: center;
+        }
+
+        /* 5 */
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    /* 6 */
+    &__radio-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s-15);
+
+        @include mq(lg) {
+            gap: var(--s-10);
+        }
+    }
+
+    /**
+     * Custom checkbox
+     * 1. Custom checkbox holder
+     * 2. Custom checkbox checked indicator
+     * 3. Hover state
+     * 4. Focus state
+     * 5. Checked state - size of the indicator can be controlled with scale ratio
+     * 6. Disabled state
+     * usage: .c-form__fieldset > .c-form__checkbox-wrapper > .c-form__checkbox + .c-form__checkbox-label
+     */
+    &__checkbox {
+        & + .c-form__checkbox-label {
+            padding-left: var(--s-30);
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            line-height: 1.3;
+
+            @include mq(lg) {
+                padding-left: var(--s-40);
+            }
+
+            /* 1, 2 */
+            &:before,
+            &:after {
+                @include fluidValue("width", null, 20px);
+                @include fluidValue("height", null, 20px);
+
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+                transition: getTransition(slide, ease-in-quad);
+            }
+
+            /* 1 */
+            &:before {
+                @include fluidValue("border-radius", null, 5px);
+
+                content: "";
+                background-color: $white;
+                border: 1px solid $black;
+            }
+
+            /* 2 */
+            &:after {
+                content: "";
+                transform: scale(0);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI4IiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMy44MjIgNS4xNzggMS40NjUgMi44MjEuMjg2IDRsMy41MzYgMy41MzYgNS44OTItNS44OTNMOC41MzYuNDY0IDMuODIyIDUuMTc4WiIvPjwvc3ZnPg==");
+            }
+        }
+
+        /* 3 */
+        @include hover {
+            &:not(:checked) {
+                & + .c-form__checkbox-label {
+                    &:before {
+                        outline: 0;
+                        border-color: $black;
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+
+        /* 4 */
+        &:focus {
+            &:not(:checked) {
+                & + .c-form__checkbox-label {
+                    &:before {
+                        outline: 0;
+                        border-color: $black;
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+
+        /* 5 */
+        &:checked {
+            & + .c-form__checkbox-label {
+                &:before {
+                    outline: 0;
+                    border-color: $black;
+                    background-color: $black;
+                }
+
+                &:after {
+                    transform: scale(0.5);
+                }
+            }
+        }
+
+        /* 6 */
+        &:disabled {
+            & + .c-form__checkbox-label {
+                cursor: not-allowed;
+                pointer-events: none;
+                opacity: 0.5;
+            }
+
+            &:not(:checked),
+            &:checked {
+                & + .c-form__checkbox-label {
+                    &:before {
+                    }
+                }
+            }
+
+            /* 8 */
+            &:checked {
+                & + .c-form__checkbox-label {
+                    &:after {
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Custom radio
+     * 1. Radio button label that holds the design of the radio buttons
+     * 2. Hover state
+     * 3. Focus state
+     * 4. Checked state - size of the indicator can be controlled with scale ratio
+     * 5. Disabled state
+     * usage: .c-form__fieldset > .c-form__legend + .c-form__radio-grid > .c-form__radio-wrapper > .c-form__radio + .c-form__radio-label
+     */
+    &__radio {
+        /* 1 */
+        & + .c-form__radio-label {
+            @include fluidValue("border-radius", null, 10px);
+            @include b0;
+
+            color: $black;
+            border: 1px solid $black;
+            background-color: $white;
+            box-shadow: none;
+            outline: none;
+            transition: getTransition(slide, ease-in-quad);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: var(--s-15);
+            cursor: pointer;
+
+            @include mq(lg) {
+                padding: var(--s-10);
+            }
+
+            .u-icon {
+                margin-right: var(--s-15);
+                font-size: 1.4em;
+            }
+        }
+
+        /* 2 */
+        @include hover {
+            &:not(:checked) {
+                & + .c-form__radio-label {
+                    outline: 0;
+                    box-shadow: none;
+                    color: $black;
+                    border-color: $black;
+                    background-color: $white;
+                }
+            }
+        }
+
+        /* 3 */
+        &:focus {
+            &:not(:checked) {
+                & + .c-form__radio-label {
+                    outline: 0;
+                    box-shadow: none;
+                    color: $black;
+                    border-color: $black;
+                    background-color: $white;
+                }
+            }
+        }
+
+        /* 4 */
+        &:checked {
+            & + .c-form__radio-label {
+                outline: 0;
+                box-shadow: none;
+                color: $white;
+                border-color: $black;
+                background-color: $black;
+            }
+        }
+
+        /* 5 */
+        &:disabled {
+            & + .c-form__radio-label {
+            }
+
+            &:not(:checked),
+            &:checked {
+                & + .c-form__radio-label {
+                    &:before {
+                    }
+                }
+            }
+
+            &:checked {
+                & + .c-form__radio-label {
+                    &:after {
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Form errors
+     * 1. Wrapper styles
+     * 2. Title styles
+     * 3. List styles
+     * usage: .c-form__errors > .c-form__errors-title + .c-form__errors-list
+     */
+    /* 1 */
+    &__errors {
+        margin-bottom: var(--s-30);
+        color: $red;
+    }
+
+    /* 2 */
+    &__errors-title {
+    }
+
+    /* 3 */
+    &__errors-list {
+        margin-top: var(--s-15);
+
+        li {
+            margin-bottom: var(--s-5);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    /**
+     * Form success
+     * 1. Wrapper styles
+     * 2. Title styles
+     * 3. Message styles
+     * 4. CTA styles
+     * 5. Newsletter success styles
+     * usage: .c-form__success > .c-form__success-message
+     * usage: .c-form__success > .c-form__success-title + .c-form__success-message + .c-form__success-cta
+     */
+    /* 1 */
+    &__success {
+        margin-bottom: var(--s-30);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    /* 2 */
+    &__success-title {
+    }
+
+    /* 3 */
+    &__success-message {
+        margin-top: var(--s-15);
+
+        &:first-child,
+        &:only-child {
+            margin-top: 0;
+        }
+    }
+
+    /* 4 */
+    &__success-cta {
+        margin-top: var(--s-15);
+
+        &:first-child,
+        &:only-child {
+            margin-top: 0;
+        }
+    }
+
+    /* 5 */
+    &__success--newsletter {
+        margin-top: var(--s-5);
+        margin-bottom: 0;
+    }
+
+    /**
+     * Validation message
+     * Styles a validation message displayed bellow the input with error
+     * usage: .c-form__input.c-form__input--error + .c-form__validation-message
+     */
+    &__validation-message {
+        margin-top: var(--s-5);
+        color: $red;
+    }
+
+    /**
+     * Password wrapper
+     * Used as wrapper for password input and show/hide toggle button
+     * 1. Styles for show/hide toggle button
+     * 2. Styles for show/hide toggle button when password is displayed as text
+     * usage: .c-form__password-wrapper > .c-form__input.c-form__input--password + .c-form__password-toggle
+     */
+    &__password-wrapper {
+        position: relative;
+    }
+
+    /* 1 */
+    &__password-toggle {
+        @include button-reset;
+        @include focus;
+        @include fluidValue("font-size", null, 20px);
+
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding-left: var(--s-15);
+        padding-right: var(--s-15);
+        transition: getTransition(slide, ease-in-quad);
+        color: $black-50;
+        z-index: getZindex(default);
+
+        @include hover {
+            color: $black;
+        }
+
+        @include focus;
+
+        @include mq(md) {
+            @include fluidValue("font-size", null, 16px);
+        }
+
+        /* 2 */
+        .has-password-visible & {
+            color: $black;
+        }
+    }
+
+    /**
+     * Search wrapper
+     * Used as wrapper for search input, reset and submit button
+     * 1. Styles for search actions wrapper that contains reset and submit button
+     * 2. Styles for reset button
+     * 3. Styles for submit button
+     * usage: .c-form__search-wrapper > .c-form__input.c-form__input--search + .c-form__search-actions > .c-form__search-reset + .c-form__search-submit
+     */
+    &__search-wrapper {
+        position: relative;
+    }
+
+    /* 1 */
+    &__search-actions {
+        position: absolute;
+        top: 50%;
+        right: var(--s-15);
+        transform: translateY(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--s-10);
+    }
+
+    /* 2, 3 */
+    &__search-reset,
+    &__search-submit {
+        @include button-reset;
+        @include focus;
+
+        transition: getTransition(slide, ease-in-quad);
+    }
+
+    /* 2 */
+    &__search-reset {
+        display: none;
+
+        &.is-visible {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    /* 3 */
+    &__search-submit {
+    }
+
+    /**
+     * Newsletter wrapper
+     * Used as wrapper for newsletter input and submit button
+     * 1. Styles for submit button
+     * usage: .c-form__newsletter-wrapper > .c-form__input.c-form__input--newsletter + .c-form__newsletter-submit
+     */
+    &__newsletter-wrapper {
+        position: relative;
+        display: flex;
+    }
+
+    /* 1 */
+    &__newsletter-submit {
+        @include button-reset;
+        @include focus;
+
+        transition: getTransition(slide, ease-in-quad);
+        background-color: $black;
+        color: $white;
+        flex-shrink: 0;
+        flex-grow: 0;
+        padding-left: var(--s-10);
+        padding-right: var(--s-10);
+
+        @include hover {
+            background-color: $white;
+            color: $black;
+        }
+    }
+
+    /**
+     * Select wrapper
+     * Used as wrapper for select input and fake indicator
+     * 1. Styles for indicator
+     * usage: .c-form__select-wrapper > .c-form__input.c-form__input--select + .c-form__select-indicator
+     */
+    &__select-wrapper {
+        position: relative;
+        cursor: pointer;
+    }
+
+    /* 1 */
+    &__select-indicator {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        right: var(--s-15);
+        transform: translateY(-50%);
+        font-size: 0.75em;
+        pointer-events: none;
+    }
+}

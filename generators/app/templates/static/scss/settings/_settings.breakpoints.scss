@@ -2,20 +2,25 @@
  * Breakpoints
  */
 $breakpoint-sm: 480px;
+$breakpoint-sm-md: 640px;
 $breakpoint-md: 800px;
+$breakpoint-md-lg: 960px;
 $breakpoint-lg: 1140px;
+$breakpoint-lg-xl: 1280px;
 $breakpoint-xl: 1440px;
 $breakpoint-xxl: 1920px;
 $breakpoint-xxxl: 3840px;
-
 
 /**
  * Breakpoints - map
  */
 $settings-breakpoints: (
     "sm": $breakpoint-sm,
+    "sm-md": $breakpoint-sm-md,
     "md": $breakpoint-md,
+    "md-lg": $breakpoint-md-lg,
     "lg": $breakpoint-lg,
+    "lg-xl": $breakpoint-lg-xl,
     "xl": $breakpoint-xl,
     "xxl": $breakpoint-xxl,
     "xxxl": $breakpoint-xxxl,

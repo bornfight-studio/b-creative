@@ -1,0 +1,509 @@
+/**
+ * Main container
+ */
+.ss-main {
+    @include fluidValue("min-height", null, 50px);
+    @include fluidValue("border-radius", null, 10px);
+
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    user-select: none;
+    color: $black;
+    width: 100%;
+    padding: 0 var(--s-15);
+    margin: 0;
+    cursor: pointer;
+    border: 1px solid $black;
+    background-color: $white;
+    outline: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    @include focus;
+
+    @include mq(lg) {
+        @include fluidValue("min-height", null, 40px);
+    }
+
+    &.ss-disabled {
+        background-color: $black-50;
+        cursor: not-allowed;
+
+        .ss-values {
+            .ss-disabled {
+                color: $black;
+            }
+
+            .ss-value {
+                .ss-value-delete {
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+
+    &.ss-open-above {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    &.ss-open-below {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .ss-values {
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 1 100%;
+        gap: var(--s-5);
+
+        .ss-placeholder {
+            display: flex;
+            padding: 0;
+            margin: auto 0 auto 0;
+            line-height: 1em;
+            align-items: center;
+            width: 100%;
+            color: $black-50;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        // Max is used to display max number of values
+        .ss-max {
+            @include fluidValue("border-radius", null, 10px);
+
+            display: flex;
+            user-select: none;
+            align-items: center;
+            width: fit-content;
+            color: $white;
+            line-height: 1;
+            background-color: $black;
+            padding: var(--s-5);
+        }
+
+        // Used for single select selected value
+        .ss-single {
+            display: flex;
+            margin: auto 0;
+        }
+
+        // Used for the selected values
+        .ss-value {
+            @include fluidValue("border-radius", null, 10px);
+
+            display: flex;
+            user-select: none;
+            align-items: center;
+            width: fit-content;
+            background-color: $black;
+            animation-name: ss-valueIn;
+            animation-duration: 0.2s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: both;
+
+            &.ss-value-out {
+                animation-name: ss-valueOut;
+                animation-duration: 0.2s;
+                animation-timing-function: ease-out;
+            }
+
+            .ss-value-text {
+                padding: var(--s-5);
+                color: $white;
+                line-height: 1;
+            }
+
+            .ss-value-delete {
+                @include fluidValue("width", null, 10px);
+                @include fluidValue("height", null, 10px);
+
+                padding: var(--s-5);
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                border-left: 1px solid $black;
+                box-sizing: content-box;
+
+                svg {
+                    @include fluidValue("width", null, 10px);
+                    @include fluidValue("height", null, 10px);
+
+                    path {
+                        fill: none;
+                        stroke: $white;
+                        stroke-width: 15;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                    }
+                }
+            }
+        }
+    }
+
+    .ss-deselect {
+        @include fluidValue("width", null, 10px);
+        @include fluidValue("height", null, 10px);
+
+        margin-left: var(--s-10);
+        margin-right: var(--s-10);
+        display: flex;
+        align-self: center;
+        justify-content: flex-end;
+        flex: 0 1 auto;
+
+        svg {
+            @include fluidValue("width", null, 10px);
+            @include fluidValue("height", null, 10px);
+
+            path {
+                fill: none;
+                stroke: $black;
+                stroke-width: 15;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+        }
+    }
+
+    .ss-arrow {
+        @include fluidValue("width", null, 15px);
+        @include fluidValue("height", null, 15px);
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex: 0 1 auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-shrink: 0;
+        flex-grow: 0;
+
+        path {
+            fill: none;
+            stroke: $black;
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition-timing-function: ease-out;
+            transition: 0.2s;
+        }
+    }
+}
+
+/**
+ * Content container
+ */
+.ss-content {
+    @include fluidValue("max-height", null, 300px);
+
+    position: absolute; // default position
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    width: auto;
+    box-sizing: border-box;
+    border: 1px solid $black;
+    background-color: $white;
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: center top;
+    overflow: hidden;
+    z-index: 10000;
+
+    &.ss-relative {
+        position: relative;
+        height: 100%;
+    }
+
+    &.ss-open-above {
+        @include fluidValue("border-top-left-radius", null, 10px);
+        @include fluidValue("border-top-right-radius", null, 10px);
+
+        flex-direction: column-reverse;
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: center bottom;
+    }
+
+    &.ss-open-below {
+        @include fluidValue("border-bottom-left-radius", null, 10px);
+        @include fluidValue("border-bottom-right-radius", null, 10px);
+
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: center top;
+    }
+
+    .ss-search {
+        padding: var(--s-15);
+        flex: 0 1 auto;
+        display: flex;
+        flex-direction: row;
+
+        input {
+            @include fluidValue("height", null, 40px);
+            @include fluidValue("border-radius", null, 10px);
+            @include b0;
+
+            display: inline-flex;
+            flex: 1 1 auto;
+            width: 100%;
+            min-width: 0;
+            padding: 0 var(--s-15);
+            margin: 0;
+            border: 1px solid $black;
+            background-color: $white;
+            outline: 0;
+            text-align: left;
+            box-sizing: border-box;
+
+            &::placeholder {
+                color: $black-50;
+                vertical-align: middle;
+            }
+
+            @include focus;
+        }
+
+        .ss-addable {
+            @include fluidValue("border-radius", null, 10px);
+
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            flex: 0 0 auto;
+            height: auto;
+            margin: 0;
+            border: 1px solid $black;
+
+            svg {
+                @include fluidValue("width", null, 15px);
+                @include fluidValue("height", null, 15px);
+
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                flex: 0 1 auto;
+                margin: auto 0;
+
+                path {
+                    fill: none;
+                    stroke: $black;
+                    stroke-width: 15;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+            }
+        }
+    }
+
+    .ss-list {
+        flex: 1 1 auto;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        .ss-error {
+            padding: var(--s-5);
+            color: $red;
+        }
+
+        .ss-searching {
+            padding: var(--s-5);
+            color: $black;
+        }
+
+        .ss-optgroup {
+            // If optgroup is open, show the options
+            &.ss-open {
+                .ss-option {
+                }
+            }
+
+            // If optgroup has close, hide all options
+            &.ss-close {
+                .ss-option {
+                    display: none !important;
+                }
+            }
+
+            .ss-optgroup-label {
+                padding: var(--s-15);
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+
+                .ss-optgroup-label-text {
+                    flex: 1 1 auto;
+                    color: $black;
+                }
+
+                // If optgroup has arrow, make label clickable
+                &:has(.ss-arrow) {
+                    cursor: pointer;
+                }
+
+                .ss-optgroup-actions {
+                    flex: 0 1 auto;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: var(--s-5);
+
+                    .ss-selectall {
+                        flex: 0 0 auto;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: row;
+                        gap: var(--s-10);
+                        cursor: pointer;
+
+                        &.ss-selected {
+                            svg {
+                                path {
+                                    stroke: $red;
+                                }
+                            }
+                        }
+
+                        span {
+                            flex: 0 1 auto;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            padding: 0;
+                        }
+
+                        svg {
+                            @include fluidValue("width", null, 15px);
+                            @include fluidValue("height", null, 15px);
+
+                            flex: 0 1 auto;
+
+                            path {
+                                fill: none;
+                                stroke: $black;
+                                stroke-linecap: round;
+                                stroke-linejoin: round;
+                            }
+
+                            &:first-child {
+                                stroke-width: 5;
+                            }
+
+                            &:last-child {
+                                stroke-width: 10;
+                            }
+                        }
+                    }
+
+                    .ss-closable {
+                        flex: 0 1 auto;
+                        display: flex;
+                        flex-direction: row;
+                        cursor: pointer;
+
+                        .ss-arrow {
+                            @include fluidValue("width", null, 10px);
+                            @include fluidValue("height", null, 10px);
+
+                            flex: 1 1 auto;
+
+                            path {
+                                fill: none;
+                                stroke: $black;
+                                stroke-width: 15;
+                                stroke-linecap: round;
+                                stroke-linejoin: round;
+                                transition-timing-function: ease-out;
+                                transition: 0.2s;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ss-option {
+                padding: var(--s-10) var(--s-15) var(--s-10) var(--s-30);
+            }
+        }
+
+        .ss-option {
+            padding: var(--s-10) var(--s-15);
+            display: flex;
+            color: $black;
+            cursor: pointer;
+            user-select: none;
+            transition: getTransition(slide, ease-in-quad);
+
+            @include hover {
+                &:not(.ss-disabled) {
+                    color: $white;
+                    background-color: $black;
+                }
+            }
+
+            &.ss-highlighted,
+            &:not(.ss-disabled).ss-selected {
+                color: $white;
+                background-color: $black;
+            }
+
+            &.ss-disabled {
+                cursor: not-allowed;
+                background-color: $black-50;
+            }
+
+            // Sub div wrapper for highlighting text
+            .ss-search-highlight {
+                background-color: $black-50;
+            }
+        }
+    }
+}
+
+/**
+ * Misc classes
+ */
+.ss-hide {
+    display: none !important;
+}
+
+/**
+ * Animation keyframes
+ */
+@keyframes ss-valueIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes ss-valueOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}

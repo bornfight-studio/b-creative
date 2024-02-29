@@ -1,0 +1,13 @@
+.c-social-icons {
+    display: flex;
+    align-items: center;
+    gap: var(--s-20);
+    font-size: 1.5em;
+
+    li,
+    a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

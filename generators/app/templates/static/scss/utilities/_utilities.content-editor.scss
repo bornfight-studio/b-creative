@@ -1,0 +1,389 @@
+.u-content-editor,
+.rte {
+    word-break: break-word;
+
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+        margin-bottom: var(--s-30);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        + h2,
+        + h3,
+        + h4,
+        + h5,
+        + h6 {
+            margin-top: var(--s-60);
+        }
+
+        > u {
+            text-decoration: underline;
+        }
+
+        > a {
+            text-decoration: underline;
+            transition: getTransition(default, ease-in-quad);
+
+            @include hover {
+            }
+        }
+    }
+
+    > p,
+    > ul,
+    > ol {
+        @include b0;
+
+        margin-bottom: var(--s-15);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        + h2,
+        + h3,
+        + h4,
+        + h5,
+        + h6 {
+            margin-top: var(--s-60);
+        }
+
+        > u {
+            text-decoration: underline;
+        }
+
+        > a {
+            text-decoration: underline;
+            transition: getTransition(default, ease-in-quad);
+
+            @include hover {
+            }
+        }
+    }
+
+    > h2 {
+        @include a4;
+    }
+
+    > h3 {
+        @include a3;
+    }
+
+    > h4 {
+        @include a2;
+    }
+
+    > h5 {
+        @include a1;
+    }
+
+    > h6 {
+        @include a1;
+    }
+
+    > ul,
+    > ol {
+    }
+
+    li {
+        margin-bottom: var(--s-15);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    > ul {
+        list-style: disc;
+        margin-left: 1em;
+        padding-left: 1em;
+
+        li {
+            list-style-position: outside;
+            padding-left: 0.5em;
+
+            &::marker {
+            }
+        }
+    }
+
+    > ol {
+        list-style: decimal inside;
+        margin-left: 1em;
+        padding-left: 1em;
+
+        li {
+            list-style-position: outside;
+            padding-left: 0.5em;
+
+            &::marker {
+            }
+        }
+    }
+
+    > u {
+        text-decoration: underline;
+    }
+
+    > a {
+        text-decoration: underline;
+        transition: getTransition(default, ease-in-quad);
+
+        @include hover {
+        }
+    }
+
+    b,
+    strong,
+    .wp-block-heading {
+        font-weight: 700;
+
+        > u {
+            text-decoration: underline;
+        }
+
+        > a {
+            text-decoration: underline;
+            transition: getTransition(default, ease-in-quad);
+
+            @include hover {
+            }
+        }
+    }
+
+    hr {
+        border-top: 1px solid $black;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        padding: 0;
+        margin: var(--s-60) 0;
+        outline: none;
+        box-shadow: none;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .wp-block-table {
+        margin-top: var(--s-60);
+        margin-bottom: var(--s-60);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        table {
+            @include b1;
+
+            width: 100%;
+        }
+
+        tbody {
+        }
+
+        tr {
+            border-bottom: 1px solid $black;
+            display: flex;
+            gap: var(--s-15);
+        }
+
+        td {
+            padding-top: var(--s-15);
+            padding-bottom: var(--s-15);
+            flex-grow: 1;
+            flex-basis: 0;
+            min-width: 0;
+        }
+
+        u {
+            text-decoration: underline;
+        }
+
+        a {
+            text-decoration: underline;
+            transition: getTransition(default, ease-in-quad);
+
+            @include hover {
+            }
+        }
+
+        &.is-style-regular {
+        }
+    }
+
+    .wp-block-quote {
+        margin-top: var(--s-60);
+        margin-bottom: var(--s-60);
+        padding-left: var(--s-15);
+        border-left: 3px solid $black;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        p {
+            @include a2;
+        }
+
+        cite {
+            @include b1;
+
+            margin-top: var(--s-15);
+            display: block;
+
+            > u {
+                text-decoration: underline;
+            }
+
+            > a {
+                text-decoration: underline;
+                transition: getTransition(default, ease-in-quad);
+
+                @include hover {
+                }
+            }
+        }
+
+        &.is-style-large {
+        }
+    }
+
+    .wp-block-embed {
+        margin-top: var(--s-60);
+        margin-bottom: var(--s-60);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &.is-type-video {
+            .wp-block-embed__wrapper {
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                overflow: hidden;
+                max-width: 100%;
+
+                iframe,
+                object,
+                embed {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .wp-block-image {
+        margin-top: var(--s-60);
+        margin-bottom: var(--s-60);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &.size-full {
+        }
+
+        &.size-large {
+        }
+
+        &.size-medium {
+            img {
+                width: auto;
+            }
+        }
+
+        &.size-thumbnail {
+            img {
+                width: auto;
+            }
+        }
+
+        figcaption {
+            @include b1;
+
+            margin-top: var(--s-15);
+
+            > u {
+                text-decoration: underline;
+            }
+
+            > a {
+                text-decoration: underline;
+                transition: getTransition(default, ease-in-quad);
+
+                @include hover {
+                }
+            }
+        }
+    }
+
+    .wp-block-code,
+    pre {
+        margin-top: var(--s-60);
+        margin-bottom: var(--s-60);
+        padding: var(--s-30);
+        background-color: $white;
+        color: $black;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        code {
+            font-size: 0.75em;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+    }
+
+    .c-gutenberg-block {
+        margin-top: var(--s-60);
+        margin-bottom: var(--s-60);
+        position: relative;
+        z-index: getZindex(default);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

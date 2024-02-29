@@ -1,5 +1,15 @@
 package-lock.json
+yarn.lock
+dist/
 node_modules/
+bower_components/
+.husky/
 .idea/
+.history/
 .DS_Store
-static/dist/
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
