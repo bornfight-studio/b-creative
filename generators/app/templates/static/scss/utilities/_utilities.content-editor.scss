@@ -349,6 +349,29 @@
         }
     }
 
+    .wp-block-code,
+    pre {
+        margin-top: var(--s-60);
+        margin-bottom: var(--s-60);
+        padding: var(--s-30);
+        background-color: $white;
+        color: $black;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        code {
+            font-size: 0.75em;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+    }
+
     .c-gutenberg-block {
         margin-top: var(--s-60);
         margin-bottom: var(--s-60);
