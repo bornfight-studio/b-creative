@@ -1,3 +1,5 @@
+import { $html, $body } from "../utilities/dom.js";
+
 /**
  * Template component
  * explain what this class is doing
