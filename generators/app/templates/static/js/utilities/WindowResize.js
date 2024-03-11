@@ -4,11 +4,10 @@ const releaseDelay = 300;
 /**
  * Watch for window resize
  * listens for window resize event and dispatches debounced window resize event
- * usage
+ * usage:
  * index.js
  * import { windowResize } from "./utilities/WindowResize";
  * windowResize();
- *
  * anywhere in your code
  * window.addEventListener("windowResizeDebounce", () => {
  *   console.log("resize trigger");
