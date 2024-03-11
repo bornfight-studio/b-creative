@@ -1,4 +1,5 @@
 /**
+ * Comparator helper
  * function returns a boolean based on the comparison result
  * @type {{"<=": (function(*, *): boolean), "<": (function(*, *): boolean), ">": (function(*, *): boolean), ">=": (function(*, *): boolean)}}
  * @return {boolean}
@@ -19,15 +20,17 @@ const comparator = {
 };
 
 /**
+ * Is input window object
  * check if the input value is a window object
  * @param {any} value
  * @return {boolean}
  */
-const isWindowObject = (value) => {
+const isInputWindowObject = (value) => {
     return value != null && typeof value === "object" && "setInterval" in value;
 };
 
 /**
+ * Version comparator
  * compares the given version with the specified range
  * @param {string} version
  * @param {string} range
@@ -37,10 +40,10 @@ function compareVersion(version, range) {
     const string = range + "";
     const n = +(string.match(/\d+/) || NaN);
     const op = string.match(/^[<>]=?|/)[0];
-    return comparator[op] ? comparator[op](version, n) : version === n || n !== n;
+    return comparator[op] ? comparator[op](version, n) : version == n || n !== n;
 }
 
-const freeSelf = isWindowObject(typeof self == "object" && self) && self;
+const freeSelf = isInputWindowObject(typeof self == "object" && self) && self;
 const navigator = freeSelf && freeSelf.navigator;
 const userAgent = ((navigator && navigator.userAgent) || "").toLowerCase();
 const vendor = ((navigator && navigator.vendor) || "").toLowerCase();
@@ -49,7 +52,7 @@ const platform = ((navigator && navigator.platform) || "").toLowerCase();
 /**
  * is_js selector
  * is_js contains various functions that determine the user agent's browser and device characteristics. These functions check for specific patterns in the user agent string to identify the type of device or browser being used, such as Android, iOS, Windows, Mac, mobile, tablet, etc
- * usage
+ * usage:
  * is_js.mobile();
  * is_js.desktop();
  * is_js.chrome();
