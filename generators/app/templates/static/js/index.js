@@ -22,7 +22,6 @@ import SearchInput from "./components/inputs/SearchInput";
 import SelectInput from "./components/inputs/SelectInput";
 import Navigation from "./components/Navigation";
 import Slider from "./components/sliders/Slider";
-import { windowResize } from "./utilities/WindowResize";
 
 /**
  * Check if document is ready cross-browser
@@ -79,8 +78,6 @@ ready(() => {
      */
     const grid = new Grid();
     grid.init();
-
-    windowResize();
 
     /**
      * COMPONENTS
