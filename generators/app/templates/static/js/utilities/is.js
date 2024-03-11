@@ -1,3 +1,8 @@
+/**
+ * function returns a boolean based on the comparison result
+ * @type {{"<=": (function(*, *): boolean), "<": (function(*, *): boolean), ">": (function(*, *): boolean), ">=": (function(*, *): boolean)}}
+ * @return {boolean}
+ */
 const comparator = {
     "<": function (a, b) {
         return a < b;
@@ -14,21 +19,19 @@ const comparator = {
 };
 
 /**
- * Check if the input value is a window object.
- *
- * @param {any} value - The value to be checked
- * @return {boolean} Returns true if the input value is a window object, otherwise false
+ * check if the input value is a window object
+ * @param {any} value
+ * @return {boolean}
  */
 const isWindowObject = (value) => {
     return value != null && typeof value === "object" && "setInterval" in value;
 };
 
 /**
- * Compares the given version with the specified range.
- *
- * @param {string} version - The version to compare.
- * @param {string} range - The range to compare against.
- * @return {boolean} True if the version satisfies the range, false otherwise.
+ * compares the given version with the specified range
+ * @param {string} version
+ * @param {string} range
+ * @return {boolean}
  */
 function compareVersion(version, range) {
     const string = range + "";
@@ -44,14 +47,15 @@ const vendor = ((navigator && navigator.vendor) || "").toLowerCase();
 const platform = ((navigator && navigator.platform) || "").toLowerCase();
 
 /**
- * Usage
+ * is_js selector
+ * is_js contains various functions that determine the user agent's browser and device characteristics. These functions check for specific patterns in the user agent string to identify the type of device or browser being used, such as Android, iOS, Windows, Mac, mobile, tablet, etc
+ * usage
  * is_js.mobile();
  * is_js.desktop();
  * is_js.chrome();
  * is_js.safari();
- * ....
- *
  * @type {{androidTablet: (function(): *), opera: (function(*): *), operaMini: (function(*): *), windowsPhone: (function(): *), safari: (function(*): *), chrome: (function(*): *), android: (function(): boolean), firefox: (function(*): *), mobile: (function(): *), ios: (function(): *), windows: (function(): boolean), iphone: (function(*): *), ipod: (function(*): *), mac: (function(): boolean), tablet: (function(): *), edge: (function(*): *), desktop: (function(): *), windowsTablet: (function(): *), androidPhone: (function(): *), blackberry: (function(): *), linux: (function(): *), touchDevice: (function(): *), ipad: (function(*): *), ie: (function(*): *)}}
+ * @returns {boolean}
  */
 export const is_js = {
     android: function () {
