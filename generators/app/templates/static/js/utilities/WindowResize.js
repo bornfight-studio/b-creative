@@ -23,6 +23,7 @@ export const windowResize = () => {
 };
 
 /**
+ * Debounce
  * debounces a function, ensuring it is not called again until releaseDelay milliseconds have passed
  * @param {function} func
  * @return {function}
