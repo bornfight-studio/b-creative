@@ -20,7 +20,7 @@ const comparator = {
 };
 
 /**
- * Is input window object
+ * Is input value window object
  * check if the input value is a window object
  * @param {any} value
  * @return {boolean}
