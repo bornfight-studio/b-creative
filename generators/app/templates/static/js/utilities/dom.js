@@ -1,6 +1,6 @@
 /**
  * DOM utilities
- * usage
+ * usage:
  * import { $html, $body } from "../utilities/dom.js";
  */
 
