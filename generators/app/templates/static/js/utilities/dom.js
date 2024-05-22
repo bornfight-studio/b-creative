@@ -8,13 +8,13 @@
  * Get html element
  * @type {HTMLElement}
  */
-const $html = document.documentElement
+const $html = document.documentElement;
 
 /**
  * Get document body
  * @type {HTMLElement}
  */
-const $body = document.body
+const $body = document.body;
 
 /**
  * DOM utilities export
@@ -23,7 +23,4 @@ const $body = document.body
  * $body: HTMLElement
  * }}
  */
-export {
-    $html,
-    $body,
-}
+export { $html, $body };

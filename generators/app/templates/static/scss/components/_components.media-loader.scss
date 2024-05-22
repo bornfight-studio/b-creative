@@ -9,7 +9,7 @@
     justify-content: center;
     background-color: $white;
     transition: transform 1s $ease-out-expo;
-    z-index: getZindex(default);
+    z-index: getZindex(default, 1);
     pointer-events: none;
 
     &--black {

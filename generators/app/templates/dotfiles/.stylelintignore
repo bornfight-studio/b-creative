@@ -1,5 +1,5 @@
 dist/
 node_modules/
 bower_components/
-src/styles/settings/**/*.scss
-src/styles/tools/**/*.scss
+static/scss/settings/**/*.scss
+static/scss/tools/**/*.scss
