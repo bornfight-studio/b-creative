@@ -14,6 +14,7 @@ import "instant.page";
 import Lazy from "./components/Lazy";
 import ResponsiveVideo from "./components/ResponsiveVideo";
 import VideoOnScroll from "./components/VideoOnScroll";
+import VideoPlayButton from "./components/VideoPlayButton";
 import Accordion from "@bornfight/b-accordion";
 import ScrollToAnimation from "./components/animations/ScrollToAnimation";
 import AcceptanceInput from "./components/inputs/AcceptanceInput";
@@ -103,6 +104,13 @@ ready(() => {
      */
     const videoOnScroll = new VideoOnScroll();
     videoOnScroll.init();
+
+    /**
+     * Video play button
+     * @type {VideoPlayButton}
+     */
+    const videoPlayButton = new VideoPlayButton();
+    videoPlayButton.init();
 
     /**
      * Accordion

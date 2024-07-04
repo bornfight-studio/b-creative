@@ -1,9 +1,9 @@
-import { getViewportSize } from "../utilities/GetViewportSize";
+import { getViewportWidth } from "../utilities/Viewport";
 
 /**
  * Responsive video
- * reads mobile, tablet and desktop data attributes containing video url (source) and poster
- * serves the correct video and poster based on viewport width
+ * reads sd, hd, fhd and qhd data attributes containing video posters
+ * serves the correct poster based on viewport width
  */
 export default class ResponsiveVideo {
     constructor(container = document) {
@@ -38,19 +38,13 @@ export default class ResponsiveVideo {
      */
     initVideo() {
         this.videos.forEach((video) => {
-            const source = video.querySelector("source");
-
             // check if video is lazy loaded
             if (video.classList.contains(this.DOM.lazy)) {
                 // set data-poster attribute from video data for lazy loading
-                video.setAttribute("data-poster", this.getVideoData(video).poster);
-                // set data-src attribute from video data for lazy loading
-                source.setAttribute("data-src", this.getVideoData(video).src);
+                video.setAttribute("data-poster", this.getPoster(video));
             } else {
                 // set video poster from video data
-                video.setAttribute("poster", this.getVideoData(video).poster);
-                // set video src from video data
-                source.setAttribute("src", this.getVideoData(video).src);
+                video.setAttribute("poster", this.getPoster(video));
             }
             // resets the media element to its initial state and begins the process of selecting a media source
             // and loading the media in preparation for playback to begin at the beginning.
@@ -60,63 +54,41 @@ export default class ResponsiveVideo {
     }
 
     /**
-     * Get video data
-     * returns video data object from data attributes (source and poster) based on viewport width
+     * Get poster
+     * returns video poster based on viewport width
      * @param video
-     * @returns {{src: string, poster: string}}
+     * @returns {string}
      */
-    getVideoData(video) {
-        if (
-            video.hasAttribute("data-widescreen-video") &&
-            video.getAttribute("data-widescreen-video") !== "" &&
-            video.hasAttribute("data-widescreen-poster") &&
-            video.getAttribute("data-widescreen-poster") !== "" &&
-            getViewportSize() >= 1921
-        ) {
-            return {
-                src: video.dataset.widescreenVideo,
-                poster: video.dataset.widescreenPoster,
-            };
-        } else if (
-            video.hasAttribute("data-desktop-video") &&
-            video.getAttribute("data-desktop-video") !== "" &&
-            video.hasAttribute("data-desktop-poster") &&
-            video.getAttribute("data-desktop-poster") !== "" &&
-            getViewportSize() <= 1920 &&
-            getViewportSize() >= 1141
-        ) {
-            return {
-                src: video.dataset.desktopVideo,
-                poster: video.dataset.desktopPoster,
-            };
-        } else if (
-            video.hasAttribute("data-tablet-video") &&
-            video.getAttribute("data-tablet-video") !== "" &&
-            video.hasAttribute("data-tablet-poster") &&
-            video.getAttribute("data-tablet-poster") !== "" &&
-            getViewportSize() <= 1140 &&
-            getViewportSize() >= 641
-        ) {
-            return {
-                src: video.dataset.tabletVideo,
-                poster: video.dataset.tabletPoster,
-            };
-        } else if (
-            video.hasAttribute("data-mobile-video") &&
-            video.getAttribute("data-mobile-video") !== "" &&
-            video.hasAttribute("data-mobile-poster") &&
-            video.getAttribute("data-mobile-poster") !== "" &&
-            getViewportSize() <= 640
-        ) {
-            return {
-                src: video.dataset.mobileVideo,
-                poster: video.dataset.mobilePoster,
-            };
-        } else {
-            return {
-                src: video.dataset.desktopVideo,
-                poster: video.dataset.desktopPoster,
-            };
+    getPoster(video) {
+        const resolutions = [
+            {
+                type: "qhd",
+                condition: getViewportWidth() >= 1921,
+            },
+            {
+                type: "fhd",
+                condition: getViewportWidth() <= 1920 && getViewportWidth() >= 1141,
+            },
+            {
+                type: "hd",
+                condition: getViewportWidth() <= 1140 && getViewportWidth() >= 641,
+            },
+            {
+                type: "sd",
+                condition: getViewportWidth() <= 640,
+            },
+        ];
+
+        for (let resolution of resolutions) {
+            if (
+                video.hasAttribute(`data-${resolution.type}-poster`) &&
+                video.getAttribute(`data-${resolution.type}-poster`) !== "" &&
+                resolution.condition
+            ) {
+                return video.getAttribute(`data-${resolution.type}-poster`);
+            }
         }
+
+        return video.getAttribute("data-fhd-poster");
     }
 }

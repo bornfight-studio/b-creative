@@ -27,7 +27,7 @@
 
         > a {
             text-decoration: underline;
-            transition: getTransition(default, ease-in-quad);
+            transition: getTransition(slide, ease-in-quad);
 
             @include hover {
             }
@@ -59,7 +59,7 @@
 
         > a {
             text-decoration: underline;
-            transition: getTransition(default, ease-in-quad);
+            transition: getTransition(slide, ease-in-quad);
 
             @include hover {
             }
@@ -132,7 +132,7 @@
 
     > a {
         text-decoration: underline;
-        transition: getTransition(default, ease-in-quad);
+        transition: getTransition(slide, ease-in-quad);
 
         @include hover {
         }
@@ -149,7 +149,7 @@
 
         > a {
             text-decoration: underline;
-            transition: getTransition(default, ease-in-quad);
+            transition: getTransition(slide, ease-in-quad);
 
             @include hover {
             }
@@ -216,7 +216,7 @@
 
         a {
             text-decoration: underline;
-            transition: getTransition(default, ease-in-quad);
+            transition: getTransition(slide, ease-in-quad);
 
             @include hover {
             }
@@ -256,7 +256,7 @@
 
             > a {
                 text-decoration: underline;
-                transition: getTransition(default, ease-in-quad);
+                transition: getTransition(slide, ease-in-quad);
 
                 @include hover {
                 }
@@ -341,7 +341,7 @@
 
             > a {
                 text-decoration: underline;
-                transition: getTransition(default, ease-in-quad);
+                transition: getTransition(slide, ease-in-quad);
 
                 @include hover {
                 }

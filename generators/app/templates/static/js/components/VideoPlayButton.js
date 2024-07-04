@@ -1,22 +1,17 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
 /**
- * Video on scroll
- * control the play state of the video based on current viewport with gsap ScrollTrigger
- * play video if in view / pause video if not in view
+ * Video play button
+ * control the play state of the video with play button
  */
-export default class VideoOnScroll {
+export default class VideoPlayButton {
     constructor(container = document) {
         /**
          * DOM elements
-         * @type {{wrapper: string, video: string, states: {playing: string}}}
+         * @type {{wrapper: string, video: string, trigger: string, states: {playing: string}}}
          */
         this.DOM = {
-            wrapper: ".js-video-on-scroll",
-            video: ".js-video-on-scroll-video",
+            wrapper: ".js-video-play-button",
+            video: ".js-video-play-button-video",
+            trigger: ".js-video-play-button-trigger",
             states: {
                 playing: "is-playing",
             },
@@ -46,22 +41,26 @@ export default class VideoOnScroll {
      */
     videoController(wrapper) {
         const video = wrapper.querySelector(this.DOM.video);
+        const trigger = wrapper.querySelector(this.DOM.trigger);
 
-        if (!video) return;
+        if (!video || !trigger) return;
 
-        // pause video on load
-        this.pauseVideo(video);
+        trigger.addEventListener("click", (event) => {
+            event.preventDefault();
+            this.playVideo(video);
+        });
 
-        // use gsap ScrollTrigger to detect if wrapper is in view
-        ScrollTrigger.create({
-            trigger: wrapper,
-            start: "top bottom",
-            end: "bottom top",
-            markers: false,
-            onEnter: () => this.playVideo(video),
-            onEnterBack: () => this.playVideo(video),
-            onLeave: () => this.pauseVideo(video),
-            onLeaveBack: () => this.pauseVideo(video),
+        video.addEventListener("click", (event) => {
+            event.preventDefault();
+            !video.paused ? this.pauseVideo(video) : this.playVideo(video);
+        });
+
+        video.addEventListener("playing", () => {
+            wrapper.classList.add(this.DOM.states.playing);
+        });
+
+        video.addEventListener("pause", () => {
+            wrapper.classList.remove(this.DOM.states.playing);
         });
     }
 

@@ -1,6 +1,6 @@
 import Swiper from "swiper";
 import { Autoplay, EffectCreative, EffectFade, FreeMode, Navigation, Pagination, Parallax, Scrollbar } from "swiper/modules";
-import { getViewportSize } from "../../utilities/GetViewportSize";
+import { getViewportWidth } from "../../utilities/Viewport";
 
 /**
  * Slider
@@ -257,6 +257,6 @@ export default class Slider {
      * @returns {number}
      */
     getResponsiveValue(value) {
-        return Math.floor(((value / (1440 * 0.01)) * getViewportSize()) / 100);
+        return Math.floor(((value / (1440 * 0.01)) * getViewportWidth()) / 100);
     }
 }
