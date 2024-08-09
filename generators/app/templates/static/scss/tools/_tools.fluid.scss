@@ -54,7 +54,9 @@
             @error "Spacing #{$spacing} not found in settings";
         }
     } @else if $value != null {
-        #{$property}: $value;
+        & {
+            #{$property}: $value;
+        }
 
         @if $use-container == false {
             @include mq(null, xxl) {

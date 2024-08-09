@@ -2,28 +2,29 @@
     @include fluidValue("height", null, 50px);
     @include fluidValue("border-radius", null, 50px);
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    cursor: pointer;
-    margin: 0;
-    padding-left: var(--s-50);
-    padding-right: var(--s-50);
-    overflow: hidden;
-    outline: 0;
-    border: none;
-    vertical-align: top;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    transition: getTransition(slide, ease-in-quad);
-    background-color: $black;
-    color: $white;
-    box-shadow: none;
-    text-align: center;
-    outline: none;
-    box-sizing: border-box;
-    position: relative;
+    & {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        cursor: pointer;
+        margin: 0;
+        padding-left: var(--s-50);
+        padding-right: var(--s-50);
+        overflow: hidden;
+        outline: 0;
+        border: none;
+        vertical-align: top;
+        appearance: none;
+        transition: getTransition(slide, ease-in-quad);
+        background-color: $black;
+        color: $white;
+        box-shadow: none;
+        text-align: center;
+        outline: none;
+        box-sizing: border-box;
+        position: relative;
+    }
 
     @include hover {
         &:not(:disabled) {
@@ -60,8 +61,10 @@
     &--small {
         @include fluidValue("height", null, 40px);
 
-        padding-left: var(--s-40);
-        padding-right: var(--s-40);
+        & {
+            padding-left: var(--s-40);
+            padding-right: var(--s-40);
+        }
     }
 
     &__loader {

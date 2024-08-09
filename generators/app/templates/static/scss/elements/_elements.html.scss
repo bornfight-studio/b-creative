@@ -6,6 +6,8 @@ body {
 body {
     @include b0;
 
-    color: $black;
-    background-color: $white;
+    & {
+        color: $black;
+        background-color: $white;
+    }
 }

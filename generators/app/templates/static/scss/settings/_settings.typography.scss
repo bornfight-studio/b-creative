@@ -63,59 +63,73 @@ $settings-typography: (
  * @include a5;
  */
 @mixin a5 {
-    font-size: var(--a5);
-    font-family: $font-primary;
-    line-height: 100%;
-    letter-spacing: normal;
+    & {
+        font-size: var(--a5);
+        font-family: $font-primary;
+        line-height: 100%;
+        letter-spacing: normal;
+    }
 }
 
 @mixin a4 {
-    font-size: var(--a4);
-    font-family: $font-secondary;
-    line-height: 107%;
-    letter-spacing: em(-1.33px, 64px);
+    & {
+        font-size: var(--a4);
+        font-family: $font-secondary;
+        line-height: 107%;
+        letter-spacing: em(-1.33px, 64px);
+    }
 }
 
 @mixin a3 {
-    font-size: var(--a3);
-    font-family: $font-primary;
-    line-height: 116%;
-    letter-spacing: em(-1px, 48px);
+    & {
+        font-size: var(--a3);
+        font-family: $font-primary;
+        line-height: 116%;
+        letter-spacing: em(-1px, 48px);
+    }
 }
 
 @mixin a2 {
-    font-size: var(--a2);
-    font-family: $font-secondary;
-    line-height: 112%;
-    letter-spacing: em(-0.8px, 41px);
+    & {
+        font-size: var(--a2);
+        font-family: $font-secondary;
+        line-height: 112%;
+        letter-spacing: em(-0.8px, 41px);
+    }
 }
 
 @mixin a1 {
-    font-size: var(--a1);
-
-    font-family: $font-primary;
-    line-height: 130%;
-    letter-spacing: normal;
+    & {
+        font-size: var(--a1);
+        font-family: $font-primary;
+        line-height: 130%;
+        letter-spacing: normal;
+    }
 }
 
 @mixin b0 {
-    font-size: var(--b0);
-
-    font-family: $font-secondary;
-    line-height: 144%;
-    letter-spacing: normal;
+    & {
+        font-size: var(--b0);
+        font-family: $font-secondary;
+        line-height: 144%;
+        letter-spacing: normal;
+    }
 }
 
 @mixin b1 {
-    font-size: var(--b1);
-    font-family: $font-primary;
-    line-height: 110%;
-    letter-spacing: normal;
+    & {
+        font-size: var(--b1);
+        font-family: $font-primary;
+        line-height: 110%;
+        letter-spacing: normal;
+    }
 }
 
 @mixin b2 {
-    font-size: var(--b2);
-    font-family: $font-secondary;
-    line-height: 133%;
-    letter-spacing: em(-0.1px, 15px);
+    & {
+        font-size: var(--b2);
+        font-family: $font-secondary;
+        line-height: 133%;
+        letter-spacing: em(-0.1px, 15px);
+    }
 }
