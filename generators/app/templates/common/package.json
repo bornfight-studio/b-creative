@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "@bornfight/b-accordion": "^1.0.15",
-    "@bornfight/b-reset": "^1.0.8",
+    "@bornfight/b-reset": "^1.0.9",
     "@bornfight/b-scroll-lock": "^1.0.7",
     "fontfaceobserver-es": "^3.3.3",
     "gsap": "^3.12.5",
