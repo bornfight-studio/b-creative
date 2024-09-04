@@ -2,10 +2,10 @@
 
 BORNFIGHT STUDIO® project template based on webpack, es6 and scss
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-creative?style=flat-square)
-![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight/b-creative?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/bornfight/b-creative?style=flat-square)
-![GitHub](https://img.shields.io/github/license/bornfight/b-creative?style=flat-square)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight-studio/b-creative?style=flat-square)
+![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight-studio/b-creative?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/bornfight-studio/b-creative?style=flat-square)
+![GitHub](https://img.shields.io/github/license/bornfight-studio/b-creative?style=flat-square)
 
 ## Installation
 
@@ -13,7 +13,7 @@ Module has not yet been published on npm. Currently we are using it as local npm
 
 ```bash
 npm install -g yo
-git clone git@github.com:bornfight/b-creative.git
+git clone git@github.com:bornfight-studio/b-creative.git
 cd b-creative
 npm install
 npm link
