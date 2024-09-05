@@ -96,30 +96,32 @@
     &__input {
         /* 1 */
         @include fluidValue("height", null, 50px);
-
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-        /* 2 */
-        padding: 0 var(--s-15);
-        margin: 0;
         /* 3 */
         @include fluidValue("border-radius", null, 10px);
-
-        border: 1px solid $black;
-        background-color: $white;
-        box-shadow: none;
-        outline: none;
         /* 4 */
         @include b0;
 
-        color: $black;
-        /* 5 */
-        transition: getTransition(slide, ease-in-quad);
-        /* 6 */
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
+        & {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            /* 2 */
+            padding: 0 var(--s-15);
+            margin: 0;
+            /* 3 */
+            border: 1px solid $black;
+            background-color: $white;
+            box-shadow: none;
+            outline: none;
+            /* 4 */
+            color: $black;
+            /* 5 */
+            transition: getTransition(slide, ease-in-quad);
+            /* 6 */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
 
         /* 7 */
         @include hover {
@@ -232,14 +234,16 @@
     &__input--newsletter {
         @include fluidValue("height", null, 40px);
 
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-bottom-color: $white;
-        padding-left: 0;
-        background-color: transparent;
-        color: $white;
-        border-radius: 0;
+        & {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom-color: $white;
+            padding-left: 0;
+            background-color: transparent;
+            color: $white;
+            border-radius: 0;
+        }
 
         @include mq(lg) {
         }
@@ -289,9 +293,11 @@
         @include fluidValue("min-height", null, 160px);
         @include fluidValue("height", null, 160px);
 
-        padding-top: var(--s-15);
-        padding-bottom: var(--s-15);
-        resize: none;
+        & {
+            padding-top: var(--s-15);
+            padding-bottom: var(--s-15);
+            resize: none;
+        }
     }
 
     /**
@@ -315,10 +321,12 @@
         @include fluidValue("width", null, 70px);
         @include b1;
 
-        display: block;
-        text-align: center;
-        padding-left: var(--s-10);
-        padding-right: var(--s-10);
+        & {
+            display: block;
+            text-align: center;
+            padding-left: var(--s-10);
+            padding-right: var(--s-10);
+        }
     }
 
     /**
@@ -414,20 +422,24 @@
                 @include fluidValue("width", null, 20px);
                 @include fluidValue("height", null, 20px);
 
-                position: absolute;
-                left: 0;
-                top: 0;
-                display: block;
-                transition: getTransition(slide, ease-in-quad);
+                & {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    display: block;
+                    transition: getTransition(slide, ease-in-quad);
+                }
             }
 
             /* 1 */
             &:before {
                 @include fluidValue("border-radius", null, 5px);
 
-                content: "";
-                background-color: $white;
-                border: 1px solid $black;
+                & {
+                    content: "";
+                    background-color: $white;
+                    border: 1px solid $black;
+                }
             }
 
             /* 2 */
@@ -523,21 +535,22 @@
             @include fluidValue("border-radius", null, 10px);
             @include b0;
 
-            color: $black;
-            border: 1px solid $black;
-            background-color: $white;
-            box-shadow: none;
-            outline: none;
-            transition: getTransition(slide, ease-in-quad);
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            padding: var(--s-15);
-            cursor: pointer;
+            & {
+                color: $black;
+                border: 1px solid $black;
+                background-color: $white;
+                box-shadow: none;
+                outline: none;
+                transition: getTransition(slide, ease-in-quad);
+                appearance: none;
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                padding: var(--s-15);
+                cursor: pointer;
+            }
 
             @include mq(lg) {
                 padding: var(--s-10);
@@ -718,19 +731,21 @@
         @include focus;
         @include fluidValue("font-size", null, 20px);
 
-        cursor: pointer;
-        position: absolute;
-        right: 0;
-        top: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        padding-left: var(--s-15);
-        padding-right: var(--s-15);
-        transition: getTransition(slide, ease-in-quad);
-        color: $black-50;
-        z-index: getZindex(default);
+        & {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding-left: var(--s-15);
+            padding-right: var(--s-15);
+            transition: getTransition(slide, ease-in-quad);
+            color: $black-50;
+            z-index: getZindex(default);
+        }
 
         @include hover {
             color: $black;
@@ -777,7 +792,9 @@
         @include button-reset;
         @include focus;
 
-        transition: getTransition(slide, ease-in-quad);
+        & {
+            transition: getTransition(slide, ease-in-quad);
+        }
     }
 
     /* 2 */
@@ -811,13 +828,15 @@
         @include button-reset;
         @include focus;
 
-        transition: getTransition(slide, ease-in-quad);
-        background-color: $black;
-        color: $white;
-        flex-shrink: 0;
-        flex-grow: 0;
-        padding-left: var(--s-10);
-        padding-right: var(--s-10);
+        & {
+            transition: getTransition(slide, ease-in-quad);
+            background-color: $black;
+            color: $white;
+            flex-shrink: 0;
+            flex-grow: 0;
+            padding-left: var(--s-10);
+            padding-right: var(--s-10);
+        }
 
         @include hover {
             background-color: $white;

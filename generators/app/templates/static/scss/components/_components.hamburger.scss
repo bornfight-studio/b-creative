@@ -4,9 +4,11 @@
     @include fluidValue("width", null, 25px);
     @include fluidValue("height", null, 12px);
 
-    position: relative;
-    overflow: visible;
-    display: inline-flex;
+    & {
+        position: relative;
+        overflow: visible;
+        display: inline-flex;
+    }
 
     &.is-active {
         span {
@@ -28,12 +30,14 @@
     span {
         @include fluidValue("height", null, 2px);
 
-        width: 100%;
-        background-color: currentColor;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transition: getTransition(slide, ease-in-quad);
+        & {
+            width: 100%;
+            background-color: currentColor;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transition: getTransition(slide, ease-in-quad);
+        }
 
         &:nth-child(1) {
             transform: translateY(-300%);

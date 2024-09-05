@@ -5,20 +5,22 @@
     @include fluidValue("min-height", null, 50px);
     @include fluidValue("border-radius", null, 10px);
 
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    user-select: none;
-    color: $black;
-    width: 100%;
-    padding: 0 var(--s-15);
-    margin: 0;
-    cursor: pointer;
-    border: 1px solid $black;
-    background-color: $white;
-    outline: 0;
-    box-sizing: border-box;
-    overflow: hidden;
+    & {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        user-select: none;
+        color: $black;
+        width: 100%;
+        padding: 0 var(--s-15);
+        margin: 0;
+        cursor: pointer;
+        border: 1px solid $black;
+        background-color: $white;
+        outline: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
 
     @include focus;
 
@@ -77,14 +79,16 @@
         .ss-max {
             @include fluidValue("border-radius", null, 10px);
 
-            display: flex;
-            user-select: none;
-            align-items: center;
-            width: fit-content;
-            color: $white;
-            line-height: 1;
-            background-color: $black;
-            padding: var(--s-5);
+            & {
+                display: flex;
+                user-select: none;
+                align-items: center;
+                width: fit-content;
+                color: $white;
+                line-height: 1;
+                background-color: $black;
+                padding: var(--s-5);
+            }
         }
 
         // Used for single select selected value
@@ -97,15 +101,17 @@
         .ss-value {
             @include fluidValue("border-radius", null, 10px);
 
-            display: flex;
-            user-select: none;
-            align-items: center;
-            width: fit-content;
-            background-color: $black;
-            animation-name: ss-valueIn;
-            animation-duration: 0.2s;
-            animation-timing-function: ease-out;
-            animation-fill-mode: both;
+            & {
+                display: flex;
+                user-select: none;
+                align-items: center;
+                width: fit-content;
+                background-color: $black;
+                animation-name: ss-valueIn;
+                animation-duration: 0.2s;
+                animation-timing-function: ease-out;
+                animation-fill-mode: both;
+            }
 
             &.ss-value-out {
                 animation-name: ss-valueOut;
@@ -123,12 +129,14 @@
                 @include fluidValue("width", null, 10px);
                 @include fluidValue("height", null, 10px);
 
-                padding: var(--s-5);
-                display: flex;
-                align-items: center;
-                cursor: pointer;
-                border-left: 1px solid $black;
-                box-sizing: content-box;
+                & {
+                    padding: var(--s-5);
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    border-left: 1px solid $black;
+                    box-sizing: content-box;
+                }
 
                 svg {
                     @include fluidValue("width", null, 10px);
@@ -150,12 +158,14 @@
         @include fluidValue("width", null, 10px);
         @include fluidValue("height", null, 10px);
 
-        margin-left: var(--s-10);
-        margin-right: var(--s-10);
-        display: flex;
-        align-self: center;
-        justify-content: flex-end;
-        flex: 0 1 auto;
+        & {
+            margin-left: var(--s-10);
+            margin-right: var(--s-10);
+            display: flex;
+            align-self: center;
+            justify-content: flex-end;
+            flex: 0 1 auto;
+        }
 
         svg {
             @include fluidValue("width", null, 10px);
@@ -175,14 +185,16 @@
         @include fluidValue("width", null, 15px);
         @include fluidValue("height", null, 15px);
 
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        flex: 0 1 auto;
-        margin-top: auto;
-        margin-bottom: auto;
-        flex-shrink: 0;
-        flex-grow: 0;
+        & {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex: 0 1 auto;
+            margin-top: auto;
+            margin-bottom: auto;
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
 
         path {
             fill: none;
@@ -202,22 +214,24 @@
 .ss-content {
     @include fluidValue("max-height", null, 300px);
 
-    position: absolute; // default position
-    display: flex;
-    height: auto;
-    flex-direction: column;
-    width: auto;
-    box-sizing: border-box;
-    border: 1px solid $black;
-    background-color: $white;
-    transition:
-        transform 0.2s,
-        opacity 0.2s;
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: center top;
-    overflow: hidden;
-    z-index: 10000;
+    & {
+        position: absolute; // default position
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        width: auto;
+        box-sizing: border-box;
+        border: 1px solid $black;
+        background-color: $white;
+        transition:
+            transform 0.2s,
+            opacity 0.2s;
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: center top;
+        overflow: hidden;
+        z-index: 10000;
+    }
 
     &.ss-relative {
         position: relative;
@@ -228,19 +242,23 @@
         @include fluidValue("border-top-left-radius", null, 10px);
         @include fluidValue("border-top-right-radius", null, 10px);
 
-        flex-direction: column-reverse;
-        opacity: 1;
-        transform: scaleY(1);
-        transform-origin: center bottom;
+        & {
+            flex-direction: column-reverse;
+            opacity: 1;
+            transform: scaleY(1);
+            transform-origin: center bottom;
+        }
     }
 
     &.ss-open-below {
         @include fluidValue("border-bottom-left-radius", null, 10px);
         @include fluidValue("border-bottom-right-radius", null, 10px);
 
-        opacity: 1;
-        transform: scaleY(1);
-        transform-origin: center top;
+        & {
+            opacity: 1;
+            transform: scaleY(1);
+            transform-origin: center top;
+        }
     }
 
     .ss-search {
@@ -254,17 +272,19 @@
             @include fluidValue("border-radius", null, 10px);
             @include b0;
 
-            display: inline-flex;
-            flex: 1 1 auto;
-            width: 100%;
-            min-width: 0;
-            padding: 0 var(--s-15);
-            margin: 0;
-            border: 1px solid $black;
-            background-color: $white;
-            outline: 0;
-            text-align: left;
-            box-sizing: border-box;
+            & {
+                display: inline-flex;
+                flex: 1 1 auto;
+                width: 100%;
+                min-width: 0;
+                padding: 0 var(--s-15);
+                margin: 0;
+                border: 1px solid $black;
+                background-color: $white;
+                outline: 0;
+                text-align: left;
+                box-sizing: border-box;
+            }
 
             &::placeholder {
                 color: $black-50;
@@ -277,24 +297,28 @@
         .ss-addable {
             @include fluidValue("border-radius", null, 10px);
 
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            flex: 0 0 auto;
-            height: auto;
-            margin: 0;
-            border: 1px solid $black;
+            & {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                flex: 0 0 auto;
+                height: auto;
+                margin: 0;
+                border: 1px solid $black;
+            }
 
             svg {
                 @include fluidValue("width", null, 15px);
                 @include fluidValue("height", null, 15px);
 
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                flex: 0 1 auto;
-                margin: auto 0;
+                & {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    flex: 0 1 auto;
+                    margin: auto 0;
+                }
 
                 path {
                     fill: none;
@@ -392,7 +416,9 @@
                             @include fluidValue("width", null, 15px);
                             @include fluidValue("height", null, 15px);
 
-                            flex: 0 1 auto;
+                            & {
+                                flex: 0 1 auto;
+                            }
 
                             path {
                                 fill: none;
@@ -421,7 +447,9 @@
                             @include fluidValue("width", null, 10px);
                             @include fluidValue("height", null, 10px);
 
-                            flex: 1 1 auto;
+                            & {
+                                flex: 1 1 auto;
+                            }
 
                             path {
                                 fill: none;
@@ -491,6 +519,7 @@
         transform: scale(0);
         opacity: 0;
     }
+
     100% {
         transform: scale(1);
         opacity: 1;
@@ -502,6 +531,7 @@
         transform: scale(1);
         opacity: 1;
     }
+
     100% {
         transform: scale(0);
         opacity: 0;

@@ -12,10 +12,12 @@
         @include fluidValue("width", null, 45px);
         @include fluidValue("height", null, 45px);
 
-        font-size: 0.7em;
-        transition: getTransition(slide, ease-in-quad);
-        background: $black;
-        color: $white;
+        & {
+            font-size: 0.7em;
+            transition: getTransition(slide, ease-in-quad);
+            background: $black;
+            color: $white;
+        }
 
         @include hover {
             &:not(:disabled) {

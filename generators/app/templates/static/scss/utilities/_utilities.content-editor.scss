@@ -39,7 +39,9 @@
     > ol {
         @include b0;
 
-        margin-bottom: var(--s-15);
+        & {
+            margin-bottom: var(--s-15);
+        }
 
         &:last-child {
             margin-bottom: 0;
@@ -190,7 +192,9 @@
         table {
             @include b1;
 
-            width: 100%;
+            & {
+                width: 100%;
+            }
         }
 
         tbody {
@@ -247,8 +251,10 @@
         cite {
             @include b1;
 
-            margin-top: var(--s-15);
-            display: block;
+            & {
+                margin-top: var(--s-15);
+                display: block;
+            }
 
             > u {
                 text-decoration: underline;
@@ -333,7 +339,9 @@
         figcaption {
             @include b1;
 
-            margin-top: var(--s-15);
+            & {
+                margin-top: var(--s-15);
+            }
 
             > u {
                 text-decoration: underline;
