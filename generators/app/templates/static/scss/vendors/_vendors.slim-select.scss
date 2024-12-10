@@ -2,37 +2,32 @@
  * Main container
  */
 .ss-main {
-    @include fluidValue("min-height", null, 50px);
-    @include fluidValue("border-radius", null, 10px);
-
     display: flex;
     flex-direction: row;
     position: relative;
     user-select: none;
-    color: $black;
+    background-color: var(--white);
+    color: var(--black);
     width: 100%;
+    min-height: var(--s-50);
     padding: 0 var(--s-15);
     margin: 0;
     cursor: pointer;
-    border: 1px solid $black;
-    background-color: $white;
+    border: 1px solid var(--black);
+    border-radius: var(--s-10);
     outline: 0;
     box-sizing: border-box;
     overflow: hidden;
 
     @include focus;
 
-    @include mq(lg) {
-        @include fluidValue("min-height", null, 40px);
-    }
-
     &.ss-disabled {
-        background-color: $black-50;
+        background-color: var(--black-50);
         cursor: not-allowed;
 
         .ss-values {
             .ss-disabled {
-                color: $black;
+                color: var(--black);
             }
 
             .ss-value {
@@ -67,7 +62,7 @@
             line-height: 1em;
             align-items: center;
             width: 100%;
-            color: $black-50;
+            color: var(--black-50);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -75,16 +70,15 @@
 
         // Max is used to display max number of values
         .ss-max {
-            @include fluidValue("border-radius", null, 10px);
-
             display: flex;
             user-select: none;
             align-items: center;
             width: fit-content;
-            color: $white;
+            color: var(--white);
             line-height: 1;
-            background-color: $black;
+            background-color: var(--black);
             padding: var(--s-5);
+            border-radius: var(--s-10);
         }
 
         // Used for single select selected value
@@ -95,17 +89,16 @@
 
         // Used for the selected values
         .ss-value {
-            @include fluidValue("border-radius", null, 10px);
-
             display: flex;
             user-select: none;
             align-items: center;
             width: fit-content;
-            background-color: $black;
+            background-color: var(--black);
             animation-name: ss-valueIn;
             animation-duration: 0.2s;
             animation-timing-function: ease-out;
             animation-fill-mode: both;
+            border-radius: var(--s-10);
 
             &.ss-value-out {
                 animation-name: ss-valueOut;
@@ -115,28 +108,27 @@
 
             .ss-value-text {
                 padding: var(--s-5);
-                color: $white;
+                color: var(--white);
                 line-height: 1;
             }
 
             .ss-value-delete {
-                @include fluidValue("width", null, 10px);
-                @include fluidValue("height", null, 10px);
-
+                width: var(--s-10);
+                height: var(--s-10);
                 padding: var(--s-5);
                 display: flex;
                 align-items: center;
                 cursor: pointer;
-                border-left: 1px solid $black;
+                border-left: 1px solid var(--black);
                 box-sizing: content-box;
 
                 svg {
-                    @include fluidValue("width", null, 10px);
-                    @include fluidValue("height", null, 10px);
+                    width: 0.75em;
+                    height: 0.75em;
 
                     path {
                         fill: none;
-                        stroke: $white;
+                        stroke: var(--white);
                         stroke-width: 15;
                         stroke-linecap: round;
                         stroke-linejoin: round;
@@ -147,23 +139,22 @@
     }
 
     .ss-deselect {
-        @include fluidValue("width", null, 10px);
-        @include fluidValue("height", null, 10px);
-
-        margin-left: var(--s-10);
-        margin-right: var(--s-10);
+        width: 1em;
+        height: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
         display: flex;
         align-self: center;
         justify-content: flex-end;
         flex: 0 1 auto;
 
         svg {
-            @include fluidValue("width", null, 10px);
-            @include fluidValue("height", null, 10px);
+            width: 0.75em;
+            height: 0.75em;
 
             path {
                 fill: none;
-                stroke: $black;
+                stroke: var(--black);
                 stroke-width: 15;
                 stroke-linecap: round;
                 stroke-linejoin: round;
@@ -172,9 +163,8 @@
     }
 
     .ss-arrow {
-        @include fluidValue("width", null, 15px);
-        @include fluidValue("height", null, 15px);
-
+        width: 1em;
+        height: 1em;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -186,7 +176,7 @@
 
         path {
             fill: none;
-            stroke: $black;
+            stroke: var(--black);
             stroke-width: 10;
             stroke-linecap: round;
             stroke-linejoin: round;
@@ -200,16 +190,15 @@
  * Content container
  */
 .ss-content {
-    @include fluidValue("max-height", null, 300px);
-
     position: absolute; // default position
     display: flex;
     height: auto;
+    max-height: calc(var(--s-150) * 2);
     flex-direction: column;
     width: auto;
     box-sizing: border-box;
-    border: 1px solid $black;
-    background-color: $white;
+    border: 1px solid var(--black);
+    background-color: var(--white);
     transition:
         transform 0.2s,
         opacity 0.2s;
@@ -225,22 +214,20 @@
     }
 
     &.ss-open-above {
-        @include fluidValue("border-top-left-radius", null, 10px);
-        @include fluidValue("border-top-right-radius", null, 10px);
-
         flex-direction: column-reverse;
         opacity: 1;
         transform: scaleY(1);
         transform-origin: center bottom;
+        border-top-left-radius: var(--s-10);
+        border-top-right-radius: var(--s-10);
     }
 
     &.ss-open-below {
-        @include fluidValue("border-bottom-left-radius", null, 10px);
-        @include fluidValue("border-bottom-right-radius", null, 10px);
-
         opacity: 1;
         transform: scaleY(1);
         transform-origin: center top;
+        border-bottom-left-radius: var(--s-10);
+        border-bottom-right-radius: var(--s-10);
     }
 
     .ss-search {
@@ -250,24 +237,24 @@
         flex-direction: row;
 
         input {
-            @include fluidValue("height", null, 40px);
-            @include fluidValue("border-radius", null, 10px);
-            @include b0;
-
             display: inline-flex;
             flex: 1 1 auto;
             width: 100%;
+            height: var(--s-40);
             min-width: 0;
             padding: 0 var(--s-15);
             margin: 0;
-            border: 1px solid $black;
-            background-color: $white;
+            border: 1px solid var(--black);
+            border-radius: var(--s-10);
+            background-color: var(--white);
             outline: 0;
             text-align: left;
             box-sizing: border-box;
 
+            @include b0;
+
             &::placeholder {
-                color: $black-50;
+                color: var(--black-50);
                 vertical-align: middle;
             }
 
@@ -275,8 +262,6 @@
         }
 
         .ss-addable {
-            @include fluidValue("border-radius", null, 10px);
-
             display: inline-flex;
             justify-content: center;
             align-items: center;
@@ -284,12 +269,12 @@
             flex: 0 0 auto;
             height: auto;
             margin: 0;
-            border: 1px solid $black;
+            border: 1px solid var(--black);
+            border-radius: var(--s-10);
 
             svg {
-                @include fluidValue("width", null, 15px);
-                @include fluidValue("height", null, 15px);
-
+                width: 0.75em;
+                height: 0.75em;
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
@@ -298,7 +283,7 @@
 
                 path {
                     fill: none;
-                    stroke: $black;
+                    stroke: var(--black);
                     stroke-width: 15;
                     stroke-linecap: round;
                     stroke-linejoin: round;
@@ -315,12 +300,12 @@
 
         .ss-error {
             padding: var(--s-5);
-            color: $red;
+            color: var(--red);
         }
 
         .ss-searching {
             padding: var(--s-5);
-            color: $black;
+            color: var(--black);
         }
 
         .ss-optgroup {
@@ -346,7 +331,7 @@
 
                 .ss-optgroup-label-text {
                     flex: 1 1 auto;
-                    color: $black;
+                    color: var(--black);
                 }
 
                 // If optgroup has arrow, make label clickable
@@ -374,7 +359,7 @@
                         &.ss-selected {
                             svg {
                                 path {
-                                    stroke: $red;
+                                    stroke: var(--red);
                                 }
                             }
                         }
@@ -389,14 +374,13 @@
                         }
 
                         svg {
-                            @include fluidValue("width", null, 15px);
-                            @include fluidValue("height", null, 15px);
-
+                            width: 0.75em;
+                            height: 0.75em;
                             flex: 0 1 auto;
 
                             path {
                                 fill: none;
-                                stroke: $black;
+                                stroke: var(--black);
                                 stroke-linecap: round;
                                 stroke-linejoin: round;
                             }
@@ -418,14 +402,13 @@
                         cursor: pointer;
 
                         .ss-arrow {
-                            @include fluidValue("width", null, 10px);
-                            @include fluidValue("height", null, 10px);
-
+                            width: 1em;
+                            height: 1em;
                             flex: 1 1 auto;
 
                             path {
                                 fill: none;
-                                stroke: $black;
+                                stroke: var(--black);
                                 stroke-width: 15;
                                 stroke-linecap: round;
                                 stroke-linejoin: round;
@@ -445,32 +428,32 @@
         .ss-option {
             padding: var(--s-10) var(--s-15);
             display: flex;
-            color: $black;
+            color: var(--black);
             cursor: pointer;
             user-select: none;
             transition: getTransition(slide, ease-in-quad);
 
             @include hover {
                 &:not(.ss-disabled) {
-                    color: $white;
-                    background-color: $black;
+                    color: var(--white);
+                    background-color: var(--black);
                 }
             }
 
             &.ss-highlighted,
             &:not(.ss-disabled).ss-selected {
-                color: $white;
-                background-color: $black;
+                color: var(--white);
+                background-color: var(--black);
             }
 
             &.ss-disabled {
                 cursor: not-allowed;
-                background-color: $black-50;
+                background-color: var(--black-50);
             }
 
             // Sub div wrapper for highlighting text
             .ss-search-highlight {
-                background-color: $black-50;
+                background-color: var(--black-50);
             }
         }
     }

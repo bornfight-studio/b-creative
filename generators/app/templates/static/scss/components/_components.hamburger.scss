@@ -1,12 +1,15 @@
 .c-hamburger {
     @include button-reset;
-    @include focus;
-    @include fluidValue("width", null, 25px);
-    @include fluidValue("height", null, 12px);
 
-    position: relative;
-    overflow: visible;
-    display: inline-flex;
+    & {
+        position: relative;
+        overflow: visible;
+        display: inline-flex;
+        width: var(--s-25);
+        height: var(--s-15);
+    }
+
+    @include focus;
 
     &.is-active {
         span {
@@ -26,9 +29,8 @@
     }
 
     span {
-        @include fluidValue("height", null, 2px);
-
         width: 100%;
+        height: 2px;
         background-color: currentColor;
         position: absolute;
         left: 0;

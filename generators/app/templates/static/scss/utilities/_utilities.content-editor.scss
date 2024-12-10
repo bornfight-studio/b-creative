@@ -37,9 +37,9 @@
     > p,
     > ul,
     > ol {
-        @include b0;
-
         margin-bottom: var(--s-15);
+
+        @include b0;
 
         &:last-child {
             margin-bottom: 0;
@@ -157,7 +157,7 @@
     }
 
     hr {
-        border-top: 1px solid $black;
+        border-top: 1px solid var(--black);
         border-left: none;
         border-right: none;
         border-bottom: none;
@@ -188,8 +188,6 @@
         }
 
         table {
-            @include b1;
-
             width: 100%;
         }
 
@@ -197,7 +195,7 @@
         }
 
         tr {
-            border-bottom: 1px solid $black;
+            border-bottom: 1px solid var(--black);
             display: flex;
             gap: var(--s-15);
         }
@@ -230,7 +228,7 @@
         margin-top: var(--s-60);
         margin-bottom: var(--s-60);
         padding-left: var(--s-15);
-        border-left: 3px solid $black;
+        border-left: 3px solid var(--black);
 
         &:first-child {
             margin-top: 0;
@@ -245,10 +243,10 @@
         }
 
         cite {
-            @include b1;
-
             margin-top: var(--s-15);
             display: block;
+
+            @include b1;
 
             > u {
                 text-decoration: underline;
@@ -331,9 +329,9 @@
         }
 
         figcaption {
-            @include b1;
-
             margin-top: var(--s-15);
+
+            @include b1;
 
             > u {
                 text-decoration: underline;
@@ -354,8 +352,8 @@
         margin-top: var(--s-60);
         margin-bottom: var(--s-60);
         padding: var(--s-30);
-        background-color: $white;
-        color: $black;
+        background-color: var(--white);
+        color: var(--black);
 
         &:first-child {
             margin-top: 0;

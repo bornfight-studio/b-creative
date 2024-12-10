@@ -4,8 +4,8 @@ body {
 }
 
 body {
-    @include b0;
+    color: var(--black);
+    background-color: var(--white);
 
-    color: $black;
-    background-color: $white;
+    @include b0;
 }

@@ -14,7 +14,7 @@
         top: 0;
         left: 0;
         border: 2px solid transparent;
-        border-top-color: $white;
+        border-top-color: var(--white);
         border-radius: 100%;
         animation: spinner 1s linear infinite;
     }

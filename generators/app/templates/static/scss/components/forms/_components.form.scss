@@ -73,7 +73,7 @@
     &__legend {
         display: block;
         margin: 0 0 var(--s-10);
-        color: $black;
+        color: var(--black);
         cursor: pointer;
         width: 100%;
     }
@@ -83,43 +83,40 @@
      * 1. Reset display and dimensions for all browsers.
      * 2. Reset and define spacing for all browsers
      * 3. Reset background and border for all browsers
-     * 4. Make font properties consistent in IE and Safari with other browsers
-     * 5. Add transitions on input
-     * 6. Remove platform specific default styling for inputs like search or select
+     * 4. Add transitions on input
+     * 5. Remove platform specific default styling for inputs like search or select
+     * 6. Make font properties consistent in IE and Safari with other browsers
      * 7. Hover state
      * 8. Focus state - disable outline and enable border for better design
      * 9. Disabled state
-     * 10. State when input is not empty
-     * 11., 12. Reset autocomplete styles in webkit browsers
+     * 10., 11. Reset autocomplete styles in webkit browsers
      * usage: .c-form__fieldset > .c-form__label + .c-form__input
      */
     &__input {
         /* 1 */
-        @include fluidValue("height", null, 50px);
-
         display: block;
         width: 100%;
+        height: var(--s-50);
         box-sizing: border-box;
         /* 2 */
         padding: 0 var(--s-15);
         margin: 0;
         /* 3 */
-        @include fluidValue("border-radius", null, 10px);
-
-        border: 1px solid $black;
-        background-color: $white;
+        border: 1px solid var(--black);
+        border-radius: var(--s-10);
+        background-color: var(--white);
         box-shadow: none;
         outline: none;
         /* 4 */
-        @include b0;
-
-        color: $black;
-        /* 5 */
         transition: getTransition(slide, ease-in-quad);
-        /* 6 */
+        /* 5 */
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
+        /* 6 */
+        color: var(--black);
+
+        @include b0;
 
         /* 7 */
         @include hover {
@@ -140,7 +137,7 @@
             pointer-events: none;
         }
 
-        /* 11 */
+        /* 10 */
         &:-webkit-autofill,
         &:-webkit-autofill:focus {
             transition:
@@ -148,7 +145,7 @@
                 color 600000s 0s;
         }
 
-        /* 12 */
+        /* 11 */
         &[data-autocompleted] {
             background-color: transparent !important;
         }
@@ -162,19 +159,19 @@
          */
         /* 1 */
         &::placeholder {
-            color: $black-50;
+            color: var(--black-50);
             /* 2 */
             opacity: 1;
         }
 
         /* 3 */
         &:-ms-input-placeholder {
-            color: $black-50;
+            color: var(--black-50);
         }
 
         /* 4 */
         &::-ms-input-placeholder {
-            color: $black-50;
+            color: var(--black-50);
         }
     }
 
@@ -187,16 +184,16 @@
      * usage: .c-form__input.c-form__input--error
      */
     &__input--error {
-        border-color: $red;
+        border-color: var(--red);
 
         /* 1 */
         @include hover {
-            border-color: $red;
+            border-color: var(--red);
         }
 
         /* 2 */
         &:focus {
-            border-color: $red;
+            border-color: var(--red);
         }
     }
 
@@ -230,15 +227,14 @@
      * usage: .c-form__input.c-form__input--newsletter
      */
     &__input--newsletter {
-        @include fluidValue("height", null, 40px);
-
+        height: var(--s-40);
         border-top: none;
         border-left: none;
         border-right: none;
-        border-bottom-color: $white;
+        border-bottom-color: var(--white);
         padding-left: 0;
         background-color: transparent;
-        color: $white;
+        color: var(--white);
         border-radius: 0;
 
         @include mq(lg) {
@@ -261,19 +257,19 @@
          */
         /* 1 */
         &::placeholder {
-            color: rgba($white, 0.5);
+            color: var(--white-50);
             /* 2 */
             opacity: 1;
         }
 
         /* 3 */
         &:-ms-input-placeholder {
-            color: rgba($white, 0.5);
+            color: var(--white-50);
         }
 
         /* 4 */
         &::-ms-input-placeholder {
-            color: rgba($white, 0.5);
+            color: var(--white-50);
         }
     }
 
@@ -286,9 +282,8 @@
      * usage: .c-form__input.c-form__input--textarea
      */
     &__input--textarea {
-        @include fluidValue("min-height", null, 160px);
-        @include fluidValue("height", null, 160px);
-
+        min-height: var(--s-150);
+        height: var(--s-150);
         padding-top: var(--s-15);
         padding-bottom: var(--s-15);
         resize: none;
@@ -311,10 +306,8 @@
      * usage: .c-form__input.c-form__input--inline
      */
     &__input--inline {
-        @include fluidValue("height", null, 40px);
-        @include fluidValue("width", null, 70px);
-        @include b1;
-
+        width: var(--s-70);
+        height: var(--s-40);
         display: block;
         text-align: center;
         padding-left: var(--s-10);
@@ -398,36 +391,29 @@
      */
     &__checkbox {
         & + .c-form__checkbox-label {
-            padding-left: var(--s-30);
+            padding-left: 1.5lh;
             position: relative;
             display: inline-block;
             cursor: pointer;
-            line-height: 1.3;
-
-            @include mq(lg) {
-                padding-left: var(--s-40);
-            }
 
             /* 1, 2 */
             &:before,
             &:after {
-                @include fluidValue("width", null, 20px);
-                @include fluidValue("height", null, 20px);
-
                 position: absolute;
                 left: 0;
                 top: 0;
                 display: block;
+                width: 1lh;
+                height: 1lh;
                 transition: getTransition(slide, ease-in-quad);
             }
 
             /* 1 */
             &:before {
-                @include fluidValue("border-radius", null, 5px);
-
                 content: "";
-                background-color: $white;
-                border: 1px solid $black;
+                background-color: var(--white);
+                border: 1px solid var(--black);
+                border-radius: var(--s-5);
             }
 
             /* 2 */
@@ -437,7 +423,7 @@
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
-                background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI4IiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMy44MjIgNS4xNzggMS40NjUgMi44MjEuMjg2IDRsMy41MzYgMy41MzYgNS44OTItNS44OTNMOC41MzYuNDY0IDMuODIyIDUuMTc4WiIvPjwvc3ZnPg==");
+                background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzAwMCIgZD0ibTQgMTMuMDcxIDEuNDE0LTEuNDE0IDQuMjQzIDQuMjQyTDE5LjU1NyA2bDEuNDE0IDEuNDE0TDkuNjU3IDE4LjcyOCA0IDEzLjA3WiIvPjwvc3ZnPg==");
             }
         }
 
@@ -447,8 +433,8 @@
                 & + .c-form__checkbox-label {
                     &:before {
                         outline: 0;
-                        border-color: $black;
-                        background-color: $white;
+                        border-color: var(--black);
+                        background-color: var(--white);
                     }
                 }
             }
@@ -460,8 +446,8 @@
                 & + .c-form__checkbox-label {
                     &:before {
                         outline: 0;
-                        border-color: $black;
-                        background-color: $white;
+                        border-color: var(--black);
+                        background-color: var(--white);
                     }
                 }
             }
@@ -472,8 +458,8 @@
             & + .c-form__checkbox-label {
                 &:before {
                     outline: 0;
-                    border-color: $black;
-                    background-color: $black;
+                    border-color: var(--black);
+                    background-color: var(--black);
                 }
 
                 &:after {
@@ -520,33 +506,16 @@
     &__radio {
         /* 1 */
         & + .c-form__radio-label {
-            @include fluidValue("border-radius", null, 10px);
-            @include b0;
-
-            color: $black;
-            border: 1px solid $black;
-            background-color: $white;
-            box-shadow: none;
-            outline: none;
-            transition: getTransition(slide, ease-in-quad);
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            position: relative;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin: 0;
             padding: var(--s-15);
-            cursor: pointer;
-
-            @include mq(lg) {
-                padding: var(--s-10);
-            }
-
-            .u-icon {
-                margin-right: var(--s-15);
-                font-size: 1.4em;
-            }
+            background-color: var(--white);
+            border: 1px solid var(--black);
+            color: var(--black);
+            border-radius: var(--s-5);
+            transition: getTransition(slide, ease-in-quad);
+            position: relative;
         }
 
         /* 2 */
@@ -555,9 +524,9 @@
                 & + .c-form__radio-label {
                     outline: 0;
                     box-shadow: none;
-                    color: $black;
-                    border-color: $black;
-                    background-color: $white;
+                    color: var(--black);
+                    border-color: var(--black);
+                    background-color: var(--white);
                 }
             }
         }
@@ -568,9 +537,9 @@
                 & + .c-form__radio-label {
                     outline: 0;
                     box-shadow: none;
-                    color: $black;
-                    border-color: $black;
-                    background-color: $white;
+                    color: var(--black);
+                    border-color: var(--black);
+                    background-color: var(--white);
                 }
             }
         }
@@ -580,9 +549,9 @@
             & + .c-form__radio-label {
                 outline: 0;
                 box-shadow: none;
-                color: $white;
-                border-color: $black;
-                background-color: $black;
+                color: var(--white);
+                border-color: var(--black);
+                background-color: var(--black);
             }
         }
 
@@ -618,7 +587,7 @@
     /* 1 */
     &__errors {
         margin-bottom: var(--s-30);
-        color: $red;
+        color: var(--red);
     }
 
     /* 2 */
@@ -698,14 +667,16 @@
      */
     &__validation-message {
         margin-top: var(--s-5);
-        color: $red;
+        color: var(--red);
     }
 
     /**
      * Password wrapper
      * Used as wrapper for password input and show/hide toggle button
      * 1. Styles for show/hide toggle button
-     * 2. Styles for show/hide toggle button when password is displayed as text
+     * 2. Hover state
+     * 3. Focus state
+     * 4. Styles for show/hide toggle button when password is displayed as text
      * usage: .c-form__password-wrapper > .c-form__input.c-form__input--password + .c-form__password-toggle
      */
     &__password-wrapper {
@@ -715,36 +686,36 @@
     /* 1 */
     &__password-toggle {
         @include button-reset;
-        @include focus;
-        @include fluidValue("font-size", null, 20px);
 
-        cursor: pointer;
-        position: absolute;
-        right: 0;
-        top: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        padding-left: var(--s-15);
-        padding-right: var(--s-15);
-        transition: getTransition(slide, ease-in-quad);
-        color: $black-50;
-        z-index: getZindex(default);
-
-        @include hover {
-            color: $black;
-        }
-
-        @include focus;
-
-        @include mq(md) {
-            @include fluidValue("font-size", null, 16px);
+        & {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 1em;
+            padding-left: var(--padding-input);
+            padding-right: var(--padding-input);
+            transition: getTransition(slide, ease-in-quad);
+            color: var(--color-input-primary-text);
+            opacity: 0.5;
+            z-index: getZindex(default);
         }
 
         /* 2 */
+        @include hover {
+            opacity: 0.75;
+        }
+
+        /* 3 */
+        @include focus;
+
+        /* 4 */
         .has-password-visible & {
-            color: $black;
+            opacity: 1;
         }
     }
 
@@ -775,9 +746,12 @@
     &__search-reset,
     &__search-submit {
         @include button-reset;
-        @include focus;
 
-        transition: getTransition(slide, ease-in-quad);
+        & {
+            transition: getTransition(slide, ease-in-quad);
+        }
+
+        @include focus;
     }
 
     /* 2 */
@@ -804,25 +778,13 @@
     &__newsletter-wrapper {
         position: relative;
         display: flex;
+        gap: var(--s-10);
     }
 
     /* 1 */
     &__newsletter-submit {
-        @include button-reset;
-        @include focus;
-
-        transition: getTransition(slide, ease-in-quad);
-        background-color: $black;
-        color: $white;
         flex-shrink: 0;
         flex-grow: 0;
-        padding-left: var(--s-10);
-        padding-right: var(--s-10);
-
-        @include hover {
-            background-color: $white;
-            color: $black;
-        }
     }
 
     /**
