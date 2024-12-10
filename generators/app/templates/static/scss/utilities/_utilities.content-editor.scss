@@ -1,3 +1,8 @@
+@use "../settings/settings.typography";
+@use "../tools/tools.interaction" as tools2;
+@use "../tools/tools.transitions";
+@use "../tools/tools.zindex" as tools3;
+
 .u-content-editor,
 .rte {
     word-break: break-word;
@@ -27,9 +32,9 @@
 
         > a {
             text-decoration: underline;
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools.getTransition(slide, ease-in-quad);
 
-            @include hover {
+            @include tools2.hover {
             }
         }
     }
@@ -39,7 +44,7 @@
     > ol {
         margin-bottom: var(--s-15);
 
-        @include b0;
+        @include settings.b0;
 
         &:last-child {
             margin-bottom: 0;
@@ -59,31 +64,31 @@
 
         > a {
             text-decoration: underline;
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools.getTransition(slide, ease-in-quad);
 
-            @include hover {
+            @include tools2.hover {
             }
         }
     }
 
     > h2 {
-        @include a4;
+        @include settings.a4;
     }
 
     > h3 {
-        @include a3;
+        @include settings.a3;
     }
 
     > h4 {
-        @include a2;
+        @include settings.a2;
     }
 
     > h5 {
-        @include a1;
+        @include settings.a1;
     }
 
     > h6 {
-        @include a1;
+        @include settings.a1;
     }
 
     > ul,
@@ -132,9 +137,9 @@
 
     > a {
         text-decoration: underline;
-        transition: getTransition(slide, ease-in-quad);
+        transition: tools.getTransition(slide, ease-in-quad);
 
-        @include hover {
+        @include tools2.hover {
         }
     }
 
@@ -149,9 +154,9 @@
 
         > a {
             text-decoration: underline;
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools.getTransition(slide, ease-in-quad);
 
-            @include hover {
+            @include tools2.hover {
             }
         }
     }
@@ -214,9 +219,9 @@
 
         a {
             text-decoration: underline;
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools.getTransition(slide, ease-in-quad);
 
-            @include hover {
+            @include tools2.hover {
             }
         }
 
@@ -239,14 +244,14 @@
         }
 
         p {
-            @include a2;
+            @include settings.a2;
         }
 
         cite {
             margin-top: var(--s-15);
             display: block;
 
-            @include b1;
+            @include settings.b1;
 
             > u {
                 text-decoration: underline;
@@ -254,9 +259,9 @@
 
             > a {
                 text-decoration: underline;
-                transition: getTransition(slide, ease-in-quad);
+                transition: tools.getTransition(slide, ease-in-quad);
 
-                @include hover {
+                @include tools2.hover {
                 }
             }
         }
@@ -331,7 +336,7 @@
         figcaption {
             margin-top: var(--s-15);
 
-            @include b1;
+            @include settings.b1;
 
             > u {
                 text-decoration: underline;
@@ -339,9 +344,9 @@
 
             > a {
                 text-decoration: underline;
-                transition: getTransition(slide, ease-in-quad);
+                transition: tools.getTransition(slide, ease-in-quad);
 
-                @include hover {
+                @include tools2.hover {
                 }
             }
         }
@@ -374,7 +379,7 @@
         margin-top: var(--s-60);
         margin-bottom: var(--s-60);
         position: relative;
-        z-index: getZindex(default);
+        z-index: tools3.getZindex(default);
 
         &:first-child {
             margin-top: 0;

@@ -1,5 +1,8 @@
+@use "../tools/tools.interaction";
+@use "../tools/tools.transitions" as tools2;
+
 .c-hamburger {
-    @include button-reset;
+    @include tools.button-reset;
 
     & {
         position: relative;
@@ -9,7 +12,7 @@
         height: var(--s-15);
     }
 
-    @include focus;
+    @include tools.focus;
 
     &.is-active {
         span {
@@ -35,7 +38,7 @@
         position: absolute;
         left: 0;
         top: 50%;
-        transition: getTransition(slide, ease-in-quad);
+        transition: tools2.getTransition(slide, ease-in-quad);
 
         &:nth-child(1) {
             transform: translateY(-300%);

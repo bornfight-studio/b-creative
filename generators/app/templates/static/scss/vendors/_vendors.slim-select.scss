@@ -1,3 +1,7 @@
+@use "../settings/settings.typography";
+@use "../tools/tools.interaction";
+@use "../tools/tools.transitions" as tools2;
+
 /**
  * Main container
  */
@@ -19,7 +23,7 @@
     box-sizing: border-box;
     overflow: hidden;
 
-    @include focus;
+    @include tools.focus;
 
     &.ss-disabled {
         background-color: var(--black-50);
@@ -251,14 +255,14 @@
             text-align: left;
             box-sizing: border-box;
 
-            @include b0;
+            @include settings.b0;
 
             &::placeholder {
                 color: var(--black-50);
                 vertical-align: middle;
             }
 
-            @include focus;
+            @include tools.focus;
         }
 
         .ss-addable {
@@ -431,9 +435,9 @@
             color: var(--black);
             cursor: pointer;
             user-select: none;
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools2.getTransition(slide, ease-in-quad);
 
-            @include hover {
+            @include tools.hover {
                 &:not(.ss-disabled) {
                     color: var(--white);
                     background-color: var(--black);

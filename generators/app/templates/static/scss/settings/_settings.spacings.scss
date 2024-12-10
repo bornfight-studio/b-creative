@@ -1,3 +1,5 @@
+@use "settings.breakpoints";
+
 /**
 * Set useContainer to true if you are using container design, and dont need scaling for > xxl breakpoint
 * @var {boolean} $useContainer - Use container
@@ -28,71 +30,71 @@ $big-viewport-coefficient: 0.8;
  */
 $settings-spacings: (
     "s-5": (
-        $breakpoint-sm: 5px,
-        $breakpoint-xl: 5px,
+        settings.$breakpoint-sm: 5px,
+        settings.$breakpoint-xl: 5px,
     ),
     "s-10": (
-        $breakpoint-sm: 10px,
-        $breakpoint-xl: 10px,
+        settings.$breakpoint-sm: 10px,
+        settings.$breakpoint-xl: 10px,
     ),
     "s-15": (
-        $breakpoint-sm: 15px,
-        $breakpoint-xl: 15px,
+        settings.$breakpoint-sm: 15px,
+        settings.$breakpoint-xl: 15px,
     ),
     "s-20": (
-        $breakpoint-sm: 15px,
-        $breakpoint-xl: 20px,
+        settings.$breakpoint-sm: 15px,
+        settings.$breakpoint-xl: 20px,
     ),
     "s-25": (
-        $breakpoint-sm: 15px,
-        $breakpoint-xl: 25px,
+        settings.$breakpoint-sm: 15px,
+        settings.$breakpoint-xl: 25px,
     ),
     "s-30": (
-        $breakpoint-sm: 20px,
-        $breakpoint-xl: 30px,
+        settings.$breakpoint-sm: 20px,
+        settings.$breakpoint-xl: 30px,
     ),
     "s-35": (
-        $breakpoint-sm: 25px,
-        $breakpoint-xl: 35px,
+        settings.$breakpoint-sm: 25px,
+        settings.$breakpoint-xl: 35px,
     ),
     "s-40": (
-        $breakpoint-sm: 30px,
-        $breakpoint-xl: 40px,
+        settings.$breakpoint-sm: 30px,
+        settings.$breakpoint-xl: 40px,
     ),
     "s-45": (
-        $breakpoint-sm: 35px,
-        $breakpoint-xl: 45px,
+        settings.$breakpoint-sm: 35px,
+        settings.$breakpoint-xl: 45px,
     ),
     "s-50": (
-        $breakpoint-sm: 40px,
-        $breakpoint-xl: 50px,
+        settings.$breakpoint-sm: 40px,
+        settings.$breakpoint-xl: 50px,
     ),
     "s-60": (
-        $breakpoint-sm: 50px,
-        $breakpoint-xl: 60px,
+        settings.$breakpoint-sm: 50px,
+        settings.$breakpoint-xl: 60px,
     ),
     "s-70": (
-        $breakpoint-sm: 50px,
-        $breakpoint-xl: 70px,
+        settings.$breakpoint-sm: 50px,
+        settings.$breakpoint-xl: 70px,
     ),
     "s-80": (
-        $breakpoint-sm: 60px,
-        $breakpoint-xl: 80px,
+        settings.$breakpoint-sm: 60px,
+        settings.$breakpoint-xl: 80px,
     ),
     "s-90": (
-        $breakpoint-sm: 60px,
-        $breakpoint-xl: 90px,
+        settings.$breakpoint-sm: 60px,
+        settings.$breakpoint-xl: 90px,
     ),
     "s-100": (
-        $breakpoint-sm: 70px,
-        $breakpoint-xl: 100px,
+        settings.$breakpoint-sm: 70px,
+        settings.$breakpoint-xl: 100px,
     ),
     "s-125": (
-        $breakpoint-sm: 70px,
-        $breakpoint-xl: 125px,
+        settings.$breakpoint-sm: 70px,
+        settings.$breakpoint-xl: 125px,
     ),
     "s-150": (
-        $breakpoint-sm: 80px,
-        $breakpoint-xl: 150px,
+        settings.$breakpoint-sm: 80px,
+        settings.$breakpoint-xl: 150px,
     ),
 );

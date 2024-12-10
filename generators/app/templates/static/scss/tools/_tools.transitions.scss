@@ -1,11 +1,15 @@
+@use "sass:list";
+@use "sass:map";
+@use "../settings/settings.transitions";
+
 /**
  * Get transition easing from $settings-transitions-easing
  */
 @function getTransitionEasing($transitionEasing: "default") {
-    @if (map-has_key($settings-transitions-easing, $transitionEasing)) {
-        @return map-get($settings-transitions-easing, $transitionEasing);
+    @if (map.has-key(settings.$settings-transitions-easing, $transitionEasing)) {
+        @return map.get(settings.$settings-transitions-easing, $transitionEasing);
     } @else {
-        @return map-get($settings-transitions-easing, "default");
+        @return map.get(settings.$settings-transitions-easing, "default");
     }
 }
 
@@ -18,10 +22,10 @@
  * transition: getTransition(slide, ease-in-quad);
  */
 @function getTransition($transitionName: "default", $transitionEasing: getTransitionEasing()) {
-    @if (map-has_key($settings-transitions, $transitionName)) {
-        @return map-get($settings-transitions, $transitionName) getTransitionEasing($transitionEasing);
+    @if (map.has-key(settings.$settings-transitions, $transitionName)) {
+        @return map.get(settings.$settings-transitions, $transitionName) getTransitionEasing($transitionEasing);
     } @else {
-        @return map-get($settings-transitions, "default") getTransitionEasing($transitionEasing);
+        @return map.get(settings.$settings-transitions, "default") getTransitionEasing($transitionEasing);
     }
 }
 
@@ -43,7 +47,7 @@
 @function getCustomTransition($transitions...) {
     $unfoldedTransitions: ();
     @each $transition in $transitions {
-        $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+        $unfoldedTransitions: list.append($unfoldedTransitions, unfoldTransition($transition), comma);
     }
     @return $unfoldedTransitions;
 }
@@ -65,14 +69,14 @@
 
     /* 2 */
     $unfoldedTransition: ();
-    @for $i from 1 through length($defaultProperties) {
+    @for $i from 1 through list.length($defaultProperties) {
         $p: null;
-        @if $i <= length($transition) {
-            $p: nth($transition, $i);
+        @if $i <= list.length($transition) {
+            $p: list.nth($transition, $i);
         } @else {
-            $p: nth($defaultProperties, $i);
+            $p: list.nth($defaultProperties, $i);
         }
-        $unfoldedTransition: append($unfoldedTransition, $p);
+        $unfoldedTransition: list.append($unfoldedTransition, $p);
     }
 
     @return $unfoldedTransition;

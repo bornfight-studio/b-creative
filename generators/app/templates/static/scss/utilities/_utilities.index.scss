@@ -1,9 +1,9 @@
 /**
  * Utilities
  */
-@import "utilities.display";
-@import "utilities.typography";
-@import "utilities.spacing";
-@import "utilities.ratio";
-@import "utilities.icon";
-@import "utilities.content-editor";
+@use "utilities.display";
+@use "utilities.typography" as utilities2;
+@use "utilities.spacing" as utilities3;
+@use "utilities.ratio" as utilities4;
+@use "utilities.icon" as utilities5;
+@use "utilities.content-editor" as utilities6;

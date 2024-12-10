@@ -1,3 +1,5 @@
+@use "../tools/tools.transitions";
+
 .c-breadcrumbs {
     display: flex;
     align-items: center;
@@ -31,6 +33,6 @@
     }
 
     a {
-        transition: getTransition(slide, ease-in-quad);
+        transition: tools.getTransition(slide, ease-in-quad);
     }
 }

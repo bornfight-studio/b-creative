@@ -1,3 +1,5 @@
+@use "../tools/tools.transitions";
+
 .c-slider-pagination {
     display: inline-flex;
     align-items: center;
@@ -10,7 +12,7 @@
         height: var(--s-10);
         background-color: var(--black-50);
         border-radius: 100%;
-        transition: getTransition(slide, ease-in-quad);
+        transition: tools.getTransition(slide, ease-in-quad);
         display: inline-flex;
         align-items: center;
         justify-content: center;

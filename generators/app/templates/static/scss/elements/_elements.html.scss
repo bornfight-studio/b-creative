@@ -1,3 +1,5 @@
+@use "../settings/settings.typography";
+
 html,
 body {
     -webkit-font-smoothing: antialiased;
@@ -7,5 +9,5 @@ body {
     color: var(--black);
     background-color: var(--white);
 
-    @include b0;
+    @include settings.b0;
 }

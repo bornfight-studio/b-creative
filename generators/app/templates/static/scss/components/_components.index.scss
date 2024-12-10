@@ -1,74 +1,74 @@
 /**
  * Components
  */
-@import "components.loader";
-@import "components.mobile-navigation";
-@import "components.navigation";
-@import "components.hamburger";
-@import "components.media-loader";
-@import "components.media-overlay";
-@import "components.media-trigger";
-@import "components.responsive-media";
-@import "components.breadcrumbs";
-@import "components.button";
-@import "components.underline-link";
-@import "components.spinner";
-@import "components.content-loader";
-@import "components.accordion";
-@import "components.tag";
-@import "components.badge";
-@import "components.slider-fraction";
-@import "components.slider-navigation";
-@import "components.slider-pagination";
-@import "components.slider-scrollbar";
-@import "components.pagination";
-@import "components.social-icons";
-@import "components.article-share";
+@use "components.loader";
+@use "components.mobile-navigation" as components2;
+@use "components.navigation" as components3;
+@use "components.hamburger" as components4;
+@use "components.media-loader" as components5;
+@use "components.media-overlay" as components6;
+@use "components.media-trigger" as components7;
+@use "components.responsive-media" as components8;
+@use "components.breadcrumbs" as components9;
+@use "components.button" as components10;
+@use "components.underline-link" as components11;
+@use "components.spinner" as components12;
+@use "components.content-loader" as components13;
+@use "components.accordion" as components14;
+@use "components.tag" as components15;
+@use "components.badge" as components16;
+@use "components.slider-fraction" as components17;
+@use "components.slider-navigation" as components18;
+@use "components.slider-pagination" as components19;
+@use "components.slider-scrollbar" as components20;
+@use "components.pagination" as components21;
+@use "components.social-icons" as components22;
+@use "components.article-share" as components23;
 
 /**
  * Cards
  */
-@import "cards/components.article-card";
+@use "cards/components.article-card" as components24;
 
 /**
  * Forms
  */
-@import "forms/components.form";
-@import "forms/components.newsletter-form";
-@import "forms/components.contact-form";
+@use "forms/components.form" as components25;
+@use "forms/components.newsletter-form" as components26;
+@use "forms/components.contact-form" as components27;
 
 /**
  * Tables
  */
-@import "tables/components.table-name-table";
+@use "tables/components.table-name-table" as components28;
 
 /**
  * Modals
  */
-@import "modals/components.modal";
-@import "modals/components.newsletter-modal";
+@use "modals/components.modal" as components29;
+@use "modals/components.newsletter-modal" as components30;
 
 /**
  * Sections
  */
-@import "sections/components.header";
-@import "sections/components.footer";
-@import "sections/components.archive-header";
-@import "sections/components.archive";
-@import "sections/components.article-header";
-@import "sections/components.article";
-@import "sections/components.page-header";
-@import "sections/components.page";
-@import "sections/components.404";
-@import "sections/components.faq";
-@import "sections/components.contact";
+@use "sections/components.header" as components31;
+@use "sections/components.footer" as components32;
+@use "sections/components.archive-header" as components33;
+@use "sections/components.archive" as components34;
+@use "sections/components.article-header" as components35;
+@use "sections/components.article" as components36;
+@use "sections/components.page-header" as components37;
+@use "sections/components.page" as components38;
+@use "sections/components.404" as components39;
+@use "sections/components.faq" as components40;
+@use "sections/components.contact" as components41;
 
 /**
  * Modules
  */
-@import "modules/components.module-name-module";
+@use "modules/components.module-name-module" as components42;
 
 /**
  * Gutenberg blocks
  */
-@import "blocks/components.block-name-block";
+@use "blocks/components.block-name-block" as components43;

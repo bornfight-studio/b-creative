@@ -1,14 +1,14 @@
 /**
  * Third party vendors
  */
-@import "/node_modules/@bornfight/b-accordion/src/scss/style";
-@import "/node_modules/swiper/swiper";
-@import "/node_modules/swiper/modules/effect-fade";
+//@import "/node_modules/@bornfight/b-accordion/src/scss/style";
+//@import "/node_modules/swiper/swiper";
+//@import "/node_modules/swiper/modules/effect-fade";
 
 /**
  * Vendors
  */
-@import "vendors.swiper";
-@import "vendors.slim-select";
-@import "vendors.wordpress";
-@import "vendors.wpml";
+@use "vendors.swiper";
+@use "vendors.slim-select" as vendors2;
+@use "vendors.wordpress" as vendors3;
+@use "vendors.wpml" as vendors4;

@@ -1,3 +1,9 @@
+@use "../../settings/settings.typography";
+@use "../../tools/tools.breakpoints";
+@use "../../tools/tools.interaction" as tools3;
+@use "../../tools/tools.transitions" as tools2;
+@use "../../tools/tools.zindex" as tools4;
+
 /*
  * Form
  * Custom form styles and resets
@@ -19,7 +25,7 @@
         gap: var(--s-30);
 
         /* 1 */
-        @include mq(md) {
+        @include tools.mq(md) {
             margin-bottom: var(--s-30);
             display: block;
 
@@ -108,7 +114,7 @@
         box-shadow: none;
         outline: none;
         /* 4 */
-        transition: getTransition(slide, ease-in-quad);
+        transition: tools2.getTransition(slide, ease-in-quad);
         /* 5 */
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -116,10 +122,10 @@
         /* 6 */
         color: var(--black);
 
-        @include b0;
+        @include settings.b0;
 
         /* 7 */
-        @include hover {
+        @include tools3.hover {
             outline: 0;
             box-shadow: none;
         }
@@ -187,7 +193,7 @@
         border-color: var(--red);
 
         /* 1 */
-        @include hover {
+        @include tools3.hover {
             border-color: var(--red);
         }
 
@@ -237,11 +243,11 @@
         color: var(--white);
         border-radius: 0;
 
-        @include mq(lg) {
+        @include tools.mq(lg) {
         }
 
         /* 1 */
-        @include hover {
+        @include tools3.hover {
         }
 
         /* 2 */
@@ -327,7 +333,7 @@
     &__checkbox,
     &__radio {
         position: absolute;
-        z-index: getZindex(negative);
+        z-index: tools4.getZindex(negative);
         opacity: 0;
         cursor: pointer;
         height: 0;
@@ -374,7 +380,7 @@
         flex-wrap: wrap;
         gap: var(--s-15);
 
-        @include mq(lg) {
+        @include tools.mq(lg) {
             gap: var(--s-10);
         }
     }
@@ -405,7 +411,7 @@
                 display: block;
                 width: 1lh;
                 height: 1lh;
-                transition: getTransition(slide, ease-in-quad);
+                transition: tools2.getTransition(slide, ease-in-quad);
             }
 
             /* 1 */
@@ -428,7 +434,7 @@
         }
 
         /* 3 */
-        @include hover {
+        @include tools3.hover {
             &:not(:checked) {
                 & + .c-form__checkbox-label {
                     &:before {
@@ -514,12 +520,12 @@
             border: 1px solid var(--black);
             color: var(--black);
             border-radius: var(--s-5);
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools2.getTransition(slide, ease-in-quad);
             position: relative;
         }
 
         /* 2 */
-        @include hover {
+        @include tools3.hover {
             &:not(:checked) {
                 & + .c-form__radio-label {
                     outline: 0;
@@ -685,7 +691,7 @@
 
     /* 1 */
     &__password-toggle {
-        @include button-reset;
+        @include tools3.button-reset;
 
         & {
             cursor: pointer;
@@ -699,19 +705,19 @@
             font-size: 1em;
             padding-left: var(--padding-input);
             padding-right: var(--padding-input);
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools2.getTransition(slide, ease-in-quad);
             color: var(--color-input-primary-text);
             opacity: 0.5;
-            z-index: getZindex(default);
+            z-index: tools4.getZindex(default);
         }
 
         /* 2 */
-        @include hover {
+        @include tools3.hover {
             opacity: 0.75;
         }
 
         /* 3 */
-        @include focus;
+        @include tools3.focus;
 
         /* 4 */
         .has-password-visible & {
@@ -745,13 +751,13 @@
     /* 2, 3 */
     &__search-reset,
     &__search-submit {
-        @include button-reset;
+        @include tools3.button-reset;
 
         & {
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools2.getTransition(slide, ease-in-quad);
         }
 
-        @include focus;
+        @include tools3.focus;
     }
 
     /* 2 */
