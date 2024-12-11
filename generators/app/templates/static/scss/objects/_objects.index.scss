@@ -1,12 +1,12 @@
 /**
  * Objects
  */
-@use "objects.loader";
-@use "objects.page" as objects2;
-@use "objects.section" as objects3;
-@use "objects.container" as objects4;
-@use "objects.mobile-navigation" as objects5;
-@use "objects.navigation" as objects6;
-@use "objects.header" as objects7;
-@use "objects.footer" as objects8;
-@use "objects.pagination" as objects9;
+@use "objects.loader" as *;
+@use "objects.page" as *;
+@use "objects.section" as *;
+@use "objects.container" as *;
+@use "objects.mobile-navigation" as *;
+@use "objects.navigation" as *;
+@use "objects.header" as *;
+@use "objects.footer" as *;
+@use "objects.pagination" as *;

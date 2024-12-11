@@ -1,7 +1,7 @@
 /**
  * Elements
  */
-@use "elements.root";
-@use "elements.html" as elements2;
-@use "elements.headings" as elements3;
-@use "elements.links" as elements4;
+@use "elements.root" as *;
+@use "elements.html" as *;
+@use "elements.headings" as *;
+@use "elements.links" as *;

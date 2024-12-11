@@ -1,74 +1,74 @@
 /**
  * Components
  */
-@use "components.loader";
-@use "components.mobile-navigation" as components2;
-@use "components.navigation" as components3;
-@use "components.hamburger" as components4;
-@use "components.media-loader" as components5;
-@use "components.media-overlay" as components6;
-@use "components.media-trigger" as components7;
-@use "components.responsive-media" as components8;
-@use "components.breadcrumbs" as components9;
-@use "components.button" as components10;
-@use "components.underline-link" as components11;
-@use "components.spinner" as components12;
-@use "components.content-loader" as components13;
-@use "components.accordion" as components14;
-@use "components.tag" as components15;
-@use "components.badge" as components16;
-@use "components.slider-fraction" as components17;
-@use "components.slider-navigation" as components18;
-@use "components.slider-pagination" as components19;
-@use "components.slider-scrollbar" as components20;
-@use "components.pagination" as components21;
-@use "components.social-icons" as components22;
-@use "components.article-share" as components23;
+@use "components.loader" as *;
+@use "components.mobile-navigation" as *;
+@use "components.navigation" as *;
+@use "components.hamburger" as *;
+@use "components.media-loader" as *;
+@use "components.media-overlay" as *;
+@use "components.media-trigger" as *;
+@use "components.responsive-media" as *;
+@use "components.breadcrumbs" as *;
+@use "components.button" as *;
+@use "components.underline-link" as *;
+@use "components.spinner" as *;
+@use "components.content-loader" as *;
+@use "components.accordion" as *;
+@use "components.tag" as *;
+@use "components.badge" as *;
+@use "components.slider-fraction" as *;
+@use "components.slider-navigation" as *;
+@use "components.slider-pagination" as *;
+@use "components.slider-scrollbar" as *;
+@use "components.pagination" as *;
+@use "components.social-icons" as *;
+@use "components.article-share" as *;
 
 /**
  * Cards
  */
-@use "cards/components.article-card" as components24;
+@use "cards/components.article-card" as *;
 
 /**
  * Forms
  */
-@use "forms/components.form" as components25;
-@use "forms/components.newsletter-form" as components26;
-@use "forms/components.contact-form" as components27;
+@use "forms/components.form" as *;
+@use "forms/components.newsletter-form" as *;
+@use "forms/components.contact-form" as *;
 
 /**
  * Tables
  */
-@use "tables/components.table-name-table" as components28;
+@use "tables/components.table-name-table" as *;
 
 /**
  * Modals
  */
-@use "modals/components.modal" as components29;
-@use "modals/components.newsletter-modal" as components30;
+@use "modals/components.modal" as *;
+@use "modals/components.newsletter-modal" as *;
 
 /**
  * Sections
  */
-@use "sections/components.header" as components31;
-@use "sections/components.footer" as components32;
-@use "sections/components.archive-header" as components33;
-@use "sections/components.archive" as components34;
-@use "sections/components.article-header" as components35;
-@use "sections/components.article" as components36;
-@use "sections/components.page-header" as components37;
-@use "sections/components.page" as components38;
-@use "sections/components.404" as components39;
-@use "sections/components.faq" as components40;
-@use "sections/components.contact" as components41;
+@use "sections/components.header" as *;
+@use "sections/components.footer" as *;
+@use "sections/components.archive-header" as *;
+@use "sections/components.archive" as *;
+@use "sections/components.article-header" as *;
+@use "sections/components.article" as *;
+@use "sections/components.page-header" as *;
+@use "sections/components.page" as *;
+@use "sections/components.404" as *;
+@use "sections/components.faq" as *;
+@use "sections/components.contact" as *;
 
 /**
  * Modules
  */
-@use "modules/components.module-name-module" as components42;
+@use "modules/components.module-name-module" as *;
 
 /**
  * Gutenberg blocks
  */
-@use "blocks/components.block-name-block" as components43;
+@use "blocks/components.block-name-block" as *;

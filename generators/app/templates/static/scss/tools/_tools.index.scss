@@ -1,16 +1,16 @@
 /**
  * Tools
  */
-@use "tools.breakpoints";
-@use "tools.fluid" as tools2;
-@use "tools.grid" as tools3;
-@use "tools.interaction" as tools4;
-@use "tools.percentage" as tools5;
-@use "tools.scrollbar" as tools6;
-@use "tools.transitions" as tools7;
-@use "tools.typography" as tools8;
-@use "tools.viewport" as tools9;
-@use "tools.zindex" as tools10;
+@use "tools.breakpoints" as *;
+@use "tools.fluid" as *;
+@use "tools.grid" as *;
+@use "tools.interaction" as *;
+@use "tools.percentage" as *;
+@use "tools.scrollbar" as *;
+@use "tools.transitions" as *;
+@use "tools.typography" as *;
+@use "tools.viewport" as *;
+@use "tools.zindex" as *;
 
 /**
  * Third party tools
