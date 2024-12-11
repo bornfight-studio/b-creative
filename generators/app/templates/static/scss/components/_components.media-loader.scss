@@ -1,5 +1,5 @@
-@use "../settings/settings.transitions";
-@use "../tools/tools.zindex";
+@use "../settings/settings.transitions" as transitions;
+@use "../tools/tools.zindex" as z-index;
 
 .c-media-loader {
     position: absolute;
@@ -11,8 +11,8 @@
     align-items: center;
     justify-content: center;
     background-color: var(--white);
-    transition: transform 1s settings.$ease-out-expo;
-    z-index: tools.getZindex(default, 1);
+    transition: transform 1s transitions.$ease-out-expo;
+    z-index: z-index.getZindex(default, 1);
     pointer-events: none;
 
     &--black {

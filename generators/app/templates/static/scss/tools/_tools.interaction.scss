@@ -1,29 +1,15 @@
-@use "../settings/settings.colors";
-@use "tools.breakpoints";
+@use "../settings/settings.colors" as colors;
 
 /**
  * Hover support mixin
  * Detect if device supports hover interaction
- * 1. If device is not supporting hover, add properties as active state styles
- * 2. If device is supporting hover, add properties as hover state styles
  * usage:
  * @include hover{}
  */
 @mixin hover() {
-    @include tools.mq(null, lg) {
-        @media (hover: none) {
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            &:active {
-                /* 1 */
-                @content;
-            }
-        }
-
-        @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-            &:hover {
-                /* 2 */
-                @content;
-            }
+    @media (hover: hover) {
+        &:hover {
+            @content;
         }
     }
 }
@@ -42,8 +28,8 @@
         &:not(:disabled):focus-visible {
             outline: 0;
             box-shadow:
-                0 0 0 2px settings.$focus-indicator-divider-color,
-                0 0 0 4px settings.$focus-indicator-color;
+                0 0 0 2px colors.$focus-indicator-divider-color,
+                0 0 0 4px colors.$focus-indicator-color;
             @content;
         }
     }

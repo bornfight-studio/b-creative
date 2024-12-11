@@ -1,9 +1,9 @@
-@use "../tools/tools.interaction";
-@use "../tools/tools.transitions" as tools2;
-@use "../tools/tools.zindex" as tools3;
+@use "../tools/tools.interaction" as interaction;
+@use "../tools/tools.transitions" as transitions;
+@use "../tools/tools.zindex" as z-index;
 
 .c-media-trigger {
-    @include tools.button-reset;
+    @include interaction.button-reset;
 
     & {
         width: var(--s-80);
@@ -12,11 +12,11 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        transition: tools2.getTransition(slide, ease-in-quad);
+        transition: transitions.getTransition(slide, ease-in-quad);
         background: var(--white);
         color: var(--black);
         border-radius: 100%;
-        z-index: tools3.getZindex(default);
+        z-index: z-index.getZindex(default);
     }
 
     .is-playing & {

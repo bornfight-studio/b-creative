@@ -1,4 +1,4 @@
-@use "../tools/tools.transitions";
+@use "../tools/tools.transitions" as transitions;
 
 .c-breadcrumbs {
     display: flex;
@@ -33,6 +33,6 @@
     }
 
     a {
-        transition: tools.getTransition(slide, ease-in-quad);
+        transition: transitions.getTransition(slide, ease-in-quad);
     }
 }

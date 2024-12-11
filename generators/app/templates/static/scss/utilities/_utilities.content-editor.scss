@@ -1,7 +1,7 @@
-@use "../settings/settings.typography";
-@use "../tools/tools.interaction" as tools2;
-@use "../tools/tools.transitions";
-@use "../tools/tools.zindex" as tools3;
+@use "../settings/settings.typography" as typography;
+@use "../tools/tools.interaction" as interaction;
+@use "../tools/tools.transitions" as transitions;
+@use "../tools/tools.zindex" as z-index;
 
 .u-content-editor,
 .rte {
@@ -32,9 +32,9 @@
 
         > a {
             text-decoration: underline;
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: transitions.getTransition(slide, ease-in-quad);
 
-            @include tools2.hover {
+            @include interaction.hover {
             }
         }
     }
@@ -44,7 +44,7 @@
     > ol {
         margin-bottom: var(--s-15);
 
-        @include settings.b0;
+        @include typography.b0;
 
         &:last-child {
             margin-bottom: 0;
@@ -64,31 +64,31 @@
 
         > a {
             text-decoration: underline;
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: transitions.getTransition(slide, ease-in-quad);
 
-            @include tools2.hover {
+            @include interaction.hover {
             }
         }
     }
 
     > h2 {
-        @include settings.a4;
+        @include typography.a4;
     }
 
     > h3 {
-        @include settings.a3;
+        @include typography.a3;
     }
 
     > h4 {
-        @include settings.a2;
+        @include typography.a2;
     }
 
     > h5 {
-        @include settings.a1;
+        @include typography.a1;
     }
 
     > h6 {
-        @include settings.a1;
+        @include typography.a1;
     }
 
     > ul,
@@ -137,9 +137,9 @@
 
     > a {
         text-decoration: underline;
-        transition: tools.getTransition(slide, ease-in-quad);
+        transition: transitions.getTransition(slide, ease-in-quad);
 
-        @include tools2.hover {
+        @include interaction.hover {
         }
     }
 
@@ -154,9 +154,9 @@
 
         > a {
             text-decoration: underline;
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: transitions.getTransition(slide, ease-in-quad);
 
-            @include tools2.hover {
+            @include interaction.hover {
             }
         }
     }
@@ -219,9 +219,9 @@
 
         a {
             text-decoration: underline;
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: transitions.getTransition(slide, ease-in-quad);
 
-            @include tools2.hover {
+            @include interaction.hover {
             }
         }
 
@@ -244,14 +244,14 @@
         }
 
         p {
-            @include settings.a2;
+            @include typography.a2;
         }
 
         cite {
             margin-top: var(--s-15);
             display: block;
 
-            @include settings.b1;
+            @include typography.b1;
 
             > u {
                 text-decoration: underline;
@@ -259,9 +259,9 @@
 
             > a {
                 text-decoration: underline;
-                transition: tools.getTransition(slide, ease-in-quad);
+                transition: transitions.getTransition(slide, ease-in-quad);
 
-                @include tools2.hover {
+                @include interaction.hover {
                 }
             }
         }
@@ -336,7 +336,7 @@
         figcaption {
             margin-top: var(--s-15);
 
-            @include settings.b1;
+            @include typography.b1;
 
             > u {
                 text-decoration: underline;
@@ -344,9 +344,9 @@
 
             > a {
                 text-decoration: underline;
-                transition: tools.getTransition(slide, ease-in-quad);
+                transition: transitions.getTransition(slide, ease-in-quad);
 
-                @include tools2.hover {
+                @include interaction.hover {
                 }
             }
         }
@@ -379,7 +379,7 @@
         margin-top: var(--s-60);
         margin-bottom: var(--s-60);
         position: relative;
-        z-index: tools3.getZindex(default);
+        z-index: z-index.getZindex(default);
 
         &:first-child {
             margin-top: 0;

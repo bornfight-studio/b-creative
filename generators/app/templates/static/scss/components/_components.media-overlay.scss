@@ -1,4 +1,4 @@
-@use "../tools/tools.zindex";
+@use "../tools/tools.zindex" as z-index;
 
 .c-media-overlay {
     position: absolute;
@@ -6,6 +6,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: tools.getZindex(default);
+    z-index: z-index.getZindex(default);
     background-color: var(--black);
 }

@@ -1,5 +1,5 @@
-@use "../tools/tools.interaction";
-@use "../tools/tools.transitions" as tools2;
+@use "../tools/tools.interaction" as interaction;
+@use "../tools/tools.transitions" as transitions;
 
 .c-slider-navigation {
     display: inline-flex;
@@ -9,11 +9,11 @@
     user-select: none;
 
     &__button {
-        @include tools.button-reset;
+        @include interaction.button-reset;
 
         & {
             font-size: 0.7em;
-            transition: tools2.getTransition(slide, ease-in-quad);
+            transition: transitions.getTransition(slide, ease-in-quad);
             background: var(--black);
             color: var(--white);
             width: var(--s-50);
@@ -21,9 +21,9 @@
             border-radius: var(--s-5);
         }
 
-        @include tools.focus;
+        @include interaction.focus;
 
-        @include tools.hover {
+        @include interaction.hover {
             &:not(:disabled) {
                 background-color: var(--black-50);
                 color: var(--white);

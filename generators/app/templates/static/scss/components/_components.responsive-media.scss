@@ -1,4 +1,4 @@
-@use "../tools/tools.percentage";
+@use "../tools/tools.percentage" as percentage;
 
 .c-responsive-media {
     position: relative;
@@ -29,43 +29,43 @@
         }
 
         &--2-1 {
-            padding-bottom: tools.percentage(1, 2);
+            padding-bottom: percentage.percentage(1, 2);
         }
 
         &--1-2 {
-            padding-bottom: tools.percentage(2, 1);
+            padding-bottom: percentage.percentage(2, 1);
         }
 
         &--3-1 {
-            padding-bottom: tools.percentage(1, 3);
+            padding-bottom: percentage.percentage(1, 3);
         }
 
         &--1-3 {
-            padding-bottom: tools.percentage(3, 1);
+            padding-bottom: percentage.percentage(3, 1);
         }
 
         &--3-2 {
-            padding-bottom: tools.percentage(2, 3);
+            padding-bottom: percentage.percentage(2, 3);
         }
 
         &--2-3 {
-            padding-bottom: tools.percentage(3, 2);
+            padding-bottom: percentage.percentage(3, 2);
         }
 
         &--4-3 {
-            padding-bottom: tools.percentage(3, 4);
+            padding-bottom: percentage.percentage(3, 4);
         }
 
         &--3-4 {
-            padding-bottom: tools.percentage(4, 3);
+            padding-bottom: percentage.percentage(4, 3);
         }
 
         &--16-9 {
-            padding-bottom: tools.percentage(9, 16);
+            padding-bottom: percentage.percentage(9, 16);
         }
 
         &--9-16 {
-            padding-bottom: tools.percentage(16, 9);
+            padding-bottom: percentage.percentage(16, 9);
         }
 
         &--auto {

@@ -1,4 +1,4 @@
-@use "../settings/settings.typography";
+@use "../settings/settings.typography" as typography;
 
 html,
 body {
@@ -9,5 +9,5 @@ body {
     color: var(--black);
     background-color: var(--white);
 
-    @include settings.b0;
+    @include typography.b0;
 }

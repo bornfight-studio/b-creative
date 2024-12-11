@@ -1,11 +1,11 @@
-@use "../tools/tools.typography";
-@use "settings.breakpoints";
+@use "../tools/tools.typography" as typography;
+@use "settings.breakpoints" as breakpoints;
 
 /**
  * Roboto
  */
-@include tools.font-face("Roboto", "Roboto-Regular");
-@include tools.font-face("Roboto", "Roboto-Bold", $font-weight: 700);
+@include typography.font-face("Roboto", "Roboto-Regular");
+@include typography.font-face("Roboto", "Roboto-Bold", $font-weight: 700);
 
 /**
  * Font variables
@@ -19,44 +19,44 @@ $font-secondary: $roboto;
  */
 $settings-typography: (
     "a5": (
-        settings.$breakpoint-sm: 55px,
-        settings.$breakpoint-xl: 85px,
+        breakpoints.$breakpoint-sm: 55px,
+        breakpoints.$breakpoint-xl: 85px,
     ),
     "a4": (
-        settings.$breakpoint-sm: 38px,
-        settings.$breakpoint-xl: 64px,
+        breakpoints.$breakpoint-sm: 38px,
+        breakpoints.$breakpoint-xl: 64px,
     ),
     "a3": (
-        settings.$breakpoint-sm: 28px,
-        settings.$breakpoint-xl: 48px,
+        breakpoints.$breakpoint-sm: 28px,
+        breakpoints.$breakpoint-xl: 48px,
     ),
     "a2": (
-        settings.$breakpoint-sm: 25px,
-        settings.$breakpoint-xl: 41px,
+        breakpoints.$breakpoint-sm: 25px,
+        breakpoints.$breakpoint-xl: 41px,
     ),
     "a1": (
-        settings.$breakpoint-sm: 18px,
-        settings.$breakpoint-xl: 25px,
+        breakpoints.$breakpoint-sm: 18px,
+        breakpoints.$breakpoint-xl: 25px,
     ),
     "b0": (
-        settings.$breakpoint-sm: 16px,
-        settings.$breakpoint-xl: 18px,
+        breakpoints.$breakpoint-sm: 16px,
+        breakpoints.$breakpoint-xl: 18px,
     ),
     "b1": (
-        settings.$breakpoint-sm: 14px,
-        settings.$breakpoint-xl: 16px,
+        breakpoints.$breakpoint-sm: 14px,
+        breakpoints.$breakpoint-xl: 16px,
     ),
     "b2": (
-        settings.$breakpoint-sm: 13px,
-        settings.$breakpoint-xl: 15px,
+        breakpoints.$breakpoint-sm: 13px,
+        breakpoints.$breakpoint-xl: 15px,
     ),
     "b3": (
-        settings.$breakpoint-sm: 12px,
-        settings.$breakpoint-xl: 14px,
+        breakpoints.$breakpoint-sm: 12px,
+        breakpoints.$breakpoint-xl: 14px,
     ),
     "b4": (
-        settings.$breakpoint-sm: 11px,
-        settings.$breakpoint-xl: 12px,
+        breakpoints.$breakpoint-sm: 11px,
+        breakpoints.$breakpoint-xl: 12px,
     ),
 );
 
@@ -76,21 +76,21 @@ $settings-typography: (
     font-size: var(--a4);
     font-family: $font-secondary;
     line-height: 107%;
-    letter-spacing: tools.em(-1.33px, 64px);
+    letter-spacing: typography.em(-1.33px, 64px);
 }
 
 @mixin a3 {
     font-size: var(--a3);
     font-family: $font-primary;
     line-height: 116%;
-    letter-spacing: tools.em(-1px, 48px);
+    letter-spacing: typography.em(-1px, 48px);
 }
 
 @mixin a2 {
     font-size: var(--a2);
     font-family: $font-secondary;
     line-height: 112%;
-    letter-spacing: tools.em(-0.8px, 41px);
+    letter-spacing: typography.em(-0.8px, 41px);
 }
 
 @mixin a1 {
@@ -120,5 +120,5 @@ $settings-typography: (
     font-size: var(--b2);
     font-family: $font-secondary;
     line-height: 133%;
-    letter-spacing: tools.em(-0.1px, 15px);
+    letter-spacing: typography.em(-0.1px, 15px);
 }

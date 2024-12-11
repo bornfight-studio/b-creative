@@ -1,38 +1,38 @@
-@use "../settings/settings.typography";
+@use "../settings/settings.typography" as typography;
 
 /**
  * Typography utility classes
  */
 .u-a5 {
-    @include settings.a5;
+    @include typography.a5;
 }
 
 .u-a4 {
-    @include settings.a4;
+    @include typography.a4;
 }
 
 .u-a3 {
-    @include settings.a3;
+    @include typography.a3;
 }
 
 .u-a2 {
-    @include settings.a2;
+    @include typography.a2;
 }
 
 .u-a1 {
-    @include settings.a1;
+    @include typography.a1;
 }
 
 .u-b0 {
-    @include settings.b0;
+    @include typography.b0;
 }
 
 .u-b1 {
-    @include settings.b1;
+    @include typography.b1;
 }
 
 .u-b2 {
-    @include settings.b2;
+    @include typography.b2;
 }
 
 .u-uppercase {

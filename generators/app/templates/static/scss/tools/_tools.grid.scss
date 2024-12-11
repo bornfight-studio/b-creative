@@ -1,6 +1,5 @@
-@use "../settings/settings.grid";
-
 @use "sass:math";
+@use "../settings/settings.grid" as grid;
 
 /**
  * CSS Grid mixin
@@ -8,7 +7,7 @@
  * usage:
  * @include cssGrid()
  */
-@mixin cssGrid($columns: settings.$grid-column-count, $grid-column-gap: 0, $grid-row-gap: 0) {
+@mixin cssGrid($columns: grid.$grid-column-count, $grid-column-gap: 0, $grid-row-gap: 0) {
     @if $columns != null {
         display: grid;
         grid-template-columns: repeat($columns, 1fr);
@@ -22,7 +21,7 @@
 }
 
 /**
- * Grid value TODO
+ * Grid value
  */
 @function gridValue($num1, $num2: 24) {
     @return math.percentage(math.div($num1, $num2));

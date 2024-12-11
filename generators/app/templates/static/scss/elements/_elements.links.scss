@@ -1,8 +1,8 @@
-@use "../tools/tools.interaction";
+@use "../tools/tools.interaction" as interaction;
 
 a {
     color: inherit;
     text-decoration: none;
 
-    @include tools.focus;
+    @include interaction.focus;
 }

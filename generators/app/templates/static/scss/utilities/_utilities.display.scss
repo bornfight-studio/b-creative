@@ -1,4 +1,4 @@
-@use "../tools/tools.breakpoints";
+@use "../tools/tools.breakpoints" as breakpoints;
 
 .is-hidden {
     display: none !important;
@@ -19,7 +19,7 @@
 }
 
 .is-mobile-hidden {
-    @include tools.mq(md) {
+    @include breakpoints.mq(md) {
         display: none !important;
     }
 }
@@ -27,7 +27,7 @@
 .is-mobile-visible {
     display: none !important;
 
-    @include tools.mq(md) {
+    @include breakpoints.mq(md) {
         display: block !important;
     }
 }

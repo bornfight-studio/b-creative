@@ -1,8 +1,8 @@
-@use "../../settings/settings.typography";
-@use "../../tools/tools.breakpoints";
-@use "../../tools/tools.interaction" as tools3;
-@use "../../tools/tools.transitions" as tools2;
-@use "../../tools/tools.zindex" as tools4;
+@use "../../settings/settings.typography" as typography;
+@use "../../tools/tools.breakpoints" as breakpoints;
+@use "../../tools/tools.interaction" as interaction;
+@use "../../tools/tools.transitions" as transitions;
+@use "../../tools/tools.zindex" as z-index;
 
 /*
  * Form
@@ -25,7 +25,7 @@
         gap: var(--s-30);
 
         /* 1 */
-        @include tools.mq(md) {
+        @include breakpoints.mq(md) {
             margin-bottom: var(--s-30);
             display: block;
 
@@ -114,7 +114,7 @@
         box-shadow: none;
         outline: none;
         /* 4 */
-        transition: tools2.getTransition(slide, ease-in-quad);
+        transition: transitions.getTransition(slide, ease-in-quad);
         /* 5 */
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -122,10 +122,10 @@
         /* 6 */
         color: var(--black);
 
-        @include settings.b0;
+        @include typography.b0;
 
         /* 7 */
-        @include tools3.hover {
+        @include interaction.hover {
             outline: 0;
             box-shadow: none;
         }
@@ -193,7 +193,7 @@
         border-color: var(--red);
 
         /* 1 */
-        @include tools3.hover {
+        @include interaction.hover {
             border-color: var(--red);
         }
 
@@ -243,11 +243,11 @@
         color: var(--white);
         border-radius: 0;
 
-        @include tools.mq(lg) {
+        @include breakpoints.mq(lg) {
         }
 
         /* 1 */
-        @include tools3.hover {
+        @include interaction.hover {
         }
 
         /* 2 */
@@ -333,7 +333,7 @@
     &__checkbox,
     &__radio {
         position: absolute;
-        z-index: tools4.getZindex(negative);
+        z-index: z-index.getZindex(negative);
         opacity: 0;
         cursor: pointer;
         height: 0;
@@ -380,7 +380,7 @@
         flex-wrap: wrap;
         gap: var(--s-15);
 
-        @include tools.mq(lg) {
+        @include breakpoints.mq(lg) {
             gap: var(--s-10);
         }
     }
@@ -411,7 +411,7 @@
                 display: block;
                 width: 1lh;
                 height: 1lh;
-                transition: tools2.getTransition(slide, ease-in-quad);
+                transition: transitions.getTransition(slide, ease-in-quad);
             }
 
             /* 1 */
@@ -434,7 +434,7 @@
         }
 
         /* 3 */
-        @include tools3.hover {
+        @include interaction.hover {
             &:not(:checked) {
                 & + .c-form__checkbox-label {
                     &:before {
@@ -520,12 +520,12 @@
             border: 1px solid var(--black);
             color: var(--black);
             border-radius: var(--s-5);
-            transition: tools2.getTransition(slide, ease-in-quad);
+            transition: transitions.getTransition(slide, ease-in-quad);
             position: relative;
         }
 
         /* 2 */
-        @include tools3.hover {
+        @include interaction.hover {
             &:not(:checked) {
                 & + .c-form__radio-label {
                     outline: 0;
@@ -691,7 +691,7 @@
 
     /* 1 */
     &__password-toggle {
-        @include tools3.button-reset;
+        @include interaction.button-reset;
 
         & {
             cursor: pointer;
@@ -705,19 +705,19 @@
             font-size: 1em;
             padding-left: var(--padding-input);
             padding-right: var(--padding-input);
-            transition: tools2.getTransition(slide, ease-in-quad);
+            transition: transitions.getTransition(slide, ease-in-quad);
             color: var(--color-input-primary-text);
             opacity: 0.5;
-            z-index: tools4.getZindex(default);
+            z-index: z-index.getZindex(default);
         }
 
         /* 2 */
-        @include tools3.hover {
+        @include interaction.hover {
             opacity: 0.75;
         }
 
         /* 3 */
-        @include tools3.focus;
+        @include interaction.focus;
 
         /* 4 */
         .has-password-visible & {
@@ -751,13 +751,13 @@
     /* 2, 3 */
     &__search-reset,
     &__search-submit {
-        @include tools3.button-reset;
+        @include interaction.button-reset;
 
         & {
-            transition: tools2.getTransition(slide, ease-in-quad);
+            transition: transitions.getTransition(slide, ease-in-quad);
         }
 
-        @include tools3.focus;
+        @include interaction.focus;
     }
 
     /* 2 */

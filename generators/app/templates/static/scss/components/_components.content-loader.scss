@@ -1,4 +1,4 @@
-@use "../tools/tools.zindex";
+@use "../tools/tools.zindex" as z-index;
 
 .c-content-loader {
     padding-top: var(--s-60);
@@ -8,7 +8,7 @@
     width: 100%;
     height: 100%;
     background-color: var(--black-50);
-    z-index: tools.getZindex(default, 1);
+    z-index: z-index.getZindex(default, 1);
     justify-content: center;
     display: none;
 
