@@ -30,7 +30,7 @@
 
         > a {
             text-decoration: underline;
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
 
             @include tools.hover {
             }
@@ -62,7 +62,7 @@
 
         > a {
             text-decoration: underline;
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
 
             @include tools.hover {
             }
@@ -135,7 +135,7 @@
 
     > a {
         text-decoration: underline;
-        transition: tools.getTransition(slide, ease-in-quad);
+        transition: tools.get-transition(slide, ease-in-quad);
 
         @include tools.hover {
         }
@@ -152,7 +152,7 @@
 
         > a {
             text-decoration: underline;
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
 
             @include tools.hover {
             }
@@ -217,7 +217,7 @@
 
         a {
             text-decoration: underline;
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
 
             @include tools.hover {
             }
@@ -257,7 +257,7 @@
 
             > a {
                 text-decoration: underline;
-                transition: tools.getTransition(slide, ease-in-quad);
+                transition: tools.get-transition(slide, ease-in-quad);
 
                 @include tools.hover {
                 }
@@ -342,7 +342,7 @@
 
             > a {
                 text-decoration: underline;
-                transition: tools.getTransition(slide, ease-in-quad);
+                transition: tools.get-transition(slide, ease-in-quad);
 
                 @include tools.hover {
                 }
@@ -377,7 +377,7 @@
         margin-top: var(--s-60);
         margin-bottom: var(--s-60);
         position: relative;
-        z-index: tools.getZindex(default);
+        z-index: tools.get-z-index(default);
 
         &:first-child {
             margin-top: 0;

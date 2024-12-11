@@ -12,7 +12,7 @@
         height: var(--s-10);
         background-color: var(--black-50);
         border-radius: 100%;
-        transition: tools.getTransition(slide, ease-in-quad);
+        transition: tools.get-transition(slide, ease-in-quad);
         display: inline-flex;
         align-items: center;
         justify-content: center;

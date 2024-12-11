@@ -12,7 +12,7 @@
 
         & {
             font-size: 0.7em;
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
             background: var(--black);
             color: var(--white);
             width: var(--s-50);

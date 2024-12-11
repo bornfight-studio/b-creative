@@ -111,7 +111,7 @@
         box-shadow: none;
         outline: none;
         /* 4 */
-        transition: tools.getTransition(slide, ease-in-quad);
+        transition: tools.get-transition(slide, ease-in-quad);
         /* 5 */
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -330,7 +330,7 @@
     &__checkbox,
     &__radio {
         position: absolute;
-        z-index: tools.getZindex(negative);
+        z-index: tools.get-z-index(negative);
         opacity: 0;
         cursor: pointer;
         height: 0;
@@ -408,7 +408,7 @@
                 display: block;
                 width: 1lh;
                 height: 1lh;
-                transition: tools.getTransition(slide, ease-in-quad);
+                transition: tools.get-transition(slide, ease-in-quad);
             }
 
             /* 1 */
@@ -517,7 +517,7 @@
             border: 1px solid var(--black);
             color: var(--black);
             border-radius: var(--s-5);
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
             position: relative;
         }
 
@@ -702,10 +702,10 @@
             font-size: 1em;
             padding-left: var(--padding-input);
             padding-right: var(--padding-input);
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
             color: var(--color-input-primary-text);
             opacity: 0.5;
-            z-index: tools.getZindex(default);
+            z-index: tools.get-z-index(default);
         }
 
         /* 2 */
@@ -751,7 +751,7 @@
         @include tools.button-reset;
 
         & {
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
         }
 
         @include tools.focus;

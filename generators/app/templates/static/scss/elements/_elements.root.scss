@@ -9,19 +9,19 @@
 @if settings.$use-css-var == true {
     :root {
         @each $size, $values in settings.$settings-spacings {
-            #{settings.$css-variable-prefix}#{$size}: #{tools.fluidSizing(
+            #{settings.$css-variable-prefix}#{$size}: #{tools.fluid-sizing(
                     tools.map-deep-get(settings.$settings-spacings, $size, settings.$breakpoint-sm),
                     tools.map-deep-get(settings.$settings-spacings, $size, settings.$breakpoint-xl)
                 )};
         }
         @each $size, $values in settings.$settings-typography {
-            #{settings.$css-variable-prefix}#{$size}: #{tools.fluidSizing(
+            #{settings.$css-variable-prefix}#{$size}: #{tools.fluid-sizing(
                     tools.map-deep-get(settings.$settings-typography, $size, settings.$breakpoint-sm),
                     tools.map-deep-get(settings.$settings-typography, $size, settings.$breakpoint-xl)
                 )};
         }
-        @each $size, $values in settings.$settings-breakpoints {
-            #{settings.$css-variable-prefix}breakpoint-#{$size}: #{map.get(settings.$settings-breakpoints, $size)};
+        @each $size, $values in settings.$settings-breakpoint {
+            #{settings.$css-variable-prefix}breakpoint-#{$size}: #{map.get(settings.$settings-breakpoint, $size)};
         }
         @each $size, $values in settings.$settings-colors {
             #{settings.$css-variable-prefix}#{$size}: #{map.get(settings.$settings-colors, $size)};
@@ -36,7 +36,7 @@
     :root {
         @include tools.mq(null, xxl) {
             @each $size, $values in settings.$settings-spacings {
-                #{settings.$css-variable-prefix}#{$size}: #{tools.fluidSizingXXL(
+                #{settings.$css-variable-prefix}#{$size}: #{tools.fluid-sizing-xxl(
                         tools.map-deep-get(settings.$settings-spacings, $size, settings.$breakpoint-xl),
                         math.div(tools.map-deep-get(settings.$settings-spacings, $size, settings.$breakpoint-xl), settings.$breakpoint-xxl) *
                             settings.$breakpoint-xxxl *
@@ -44,7 +44,7 @@
                     )};
             }
             @each $size, $values in settings.$settings-typography {
-                #{settings.$css-variable-prefix}#{$size}: #{tools.fluidSizingXXL(
+                #{settings.$css-variable-prefix}#{$size}: #{tools.fluid-sizing-xxl(
                         tools.map-deep-get(settings.$settings-typography, $size, settings.$breakpoint-xl),
                         math.div(tools.map-deep-get(settings.$settings-typography, $size, settings.$breakpoint-xl), settings.$breakpoint-xxl) *
                             settings.$breakpoint-xxxl *

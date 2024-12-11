@@ -1,5 +1,5 @@
 @use "../tools/tools.typography" as typography;
-@use "settings.breakpoints" as breakpoints;
+@use "settings.breakpoint" as breakpoint;
 
 /**
  * Roboto
@@ -19,44 +19,44 @@ $font-secondary: $roboto;
  */
 $settings-typography: (
     "a5": (
-        breakpoints.$breakpoint-sm: 55px,
-        breakpoints.$breakpoint-xl: 85px,
+        breakpoint.$breakpoint-sm: 55px,
+        breakpoint.$breakpoint-xl: 85px,
     ),
     "a4": (
-        breakpoints.$breakpoint-sm: 38px,
-        breakpoints.$breakpoint-xl: 64px,
+        breakpoint.$breakpoint-sm: 38px,
+        breakpoint.$breakpoint-xl: 64px,
     ),
     "a3": (
-        breakpoints.$breakpoint-sm: 28px,
-        breakpoints.$breakpoint-xl: 48px,
+        breakpoint.$breakpoint-sm: 28px,
+        breakpoint.$breakpoint-xl: 48px,
     ),
     "a2": (
-        breakpoints.$breakpoint-sm: 25px,
-        breakpoints.$breakpoint-xl: 41px,
+        breakpoint.$breakpoint-sm: 25px,
+        breakpoint.$breakpoint-xl: 41px,
     ),
     "a1": (
-        breakpoints.$breakpoint-sm: 18px,
-        breakpoints.$breakpoint-xl: 25px,
+        breakpoint.$breakpoint-sm: 18px,
+        breakpoint.$breakpoint-xl: 25px,
     ),
     "b0": (
-        breakpoints.$breakpoint-sm: 16px,
-        breakpoints.$breakpoint-xl: 18px,
+        breakpoint.$breakpoint-sm: 16px,
+        breakpoint.$breakpoint-xl: 18px,
     ),
     "b1": (
-        breakpoints.$breakpoint-sm: 14px,
-        breakpoints.$breakpoint-xl: 16px,
+        breakpoint.$breakpoint-sm: 14px,
+        breakpoint.$breakpoint-xl: 16px,
     ),
     "b2": (
-        breakpoints.$breakpoint-sm: 13px,
-        breakpoints.$breakpoint-xl: 15px,
+        breakpoint.$breakpoint-sm: 13px,
+        breakpoint.$breakpoint-xl: 15px,
     ),
     "b3": (
-        breakpoints.$breakpoint-sm: 12px,
-        breakpoints.$breakpoint-xl: 14px,
+        breakpoint.$breakpoint-sm: 12px,
+        breakpoint.$breakpoint-xl: 14px,
     ),
     "b4": (
-        breakpoints.$breakpoint-sm: 11px,
-        breakpoints.$breakpoint-xl: 12px,
+        breakpoint.$breakpoint-sm: 11px,
+        breakpoint.$breakpoint-xl: 12px,
     ),
 );
 

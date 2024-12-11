@@ -33,6 +33,6 @@
     }
 
     a {
-        transition: tools.getTransition(slide, ease-in-quad);
+        transition: tools.get-transition(slide, ease-in-quad);
     }
 }

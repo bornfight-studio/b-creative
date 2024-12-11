@@ -1,0 +1,100 @@
+@use "settings.breakpoint" as breakpoint;
+
+/**
+* Set useContainer to true if you are using container design, and dont need scaling for > xxl breakpoint
+* @var {boolean} $useContainer - Use container
+ */
+$use-container: false;
+
+/**
+ * Set use-css-var to true if you want to use css var for spacing
+ * @var {boolean} $use-css-var - Use css var
+ */
+$use-css-var: true;
+
+/**
+ * Set variable-prefix to change css var prefix
+ * @var {string} $variable-prefix - Variable prefix
+*/
+$css-variable-prefix: "--";
+
+/**
+ * Big screen coefficient for fluid sizing, used for > xxl breakpoint
+ * used for lowering sizes on big screens
+ * @var {number} $big-viewport-coefficient - Big viewport coefficient
+ */
+$big-viewport-coefficient: 0.8;
+
+/**
+ * Spacing map
+ */
+$settings-spacings: (
+    "s-5": (
+        breakpoint.$breakpoint-sm: 5px,
+        breakpoint.$breakpoint-xl: 5px,
+    ),
+    "s-10": (
+        breakpoint.$breakpoint-sm: 10px,
+        breakpoint.$breakpoint-xl: 10px,
+    ),
+    "s-15": (
+        breakpoint.$breakpoint-sm: 15px,
+        breakpoint.$breakpoint-xl: 15px,
+    ),
+    "s-20": (
+        breakpoint.$breakpoint-sm: 15px,
+        breakpoint.$breakpoint-xl: 20px,
+    ),
+    "s-25": (
+        breakpoint.$breakpoint-sm: 15px,
+        breakpoint.$breakpoint-xl: 25px,
+    ),
+    "s-30": (
+        breakpoint.$breakpoint-sm: 20px,
+        breakpoint.$breakpoint-xl: 30px,
+    ),
+    "s-35": (
+        breakpoint.$breakpoint-sm: 25px,
+        breakpoint.$breakpoint-xl: 35px,
+    ),
+    "s-40": (
+        breakpoint.$breakpoint-sm: 30px,
+        breakpoint.$breakpoint-xl: 40px,
+    ),
+    "s-45": (
+        breakpoint.$breakpoint-sm: 35px,
+        breakpoint.$breakpoint-xl: 45px,
+    ),
+    "s-50": (
+        breakpoint.$breakpoint-sm: 40px,
+        breakpoint.$breakpoint-xl: 50px,
+    ),
+    "s-60": (
+        breakpoint.$breakpoint-sm: 50px,
+        breakpoint.$breakpoint-xl: 60px,
+    ),
+    "s-70": (
+        breakpoint.$breakpoint-sm: 50px,
+        breakpoint.$breakpoint-xl: 70px,
+    ),
+    "s-80": (
+        breakpoint.$breakpoint-sm: 60px,
+        breakpoint.$breakpoint-xl: 80px,
+    ),
+    "s-90": (
+        breakpoint.$breakpoint-sm: 60px,
+        breakpoint.$breakpoint-xl: 90px,
+    ),
+    "s-100": (
+        breakpoint.$breakpoint-sm: 70px,
+        breakpoint.$breakpoint-xl: 100px,
+    ),
+    "s-125": (
+        breakpoint.$breakpoint-sm: 70px,
+        breakpoint.$breakpoint-xl: 125px,
+    ),
+    "s-150": (
+        breakpoint.$breakpoint-sm: 80px,
+        breakpoint.$breakpoint-xl: 150px,
+    ),
+);

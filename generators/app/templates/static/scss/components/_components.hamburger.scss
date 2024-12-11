@@ -37,7 +37,7 @@
         position: absolute;
         left: 0;
         top: 50%;
-        transition: tools.getTransition(slide, ease-in-quad);
+        transition: tools.get-transition(slide, ease-in-quad);
 
         &:nth-child(1) {
             transform: translateY(-300%);

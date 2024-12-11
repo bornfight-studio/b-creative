@@ -434,7 +434,7 @@
             color: var(--black);
             cursor: pointer;
             user-select: none;
-            transition: tools.getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
 
             @include tools.hover {
                 &:not(.ss-disabled) {

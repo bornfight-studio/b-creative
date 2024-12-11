@@ -10,8 +10,8 @@
     align-items: center;
     justify-content: center;
     background-color: var(--white);
-    transition: tools.getTransition(slide, ease-in-quad);
-    z-index: tools.getZindex(default, 1);
+    transition: tools.get-transition(slide, ease-in-quad);
+    z-index: tools.get-z-index(default, 1);
     pointer-events: none;
 
     &--black {

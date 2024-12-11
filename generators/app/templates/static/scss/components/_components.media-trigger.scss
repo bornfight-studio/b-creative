@@ -10,11 +10,11 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        transition: tools.getTransition(slide, ease-in-quad);
+        transition: tools.get-transition(slide, ease-in-quad);
         background: var(--white);
         color: var(--black);
         border-radius: 100%;
-        z-index: tools.getZindex(default);
+        z-index: tools.get-z-index(default);
     }
 
     .is-playing & {

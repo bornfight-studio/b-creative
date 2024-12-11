@@ -117,7 +117,7 @@ By default function `getColor()` takes two arguments:
 List of all breakpoints, feel free to add your own:
 
 ```scss
-$settings-breakpoints: (
+$settings-breakpoint: (
         "sm": 480px,
         "md": 800px,
         "lg": 1140px,
