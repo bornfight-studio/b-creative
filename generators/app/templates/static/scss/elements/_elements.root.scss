@@ -1,6 +1,6 @@
 @use "sass:map";
 @use "sass:math";
-@use "../tools/tools.breakpoints" as breakpoints;
+@use "../tools/tools.breakpoints" as tools-breakpoints;
 @use "../settings/settings.breakpoints" as settings-breakpoints;
 @use "../tools/tools.fluid" as fluid;
 @use "../settings/settings.colors" as colors;
@@ -38,7 +38,7 @@
  */
 @if spacings.$use-css-var == true and spacings.$use-container == false {
     :root {
-        @include breakpoints.mq(null, xxl) {
+        @include tools-breakpoints.mq(null, xxl) {
             @each $size, $values in spacings.$settings-spacings {
                 #{spacings.$css-variable-prefix}#{$size}: #{fluid.fluidSizingXXL(
                         fluid.map-deep-get(spacings.$settings-spacings, $size, settings-breakpoints.$breakpoint-xl),
