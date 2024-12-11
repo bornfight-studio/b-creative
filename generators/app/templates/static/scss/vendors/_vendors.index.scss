@@ -1,9 +1,9 @@
 /**
  * Third party vendors
  */
-//@import "/node_modules/@bornfight/b-accordion/src/scss/style";
-//@import "/node_modules/swiper/swiper";
-//@import "/node_modules/swiper/modules/effect-fade";
+@use "../../../node_modules/@bornfight/b-accordion/src/scss/style" as b-accordion;
+@use "../../../node_modules/swiper/swiper" as swiper;
+@use "../../../node_modules/swiper/modules/effect-fade" as swiper-effect-fade;
 
 /**
  * Vendors
