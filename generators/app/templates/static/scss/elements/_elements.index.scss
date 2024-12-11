@@ -1,7 +1,7 @@
 /**
  * Elements
  */
-@use "elements.root" as *;
-@use "elements.html" as *;
-@use "elements.headings" as *;
-@use "elements.links" as *;
+@forward "elements.root";
+@forward "elements.html";
+@forward "elements.headings";
+@forward "elements.links";

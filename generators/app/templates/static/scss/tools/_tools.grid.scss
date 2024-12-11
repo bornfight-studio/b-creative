@@ -1,5 +1,5 @@
 @use "sass:math";
-@use "../settings/settings.grid" as grid;
+@use "../settings/settings.index" as settings;
 
 /**
  * CSS Grid mixin
@@ -7,7 +7,7 @@
  * usage:
  * @include cssGrid()
  */
-@mixin cssGrid($columns: grid.$grid-column-count, $grid-column-gap: 0, $grid-row-gap: 0) {
+@mixin cssGrid($columns: settings.$grid-column-count, $grid-column-gap: 0, $grid-row-gap: 0) {
     @if $columns != null {
         display: grid;
         grid-template-columns: repeat($columns, 1fr);

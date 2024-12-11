@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../settings/settings.zindex" as z-index;
+@use "../settings/settings.index" as settings;
 
 /**
  * Get z-index from $settings-zindex
@@ -8,5 +8,5 @@
  * z-index: getZindex(navigation, 1);
  */
 @function getZindex($zIndex: default, $modifier: 0) {
-    @return map.get(z-index.$settings-zindex, $zIndex) + $modifier;
+    @return map.get(settings.$settings-zindex, $zIndex) + $modifier;
 }

@@ -1,15 +1,15 @@
 @use "sass:list";
 @use "sass:map";
-@use "../settings/settings.transitions" as transitions;
+@use "../settings/settings.index" as settings;
 
 /**
  * Get transition easing from $settings-transitions-easing
  */
 @function getTransitionEasing($transitionEasing: "default") {
-    @if (map.has-key(transitions.$settings-transitions-easing, $transitionEasing)) {
-        @return map.get(transitions.$settings-transitions-easing, $transitionEasing);
+    @if (map.has-key(settings.$settings-transitions-easing, $transitionEasing)) {
+        @return map.get(settings.$settings-transitions-easing, $transitionEasing);
     } @else {
-        @return map.get(transitions.$settings-transitions-easing, "default");
+        @return map.get(settings.$settings-transitions-easing, "default");
     }
 }
 
@@ -22,10 +22,10 @@
  * transition: getTransition(slide, ease-in-quad);
  */
 @function getTransition($transitionName: "default", $transitionEasing: getTransitionEasing()) {
-    @if (map.has-key(transitions.$settings-transitions, $transitionName)) {
-        @return map.get(transitions.$settings-transitions, $transitionName) getTransitionEasing($transitionEasing);
+    @if (map.has-key(settings.$settings-transitions, $transitionName)) {
+        @return map.get(settings.$settings-transitions, $transitionName) getTransitionEasing($transitionEasing);
     } @else {
-        @return map.get(transitions.$settings-transitions, "default") getTransitionEasing($transitionEasing);
+        @return map.get(settings.$settings-transitions, "default") getTransitionEasing($transitionEasing);
     }
 }
 

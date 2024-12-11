@@ -1,14 +1,14 @@
 /**
  * Settings
  */
-@use "settings.breakpoints" as *;
-@use "settings.colors" as *;
-@use "settings.grid" as *;
-@use "settings.ratio" as *;
-@use "settings.spacings" as *;
-@use "settings.transitions" as *;
-@use "settings.typography" as *;
-@use "settings.zindex" as *;
+@forward "settings.breakpoints";
+@forward "settings.colors";
+@forward "settings.grid";
+@forward "settings.ratio";
+@forward "settings.spacings";
+@forward "settings.transitions";
+@forward "settings.typography";
+@forward "settings.zindex";
 
 /**
  * Third party settings

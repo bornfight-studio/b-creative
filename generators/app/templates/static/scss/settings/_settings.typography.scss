@@ -95,7 +95,6 @@ $settings-typography: (
 
 @mixin a1 {
     font-size: var(--a1);
-
     font-family: $font-primary;
     line-height: 130%;
     letter-spacing: normal;
@@ -103,7 +102,6 @@ $settings-typography: (
 
 @mixin b0 {
     font-size: var(--b0);
-
     font-family: $font-secondary;
     line-height: 144%;
     letter-spacing: normal;

@@ -1,6 +1,5 @@
-@use "../settings/settings.typography" as typography;
-@use "../tools/tools.interaction" as interaction;
-@use "../tools/tools.transitions" as transitions;
+@use "../tools/tools.index" as tools;
+@use "../settings/settings.index" as settings;
 
 /**
  * Main container
@@ -23,7 +22,7 @@
     box-sizing: border-box;
     overflow: hidden;
 
-    @include interaction.focus;
+    @include tools.focus;
 
     &.ss-disabled {
         background-color: var(--black-50);
@@ -255,14 +254,14 @@
             text-align: left;
             box-sizing: border-box;
 
-            @include typography.b0;
+            @include settings.b0;
 
             &::placeholder {
                 color: var(--black-50);
                 vertical-align: middle;
             }
 
-            @include interaction.focus;
+            @include tools.focus;
         }
 
         .ss-addable {
@@ -435,9 +434,9 @@
             color: var(--black);
             cursor: pointer;
             user-select: none;
-            transition: transitions.getTransition(slide, ease-in-quad);
+            transition: tools.getTransition(slide, ease-in-quad);
 
-            @include interaction.hover {
+            @include tools.hover {
                 &:not(.ss-disabled) {
                     color: var(--white);
                     background-color: var(--black);

@@ -1,4 +1,4 @@
-@use "../settings/settings.colors" as colors;
+@use "../settings/settings.index" as settings;
 
 /**
  * Hover support mixin
@@ -28,8 +28,8 @@
         &:not(:disabled):focus-visible {
             outline: 0;
             box-shadow:
-                0 0 0 2px colors.$focus-indicator-divider-color,
-                0 0 0 4px colors.$focus-indicator-color;
+                0 0 0 2px settings.$focus-indicator-divider-color,
+                0 0 0 4px settings.$focus-indicator-color;
             @content;
         }
     }

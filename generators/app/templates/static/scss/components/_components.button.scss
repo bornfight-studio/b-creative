@@ -1,6 +1,4 @@
-@use "../tools/tools.interaction" as interaction;
-@use "../tools/tools.transitions" as transitions;
-@use "../tools/tools.zindex" as z-index;
+@use "../tools/tools.index" as tools;
 
 .c-button {
     height: var(--s-50);
@@ -18,7 +16,7 @@
     vertical-align: top;
     -webkit-appearance: none;
     -moz-appearance: none;
-    transition: transitions.getTransition(slide, ease-in-quad);
+    transition: tools.getTransition(slide, ease-in-quad);
     background-color: var(--black);
     color: var(--white);
     box-shadow: none;
@@ -27,14 +25,14 @@
     box-sizing: border-box;
     position: relative;
 
-    @include interaction.hover {
+    @include tools.hover {
         &:not(:disabled) {
             background-color: var(--black-50);
             color: var(--white);
         }
     }
 
-    @include interaction.focus;
+    @include tools.focus;
 
     &:disabled {
         background-color: var(--black-50);
@@ -47,7 +45,7 @@
         background-color: var(--white);
         color: var(--black);
 
-        @include interaction.hover {
+        @include tools.hover {
             &:not(:disabled) {
                 background-color: var(--black-50);
                 color: var(--black);
@@ -74,7 +72,7 @@
         display: none;
         align-items: center;
         justify-content: center;
-        z-index: z-index.getZindex(default, 1);
+        z-index: tools.getZindex(default, 1);
     }
 
     &.is-loading {

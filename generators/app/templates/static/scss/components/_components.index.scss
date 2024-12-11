@@ -1,74 +1,74 @@
 /**
  * Components
  */
-@use "components.loader" as *;
-@use "components.mobile-navigation" as *;
-@use "components.navigation" as *;
-@use "components.hamburger" as *;
-@use "components.media-loader" as *;
-@use "components.media-overlay" as *;
-@use "components.media-trigger" as *;
-@use "components.responsive-media" as *;
-@use "components.breadcrumbs" as *;
-@use "components.button" as *;
-@use "components.underline-link" as *;
-@use "components.spinner" as *;
-@use "components.content-loader" as *;
-@use "components.accordion" as *;
-@use "components.tag" as *;
-@use "components.badge" as *;
-@use "components.slider-fraction" as *;
-@use "components.slider-navigation" as *;
-@use "components.slider-pagination" as *;
-@use "components.slider-scrollbar" as *;
-@use "components.pagination" as *;
-@use "components.social-icons" as *;
-@use "components.article-share" as *;
+@forward "components.loader";
+@forward "components.mobile-navigation";
+@forward "components.navigation";
+@forward "components.hamburger";
+@forward "components.media-loader";
+@forward "components.media-overlay";
+@forward "components.media-trigger";
+@forward "components.responsive-media";
+@forward "components.breadcrumbs";
+@forward "components.button";
+@forward "components.underline-link";
+@forward "components.spinner";
+@forward "components.content-loader";
+@forward "components.accordion";
+@forward "components.tag";
+@forward "components.badge";
+@forward "components.slider-fraction";
+@forward "components.slider-navigation";
+@forward "components.slider-pagination";
+@forward "components.slider-scrollbar";
+@forward "components.pagination";
+@forward "components.social-icons";
+@forward "components.article-share";
 
 /**
  * Cards
  */
-@use "cards/components.article-card" as *;
+@forward "cards/components.article-card";
 
 /**
  * Forms
  */
-@use "forms/components.form" as *;
-@use "forms/components.newsletter-form" as *;
-@use "forms/components.contact-form" as *;
+@forward "forms/components.form";
+@forward "forms/components.newsletter-form";
+@forward "forms/components.contact-form";
 
 /**
  * Tables
  */
-@use "tables/components.table-name-table" as *;
+@forward "tables/components.table-name-table";
 
 /**
  * Modals
  */
-@use "modals/components.modal" as *;
-@use "modals/components.newsletter-modal" as *;
+@forward "modals/components.modal";
+@forward "modals/components.newsletter-modal";
 
 /**
  * Sections
  */
-@use "sections/components.header" as *;
-@use "sections/components.footer" as *;
-@use "sections/components.archive-header" as *;
-@use "sections/components.archive" as *;
-@use "sections/components.article-header" as *;
-@use "sections/components.article" as *;
-@use "sections/components.page-header" as *;
-@use "sections/components.page" as *;
-@use "sections/components.404" as *;
-@use "sections/components.faq" as *;
-@use "sections/components.contact" as *;
+@forward "sections/components.header";
+@forward "sections/components.footer";
+@forward "sections/components.archive-header";
+@forward "sections/components.archive";
+@forward "sections/components.article-header";
+@forward "sections/components.article";
+@forward "sections/components.page-header";
+@forward "sections/components.page";
+@forward "sections/components.404";
+@forward "sections/components.faq";
+@forward "sections/components.contact";
 
 /**
  * Modules
  */
-@use "modules/components.module-name-module" as *;
+@forward "modules/components.module-name-module";
 
 /**
  * Gutenberg blocks
  */
-@use "blocks/components.block-name-block" as *;
+@forward "blocks/components.block-name-block";

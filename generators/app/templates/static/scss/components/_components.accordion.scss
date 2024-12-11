@@ -1,5 +1,4 @@
-@use "../tools/tools.interaction" as interaction;
-@use "../tools/tools.transitions" as transitions;
+@use "../tools/tools.index" as tools;
 
 .c-accordion {
     &__single {
@@ -31,7 +30,7 @@
     }
 
     &__indicator {
-        @include interaction.button-reset;
+        @include tools.button-reset;
 
         & {
             width: var(--s-20);
@@ -41,7 +40,7 @@
             flex-grow: 0;
         }
 
-        @include interaction.focus;
+        @include tools.focus;
 
         &:before,
         &:after {
@@ -51,7 +50,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            transition: transitions.getTransition(slide, ease-in-quad);
+            transition: tools.getTransition(slide, ease-in-quad);
         }
 
         &:before {

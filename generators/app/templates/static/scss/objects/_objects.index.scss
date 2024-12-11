@@ -1,12 +1,12 @@
 /**
  * Objects
  */
-@use "objects.loader" as *;
-@use "objects.page" as *;
-@use "objects.section" as *;
-@use "objects.container" as *;
-@use "objects.mobile-navigation" as *;
-@use "objects.navigation" as *;
-@use "objects.header" as *;
-@use "objects.footer" as *;
-@use "objects.pagination" as *;
+@forward "objects.loader";
+@forward "objects.page";
+@forward "objects.section";
+@forward "objects.container";
+@forward "objects.mobile-navigation";
+@forward "objects.navigation";
+@forward "objects.header";
+@forward "objects.footer";
+@forward "objects.pagination";

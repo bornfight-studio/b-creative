@@ -1,7 +1,5 @@
-@use "../settings/settings.typography" as typography;
-@use "../tools/tools.interaction" as interaction;
-@use "../tools/tools.transitions" as transitions;
-@use "../tools/tools.zindex" as z-index;
+@use "../tools/tools.index" as tools;
+@use "../settings/settings.index" as settings;
 
 .u-content-editor,
 .rte {
@@ -32,9 +30,9 @@
 
         > a {
             text-decoration: underline;
-            transition: transitions.getTransition(slide, ease-in-quad);
+            transition: tools.getTransition(slide, ease-in-quad);
 
-            @include interaction.hover {
+            @include tools.hover {
             }
         }
     }
@@ -44,7 +42,7 @@
     > ol {
         margin-bottom: var(--s-15);
 
-        @include typography.b0;
+        @include settings.b0;
 
         &:last-child {
             margin-bottom: 0;
@@ -64,31 +62,31 @@
 
         > a {
             text-decoration: underline;
-            transition: transitions.getTransition(slide, ease-in-quad);
+            transition: tools.getTransition(slide, ease-in-quad);
 
-            @include interaction.hover {
+            @include tools.hover {
             }
         }
     }
 
     > h2 {
-        @include typography.a4;
+        @include settings.a4;
     }
 
     > h3 {
-        @include typography.a3;
+        @include settings.a3;
     }
 
     > h4 {
-        @include typography.a2;
+        @include settings.a2;
     }
 
     > h5 {
-        @include typography.a1;
+        @include settings.a1;
     }
 
     > h6 {
-        @include typography.a1;
+        @include settings.a1;
     }
 
     > ul,
@@ -137,9 +135,9 @@
 
     > a {
         text-decoration: underline;
-        transition: transitions.getTransition(slide, ease-in-quad);
+        transition: tools.getTransition(slide, ease-in-quad);
 
-        @include interaction.hover {
+        @include tools.hover {
         }
     }
 
@@ -154,9 +152,9 @@
 
         > a {
             text-decoration: underline;
-            transition: transitions.getTransition(slide, ease-in-quad);
+            transition: tools.getTransition(slide, ease-in-quad);
 
-            @include interaction.hover {
+            @include tools.hover {
             }
         }
     }
@@ -219,9 +217,9 @@
 
         a {
             text-decoration: underline;
-            transition: transitions.getTransition(slide, ease-in-quad);
+            transition: tools.getTransition(slide, ease-in-quad);
 
-            @include interaction.hover {
+            @include tools.hover {
             }
         }
 
@@ -244,14 +242,14 @@
         }
 
         p {
-            @include typography.a2;
+            @include settings.a2;
         }
 
         cite {
             margin-top: var(--s-15);
             display: block;
 
-            @include typography.b1;
+            @include settings.b1;
 
             > u {
                 text-decoration: underline;
@@ -259,9 +257,9 @@
 
             > a {
                 text-decoration: underline;
-                transition: transitions.getTransition(slide, ease-in-quad);
+                transition: tools.getTransition(slide, ease-in-quad);
 
-                @include interaction.hover {
+                @include tools.hover {
                 }
             }
         }
@@ -336,7 +334,7 @@
         figcaption {
             margin-top: var(--s-15);
 
-            @include typography.b1;
+            @include settings.b1;
 
             > u {
                 text-decoration: underline;
@@ -344,9 +342,9 @@
 
             > a {
                 text-decoration: underline;
-                transition: transitions.getTransition(slide, ease-in-quad);
+                transition: tools.getTransition(slide, ease-in-quad);
 
-                @include interaction.hover {
+                @include tools.hover {
                 }
             }
         }
@@ -379,7 +377,7 @@
         margin-top: var(--s-60);
         margin-bottom: var(--s-60);
         position: relative;
-        z-index: z-index.getZindex(default);
+        z-index: tools.getZindex(default);
 
         &:first-child {
             margin-top: 0;

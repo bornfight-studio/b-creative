@@ -1,11 +1,11 @@
 @use "sass:map";
-@use "../settings/settings.breakpoints" as breakpoints;
+@use "../settings/settings.index" as settings;
 
 /**
  * Get breakpoint from breakpoints settings map
  */
 @function getBreakpoint($breakpointKey) {
-    @return map.get(breakpoints.$settings-breakpoints, $breakpointKey);
+    @return map.get(settings.$settings-breakpoints, $breakpointKey);
 }
 
 /**

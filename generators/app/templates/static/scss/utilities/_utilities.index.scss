@@ -1,9 +1,9 @@
 /**
  * Utilities
  */
-@use "utilities.display" as *;
-@use "utilities.typography" as *;
-@use "utilities.spacing" as *;
-@use "utilities.ratio" as *;
-@use "utilities.icon" as *;
-@use "utilities.content-editor" as *;
+@forward "utilities.display";
+@forward "utilities.typography";
+@forward "utilities.spacing";
+@forward "utilities.ratio";
+@forward "utilities.icon";
+@forward "utilities.content-editor";

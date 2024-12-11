@@ -1,8 +1,6 @@
 @use "sass:map";
 @use "sass:math";
-@use "../settings/settings.breakpoints" as settings-breakpoints;
-@use "../settings/settings.spacings" as spacings;
-@use "../settings/settings.typography" as settings-typography;
+@use "../settings/settings.index" as settings;
 @use "tools.breakpoints" as tools-breakpoints;
 @use "tools.typography" as tools-typography;
 
@@ -15,19 +13,16 @@
 @mixin fontSize($size: null) {
     @if $size != null {
         font-size: fluidSizing(
-            map-deep-get(settings-typography.$settings-typography, $size, settings-breakpoints.$breakpoint-sm),
-            map-deep-get(settings-typography.$settings-typography, $size, settings-breakpoints.$breakpoint-xl)
+            map-deep-get(settings.$settings-typography, $size, settings.$breakpoint-sm),
+            map-deep-get(settings.$settings-typography, $size, settings.$breakpoint-xl)
         );
 
-        @if spacings.$use-container == false {
+        @if settings.$use-container == false {
             @include tools-breakpoints.mq(null, xxl) {
                 font-size: fluidSizingXXL(
-                    map-deep-get(settings-typography.$settings-typography, $size, settings-breakpoints.$breakpoint-xl),
-                    math.div(
-                            map-deep-get(settings-typography.$settings-typography, $size, settings-breakpoints.$breakpoint-xl),
-                            settings-breakpoints.$breakpoint-xxl
-                        ) *
-                        settings-breakpoints.$breakpoint-xxxl * spacings.$big-viewport-coefficient
+                    map-deep-get(settings.$settings-typography, $size, settings.$breakpoint-xl),
+                    math.div(map-deep-get(settings.$settings-typography, $size, settings.$breakpoint-xl), settings.$breakpoint-xxl) *
+                        settings.$breakpoint-xxxl * settings.$big-viewport-coefficient
                 );
             }
         }
@@ -49,19 +44,16 @@
     @if $spacing != null {
         @if (getSpacingValues($spacing) != null) {
             #{$property}: fluidSizing(
-                map-deep-get(spacings.$settings-spacings, $spacing, settings-breakpoints.$breakpoint-sm),
-                map-deep-get(spacings.$settings-spacings, $spacing, settings-breakpoints.$breakpoint-xl)
+                map-deep-get(settings.$settings-spacings, $spacing, settings.$breakpoint-sm),
+                map-deep-get(settings.$settings-spacings, $spacing, settings.$breakpoint-xl)
             );
 
-            @if spacings.$use-container == false {
+            @if settings.$use-container == false {
                 @include tools-breakpoints.mq(null, xxl) {
                     #{$property}: fluidSizingXXL(
-                        map-deep-get(spacings.$settings-spacings, $spacing, settings-breakpoints.$breakpoint-xl),
-                        math.div(
-                                map-deep-get(spacings.$settings-spacings, $spacing, settings-breakpoints.$breakpoint-xl),
-                                settings-breakpoints.$breakpoint-xxl
-                            ) *
-                            settings-breakpoints.$breakpoint-xxxl * spacings.$big-viewport-coefficient
+                        map-deep-get(settings.$settings-spacings, $spacing, settings.$breakpoint-xl),
+                        math.div(map-deep-get(settings.$settings-spacings, $spacing, settings.$breakpoint-xl), settings.$breakpoint-xxl) *
+                            settings.$breakpoint-xxxl * settings.$big-viewport-coefficient
                     );
                 }
             }
@@ -71,12 +63,11 @@
     } @else if $value != null {
         #{$property}: $value;
 
-        @if spacings.$use-container == false {
+        @if settings.$use-container == false {
             @include tools-breakpoints.mq(null, xxl) {
                 #{$property}: fluidSizingXXL(
                     $value,
-                    math.div($value, settings-breakpoints.$breakpoint-xxl) * settings-breakpoints.$breakpoint-xxxl *
-                        spacings.$big-viewport-coefficient
+                    math.div($value, settings.$breakpoint-xxl) * settings.$breakpoint-xxxl * settings.$big-viewport-coefficient
                 );
             }
         }
@@ -94,13 +85,7 @@
  * used In fluidValue mixin and fontSize mixin
  * use mixin instead
  */
-@function fluidSizing(
-    $min-size,
-    $max-size,
-    $min-breakpoint: settings-breakpoints.$breakpoint-sm,
-    $max-breakpoint: settings-breakpoints.$breakpoint-xl,
-    $unit: vw
-) {
+@function fluidSizing($min-size, $max-size, $min-breakpoint: settings.$breakpoint-sm, $max-breakpoint: settings.$breakpoint-xl, $unit: vw) {
     $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
     $slope-to-unit: round($slope * 100, 2);
     $intercept-rem: round(tools-typography.rem($min-size - $slope * $min-breakpoint), 2);
@@ -124,13 +109,7 @@
  * @param {String} $unit - Return unit
  * @return {String}
  */
-@function fluidSizingXXL(
-    $min-size,
-    $max-size,
-    $min-breakpoint: settings-breakpoints.$breakpoint-xxl,
-    $max-breakpoint: settings-breakpoints.$breakpoint-xxxl,
-    $unit: vw
-) {
+@function fluidSizingXXL($min-size, $max-size, $min-breakpoint: settings.$breakpoint-xxl, $max-breakpoint: settings.$breakpoint-xxxl, $unit: vw) {
     $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
     $slope-to-unit: round($slope * 100, 2);
     $intercept-rem: round(tools-typography.rem($min-size - $slope * $min-breakpoint), 2);
@@ -159,7 +138,7 @@
  * Get spacing values from settings
  */
 @function getSpacingValues($spacing) {
-    @return map.get(spacings.$settings-spacings, $spacing);
+    @return map.get(settings.$settings-spacings, $spacing);
 }
 
 /**

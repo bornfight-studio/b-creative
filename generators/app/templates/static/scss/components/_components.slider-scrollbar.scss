@@ -1,4 +1,4 @@
-@use "../tools/tools.breakpoints" as breakpoints;
+@use "../tools/tools.index" as tools;
 
 .c-slider-scrollbar {
     height: var(--s-10);
@@ -7,7 +7,7 @@
     overflow: hidden;
     user-select: none;
 
-    @include breakpoints.mq(lg) {
+    @include tools.mq(lg) {
         height: var(--s-5);
     }
 

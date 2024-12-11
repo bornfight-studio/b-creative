@@ -1,6 +1,6 @@
 @use "sass:meta";
-@use "../settings/settings.ratio" as ratio;
-@use "../tools/tools.percentage" as percentage;
+@use "../tools/tools.index" as tools;
+@use "../settings/settings.index" as settings;
 
 /**
  * Ratio
@@ -41,7 +41,7 @@
  * usage:
  * <div class="u-ratio u-ratio--16:9"></div>
  */
-@each $ratio in ratio.$settings-ratio {
+@each $ratio in settings.$settings-ratio {
     @each $antecedent, $consequent in $ratio {
         @if (meta.type-of($antecedent) != number) {
             @error "`#{$antecedent}` needs to be a number.";
@@ -53,7 +53,7 @@
 
         .u-ratio--#{$antecedent}\-#{$consequent} {
             &:before {
-                padding-bottom: percentage.percentage($consequent, $antecedent);
+                padding-bottom: tools.percentage($consequent, $antecedent);
             }
         }
     }
