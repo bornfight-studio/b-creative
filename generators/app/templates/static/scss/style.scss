@@ -3,39 +3,39 @@
 /**
  * Tools
  */
-@import "tools/tools.index";
+@use "tools/tools.index";
 
 /**
  * Settings
  */
-@import "settings/settings.index";
+@use "settings/settings.index";
 
 /**
  * Generics
  */
-@import "generics/generics.index";
+@use "generics/generics.index";
 
 /**
  * Elements
  */
-@import "elements/elements.index";
+@use "elements/elements.index";
 
 /**
  * Objects
  */
-@import "objects/objects.index";
+@use "objects/objects.index";
 
 /**
  * Components
  */
-@import "components/components.index";
+@use "components/components.index";
 
 /**
  * Utilities
  */
-@import "utilities/utilities.index";
+@use "utilities/utilities.index";
 
 /**
  * Vendors
  */
-@import "vendors/vendors.index";
+@use "vendors/vendors.index";

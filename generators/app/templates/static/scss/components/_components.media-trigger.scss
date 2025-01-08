@@ -1,17 +1,21 @@
-.c-media-trigger {
-    @include button-reset;
-    @include fluidValue("width", null, 80px);
-    @include fluidValue("height", null, 80px);
+@use "../tools/tools.index" as tools;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: getTransition(slide, ease-in-quad);
-    background: $white;
-    color: $black;
-    border-radius: 100%;
-    z-index: getZindex(default);
+.c-media-trigger {
+    @include tools.button-reset;
+
+    & {
+        width: var(--s-80);
+        height: var(--s-80);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: tools.get-transition(slide, ease-in-quad);
+        background: var(--white);
+        color: var(--black);
+        border-radius: 100%;
+        z-index: tools.get-z-index(default);
+    }
 
     .is-playing & {
         opacity: 0;

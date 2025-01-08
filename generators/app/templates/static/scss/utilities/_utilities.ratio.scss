@@ -1,3 +1,7 @@
+@use "sass:meta";
+@use "../tools/tools.index" as tools;
+@use "../settings/settings.index" as settings;
+
 /**
  * Ratio
  * create ratio-bound content blocks, to keep media (e.g. images, videos) in their correct aspect ratios
@@ -37,19 +41,19 @@
  * usage:
  * <div class="u-ratio u-ratio--16:9"></div>
  */
-@each $ratio in $settings-ratio {
+@each $ratio in settings.$settings-ratio {
     @each $antecedent, $consequent in $ratio {
-        @if (type-of($antecedent) != number) {
+        @if (meta.type-of($antecedent) != number) {
             @error "`#{$antecedent}` needs to be a number.";
         }
 
-        @if (type-of($consequent) != number) {
+        @if (meta.type-of($consequent) != number) {
             @error "`#{$consequent}` needs to be a number.";
         }
 
         .u-ratio--#{$antecedent}\-#{$consequent} {
             &:before {
-                padding-bottom: percentage($consequent, $antecedent);
+                padding-bottom: tools.percentage($consequent, $antecedent);
             }
         }
     }

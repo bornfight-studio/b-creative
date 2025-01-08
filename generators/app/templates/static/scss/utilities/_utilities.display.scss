@@ -1,3 +1,5 @@
+@use "../tools/tools.index" as tools;
+
 .is-hidden {
     display: none !important;
 }
@@ -17,7 +19,7 @@
 }
 
 .is-mobile-hidden {
-    @include mq(md) {
+    @include tools.mq(md) {
         display: none !important;
     }
 }
@@ -25,7 +27,7 @@
 .is-mobile-visible {
     display: none !important;
 
-    @include mq(md) {
+    @include tools.mq(md) {
         display: block !important;
     }
 }

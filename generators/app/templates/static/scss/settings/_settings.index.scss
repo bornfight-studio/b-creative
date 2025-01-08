@@ -1,14 +1,14 @@
 /**
  * Settings
  */
-@import "settings.breakpoints";
-@import "settings.colors";
-@import "settings.grid";
-@import "settings.ratio";
-@import "settings.spacings";
-@import "settings.transitions";
-@import "settings.typography";
-@import "settings.zindex";
+@forward "settings.breakpoint";
+@forward "settings.color";
+@forward "settings.grid";
+@forward "settings.ratio";
+@forward "settings.spacing";
+@forward "settings.transition";
+@forward "settings.typography";
+@forward "settings.z-index";
 
 /**
  * Third party settings

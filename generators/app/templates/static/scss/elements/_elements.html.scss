@@ -1,11 +1,13 @@
+@use "../settings/settings.index" as settings;
+
 html,
 body {
     -webkit-font-smoothing: antialiased;
 }
 
 body {
-    @include b0;
+    color: var(--black);
+    background-color: var(--white);
 
-    color: $black;
-    background-color: $white;
+    @include settings.b0;
 }

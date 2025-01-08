@@ -1,12 +1,17 @@
-.c-hamburger {
-    @include button-reset;
-    @include focus;
-    @include fluidValue("width", null, 25px);
-    @include fluidValue("height", null, 12px);
+@use "../tools/tools.index" as tools;
 
-    position: relative;
-    overflow: visible;
-    display: inline-flex;
+.c-hamburger {
+    @include tools.button-reset;
+
+    & {
+        position: relative;
+        overflow: visible;
+        display: inline-flex;
+        width: var(--s-25);
+        height: var(--s-15);
+    }
+
+    @include tools.focus;
 
     &.is-active {
         span {
@@ -26,14 +31,13 @@
     }
 
     span {
-        @include fluidValue("height", null, 2px);
-
         width: 100%;
+        height: 2px;
         background-color: currentColor;
         position: absolute;
         left: 0;
         top: 50%;
-        transition: getTransition(slide, ease-in-quad);
+        transition: tools.get-transition(slide, ease-in-quad);
 
         &:nth-child(1) {
             transform: translateY(-300%);

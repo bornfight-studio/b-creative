@@ -1,0 +1,83 @@
+@use "sass:list";
+@use "sass:map";
+@use "../settings/settings.index" as settings;
+
+/**
+ * Get transition easing from $settings-transition-easing
+ */
+@function get-transition-easing($transition-easing: "default") {
+    @if (map.has-key(settings.$settings-transition-easing, $transition-easing)) {
+        @return map.get(settings.$settings-transition-easing, $transition-easing);
+    } @else {
+        @return map.get(settings.$settings-transition-easing, "default");
+    }
+}
+
+/**
+ * Transition function
+ * @param {string} $transition-name - Name of the transition from $settings-transition
+ * @param {string} $transition-easing - get transition easing from $settings-transition-easing
+ * usage:
+ * transition: get-transition;
+ * transition: get-transition(slide, ease-in-quad);
+ */
+@function get-transition($transition-name: "default", $transition-easing: get-transition-easing()) {
+    @if (map.has-key(settings.$settings-transition, $transition-name)) {
+        @return map.get(settings.$settings-transition, $transition-name) get-transition-easing($transition-easing);
+    } @else {
+        @return map.get(settings.$settings-transition, "default") get-transition-easing($transition-easing);
+    }
+}
+
+/**
+ * Custom transition function
+ * used when you need to specify custom transition for only one or multiple properties but not all
+ * if you will not change the property use get-transition instead
+ * default easing is from get-transition-easing
+ * @param {string} $transitions - any number of transitions
+ * usage:
+ * transition: get-custom-transition(opacity);
+ * transition: get-custom-transition(transform 0.3s);
+ * transition: get-custom-transition(transform 0.5s ease, background-color 0.2s);
+ * transition: get-custom-transition(
+ *                  top 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+ *                  transform 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.3s
+ *               );
+ */
+@function get-custom-transition($transitions...) {
+    $unfolded-transitions: ();
+    @each $transition in $transitions {
+        $unfolded-transitions: list.append($unfolded-transitions, unfold-transition($transition), comma);
+    }
+    @return $unfolded-transitions;
+}
+
+/**
+ * Unfold transition function
+ * Helper for get-custom-transition();
+ * Takes any number of arguments passed to get-custom-transition() and makes unfolds them to single properties
+ * 1. Transition property defaults
+ * 2. Grab transition properties if they exist
+ */
+@function unfold-transition($transition) {
+    /* 1 */
+    $property: all;
+    $duration: 0.2s;
+    $easing: get-transition-easing();
+    $delay: null;
+    $default-properties: ($property, $duration, $easing, $delay);
+
+    /* 2 */
+    $unfolded-transition: ();
+    @for $i from 1 through list.length($default-properties) {
+        $p: null;
+        @if $i <= list.length($transition) {
+            $p: list.nth($transition, $i);
+        } @else {
+            $p: list.nth($default-properties, $i);
+        }
+        $unfolded-transition: list.append($unfolded-transition, $p);
+    }
+
+    @return $unfolded-transition;
+}

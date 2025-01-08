@@ -1,20 +1,20 @@
-.c-slider-scrollbar {
-    @include fluidValue("border-radius", null, 100px);
+@use "../tools/tools.index" as tools;
 
+.c-slider-scrollbar {
     height: var(--s-10);
-    background-color: $black-50;
+    background-color: var(--black-50);
+    border-radius: var(--s-100);
     overflow: hidden;
     user-select: none;
 
-    @include mq(lg) {
+    @include tools.mq(lg) {
         height: var(--s-5);
     }
 
     &__inner {
-        @include fluidValue("border-radius", null, 100px);
-
         height: 100%;
-        background-color: $black;
+        background-color: var(--black);
+        border-radius: var(--s-100);
         cursor: pointer;
     }
 }

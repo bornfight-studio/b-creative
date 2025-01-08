@@ -1,12 +1,13 @@
 @use "sass:math";
+@use "../settings/settings.index" as settings;
 
 /**
- * CSS Grid mixin
+ * Grid mixin
  * @param {number} $columns — optional and defaults to _settings.grid.scss -> $grid-column-count
  * usage:
- * @include cssGrid()
+ * @include grid()
  */
-@mixin cssGrid($columns: $grid-column-count, $grid-column-gap: 0, $grid-row-gap: 0) {
+@mixin grid($columns: settings.$grid-column-count, $grid-column-gap: 0, $grid-row-gap: 0) {
     @if $columns != null {
         display: grid;
         grid-template-columns: repeat($columns, 1fr);
@@ -20,8 +21,8 @@
 }
 
 /**
- * Grid value TODO
+ * Grid value
  */
-@function gridValue($num1, $num2: 24) {
+@function grid-value($num1, $num2: 24) {
     @return math.percentage(math.div($num1, $num2));
 }

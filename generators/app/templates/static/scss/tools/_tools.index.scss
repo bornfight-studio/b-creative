@@ -1,16 +1,16 @@
 /**
  * Tools
  */
-@import "tools.breakpoints";
-@import "tools.fluid";
-@import "tools.grid";
-@import "tools.interaction";
-@import "tools.percentage";
-@import "tools.scrollbar";
-@import "tools.transitions";
-@import "tools.typography";
-@import "tools.viewport";
-@import "tools.zindex";
+@forward "tools.breakpoint";
+@forward "tools.fluid";
+@forward "tools.grid";
+@forward "tools.interaction";
+@forward "tools.percentage";
+@forward "tools.scrollbar";
+@forward "tools.transition";
+@forward "tools.typography";
+@forward "tools.viewport";
+@forward "tools.z-index";
 
 /**
  * Third party tools

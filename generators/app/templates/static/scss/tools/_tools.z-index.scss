@@ -1,0 +1,12 @@
+@use "sass:map";
+@use "../settings/settings.index" as settings;
+
+/**
+ * Get z-index from $settings-z-index
+ * usage:
+ * z-index: get-z-index(navigation);
+ * z-index: get-z-index(navigation, 1);
+ */
+@function get-z-index($z-index: default, $modifier: 0) {
+    @return map.get(settings.$settings-z-index, $z-index) + $modifier;
+}

@@ -1,9 +1,11 @@
+@use "../tools/tools.index" as tools;
+
 .c-media-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: getZindex(default);
-    background-color: $black;
+    z-index: tools.get-z-index(default);
+    background-color: var(--black);
 }

@@ -1,3 +1,6 @@
+@use "../tools/tools.index" as tools;
+@use "../settings/settings.index" as settings;
+
 .u-content-editor,
 .rte {
     word-break: break-word;
@@ -27,9 +30,9 @@
 
         > a {
             text-decoration: underline;
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
 
-            @include hover {
+            @include tools.hover {
             }
         }
     }
@@ -37,9 +40,9 @@
     > p,
     > ul,
     > ol {
-        @include b0;
-
         margin-bottom: var(--s-15);
+
+        @include settings.b0;
 
         &:last-child {
             margin-bottom: 0;
@@ -59,31 +62,31 @@
 
         > a {
             text-decoration: underline;
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
 
-            @include hover {
+            @include tools.hover {
             }
         }
     }
 
     > h2 {
-        @include a4;
+        @include settings.a4;
     }
 
     > h3 {
-        @include a3;
+        @include settings.a3;
     }
 
     > h4 {
-        @include a2;
+        @include settings.a2;
     }
 
     > h5 {
-        @include a1;
+        @include settings.a1;
     }
 
     > h6 {
-        @include a1;
+        @include settings.a1;
     }
 
     > ul,
@@ -132,9 +135,9 @@
 
     > a {
         text-decoration: underline;
-        transition: getTransition(slide, ease-in-quad);
+        transition: tools.get-transition(slide, ease-in-quad);
 
-        @include hover {
+        @include tools.hover {
         }
     }
 
@@ -149,15 +152,15 @@
 
         > a {
             text-decoration: underline;
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
 
-            @include hover {
+            @include tools.hover {
             }
         }
     }
 
     hr {
-        border-top: 1px solid $black;
+        border-top: 1px solid var(--black);
         border-left: none;
         border-right: none;
         border-bottom: none;
@@ -188,8 +191,6 @@
         }
 
         table {
-            @include b1;
-
             width: 100%;
         }
 
@@ -197,7 +198,7 @@
         }
 
         tr {
-            border-bottom: 1px solid $black;
+            border-bottom: 1px solid var(--black);
             display: flex;
             gap: var(--s-15);
         }
@@ -216,9 +217,9 @@
 
         a {
             text-decoration: underline;
-            transition: getTransition(slide, ease-in-quad);
+            transition: tools.get-transition(slide, ease-in-quad);
 
-            @include hover {
+            @include tools.hover {
             }
         }
 
@@ -230,7 +231,7 @@
         margin-top: var(--s-60);
         margin-bottom: var(--s-60);
         padding-left: var(--s-15);
-        border-left: 3px solid $black;
+        border-left: 3px solid var(--black);
 
         &:first-child {
             margin-top: 0;
@@ -241,14 +242,14 @@
         }
 
         p {
-            @include a2;
+            @include settings.a2;
         }
 
         cite {
-            @include b1;
-
             margin-top: var(--s-15);
             display: block;
+
+            @include settings.b1;
 
             > u {
                 text-decoration: underline;
@@ -256,9 +257,9 @@
 
             > a {
                 text-decoration: underline;
-                transition: getTransition(slide, ease-in-quad);
+                transition: tools.get-transition(slide, ease-in-quad);
 
-                @include hover {
+                @include tools.hover {
                 }
             }
         }
@@ -331,9 +332,9 @@
         }
 
         figcaption {
-            @include b1;
-
             margin-top: var(--s-15);
+
+            @include settings.b1;
 
             > u {
                 text-decoration: underline;
@@ -341,9 +342,9 @@
 
             > a {
                 text-decoration: underline;
-                transition: getTransition(slide, ease-in-quad);
+                transition: tools.get-transition(slide, ease-in-quad);
 
-                @include hover {
+                @include tools.hover {
                 }
             }
         }
@@ -354,8 +355,8 @@
         margin-top: var(--s-60);
         margin-bottom: var(--s-60);
         padding: var(--s-30);
-        background-color: $white;
-        color: $black;
+        background-color: var(--white);
+        color: var(--black);
 
         &:first-child {
             margin-top: 0;
@@ -376,7 +377,7 @@
         margin-top: var(--s-60);
         margin-bottom: var(--s-60);
         position: relative;
-        z-index: getZindex(default);
+        z-index: tools.get-z-index(default);
 
         &:first-child {
             margin-top: 0;

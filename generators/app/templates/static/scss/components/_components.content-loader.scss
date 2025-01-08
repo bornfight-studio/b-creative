@@ -1,3 +1,5 @@
+@use "../tools/tools.index" as tools;
+
 .c-content-loader {
     padding-top: var(--s-60);
     position: absolute;
@@ -5,8 +7,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $black-50;
-    z-index: getZindex(default, 1);
+    background-color: var(--black-50);
+    z-index: tools.get-z-index(default, 1);
     justify-content: center;
     display: none;
 

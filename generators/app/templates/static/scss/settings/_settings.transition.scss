@@ -1,7 +1,7 @@
 /**
  * Transition easing map
  */
-$settings-transitions-easing: (
+$settings-transition-easing: (
     "default": cubic-bezier(0.55, 0.085, 0.68, 0.53),
     "ease-in-quad": cubic-bezier(0.55, 0.085, 0.68, 0.53),
     "ease-in-cubic": cubic-bezier(0.55, 0.055, 0.675, 0.19),
@@ -30,7 +30,7 @@ $settings-transitions-easing: (
 );
 
 /**
- * Transitions variables
+ * Transition variables
  */
 $default: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -59,9 +59,9 @@ $ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 $ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 /**
- * Transitions map
+ * Transition map
  */
-$settings-transitions: (
+$settings-transition: (
     "default": all 0.2s,
     "slide": all 0.3s,
     "slide-delay": all 0.4s 0.6s,

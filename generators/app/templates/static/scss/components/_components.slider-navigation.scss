@@ -1,3 +1,5 @@
+@use "../tools/tools.index" as tools;
+
 .c-slider-navigation {
     display: inline-flex;
     align-items: center;
@@ -6,27 +8,30 @@
     user-select: none;
 
     &__button {
-        @include button-reset;
-        @include focus;
-        @include fluidValue("border-radius", null, 3px);
-        @include fluidValue("width", null, 45px);
-        @include fluidValue("height", null, 45px);
+        @include tools.button-reset;
 
-        font-size: 0.7em;
-        transition: getTransition(slide, ease-in-quad);
-        background: $black;
-        color: $white;
+        & {
+            font-size: 0.7em;
+            transition: tools.get-transition(slide, ease-in-quad);
+            background: var(--black);
+            color: var(--white);
+            width: var(--s-50);
+            height: var(--s-50);
+            border-radius: var(--s-5);
+        }
 
-        @include hover {
+        @include tools.focus;
+
+        @include tools.hover {
             &:not(:disabled) {
-                background-color: $black-50;
-                color: $white;
+                background-color: var(--black-50);
+                color: var(--white);
             }
         }
 
         &:disabled {
-            background-color: $black-50;
-            color: $white;
+            background-color: var(--black-50);
+            color: var(--white);
             cursor: not-allowed;
             pointer-events: none;
             opacity: 0.5;
