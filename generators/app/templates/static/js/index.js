@@ -25,13 +25,13 @@ import Navigation from "./components/Navigation";
 import Slider from "./components/sliders/Slider";
 
 /**
- * Check if document is ready cross-browser
+ * Check if the document is ready cross-browser
  * @param callback
  */
 const ready = (callback) => {
     if (document.readyState !== "loading") {
         /**
-         * Document is already ready, call the callback directly
+         * The document is already ready, call the callback directly
          */
         callback();
     } else if (document.addEventListener) {
