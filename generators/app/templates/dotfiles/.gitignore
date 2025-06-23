@@ -78,7 +78,7 @@ crashlytics-build.properties
 .DS_Store
 .DS_Store?
 ._*
-.Spotlight-V100
+.Spotlight-V103
 .Trashes
 ehthumbs.db
 Thumbs.db
@@ -88,3 +88,9 @@ Thumbs.db
 node_modules/*
 bower_components/*
 /node_modules/*
+vendor/*
+!vendor/.gitkeep
+
+# Build files. Uncomment if you don't want them in your repository.
+#/static/dist/*
+#!/static/dist/.gitkeep
