@@ -1,4 +1,4 @@
-import { getViewportWidth } from "../utilities/Viewport";
+import { getViewportWidth } from "../../utilities/Viewport";
 
 /**
  * Responsive video
@@ -17,7 +17,7 @@ export default class ResponsiveVideo {
         };
 
         /**
-         * Get list of video DOM elements
+         * Get a list of video DOM elements
          * @type {NodeListOf<Element>}
          */
         this.videos = container.querySelectorAll(this.DOM.video);

@@ -10,7 +10,7 @@ export default class VideoPlayButton {
          */
         this.DOM = {
             wrapper: ".js-video-play-button",
-            video: ".js-video-play-button-video",
+            video: ".js-responsive-video",
             trigger: ".js-video-play-button-trigger",
             states: {
                 playing: "is-playing",
@@ -18,7 +18,7 @@ export default class VideoPlayButton {
         };
 
         /**
-         * Get list of wrapper DOM elements
+         * Get a list of wrapper DOM elements
          * @type {NodeListOf<Element>}
          */
         this.wrappers = container.querySelectorAll(this.DOM.wrapper);

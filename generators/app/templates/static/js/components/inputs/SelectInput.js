@@ -29,7 +29,7 @@ export default class SelectInput {
         };
 
         /**
-         * Get list of select input DOM elements
+         * Get a list of select input DOM elements
          * @type {NodeListOf<Element>}
          */
         this.inputs = container.querySelectorAll(this.DOM.input);

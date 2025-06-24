@@ -1,55 +1,54 @@
-import { gsap } from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-
-gsap.registerPlugin(ScrollToPlugin);
-
 /**
- * Scroll to animation
- * smooth scrolling to anchor links with gsap scroll to plugin
+ * ScrollToAnimation
+ * Smoothly animates anchor links with native scrollIntoView JavaScript API.
+ * Use scroll-margin-top: var(--height-navigation); property on the target element to offset scroll position.
  */
 export default class ScrollToAnimation {
     constructor(container = document) {
         /**
-         * DOM elements
-         * @type {{element: string}}
+         * Config
+         * @type {{selectors: {element: string}}}
          */
-        this.DOM = {
-            element: "[data-scroll-to]",
+        this.config = {
+            selectors: {
+                element: 'a[href^="#"]',
+            },
         };
 
         /**
-         * Get list of scroll to DOM elements
-         * @type {NodeListOf<Element>}
+         * List of anchor elements matching the selector.
+         * @type {NodeListOf<HTMLAnchorElement>}
          */
-        this.elements = container.querySelectorAll(this.DOM.element);
+        this.elements = container.querySelectorAll(this.config.selectors.element);
     }
 
     /**
-     * Init
+     * Initialize the class by checking required DOM elements and setting up event listeners.
      */
     init() {
-        if (this.elements.length < 1) {
-            return;
-        }
-        this.elements.forEach((element) => this.initScrollToElement(element));
+        if (!this.elements.length) return;
+
+        // Iterate through each element, get hash, find target and set up events
+        this.elements.forEach((element) => {
+            if (!element.hash) return;
+            const target = document.getElementById(element.hash.substring(1));
+            if (!target) return;
+
+            element.addEventListener("click", (event) => this.handleClick(event, target));
+        });
     }
 
     /**
-     * Init scroll to element
-     * uses: https://gsap.com/docs/v3/Plugins/ScrollToPlugin/
-     * @param element
+     * Handles click event on anchor elements and scrolls to the target.
+     * @param {Event} event - The click event object.
+     * @param {HTMLElement} target - The target element to scroll to.
      */
-    initScrollToElement(element) {
-        element.addEventListener("click", (event) => {
-            event.preventDefault();
-            gsap.to(window, {
-                duration: 1.2,
-                scrollTo: {
-                    y: `#${element.dataset.scrollTo}`,
-                    offsetY: parseInt(element.dataset.scrollToOffset) || 0,
-                },
-                ease: "expo.inOut",
-            });
+    handleClick(event, target) {
+        event.preventDefault();
+        target.scrollIntoView({
+            behavior: "smooth", // Determines whether scrolling is instant or animates smoothly
+            block: "start", // Defines the vertical alignment of the element within the scrollable ancestor container
+            inline: "nearest", // Defines the horizontal alignment of the element within the scrollable ancestor container
         });
     }
 }

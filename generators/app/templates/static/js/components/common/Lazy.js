@@ -21,7 +21,7 @@ export default class Lazy {
         };
 
         /**
-         * Get list of DOM elements that will be lazy loaded
+         * Get a list of DOM elements that will be lazily loaded
          * @type {NodeListOf<Element>}
          */
         this.elements = container.querySelectorAll(this.DOM.element);
@@ -48,7 +48,7 @@ export default class Lazy {
         });
 
         // JS DOM change event
-        // this event can be dispatched when Javascript changes the DOM and new images need to be loaded
+        // this event can be dispatched when JavaScript changes the DOM and new images need to be loaded
         document.addEventListener(this.DOM.events.jsDOMChange, () => {
             lazyLoadInstance.update();
         });

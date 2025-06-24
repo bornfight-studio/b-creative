@@ -25,7 +25,7 @@ export default class Navigation {
         this.scrolling = false;
 
         /**
-         * Amount of pixels to scroll from top for adding "has-scrolled" state class
+         * Number of pixels to scroll from top for adding "has-scrolled" state class
          * @type {number}
          */
         this.scrollNavigationOffset = 200;
@@ -40,7 +40,6 @@ export default class Navigation {
          * Variable for storing current scroll position value
          * @type {number}
          */
-        this.currentTop = 0;
         this.scrollDelta = 0;
         this.scrollOffset = 0;
 
@@ -85,7 +84,7 @@ export default class Navigation {
         /**
          * @type {number}
          */
-        let currentTop = window.pageYOffset | document.body.scrollTop;
+        let currentTop = window.scrollY || document.body.scrollTop;
 
         this.changeNavigationState(currentTop);
 
