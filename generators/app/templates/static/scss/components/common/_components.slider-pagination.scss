@@ -1,0 +1,52 @@
+@use "../../tools/tools.index" as tools;
+
+.c-slider-pagination {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-10);
+    user-select: none;
+
+    &--primary {
+        .c-slider-pagination__bullet {
+            background-color: var(--black-50);
+
+            &.is-active {
+                background-color: var(--black);
+            }
+        }
+    }
+
+    &--secondary {
+        .c-slider-pagination__bullet {
+            background-color: var(--white-50);
+
+            &.is-active {
+                background-color: var(--white);
+            }
+        }
+    }
+
+    &__bullet {
+        width: var(--s-10);
+        height: var(--s-10);
+        border-radius: 100%;
+        transition: tools.get-transition(slide, ease-in-quad);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: var(--s-20);
+            height: var(--s-20);
+        }
+    }
+}

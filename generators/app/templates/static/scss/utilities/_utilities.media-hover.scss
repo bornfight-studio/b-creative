@@ -1,0 +1,13 @@
+@use "../tools/tools.index" as tools;
+
+.u-media-hover {
+    .c-responsive-media {
+        transition: tools.get-transition(slide-slow, ease-in-quad);
+    }
+
+    @include tools.hover {
+        .c-responsive-media {
+            transform: scale(1.05);
+        }
+    }
+}

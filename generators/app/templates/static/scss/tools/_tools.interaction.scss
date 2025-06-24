@@ -1,4 +1,4 @@
-@use "../settings/settings.index" as settings;
+@use "tools.transition" as tools-transition;
 
 /**
  * Hover support mixin
@@ -28,8 +28,8 @@
         &:not(:disabled):focus-visible {
             outline: 0;
             box-shadow:
-                0 0 0 2px settings.$focus-indicator-divider-color,
-                0 0 0 4px settings.$focus-indicator-color;
+                0 0 0 2px var(--focus-indicator-divider-color),
+                0 0 0 4px var(--focus-indicator-color);
             @content;
         }
     }
@@ -79,5 +79,38 @@
     &:focus,
     &:active {
         outline: none;
+    }
+}
+
+/**
+ * Link hover animation
+ * Adds a smooth underline animation to links using a linear gradient background.
+ * @param {Percentage} $y-percent - Height of the underline effect (default: 100%)
+ * @param {Boolean} $inverted - If true, the underline animates in on hover; otherwise, animates out (default: false)
+ * @param {String|null} $prefix - Optional selector to target instead of `&` (e.g., 'span', '.child')
+ * usage:
+ * @include link-hover-animation;
+ * @include link-hover-animation(70%, true);
+ * @include link-hover-animation(50%, false, '.child');
+ */
+@mixin link-hover-animation($y-percent: 100%, $inverted: false, $prefix: null) {
+    $target: if($prefix != null, "#{$prefix}", "&");
+
+    #{$target} {
+        text-decoration: none;
+        background-image: linear-gradient(transparent calc(100% - 1px), currentcolor 1px);
+        background-repeat: no-repeat;
+        background-size: if($inverted, 0 #{$y-percent}, 100% #{$y-percent});
+        background-position: left;
+        word-break: break-word;
+        transition: tools-transition.get-transition(slide, ease-in-quad);
+    }
+
+    @include hover {
+        &:not(:disabled) {
+            #{$target} {
+                background-size: if($inverted, 100% #{$y-percent}, 0 #{$y-percent});
+            }
+        }
     }
 }

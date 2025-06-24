@@ -1,0 +1,155 @@
+@use "../../tools/tools.index" as tools;
+
+.c-button {
+    min-height: var(--s-50);
+    min-width: var(--s-100);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-10);
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0;
+    padding: var(--s-10) var(--s-30);
+    overflow: hidden;
+    outline: 0;
+    border: none;
+    border-radius: 0;
+    vertical-align: top;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: tools.get-transition(slide, ease-in-quad);
+    box-shadow: none;
+    text-align: center;
+    outline: none;
+    box-sizing: border-box;
+    position: relative;
+
+    @include tools.focus;
+
+    &:disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    &--primary {
+        background-color: var(--black);
+        color: var(--white);
+        border: 1px solid var(--black);
+
+        @include tools.hover {
+            &:not(:disabled) {
+                background-color: var(--black-90);
+                color: var(--white);
+                border-color: var(--black-90);
+            }
+        }
+
+        &:disabled {
+            background-color: hsl(from var(--black) h s l / 0.6);
+            color: hsl(from var(--white) h s l / 0.6);
+            border-color: hsl(from var(--black) h s l / 0);
+        }
+
+        &.c-button--bordered {
+            background-color: transparent;
+            color: var(--black);
+            border-color: var(--black);
+
+            @include tools.hover {
+                &:not(:disabled) {
+                    background-color: var(--black);
+                    color: var(--white);
+                    border-color: var(--black);
+                }
+            }
+
+            &:disabled {
+                background-color: transparent;
+                color: hsl(from var(--black) h s l / 0.6);
+                border-color: hsl(from var(--black) h s l / 0.6);
+            }
+        }
+    }
+
+    &--secondary {
+        background-color: var(--white);
+        color: var(--black);
+        border: 1px solid var(--white);
+
+        @include tools.hover {
+            &:not(:disabled) {
+                background-color: var(--white-90);
+                color: var(--black);
+                border-color: var(--white-90);
+            }
+        }
+
+        &:disabled {
+            background-color: hsl(from var(--white) h s l / 0.6);
+            color: hsl(from var(--black) h s l / 0.6);
+            border-color: hsl(from var(--white) h s l / 0);
+        }
+
+        &.c-button--bordered {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+
+            @include tools.hover {
+                &:not(:disabled) {
+                    background-color: var(--white);
+                    color: var(--black);
+                    border-color: var(--white);
+                }
+            }
+
+            &:disabled {
+                background-color: transparent;
+                color: hsl(from var(--white) h s l / 0.6);
+                border-color: hsl(from var(--white) h s l / 0.6);
+            }
+        }
+    }
+
+    &--full {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    &--small {
+        min-height: var(--s-40);
+        min-width: auto;
+        padding: var(--s-10) var(--s-15);
+    }
+
+    .u-icon {
+        font-size: 1lh;
+    }
+
+    &__loader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: tools.get-z-index(default, 1);
+    }
+
+    &.is-loading,
+    .submitting & {
+        transition: none;
+        cursor: not-allowed;
+        pointer-events: none;
+        color: transparent;
+        user-select: none;
+
+        .c-button__loader {
+            display: flex;
+        }
+    }
+}

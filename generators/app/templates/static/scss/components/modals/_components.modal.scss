@@ -1,2 +1,65 @@
+@use "../../tools/tools.index" as tools;
+
 .c-modal {
+    width: 100%;
+    max-width: tools.em(420, 18);
+    height: fit-content;
+    max-height: 90%;
+    margin: auto;
+    padding: var(--s-20);
+    background-color: var(--white);
+    color: var(--black);
+    border: none;
+    outline: none;
+    box-shadow: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: tools.get-transition(slide, ease-in-quad);
+
+    @include tools.focus;
+    @include tools.hide-scrollbar;
+
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+
+        &::backdrop {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &.is-closing {
+        opacity: 0;
+        visibility: hidden;
+
+        &::backdrop {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    &::backdrop {
+        background-color: hsl(from var(--black) h s l / 0.9);
+        opacity: 0;
+        visibility: hidden;
+        transition: tools.get-transition(slide, ease-in-quad);
+    }
+
+    &__close {
+        @include tools.button-reset;
+
+        & {
+            position: sticky;
+            top: 0;
+            font-size: 2.5em;
+            margin-left: auto;
+        }
+
+        @include tools.focus;
+    }
+
+    &__main {
+        @include tools.grid(1, 0, var(--s-40));
+    }
 }

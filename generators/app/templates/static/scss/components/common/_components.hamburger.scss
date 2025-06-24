@@ -1,4 +1,4 @@
-@use "../tools/tools.index" as tools;
+@use "../../tools/tools.index" as tools;
 
 .c-hamburger {
     @include tools.button-reset;
@@ -33,7 +33,7 @@
     span {
         width: 100%;
         height: 2px;
-        background-color: currentColor;
+        background-color: currentcolor;
         position: absolute;
         left: 0;
         top: 50%;

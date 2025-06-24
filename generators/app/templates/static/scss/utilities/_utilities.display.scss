@@ -19,7 +19,7 @@
 }
 
 .is-mobile-hidden {
-    @include tools.mq(md) {
+    @include tools.mq(lg) {
         display: none !important;
     }
 }
@@ -27,7 +27,7 @@
 .is-mobile-visible {
     display: none !important;
 
-    @include tools.mq(md) {
+    @include tools.mq(lg) {
         display: block !important;
     }
 }

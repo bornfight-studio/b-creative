@@ -1,8 +1,8 @@
-@use "../tools/tools.index" as tools;
+@use "../../tools/tools.index" as tools;
 
 .c-slider-scrollbar {
     height: var(--s-10);
-    background-color: var(--black-50);
+    background-color: hsl(from var(--black) h s l / 0.5);
     border-radius: var(--s-100);
     overflow: hidden;
     user-select: none;

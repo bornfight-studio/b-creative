@@ -1,0 +1,50 @@
+@use "../../tools/tools.index" as tools;
+
+.c-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-10);
+
+    &__item {
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+.c-pagination-number,
+.c-pagination-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-10);
+    padding: var(--s-5);
+    transition: tools.get-transition(slide, ease-in-quad);
+    text-align: center;
+
+    @include tools.hover {
+        &:not(:disabled):not(.is-disabled):not(.is-active) {
+        }
+    }
+
+    @include tools.focus;
+
+    &:disabled,
+    &.is-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    &.is-active {
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+.c-pagination-arrow {
+    .u-icon {
+        font-size: 1lh;
+    }
+}

@@ -1,0 +1,14 @@
+@use "../../tools/tools.index" as tools;
+
+:root {
+    --height-announcement-bar: var(--s-35);
+
+    @include tools.mq(lg) {
+        --height-announcement-bar: var(--s-45);
+    }
+}
+
+.c-announcement-bar {
+    width: 100%;
+    height: var(--height-announcement-bar);
+}

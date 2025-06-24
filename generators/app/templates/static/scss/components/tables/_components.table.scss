@@ -1,0 +1,59 @@
+@use "../../tools/tools.index" as tools;
+
+.c-table {
+    margin: 0 calc(var(--s-20) * -1);
+    padding: 0 var(--s-20);
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    @include tools.hide-scrollbar;
+
+    table {
+        width: 100%;
+        table-layout: auto;
+        border-collapse: collapse;
+    }
+
+    thead,
+    tfoot {
+        margin: 0;
+        border: none;
+        text-align: left;
+        background-color: var(--black-20);
+
+        tr {
+            border-bottom: none;
+        }
+    }
+
+    tr {
+        border-bottom: 1px solid hsl(from currentcolor h s l / 20%);
+        display: flex;
+        gap: var(--s-15);
+        padding: var(--s-10);
+    }
+
+    th,
+    td {
+        flex-grow: 1;
+        flex-basis: 0;
+        min-width: 0;
+        padding: 0;
+        border: none;
+        word-break: break-word;
+        font-weight: 400;
+
+        @include tools.mq(md) {
+            flex: none;
+            width: 200px;
+        }
+    }
+
+    u {
+        text-decoration: underline;
+    }
+
+    a {
+        @include tools.link-hover-animation;
+    }
+}
