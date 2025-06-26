@@ -4,7 +4,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: var(--s-5);
     text-align: center;
+    border-radius: var(--s-5);
     overflow: hidden;
     position: relative;
     transition: tools.get-transition(slide, ease-in-quad);
@@ -31,6 +33,10 @@
 
     &.is-active {
         pointer-events: none;
+    }
+
+    .u-icon {
+        font-size: 1lh;
     }
 }
 
