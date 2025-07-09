@@ -1,29 +1,30 @@
 /**
  * Components
  */
-@forward "components.loader";
-@forward "components.mobile-navigation";
-@forward "components.navigation";
-@forward "components.hamburger";
-@forward "components.media-loader";
-@forward "components.media-overlay";
-@forward "components.media-trigger";
-@forward "components.responsive-media";
-@forward "components.breadcrumbs";
-@forward "components.button";
-@forward "components.underline-link";
-@forward "components.spinner";
-@forward "components.content-loader";
-@forward "components.accordion";
-@forward "components.tag";
-@forward "components.badge";
-@forward "components.slider-fraction";
-@forward "components.slider-navigation";
-@forward "components.slider-pagination";
-@forward "components.slider-scrollbar";
-@forward "components.pagination";
-@forward "components.social-icons";
-@forward "components.article-share";
+@forward "common/components.loader";
+@forward "common/components.announcement-bar";
+@forward "common/components.mobile-navigation";
+@forward "common/components.navigation";
+@forward "common/components.hamburger";
+@forward "common/components.media-loader";
+@forward "common/components.media-overlay";
+@forward "common/components.media-trigger";
+@forward "common/components.responsive-media";
+@forward "common/components.breadcrumbs";
+@forward "common/components.button";
+@forward "common/components.link";
+@forward "common/components.spinner";
+@forward "common/components.content-loader";
+@forward "common/components.accordion";
+@forward "common/components.tag";
+@forward "common/components.badge";
+@forward "common/components.slider-fraction";
+@forward "common/components.slider-navigation";
+@forward "common/components.slider-pagination";
+@forward "common/components.slider-scrollbar";
+@forward "common/components.pagination";
+@forward "common/components.social-icons";
+@forward "common/components.article-share";
 
 /**
  * Cards
@@ -40,13 +41,7 @@
 /**
  * Tables
  */
-@forward "tables/components.table-name-table";
-
-/**
- * Modals
- */
-@forward "modals/components.modal";
-@forward "modals/components.newsletter-modal";
+@forward "tables/components.table";
 
 /**
  * Sections
@@ -72,3 +67,14 @@
  * Gutenberg blocks
  */
 @forward "blocks/components.block-name-block";
+
+/**
+ * Modals
+ */
+@forward "modals/components.modal";
+@forward "modals/components.newsletter-modal";
+
+/**
+ * Drawers
+ */
+@forward "drawers/components.drawer-name-drawer";

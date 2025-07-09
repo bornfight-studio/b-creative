@@ -1,0 +1,183 @@
+@use "../tools/tools.index" as tools;
+@use "../settings/settings.index" as settings;
+
+.c-form.wpcf7-form {
+    .wpcf7-form-control-wrap {
+        position: relative;
+        width: 100%;
+        display: block;
+    }
+
+    .wpcf7-response-output {
+        display: none !important;
+    }
+
+    .wpcf7-not-valid-tip {
+        margin-top: var(--s-5);
+        color: var(--red);
+        width: 100%;
+        display: block;
+        text-transform: uppercase;
+
+        @include settings.b2;
+    }
+
+    .wpcf7-not-valid {
+        border-color: var(--red);
+
+        @include tools.hover {
+            border-color: var(--red);
+        }
+
+        &:focus {
+            border-color: var(--red);
+        }
+    }
+
+    .wpcf7-list-item {
+        display: block;
+        padding: 0;
+        margin: 0 0 var(--s-10);
+        border-width: 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    input[type="checkbox"] {
+        position: absolute;
+        z-index: tools.get-z-index(negative);
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        box-sizing: border-box;
+
+        + .wpcf7-list-item-label {
+            padding-left: 1.5lh;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+
+            @include settings.b1;
+
+            &:before,
+            &:after {
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+                width: 1lh;
+                height: 1lh;
+                transition: tools.get-transition(slide, ease-in-quad);
+
+                @include settings.b1;
+            }
+
+            &:before {
+                content: "";
+                background-color: var(--white);
+                border: 1px solid var(--black);
+            }
+
+            &:after {
+                content: "";
+                transform: scale(0);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJtMTAuOTY5IDMuOTk3LTUuODIgNS44MkwyLjAzIDYuN2wuODI5LS44MjhMNS4xNDggOC4xNmw0Ljk5Mi00Ljk5Mi44MjkuODI4WiIgY2xpcC1ydWxlPSJldmVub2RkIi8+PC9zdmc+");
+            }
+
+            a {
+                @include tools.link-hover-animation;
+            }
+        }
+
+        @include tools.hover {
+            &:not(:checked) {
+                & + .wpcf7-list-item-label {
+                    &:before {
+                        outline: 0;
+                        border-color: var(--black);
+                        background-color: var(--white);
+                    }
+                }
+            }
+        }
+
+        &:focus {
+            &:not(:checked) {
+                & + .wpcf7-list-item-label {
+                    &:before {
+                        outline: 0;
+                        border-color: var(--black);
+                        background-color: var(--white);
+                    }
+                }
+            }
+        }
+
+        &:checked {
+            & + .wpcf7-list-item-label {
+                &:before {
+                    outline: 0;
+                    border-color: var(--black);
+                    background-color: var(--black);
+                }
+
+                &:after {
+                    transform: scale(0.5);
+                }
+            }
+        }
+
+        &:disabled {
+            & + .wpcf7-list-item-label {
+                cursor: not-allowed;
+                pointer-events: none;
+                opacity: 0.5;
+            }
+
+            &:not(:checked),
+            &:checked {
+                & + .wpcf7-list-item-label {
+                    &:before {
+                    }
+                }
+            }
+
+            &:checked {
+                & + .wpcf7-list-item-label {
+                    &:after {
+                    }
+                }
+            }
+        }
+    }
+
+    .c-form__success {
+        display: none;
+    }
+
+    &.sent {
+        .c-form__fields {
+            display: none;
+        }
+
+        .c-form__success {
+            display: grid;
+        }
+    }
+}
+
+.wpcf7 {
+    .screen-reader-response {
+        display: none !important;
+    }
+}

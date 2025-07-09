@@ -87,10 +87,10 @@
  */
 @function fluid-sizing($min-size, $max-size, $min-breakpoint: settings.$breakpoint-sm, $max-breakpoint: settings.$breakpoint-xl, $unit: vw) {
     $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
-    $slope-to-unit: round($slope * 100, 2);
-    $intercept-rem: round(tools-typography.rem($min-size - $slope * $min-breakpoint), 2);
-    $min-size-rem: round(tools-typography.rem($min-size), 2);
-    $max-size-rem: round(tools-typography.rem($max-size), 2);
+    $slope-to-unit: round($slope * 100, 6);
+    $intercept-rem: round(tools-typography.rem($min-size - $slope * $min-breakpoint), 6);
+    $min-size-rem: round(tools-typography.rem($min-size), 6);
+    $max-size-rem: round(tools-typography.rem($max-size), 6);
     @if $min-size == $max-size {
         @return $min-size-rem;
     }
@@ -109,10 +109,10 @@
  */
 @function fluid-sizing-xxl($min-size, $max-size, $min-breakpoint: settings.$breakpoint-xxl, $max-breakpoint: settings.$breakpoint-xxxl, $unit: vw) {
     $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
-    $slope-to-unit: round($slope * 100, 2);
-    $intercept-rem: round(tools-typography.rem($min-size - $slope * $min-breakpoint), 2);
-    $min-size-rem: round(tools-typography.rem($min-size), 2);
-    $max-size-rem: round(tools-typography.rem($max-size), 2);
+    $slope-to-unit: round($slope * 100, 6);
+    $intercept-rem: round(tools-typography.rem($min-size - $slope * $min-breakpoint), 6);
+    $min-size-rem: round(tools-typography.rem($min-size), 6);
+    $max-size-rem: round(tools-typography.rem($max-size), 6);
     @return max(#{$min-size-rem}, #{$slope-to-unit}#{$unit} + #{$intercept-rem});
 }
 

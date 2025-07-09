@@ -1,10 +1,15 @@
 .c-spinner {
-    width: var(--s-30);
-    height: var(--s-30);
+    width: var(--s-40);
+    height: var(--s-40);
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    &--small {
+        width: var(--s-20);
+        height: var(--s-20);
+    }
 
     &__inner {
         display: block;
@@ -14,9 +19,16 @@
         top: 0;
         left: 0;
         border: 2px solid transparent;
-        border-top-color: var(--white);
         border-radius: 100%;
         animation: spinner 1s linear infinite;
+
+        &--primary {
+            border-top-color: var(--black);
+        }
+
+        &--secondary {
+            border-top-color: var(--white);
+        }
     }
 }
 

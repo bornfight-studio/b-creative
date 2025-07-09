@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import { Autoplay, EffectCreative, EffectFade, FreeMode, Navigation, Pagination, Parallax, Scrollbar } from "swiper/modules";
+import { Autoplay, EffectCreative, EffectFade, FreeMode, Keyboard, Mousewheel, Navigation, Pagination, Parallax, Scrollbar } from "swiper/modules";
 import { getViewportWidth } from "../../utilities/Viewport";
 
 /**
@@ -32,6 +32,8 @@ import { getViewportWidth } from "../../utilities/Viewport";
  * data-free-mode-sticky="false"
  * data-centered-slides="false"
  * data-grab-cursor="false"
+ * data-mousewheel="false"
+ * data-keyboard="false"
  * MINIMAL DEMO (without configuration):
  * <div class="js-slider">
  *     <div class="swiper js-slider-swiper">
@@ -70,7 +72,7 @@ export default class Slider {
         };
 
         /**
-         * Get list of wrapper DOM elements
+         * Get a list of wrapper DOM elements
          * @type {NodeListOf<Element>}
          */
         this.wrappers = container.querySelectorAll(this.DOM.wrapper);
@@ -132,9 +134,11 @@ export default class Slider {
         const freeModeSticky = slider.dataset.freeModeSticky;
         const centeredSlides = slider.dataset.centeredSlides;
         const grabCursor = slider.dataset.grabCursor;
+        const mousewheel = slider.dataset.mousewheel;
+        const keyboard = slider.dataset.keyboard;
 
-        const swiper = new Swiper(slider, {
-            modules: [Autoplay, Navigation, Pagination, Scrollbar, FreeMode, EffectFade, EffectCreative, Parallax],
+        new Swiper(slider, {
+            modules: [Autoplay, EffectCreative, EffectFade, FreeMode, Keyboard, Mousewheel, Navigation, Pagination, Parallax, Scrollbar],
             touchEventsTarget: "container",
             effect: effect || "slide",
             speed: speed || 300,
@@ -236,6 +240,20 @@ export default class Slider {
                     translate: ["100%", 0, 0],
                 },
             },
+            mousewheel:
+                mousewheel === "true"
+                    ? {
+                          enabled: true,
+                          forceToAxis: true,
+                      }
+                    : false,
+            keyboard:
+                keyboard === "true"
+                    ? {
+                          enabled: true,
+                          onlyInViewport: true,
+                      }
+                    : false,
         });
 
         // if next and previous buttons have disabled class

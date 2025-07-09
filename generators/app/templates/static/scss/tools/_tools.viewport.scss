@@ -27,7 +27,7 @@ $max-height: 900;
  */
 @function get-vh($size) {
     $vw-context: ($max-height * 0.01) * 1px; /* 1 */
-    @return math.div($size, $vw-context) * 1vh;
+    @return math.div($size, $vw-context) * 1svh;
 }
 
 /**

@@ -1,0 +1,8 @@
+@use "../../tools/tools.index" as tools;
+
+.c-breadcrumbs {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--s-10);
+}

@@ -10,7 +10,7 @@
 @mixin grid($columns: settings.$grid-column-count, $grid-column-gap: 0, $grid-row-gap: 0) {
     @if $columns != null {
         display: grid;
-        grid-template-columns: repeat($columns, 1fr);
+        grid-template-columns: repeat($columns, minmax(0, 1fr));
         @if $grid-column-gap != 0 {
             grid-column-gap: $grid-column-gap;
         }

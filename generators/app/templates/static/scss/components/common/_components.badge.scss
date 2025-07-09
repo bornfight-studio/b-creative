@@ -1,0 +1,29 @@
+@use "../../tools/tools.index" as tools;
+
+.c-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-5);
+    text-align: center;
+    border-radius: var(--s-5);
+    overflow: hidden;
+    position: relative;
+    padding: calc(var(--s-5) / 2) var(--s-5);
+
+    &--primary {
+        background-color: var(--black);
+        color: var(--white);
+        border: 1px solid var(--black);
+    }
+
+    &--secondary {
+        background-color: var(--white);
+        color: var(--black);
+        border: 1px solid var(--white);
+    }
+
+    .u-icon {
+        font-size: 1lh;
+    }
+}

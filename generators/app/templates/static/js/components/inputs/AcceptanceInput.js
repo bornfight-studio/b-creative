@@ -1,6 +1,6 @@
 /**
  * Acceptance input
- * blocks form submit without accepting terms and conditions etc
+ * blocks submitting the form without accepting terms and conditions, etc.
  */
 export default class AcceptanceInput {
     constructor(container = document) {
@@ -14,7 +14,7 @@ export default class AcceptanceInput {
         };
 
         /**
-         * Get list of acceptance input DOM elements
+         * Get a list of acceptance input DOM elements
          * @type {NodeListOf<Element>}
          */
         this.inputs = container.querySelectorAll(this.DOM.input);

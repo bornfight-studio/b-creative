@@ -20,7 +20,7 @@ export default class SearchInput {
         };
 
         /**
-         * Get list of search form DOM elements
+         * Get a list of search form DOM elements
          * @type {NodeListOf<Element>}
          */
         this.forms = container.querySelectorAll(this.DOM.form);
@@ -68,7 +68,7 @@ export default class SearchInput {
 
     /**
      * Set submit button state
-     * disable submit button if value is empty
+     * disable submit button if the value is empty
      * @param input
      * @param submit
      */
@@ -84,7 +84,7 @@ export default class SearchInput {
 
     /**
      * Set reset button state
-     * show reset button if value is not empty
+     * shows reset button if the value is not empty
      * @param input
      * @param reset
      */

@@ -1,0 +1,25 @@
+@use "../../tools/tools.index" as tools;
+
+.c-social-icons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--s-20);
+
+    li,
+    a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    a {
+        font-size: 1lh;
+        transition: tools.get-transition(slide, ease-in-quad);
+
+        @include tools.hover {
+            opacity: 0.5;
+        }
+    }
+}

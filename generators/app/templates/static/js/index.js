@@ -11,18 +11,12 @@ import Grid from "./helpers/Grid";
  * Components
  */
 import "instant.page";
-import Lazy from "./components/Lazy";
-import ResponsiveVideo from "./components/ResponsiveVideo";
-import VideoOnScroll from "./components/VideoOnScroll";
-import VideoPlayButton from "./components/VideoPlayButton";
-import Accordion from "@bornfight/b-accordion";
+import Lazy from "./components/common/Lazy";
+import ResponsiveVideo from "./components/common/ResponsiveVideo";
+import VideoOnScroll from "./components/common/VideoOnScroll";
+import VideoPlayButton from "./components/common/VideoPlayButton";
 import ScrollToAnimation from "./components/animations/ScrollToAnimation";
-import AcceptanceInput from "./components/inputs/AcceptanceInput";
-import PasswordInput from "./components/inputs/PasswordInput";
-import SearchInput from "./components/inputs/SearchInput";
-import SelectInput from "./components/inputs/SelectInput";
-import Navigation from "./components/Navigation";
-import Slider from "./components/sliders/Slider";
+import Navigation from "./components/common/Navigation";
 
 /**
  * Check if the document is ready cross-browser
@@ -113,15 +107,6 @@ ready(() => {
     videoPlayButton.init();
 
     /**
-     * Accordion
-     * @type {Accordion}
-     */
-    new Accordion(undefined, {
-        openingEase: "power2.out",
-        closingEase: "power2.in",
-    });
-
-    /**
      * Scroll to animation
      * @type {ScrollToAnimation}
      */
@@ -129,44 +114,9 @@ ready(() => {
     scrollToAnimation.init();
 
     /**
-     * Acceptance input
-     * @type {AcceptanceInput}
-     */
-    const acceptanceInput = new AcceptanceInput();
-    acceptanceInput.init();
-
-    /**
-     * Password input
-     * @type {PasswordInput}
-     */
-    const passwordInput = new PasswordInput();
-    passwordInput.init();
-
-    /**
-     * Search input
-     * @type {SearchInput}
-     */
-    const searchInput = new SearchInput();
-    searchInput.init();
-
-    /**
-     * Select input
-     * @type {SelectInput}
-     */
-    const selectInput = new SelectInput();
-    selectInput.init();
-
-    /**
      * Navigation
      * @type {Navigation}
      */
     const navigation = new Navigation();
     navigation.init();
-
-    /**
-     * Slider
-     * @type {Slider}
-     */
-    const slider = new Slider();
-    slider.init();
 });

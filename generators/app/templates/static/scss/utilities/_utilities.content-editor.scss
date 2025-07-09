@@ -10,7 +10,7 @@
     > h4,
     > h5,
     > h6 {
-        margin-bottom: var(--s-30);
+        margin-bottom: var(--s-20);
 
         &:last-child {
             margin-bottom: 0;
@@ -21,7 +21,7 @@
         + h4,
         + h5,
         + h6 {
-            margin-top: var(--s-60);
+            margin-top: var(--s-30);
         }
 
         > u {
@@ -29,18 +29,14 @@
         }
 
         > a {
-            text-decoration: underline;
-            transition: tools.get-transition(slide, ease-in-quad);
-
-            @include tools.hover {
-            }
+            @include tools.link-hover-animation;
         }
     }
 
     > p,
     > ul,
     > ol {
-        margin-bottom: var(--s-15);
+        margin-bottom: var(--s-20);
 
         @include settings.b0;
 
@@ -53,7 +49,7 @@
         + h4,
         + h5,
         + h6 {
-            margin-top: var(--s-60);
+            margin-top: var(--s-30);
         }
 
         > u {
@@ -61,28 +57,24 @@
         }
 
         > a {
-            text-decoration: underline;
-            transition: tools.get-transition(slide, ease-in-quad);
-
-            @include tools.hover {
-            }
+            @include tools.link-hover-animation;
         }
     }
 
     > h2 {
-        @include settings.a4;
+        @include settings.a5;
     }
 
     > h3 {
-        @include settings.a3;
+        @include settings.a4;
     }
 
     > h4 {
-        @include settings.a2;
+        @include settings.a3;
     }
 
     > h5 {
-        @include settings.a1;
+        @include settings.a2;
     }
 
     > h6 {
@@ -90,43 +82,47 @@
     }
 
     > ul,
-    > ol {
-    }
+    > ul ul,
+    > ul ol,
+    > ol,
+    > ol ol,
+    > ol ul {
+        margin-left: 1em;
 
-    li {
-        margin-bottom: var(--s-15);
+        li {
+            list-style-position: outside;
+            margin: 0 0 0.5em 0;
+            padding: 0 0 0 0.25em;
 
-        &:last-child {
-            margin-bottom: 0;
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &::marker {
+            }
+
+            > a {
+                @include tools.link-hover-animation;
+            }
         }
     }
 
-    > ul {
+    > ul,
+    > ul ul {
         list-style: disc;
-        margin-left: 1em;
-        padding-left: 1em;
-
-        li {
-            list-style-position: outside;
-            padding-left: 0.5em;
-
-            &::marker {
-            }
-        }
     }
 
-    > ol {
+    > ol ul {
+        list-style: disc;
+    }
+
+    > ol,
+    > ol ol {
         list-style: decimal inside;
-        margin-left: 1em;
-        padding-left: 1em;
+    }
 
-        li {
-            list-style-position: outside;
-            padding-left: 0.5em;
-
-            &::marker {
-            }
-        }
+    > ul ol {
+        list-style: decimal inside;
     }
 
     > u {
@@ -134,11 +130,7 @@
     }
 
     > a {
-        text-decoration: underline;
-        transition: tools.get-transition(slide, ease-in-quad);
-
-        @include tools.hover {
-        }
+        @include tools.link-hover-animation;
     }
 
     b,
@@ -151,21 +143,17 @@
         }
 
         > a {
-            text-decoration: underline;
-            transition: tools.get-transition(slide, ease-in-quad);
-
-            @include tools.hover {
-            }
+            @include tools.link-hover-animation;
         }
     }
 
     hr {
-        border-top: 1px solid var(--black);
+        border-top: 1px solid currentcolor;
         border-left: none;
         border-right: none;
         border-bottom: none;
         padding: 0;
-        margin: var(--s-60) 0;
+        margin: var(--s-30) 0;
         outline: none;
         box-shadow: none;
 
@@ -179,8 +167,13 @@
     }
 
     .wp-block-table {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
+        margin-top: var(--s-30);
+        margin-bottom: var(--s-30);
+        overflow-x: auto;
+        overflow-y: hidden;
+        background-color: var(--white);
+
+        @include tools.hide-scrollbar;
 
         &:first-child {
             margin-top: 0;
@@ -192,35 +185,66 @@
 
         table {
             width: 100%;
+            table-layout: auto;
+            border-collapse: collapse;
+            font-weight: 400;
+
+            @include settings.b0;
+        }
+
+        thead,
+        tfoot {
+            margin: 0;
+            border: none;
+            text-align: left;
+            background-color: var(--black-20);
+
+            tr {
+                border-bottom: none;
+            }
         }
 
         tbody {
         }
 
-        tr {
-            border-bottom: 1px solid var(--black);
-            display: flex;
-            gap: var(--s-15);
+        tfoot {
         }
 
+        tr {
+            border-bottom: 1px solid hsl(from currentcolor h s l / 20%);
+            display: flex;
+            gap: var(--s-15);
+            padding: var(--s-10);
+        }
+
+        th,
         td {
-            padding-top: var(--s-15);
-            padding-bottom: var(--s-15);
             flex-grow: 1;
             flex-basis: 0;
             min-width: 0;
+            padding: 0;
+            border: none;
+            font-weight: 400;
+            word-break: break-word;
+
+            @include tools.mq(md) {
+                flex: none;
+                width: 180px;
+            }
+        }
+
+        th {
+        }
+
+        td {
         }
 
         u {
             text-decoration: underline;
         }
 
-        a {
-            text-decoration: underline;
-            transition: tools.get-transition(slide, ease-in-quad);
-
-            @include tools.hover {
-            }
+        > a {
+            @include tools.link-hover-animation;
         }
 
         &.is-style-regular {
@@ -228,10 +252,8 @@
     }
 
     .wp-block-quote {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
-        padding-left: var(--s-15);
-        border-left: 3px solid var(--black);
+        margin-top: var(--s-30);
+        margin-bottom: var(--s-30);
 
         &:first-child {
             margin-top: 0;
@@ -242,25 +264,26 @@
         }
 
         p {
-            @include settings.a2;
+            font-style: normal;
+            border-left: var(--s-5) solid currentcolor;
+            padding-left: var(--s-20);
+
+            @include settings.a3;
         }
 
         cite {
-            margin-top: var(--s-15);
+            margin-top: var(--s-20);
             display: block;
+            font-style: normal;
 
-            @include settings.b1;
+            @include settings.a1;
 
             > u {
                 text-decoration: underline;
             }
 
             > a {
-                text-decoration: underline;
-                transition: tools.get-transition(slide, ease-in-quad);
-
-                @include tools.hover {
-                }
+                @include tools.link-hover-animation;
             }
         }
 
@@ -269,8 +292,8 @@
     }
 
     .wp-block-embed {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
+        margin-top: var(--s-30);
+        margin-bottom: var(--s-30);
 
         &:first-child {
             margin-top: 0;
@@ -299,11 +322,26 @@
                 }
             }
         }
+
+        figcaption {
+            margin-top: 0.5em;
+            margin-bottom: 0;
+
+            @include settings.b0;
+
+            > u {
+                text-decoration: underline;
+            }
+
+            > a {
+                @include tools.link-hover-animation;
+            }
+        }
     }
 
     .wp-block-image {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
+        margin-top: var(--s-30);
+        margin-bottom: var(--s-30);
 
         &:first-child {
             margin-top: 0;
@@ -332,28 +370,25 @@
         }
 
         figcaption {
-            margin-top: var(--s-15);
+            margin-top: 0.5em;
+            margin-bottom: 0;
 
-            @include settings.b1;
+            @include settings.b0;
 
             > u {
                 text-decoration: underline;
             }
 
             > a {
-                text-decoration: underline;
-                transition: tools.get-transition(slide, ease-in-quad);
-
-                @include tools.hover {
-                }
+                @include tools.link-hover-animation;
             }
         }
     }
 
     .wp-block-code,
     pre {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
+        margin-top: var(--s-30);
+        margin-bottom: var(--s-30);
         padding: var(--s-30);
         background-color: var(--white);
         color: var(--black);
@@ -373,9 +408,111 @@
         }
     }
 
+    .wp-block-verse {
+        @include settings.b0;
+
+        & {
+            background-color: var(--white);
+            color: var(--black);
+            white-space: normal;
+            font-weight: 700;
+        }
+    }
+
+    .wp-block-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: var(--s-10);
+        margin-top: var(--s-30);
+        margin-bottom: var(--s-30);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .wp-block-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wp-block-button .wp-block-button__link {
+            min-height: var(--s-50);
+            min-width: var(--s-100);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--s-10);
+            text-decoration: none;
+            cursor: pointer;
+            margin: 0;
+            padding: var(--s-10) var(--s-30);
+            overflow: hidden;
+            outline: 0;
+            border-radius: 0;
+            vertical-align: top;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            transition: tools.get-transition(slide, ease-in-quad);
+            box-shadow: none;
+            text-align: center;
+            outline: none;
+            box-sizing: border-box;
+            position: relative;
+            background-color: var(--black);
+            color: var(--white);
+            border: 1px solid var(--black);
+
+            @include tools.focus;
+
+            @include tools.hover {
+                &:not(:disabled) {
+                    background-color: var(--black-50);
+                    color: var(--white);
+                    border-color: var(--black-50);
+                }
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                pointer-events: none;
+                background-color: hsl(from var(--black) h s l / 0.6);
+                color: hsl(from var(--white) h s l / 0.6);
+                border-color: hsl(from var(--black) h s l / 0);
+            }
+        }
+
+        .wp-block-button.is-style-outline .wp-block-button__link {
+            background-color: transparent;
+            color: var(--black);
+            border-color: var(--black);
+
+            @include tools.hover {
+                &:not(:disabled) {
+                    background-color: var(--white);
+                    color: var(--black);
+                    border-color: var(--black);
+                }
+            }
+
+            &:disabled {
+                background-color: transparent;
+                color: hsl(from var(--black) h s l / 0.6);
+                border-color: hsl(from var(--black) h s l / 0.6);
+            }
+        }
+    }
+
     .c-gutenberg-block {
-        margin-top: var(--s-60);
-        margin-bottom: var(--s-60);
+        margin-top: var(--s-30);
+        margin-bottom: var(--s-30);
         position: relative;
         z-index: tools.get-z-index(default);
 
