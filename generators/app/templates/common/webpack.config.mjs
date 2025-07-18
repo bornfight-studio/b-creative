@@ -5,6 +5,7 @@ import webpack from "webpack";
 import BrowserSyncPlugin from "browser-sync-v3-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import RemoveEmptyScriptsPlugin from "webpack-remove-empty-scripts";
+import { WebpackManifestPlugin } from "webpack-manifest-plugin";
 
 // ReferenceError: __dirname is not defined in ES module scope
 const __dirname = path.resolve();
@@ -45,6 +46,11 @@ export default (env, argv) => {
         // Extract CSS into separate files
         new MiniCssExtractPlugin({
             filename: "[name].css",
+        }),
+        new WebpackManifestPlugin({
+            fileName: "manifest.json",
+            publicPath: "/static/dist/",
+            writeToFileEmit: true, // Write the manifest to the output directory
         }),
         <%_ if (react) { _%>
         // Provide React globally so it can be used without importing it
