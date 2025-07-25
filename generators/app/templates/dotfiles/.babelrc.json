@@ -5,8 +5,6 @@
     "@babel/plugin-transform-object-rest-spread"
   ],
   "presets": [
-    "@babel/preset-env"<%_ if (react) { _%>,
-    "@babel/preset-react"
-    <%_ } _%>
+    "@babel/preset-env"
   ]
 }

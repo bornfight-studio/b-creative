@@ -15,15 +15,15 @@ export default (env, argv) => {
     console.log(`Running in ${mode} mode...`);
     console.log(env);
 
+    // define files with or without contenthash based on the mode
+    const fileName = mode === "production" ? "[name].[contenthash]" : "[name]";
+
     // Define the proxy URL for BrowserSync
     const proxy = "http://<%= vhost %>/<%= name %>";
 
     // Define the entry points for the webpack build
     const entry = {
         bundle: "./static/js/index.js",
-        <%_ if (react) { _%>
-        example_app: "./static/js/example_app/index.js",
-        <%_ } _%>
         style: ["./static/scss/style.scss"],
     };
 
@@ -45,19 +45,13 @@ export default (env, argv) => {
         new RemoveEmptyScriptsPlugin({ verbose: false }),
         // Extract CSS into separate files
         new MiniCssExtractPlugin({
-            filename: "[name].css",
+            filename: `${fileName}.css`
         }),
         new WebpackManifestPlugin({
             fileName: "manifest.json",
             publicPath: "/static/dist/",
             writeToFileEmit: true, // Write the manifest to the output directory
         }),
-        <%_ if (react) { _%>
-        // Provide React globally so it can be used without importing it
-        new webpack.ProvidePlugin({
-            React: "react",
-        }),
-        <%_ } _%>
     ];
 
     // Add a source map for easier debugging in development mode
@@ -75,31 +69,21 @@ export default (env, argv) => {
         entry: entry,
         // Define the output directory and file names
         output: {
-            filename: "[name].js",
+            filename: `${fileName}.js`,
             path: path.resolve(__dirname, "static", "dist"),
             clean: {
                 keep: /.gitkeep|vendor.js/
             },
         },
-        <%_ if (react) { _%>
-        // Add support for importing .jsx files in addition to .js files
-        resolve: { extensions: [".js", ".jsx"] },
-        <%_ } else { _%>
         // Add support for importing only .js files
         resolve: { extensions: [".js"] },
-        <%_ } _%>
         // Define the plugins to be used from `plugins` variable
         plugins: plugins,
         module: {
             rules: [
                 {
-                    <%_ if (react) { _%>
-                    // Handle .js and .jsx files with babel-loader
-                    test: /\.(js|jsx)$/,
-                    <%_ } else { _%>
                     // Handle .js files with babel-loader
                     test: /\.(js)$/,
-                    <%_ } _%>
                     exclude: /node_modules/,
                     use: ["babel-loader"],
                 },

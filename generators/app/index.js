@@ -29,12 +29,6 @@ export default class extends Generator {
                 validate: (input) => (input.length > 0 ? true : "Project name contains no characters."),
             },
             {
-                type: "confirm",
-                name: "react",
-                message: "Include React support?",
-                default: false,
-            },
-            {
                 type: "input",
                 name: "vhost",
                 message: "What is your virtual host name? (full domain name e.g. www.bornfight.loc)",
@@ -60,7 +54,6 @@ export default class extends Generator {
         const context = {
             name: this.props.name,
             vhost: this.props.vhost,
-            react: this.props.react,
         };
 
         const templateOptions = {};
@@ -76,16 +69,6 @@ export default class extends Generator {
         this.fs.copyTpl(this.templatePath("dotfiles/**"), this.destinationRoot(), context, templateOptions, copyOptions);
 
         this.fs.copyTpl(this.templatePath("static/**"), this.destinationPath("static"), context, templateOptions, copyOptions);
-
-        if (context.react) {
-            this.fs.copyTpl(
-                this.templatePath("example_app/**"),
-                this.destinationPath("static/js/example_app"),
-                context,
-                templateOptions,
-                copyOptions,
-            );
-        }
     }
 
     end() {
