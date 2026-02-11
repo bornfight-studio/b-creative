@@ -94,13 +94,21 @@
  * @include link-hover-animation(50%, false, '.child');
  */
 @mixin link-hover-animation($y-percent: 100%, $inverted: false, $prefix: null) {
-    $target: if($prefix != null, "#{$prefix}", "&");
+    $target: "&";
+
+    @if $prefix != null {
+        $target: "#{$prefix}";
+    }
 
     #{$target} {
         text-decoration: none;
         background-image: linear-gradient(transparent calc(100% - 1px), currentcolor 1px);
         background-repeat: no-repeat;
-        background-size: if($inverted, 0 #{$y-percent}, 100% #{$y-percent});
+        @if $inverted {
+            background-size: 0 #{$y-percent};
+        } @else {
+            background-size: 100% #{$y-percent};
+        }
         background-position: left;
         word-break: break-word;
         transition: tools-transition.get-transition(slide, ease-in-quad);
@@ -109,7 +117,11 @@
     @include hover {
         &:not(:disabled) {
             #{$target} {
-                background-size: if($inverted, 100% #{$y-percent}, 0 #{$y-percent});
+                @if $inverted {
+                    background-size: 100% #{$y-percent};
+                } @else {
+                    background-size: 0 #{$y-percent};
+                }
             }
         }
     }
