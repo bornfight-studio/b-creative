@@ -44,6 +44,52 @@ The generator is based on modern tools and architectures that fit most of "multi
 - uses postcss by default - autoprefixer will automatically add vendor prefixes
   by [browserslist ruleset defined inside package.json](https://github.com/postcss/autoprefixer#browsers)
 
+#### Imports
+
+Always use `@use` with a namespace alias for tools and settings:
+
+```scss
+@use "../../tools/tools.index" as tools;
+@use "../../settings/settings.index" as settings;
+```
+
+#### Mixins
+
+All mixins must be prefixed with the `tools.` namespace:
+
+```scss
+.c-component {
+    @include tools.mq(md) {
+        // styles for max-width: md
+    }
+
+    @include tools.mq(null, md) {
+        // styles for min-width: md
+    }
+}
+```
+
+#### Colors
+
+Colors are defined as a map in `_settings.color.scss` and automatically generated as CSS variables:
+
+```scss
+$settings-colors: (
+    "white": #ffffff,
+    "black": #000000,
+    // ...
+);
+```
+
+Use colors as CSS variables — `getColor` is no longer used:
+
+```scss
+.c-component {
+    color: var(--white);
+    background-color: var(--black);
+}
+```
+
 ### Scripts
 
 ```bash
