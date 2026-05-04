@@ -2,6 +2,7 @@ language: node_js
 node_js:
   - '16'
   - v22
+  - v25
   - v20
   - v18
   - v16
