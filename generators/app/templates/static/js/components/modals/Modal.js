@@ -134,17 +134,11 @@ export default class Modal {
                 this.handleBeforeClose(modal);
                 modal.classList.add(this.config.states.closing);
                 this.logDebug(`Closing transition started: #${modal.id}`);
-                modal.addEventListener(
-                    "transitionend",
-                    () => {
-                        this.logDebug(`Closing transition ended: #${modal.id}`);
-                        modal.classList.remove(this.config.states.closing);
-                        modal.close();
-                    },
-                    {
-                        once: true,
-                    },
-                );
+                this.onModalTransitionEnd(modal, () => {
+                    this.logDebug(`Closing transition ended: #${modal.id}`);
+                    modal.classList.remove(this.config.states.closing);
+                    modal.close();
+                });
             });
             modal.addEventListener("close", () => {
                 this.logDebug(`Native 'close' event on modal: #${modal.id}`);
@@ -185,21 +179,15 @@ export default class Modal {
         this.logDebug(`Scroll locked: #${modal.id}`);
         modal.classList.add(this.config.states.open);
         this.logDebug(`Opening transition started: #${modal.id}`);
-        modal.addEventListener(
-            "transitionend",
-            () => {
-                this.logDebug(`Opening transition ended: #${modal.id}`);
-                this.trapFocus(modal);
-                this.dispatchEvent(modal, this.config.events.afterOpen);
-                if (typeof this.callbacks.afterOpen === "function") {
-                    this.callbacks.afterOpen(modal, trigger);
-                }
-                this.logDebug(`Modal opened: #${modal.id}`);
-            },
-            {
-                once: true,
-            },
-        );
+        this.onModalTransitionEnd(modal, () => {
+            this.logDebug(`Opening transition ended: #${modal.id}`);
+            this.trapFocus(modal);
+            this.dispatchEvent(modal, this.config.events.afterOpen);
+            if (typeof this.callbacks.afterOpen === "function") {
+                this.callbacks.afterOpen(modal, trigger);
+            }
+            this.logDebug(`Modal opened: #${modal.id}`);
+        });
     }
 
     /**
@@ -212,17 +200,27 @@ export default class Modal {
         this.handleBeforeClose(modal);
         modal.classList.add(this.config.states.closing);
         this.logDebug(`Closing transition started: #${modal.id}`);
-        modal.addEventListener(
-            "transitionend",
-            () => {
-                this.logDebug(`Closing transition ended: #${modal.id}`);
-                modal.classList.remove(this.config.states.closing);
-                modal.close();
-            },
-            {
-                once: true,
-            },
-        );
+        this.onModalTransitionEnd(modal, () => {
+            this.logDebug(`Closing transition ended: #${modal.id}`);
+            modal.classList.remove(this.config.states.closing);
+            modal.close();
+        });
+    }
+
+    /**
+     * Attach a one-shot transitionend listener that only fires for the modal's
+     * own transition (ignoring transitions bubbling from descendants and from
+     * the ::backdrop pseudo-element).
+     * @param {HTMLDialogElement} modal
+     * @param {() => void} callback
+     */
+    onModalTransitionEnd(modal, callback) {
+        const handler = (event) => {
+            if (event.target !== modal) return;
+            modal.removeEventListener("transitionend", handler);
+            callback();
+        };
+        modal.addEventListener("transitionend", handler);
     }
 
     /**
